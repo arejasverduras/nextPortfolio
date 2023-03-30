@@ -1,0 +1,25 @@
+.hintsHolder {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hintsArrow {
+    width: 15px;
+    margin-right: 5px;
+}
+
+.hintsList {
+    list-style-type: "> ";
+    padding: 0 20px;
+}
+
+.hintsList li {
+    opacity: 0.7;
+    cursor: pointer;
+    padding: 4px 4px;
+}
+
+.hintsHolder li:hover {
+    opacity: 1;
+}
