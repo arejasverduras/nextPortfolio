@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    max-width: 1024px;
+    border-bottom: 2px solid black;
+    padding: 20px;
+    /* border: 2px solid gold; */
+}
+
+.container h1 {
+    width: 100%;
+    text-align: center;
+}

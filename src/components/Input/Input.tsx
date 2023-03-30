@@ -69,7 +69,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                 router.push('/about')
                 break;
             case "home":
-                router.push('/test')
+                router.push('/')
                 break;
             case "projects": 
                 router.push('/projects');
@@ -78,9 +78,8 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
             setMessage(errormessage);    
             setShowMessage(true);
                 break;
+        }
       }
-      }
-
 
     return (
         <div className={styles.inputHolder}>
