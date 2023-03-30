@@ -82,10 +82,12 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
       }
 
     return (
-        <div className={styles.inputHolder}>
-                <AnimatePresence
-                    mode="wait"
-                    >
+        <motion.div 
+            className={styles.inputHolder}
+            key="inputHolder"
+            layoutId="inputHolder"
+            >
+                <AnimatePresence>
                     <motion.div
                         className={styles.dot}
                         key="dot"
@@ -93,41 +95,44 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                         animate="enter"
                         exit="exit"
                         onClick={toggleVisible}
-        
                         layoutId="inputDot"
                         >
                         </motion.div>
+                        </AnimatePresence>
+
                         {visible && (
-                            <motion.div
-                                className={styles.input}
-                                key="input"
-                                variants={animations}
-                                initial={startOpen? {width: 200}: {width: 50}}
-                                animate={!startOpen && "slideOpen"}
-                                // exit="slideClose"
-                                layoutId="inputBar"
-                                >
-                                    <div
-                                        >{'>'} </div>
-                                    <input 
-                                        id="inputfield"
-                                        key="inputfield"
-                                        placeholder="about"
-                                        className={styles.inputField}
-                                        value={searchTerm}
-                                        onChange={handleChange}
-                                        onKeyDown={handleKeyDown}
-                                        />
-                                        <motion.button 
-                                            type="submit"
-                                            key="inputButton"
-                                            onClick={navigate}
-                                            animate={{x: [40,0], opacity: [0,1]}}
-                                            transition={{delay: 0.4}}
-                                            >Enter <FontAwesomeIcon icon={faTurnDown}/></motion.button>
-                                </motion.div>
+                            <AnimatePresence>
+                                <motion.div
+                                    className={styles.input}
+                                    key="input"
+                                    variants={animations}
+                                    initial={startOpen? {width: 200}: {width: 50}}
+                                    animate={!startOpen && "slideOpen"}
+                                    
+                                    // layoutId="inputBar"
+                                    >
+                                        <div
+                                            >{'>'} </div>
+                                        <input 
+                                            id="inputfield"
+                                            key="inputfield"
+                                            placeholder="about"
+                                            className={styles.inputField}
+                                            value={searchTerm}
+                                            onChange={handleChange}
+                                            onKeyDown={handleKeyDown}
+                                            />
+                                            <motion.button 
+                                                type="submit"
+                                                key="inputButton"
+                                                onClick={navigate}
+                                                animate={{x: [40,0], opacity: [0,1]}}
+                                                transition={{delay: 0.4}}
+                                                >Enter <FontAwesomeIcon icon={faTurnDown}/></motion.button>
+                                    </motion.div>
+                                </AnimatePresence>
                         )}
-                </AnimatePresence>
+                
                 <AnimatePresence>
                     {showMessage && (
                         <motion.p
@@ -138,6 +143,6 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                     )}
                 </AnimatePresence>
                 
-            </div>
+            </motion.div>
     )
 }

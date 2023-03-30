@@ -4,6 +4,7 @@ import { useState } from 'react';
 // components
 import { Input } from '../Input/Input';
 import { Hints } from '../Hints/Hints';
+import { AnimatePresence } from 'framer-motion';
 
 export default function PageLayout({children}:any) {
     const [visible, setVisible] = useState(true);
@@ -27,7 +28,11 @@ export default function PageLayout({children}:any) {
                         setSearchTerm={setSearchTerm}
                         />
                 </div>
-                <main>{children}</main>
+                <main>
+                    <AnimatePresence mode="wait">
+                    {children}
+                    </AnimatePresence>
+                </main>
         </div>
     )
 }

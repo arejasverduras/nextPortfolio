@@ -1,4 +1,4 @@
-import styles from '../styles/About.module.css';
+import styles from '../styles/Projects.module.css';
 // deps
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -8,7 +8,7 @@ import PageLayout from "@/components/PageLayout/PageLayout";
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
 
-const About: NextPageWithLayout = () => {
+const Projects: NextPageWithLayout = () => {
     return (
         <motion.div
                 key="aboutpage"
@@ -22,7 +22,7 @@ const About: NextPageWithLayout = () => {
     )
 }
 
-About.getLayout = function getLayout(page:ReactElement) {
+Projects.getLayout = function getLayout(page:ReactElement) {
     return (
         <PageLayout>
             {/* optional nested layout component */}
@@ -31,4 +31,4 @@ About.getLayout = function getLayout(page:ReactElement) {
     )
 }
 
-export default About;
+export default Projects;

@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    /* position: relative; */
+    margin-top: 92px;
+    width: 100vw;
+    background-color: brown;
+    min-height: calc(100vh - 92px);
+}
