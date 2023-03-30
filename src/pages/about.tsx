@@ -13,11 +13,17 @@ const About: NextPageWithLayout = () => {
         <motion.div
                 key="aboutpage"
                 className={styles.container}
-                animate={{y: [200,0], opacity: [0,1], transition: {delay: 0.4}}}
-                exit={{y: 200, opacity: 0}}
+                // animate={{opacity: [0,1]}}
                 >
-                <h1>About</h1>
-                <div>bla</div>   
+                    <motion.div
+                        className={styles.sectionContent}
+                        key="aboutContent"
+                        animate={{y: [50,0], opacity: [0,1], transition: {delay: 0.4}}}
+                        exit={{y: 50, opacity: 0}}
+                        >
+                            <h1>About</h1>
+                            <div>bla</div>
+                    </motion.div>
             </motion.div>
     )
 }

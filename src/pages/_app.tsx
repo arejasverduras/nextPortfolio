@@ -47,6 +47,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     <>
     <AnimatePresence
       initial={false}
+      mode="wait"
       onExitComplete={() =>   
       {setTimeout(() => {
         if (!router.asPath.includes('#'))
@@ -60,7 +61,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       >
       {loading && (
         // <Loading />
-        <p style={{position: 'fixed', bottom: 0, right: 0}}>Loading..</p>
+        <p style={{position: 'fixed', bottom: 0, right: 0, zIndex: 30}}>Loading..</p>
       )}
     </AnimatePresence>
   </>

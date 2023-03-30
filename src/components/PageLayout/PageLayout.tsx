@@ -4,15 +4,22 @@ import { useState } from 'react';
 // components
 import { Input } from '../Input/Input';
 import { Hints } from '../Hints/Hints';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function PageLayout({children}:any) {
     const [visible, setVisible] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     
     return (
-        <div className={styles.container}>
-            <div className={styles.header}>
+        <div 
+            className={styles.container}
+            >
+            <motion.div 
+                className={styles.header}
+                key="PageLayoutHeader"
+                // animate={{y: [-200,0]}}
+                // transition={{delay: 0.1}}
+                >
                     <div className={styles.logo}>
                         bla
                     </div>
@@ -27,10 +34,11 @@ export default function PageLayout({children}:any) {
                         visible={true}
                         setSearchTerm={setSearchTerm}
                         />
-                </div>
-                <main>
+                </motion.div>
+                <main
+                    >
                     <AnimatePresence mode="wait">
-                    {children}
+                        {children}
                     </AnimatePresence>
                 </main>
         </div>
