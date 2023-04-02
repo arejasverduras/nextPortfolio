@@ -10,23 +10,19 @@
 .header {
     display: flex;
     width: 100%;
-    /* max-width: 1024px; */
     border-bottom: 2px solid black;
     padding: 20px;
-    /* border: 2px solid gold; */
     background-color: grey;
     position: fixed;
     top: 0;
 }
 
 .container main {
-    /* background-color: pink; */
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
 .container h1 {
-    /* width: 100%; */
     text-align: center;
 }

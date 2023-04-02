@@ -99,8 +99,8 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                         onClick={toggleVisible}
                         layoutId="inputDot"
                         >
-                        </motion.div>
-                        </AnimatePresence>
+                    </motion.div>
+                </AnimatePresence>
 
                         {visible && (
                             <AnimatePresence>

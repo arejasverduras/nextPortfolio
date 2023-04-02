@@ -6,6 +6,8 @@ import Router from 'next/router';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
+// comps
+import { Loading } from '@/components/Loading/Loading';
 // types
 import type { AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
@@ -60,8 +62,8 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     <AnimatePresence
       >
       {loading && (
-        // <Loading />
-        <p style={{position: 'fixed', bottom: 0, right: 0, zIndex: 30}}>Loading..</p>
+        <Loading />
+        // <p style={{position: 'fixed', bottom: 0, right: 0, zIndex: 30}}>Loading..</p>
       )}
     </AnimatePresence>
   </>

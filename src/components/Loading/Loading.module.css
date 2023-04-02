@@ -1,0 +1,16 @@
+/* Leave this */
+.dot {
+    background-color: var(--colorBg);
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    z-index: 200;
+    position: fixed;
+    top: calc(50% - 50px);
+    right: calc(50% - 50px);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colorText);
+}

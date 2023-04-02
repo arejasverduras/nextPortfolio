@@ -3,15 +3,14 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --colorBg: black;
-  --colorText: white;  
-
+  --colorBg: white;
+  --colorText: #292D3E;  
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --colorBg: white;
-    --colorText: black;
+    --colorBg:#292D3E;
+    --colorText: white;
 }
 }
 
@@ -27,9 +26,6 @@ body {
   overflow-x: hidden;
 }
 
-body {
-
-}
 
 a {
   color: inherit;
