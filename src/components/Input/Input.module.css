@@ -1,15 +1,17 @@
 .inputHolder {
     display: grid;
     grid-template-areas: 
-    "one";
+    "one"
+    "error";
     align-items: center;
     justify-content: center;
+    justify-items: center;
     width: 100%;
     /* border: 2px solid black; */
 }
 
 .dot {
-    background-color: black;
+    background-color: var(--colorBg);
     height: 50px;
     width: 50px;
     border-radius: 100%;
@@ -21,8 +23,8 @@
 .input {
     height: 50px;
     width: 50px;
-    background-color: black;
-    color: white;
+    background-color: var(--colorBg);
+    color: var(--colorText);
     border-radius: 25px;
     width: 0px;
     grid-area: one;
@@ -38,13 +40,15 @@
     border: none;
     outline: none;
     padding-left: 9px;
-    color: white;
+    color: var(--colorText);
 }
 
 .input button {
     position: relative;
     left: 0px;
     cursor: pointer;
+    background-color: var(--colorText);
+    color: var(--colorBg);
 }
 
 .input button:active {
@@ -54,4 +58,13 @@
 .input svg {
     transform: rotate(90deg);
     width: 12px;
+}
+
+.errorMessage {
+    grid-area: error;
+    text-align: center;
+}
+
+.errorMessage span {
+    font-weight: bold;
 }

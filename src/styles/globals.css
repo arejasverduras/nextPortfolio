@@ -3,14 +3,15 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-
-    
+  --colorBg: black;
+  --colorText: white;  
 
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-
+    --colorBg: white;
+    --colorText: black;
 }
 }
 

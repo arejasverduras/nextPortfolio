@@ -14,12 +14,14 @@ interface InputProps {
 }
 
 export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen}:InputProps) => {
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState(<></>);
     const [showMessage, setShowMessage] = useState(false);
     
-    const samePageMessage = `You are currently on this page`;
-    const errormessage = `command: ${searchTerm} not found. Click on the '?' icon to see a list of commands`
     const router = useRouter();
+
+    const samePageMessage = <>You are currently on this page: <span>{router.asPath.slice(1)}</span></>;
+    const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Click on the `?` icon to see a list of commands</>
+
 
     const animations = {
         enter: {
@@ -136,10 +138,12 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                 <AnimatePresence>
                     {showMessage && (
                         <motion.p
+                            className={styles.errorMessage}    
                             key="errormessage"
                             animate={{x: [20,0], opacity: [0,1]}}
                             exit={{x: [0,-20], opacity: [1,0]}}
-                            >{message}</motion.p>
+                            >{message}
+                        </motion.p>
                     )}
                 </AnimatePresence>
                 
