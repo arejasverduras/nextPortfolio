@@ -63,6 +63,10 @@
 .errorMessage {
     grid-area: error;
     text-align: center;
+    background-color: var(--colorBg);
+    color: var(--colorText);
+    padding: 8px;
+    z-index: 15;
 }
 
 .errorMessage span {

@@ -5,6 +5,7 @@
 
   --colorBg: white;
   --colorText: #292D3E;  
+  background-color: var(--colorBg);
 }
 
 @media (prefers-color-scheme: dark) {

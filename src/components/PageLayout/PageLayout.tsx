@@ -17,13 +17,17 @@ export default function PageLayout({children}:any) {
             <motion.div 
                 className={styles.header}
                 key="PageLayoutHeader"
-                // animate={{y: [-200,0]}}
-                // transition={{delay: 0.1}}
+                animate={{y: [-200,0]}}
+                transition={{delay: 0.2, ease: 'anticipate' }}
                 >
                     <div className={styles.logo}>
                         bla
                     </div>
-                    <Input 
+                    
+                    
+                </motion.div>
+                <motion.div className={styles.commandHolder}>
+                <Input 
                         startOpen
                         visible={visible}
                         toggleVisible={()=>{setVisible(!visible)}}
@@ -34,7 +38,7 @@ export default function PageLayout({children}:any) {
                         visible={true}
                         setSearchTerm={setSearchTerm}
                         />
-                </motion.div>
+                    </motion.div>
                 <main
                     >
                     <AnimatePresence mode="wait">

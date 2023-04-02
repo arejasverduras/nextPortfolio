@@ -140,7 +140,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                         <motion.p
                             className={styles.errorMessage}    
                             key="errormessage"
-                            animate={{x: [20,0], opacity: [0,1]}}
+                            animate={{x: [20,0], rotate: -15, opacity: [0,1]}}
                             exit={{x: [0,-20], opacity: [1,0]}}
                             >{message}
                         </motion.p>

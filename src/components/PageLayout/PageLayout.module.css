@@ -4,6 +4,7 @@
     /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
+    background-color: var(--colorBg);
     
 }
 
@@ -15,6 +16,7 @@
     background-color: grey;
     position: fixed;
     top: 0;
+    min-height: 75px;
 }
 
 .container main {
@@ -25,4 +27,12 @@
 
 .container h1 {
     text-align: center;
+}
+
+.commandHolder {
+    display: flex;
+    max-width: 100%;
+    position: fixed;
+    top: 10px;
+    width: 100%;
 }
