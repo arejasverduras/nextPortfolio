@@ -22,15 +22,15 @@ export default function PageLayout({children}:any) {
         <div className={styles.container}>
             <Header />
             <AnimatePresence mode="wait" initial={false}>
-            <motion.main
-                variants={animations}
-                key={'layout'+router.asPath}
-                animate="pageIn"
-                exit="pageOut"
-                transition={{duration: 0.2}}
-                >
-                    {children}
-            </motion.main>
+                <motion.main
+                    variants={animations}
+                    key={router.asPath}
+                    animate="pageIn"
+                    exit="pageOut"
+                    transition={{duration: 0.2}}
+                    >
+                        {children}
+                </motion.main>
             </AnimatePresence>
         </div>
     )
