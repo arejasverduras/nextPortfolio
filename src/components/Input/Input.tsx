@@ -19,9 +19,8 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
     
     const router = useRouter();
 
-    const samePageMessage = <>You are currently on this page: <span>{router.asPath.slice(1)}</span></>;
+    const samePageMessage = <>You are already on this page: <span>{router.asPath.slice(1)}</span></>;
     const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Click on the `?` icon to see a list of commands</>
-
 
     const animations = {
         enter: {
@@ -35,6 +34,18 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         },
         slideClose: {
             width: 50
+        },
+        revealMessage: {
+            x: [20,0], 
+            rotate: -10, 
+            opacity: [0,1]
+        },
+        hideMessage: {
+            x: -20,
+            y: 15,
+            rotate: -15,
+            opacity: 0,
+            
         }
     }
 
@@ -101,7 +112,6 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                         >
                     </motion.div>
                 </AnimatePresence>
-
                         {visible && (
                             <AnimatePresence>
                                 <motion.div
@@ -110,8 +120,6 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                                     variants={animations}
                                     initial={startOpen? {width: 200}: {width: 50}}
                                     animate={!startOpen && "slideOpen"}
-                                    
-                                    // layoutId="inputBar"
                                     >
                                         <div
                                             >{'>'} </div>
@@ -140,8 +148,9 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                         <motion.p
                             className={styles.errorMessage}    
                             key="errormessage"
-                            animate={{x: [20,0], rotate: -15, opacity: [0,1]}}
-                            exit={{x: [0,-20], opacity: [1,0]}}
+                            variants={animations}
+                            animate="revealMessage"
+                            exit="hideMessage"
                             >{message}
                         </motion.p>
                     )}
