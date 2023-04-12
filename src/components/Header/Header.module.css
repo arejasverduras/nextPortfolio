@@ -36,14 +36,14 @@
     justify-content: space-between;
 }
 
-.theme * {
+.theme  {
     cursor:pointer;
+    color: #292d3e;
 }
 
 .currentTheme {
     color: white;
 }
-
 
 .hintsHolder {
     position: absolute;

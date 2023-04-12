@@ -1,4 +1,5 @@
-import styles from '../styles/About.module.css';
+// import styles from '../styles/About.module.css';
+import styledJsx from '../styles/Page.styles';
 // deps
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -12,17 +13,16 @@ const About: NextPageWithLayout = () => {
     return (
         <div
         key="aboutpage"        
-        className={styles.container}
+        className={`${styledJsx.className} container`}
                 >
                     <div
-                        className={styles.sectionContent}
+                        className={`${styledJsx.className} sectionContent`}
                         key="aboutContent"
-                        // animate={{y: [200,0], opacity: [0,1], transition: {delay: 0.4}}}
-                        // exit={{y: 200, opacity: 0}}
                         >
                             <h1>About</h1>
                             <div>bla</div>
                     </div>
+                    {styledJsx.styles}
             </div>
     )
 }
