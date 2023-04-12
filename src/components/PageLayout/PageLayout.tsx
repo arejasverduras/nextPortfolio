@@ -12,6 +12,15 @@ export default function PageLayout({children}:any) {
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);
     const [showMessage, setShowMessage] = useState(false);
+
+    const animations = {
+        topIn: {
+            y: [-50,0],
+        },
+        rightIn: {
+            x: [200,0]
+        }
+    }
     
     return (
         <div className={styles.container}>
@@ -21,36 +30,47 @@ export default function PageLayout({children}:any) {
                 animate={{y: [-200,0]}}
                 transition={{delay: 0.2, ease: 'anticipate' }}
                 >
-                <div className={styles.logo}>
+                
+            </motion.div>
+            <div className={styles.elementsHolder}>
+                <motion.div 
+                    className={styles.logo}
+                    key="headerLogo"
+                    variants={animations}
+                    animate="topIn"
+                    transition={{delay: 0.4}}
+                    >
                     Michiel Roukens
-                </div>
-            </motion.div>
-            <motion.div className={styles.commandHolder}>
-            <Input 
-                startOpen
-                visible={visible}
-                toggleVisible={()=>{setVisible(!visible)}}
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                setMessage={setMessage}
-                setShowMessage={setShowMessage}
-                />
-            </motion.div>
-            <Message 
-                message={message}
-                showMessage={showMessage}
-                />
-            <motion.div 
-                className={styles.hintsHolder}
-                key="hintsHolder"
-                layout
-                >
-                <Hints 
-                    visible={true}
-                    setSearchTerm={setSearchTerm}
-                    setShowMessage={setShowMessage}
+                </motion.div>
+                <motion.div className={styles.commandHolder}>
+                    <Input 
+                        startOpen
+                        visible={visible}
+                        toggleVisible={()=>{setVisible(!visible)}}
+                        searchTerm={searchTerm}
+                        setSearchTerm={setSearchTerm}
+                        setMessage={setMessage}
+                        setShowMessage={setShowMessage}
+                        />
+                </motion.div>
+                <Message 
+                    message={message}
+                    showMessage={showMessage}
                     />
-            </motion.div>
+                <motion.div 
+                    className={styles.hintsHolder}
+                    key="hintsHolderLayout"
+                    variants={animations}
+                    animate="rightIn"
+                    
+                    >
+                    <Hints 
+                        visible={true}
+                        setSearchTerm={setSearchTerm}
+                        setShowMessage={setShowMessage}
+                        />
+                </motion.div>
+            </div>
             <main>
                 <AnimatePresence mode="wait">
                     {children}

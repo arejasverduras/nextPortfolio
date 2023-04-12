@@ -51,6 +51,7 @@ export const Hints = ({visible, setSearchTerm, setShowMessage}:HintsProps) => {
                             key="hintsHolder"
                             animate={{opacity: [0,1], y: [20,0]}}
                             transition={{delay: 1.2}}
+                            // layoutId="hintsHolder"
                             >
                             <motion.div
                                 className={styles.hintsArrow}
@@ -58,6 +59,7 @@ export const Hints = ({visible, setSearchTerm, setShowMessage}:HintsProps) => {
                                 variants={animations}
                                 initial={{rotate:0}}
                                 animate={hints? "hintsRotate": "hintsRotateBack"}
+                                layout
                                 >
                                     <FontAwesomeIcon icon={faQuestion}/>
                                 </motion.div>

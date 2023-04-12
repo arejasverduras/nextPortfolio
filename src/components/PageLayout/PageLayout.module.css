@@ -29,17 +29,28 @@
     text-align: center;
 }
 
-.commandHolder {
+.elementsHolder {
     display: flex;
-    max-width: 100%;
+    flex-wrap: wrap;
     position: fixed;
-    top: 10px;
+    top: 0;
+    left: 0;
     width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    min-height: 75px;
+    padding: 0 20px;
+}
+
+.commandHolder {
+    max-width: 100%;
+    /* margin: 0 auto; */
 }
 
 .hintsHolder {
     position: absolute;
-    top: 0;
+    top: 73px;
     right: 0px;
     padding: 20px;
     background-color: var(--colorBg);

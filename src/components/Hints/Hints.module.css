@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: all 400ms;
 }
 
 .hintsArrow {
@@ -12,6 +13,7 @@
 .hintsList {
     list-style-type: "> ";
     padding: 0 20px;
+    
 }
 
 .hintsList li {
