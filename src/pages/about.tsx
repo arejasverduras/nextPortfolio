@@ -1,7 +1,5 @@
 // import styles from '../styles/About.module.css';
 import styledJsx from '../styles/Page.styles';
-// deps
-import { AnimatePresence, motion } from "framer-motion";
 
 // components
 import PageLayout from "@/components/PageLayout/PageLayout";

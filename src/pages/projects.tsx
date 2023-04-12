@@ -1,6 +1,5 @@
-import styles from '../styles/Projects.module.css';
-// deps
-import { AnimatePresence, motion } from "framer-motion";
+// import styles from '../styles/Projects.module.css';
+import styledJsx from '../styles/Page.styles';
 
 // components
 import PageLayout from "@/components/PageLayout/PageLayout";
@@ -12,15 +11,16 @@ const Projects: NextPageWithLayout = () => {
     return (
         <div
                 key="projectPage"
-                className={styles.container}
+                className={`${styledJsx.className} container`}
                 >
                     <div
-                        className={styles.sectionContent}
+                        className={`${styledJsx.className} sectionContent`}
                         key="projectContent"
                         >
                             <h1>Project</h1>
                             <div>bla</div>
                     </div>
+                    {styledJsx.styles}
             </div>
     )
 }
