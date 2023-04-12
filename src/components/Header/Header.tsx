@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Input } from '../Input/Input';
 import { Hints } from '../Hints/Hints';
 import { Message } from '../Message/Message';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,19 +23,7 @@ export const Header = () => {
             x: [200,0]
         },
     }
-
-    // const handleDark = () => {
-    //     let root = document.documentElement;
-    //         root.style.setProperty('--colorBg','#292D3E');
-    //         root.style.setProperty('--colorText', 'white');
-    // }
-
-    // const handleLight = () => {
-    //     let root = document.documentElement;
-    //         root.style.setProperty('--colorBg','white');
-    //         root.style.setProperty('--colorText', '#292D3E');
-    // }
-
+ 
     useEffect(()=>{
         let root = document.documentElement;
         if (theme === 'light'){
