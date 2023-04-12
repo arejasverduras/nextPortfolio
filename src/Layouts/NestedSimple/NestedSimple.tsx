@@ -11,7 +11,6 @@ export default function NestedSimple ({children}:any) {
                     >
                         {children}
                 </div>
-                {styledJsx.styles}
         </div>
         {styledJsx.styles}
         </>
