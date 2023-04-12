@@ -28,7 +28,7 @@ export default function PageLayout({children}:any) {
                     initial={{x: 600, opacity: 0}}
                     animate="pageIn"
                     exit="pageOut"
-                    transition={{duration: 0.8}}
+                    transition={{duration: 0.4}}
                     >
                         {children}
                 </motion.main>
