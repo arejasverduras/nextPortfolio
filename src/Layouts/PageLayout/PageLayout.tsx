@@ -27,7 +27,7 @@ export default function PageLayout({children}:any) {
                     key={router.asPath}
                     animate="pageIn"
                     exit="pageOut"
-                    transition={{duration: 0.2}}
+                    transition={{duration: 0.8}}
                     >
                         {children}
                 </motion.main>
