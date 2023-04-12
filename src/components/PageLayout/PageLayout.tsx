@@ -21,7 +21,7 @@ export default function PageLayout({children}:any) {
             x: [200,0]
         },
         pageIn: {
-            y: [100,0],
+            x: [300,0],
             opacity: [0,1]
         },
         pageOut: {
@@ -82,8 +82,9 @@ export default function PageLayout({children}:any) {
             <motion.main
                 variants={animations}
                 key="pageLayoutMain"
-                animate="pageIn"
-                exit="pageOut"
+                initial={{ x: 300, opacity: 0 }}
+                animate={{ x: [300,0], opacity: 1 }}
+                exit={{ x: [0, 300], opacity: 0 }}
                 transition={{duration: 0.2}}
                 >
                 {/* <AnimatePresence mode="wait"> */}

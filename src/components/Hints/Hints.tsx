@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import Link from 'next/link';
 
 interface HintsProps {
     visible: boolean,
@@ -34,11 +35,12 @@ export const Hints = ({visible, setSearchTerm, setShowMessage}:HintsProps) => {
 
     const generateLinks = (list: string[]) => {
         return list.map((item, index) => 
-            <li key="index" onClick={()=>{
-                setSearchTerm(item);
-                setShowMessage(false);
+            // <li key="index" onClick={()=>{
+            //     setSearchTerm(item);
+            //     setShowMessage(false);
             
-            }}>{item}</li>
+            // }}>{item}</li>
+            <Link key={index} href={`/${item}`}>-{item}</Link>
         )
     }
     

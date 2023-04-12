@@ -63,7 +63,6 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       >
       {loading && (
         <Loading />
-        // <p style={{position: 'fixed', bottom: 0, right: 0, zIndex: 30}}>Loading..</p>
       )}
     </AnimatePresence>
   </>

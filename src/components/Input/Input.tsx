@@ -79,13 +79,13 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         
         switch (searchTerm) {
             case "about":    
-                router.push('/about', undefined,{shallow: true})
+                router.push('/about', undefined,{shallow: false})
                 break;
             case "home":
-                router.push('/', undefined,{shallow: true})
+                router.push('/', undefined,{shallow: false})
                 break;
             case "projects": 
-                router.push('/projects', undefined,{shallow: true});
+                router.push('/projects', undefined,{shallow: false});
                 break;
             default:
             setMessage(errormessage);    
