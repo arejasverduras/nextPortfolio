@@ -2,10 +2,8 @@ import styles from './Input.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-// components
-import { Message } from '../Message/Message';
 
 interface InputProps {
     visible: boolean, 
@@ -18,8 +16,6 @@ interface InputProps {
 }
 
 export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage}:InputProps) => {
-    // const [message, setMessage] = useState(<></>);
-    // const [showMessage, setShowMessage] = useState(false);
     
     const router = useRouter();
 
@@ -64,7 +60,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
 
       const handleChange = ({target}:any) => {
         setShowMessage(false);
-        setSearchTerm(target.value)
+        setSearchTerm(target.value.toLowerCase())
       }
       
       const handleKeyDown = (event:any) => {
@@ -83,13 +79,13 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         
         switch (searchTerm) {
             case "about":    
-                router.push('/about')
+                router.push('/about', undefined,{shallow: true})
                 break;
             case "home":
-                router.push('/')
+                router.push('/', undefined,{shallow: true})
                 break;
             case "projects": 
-                router.push('/projects');
+                router.push('/projects', undefined,{shallow: true});
                 break;
             default:
             setMessage(errormessage);    

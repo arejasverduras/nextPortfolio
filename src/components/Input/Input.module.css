@@ -1,3 +1,4 @@
+/* Leave this */
 .inputHolder {
     display: grid;
     grid-template-areas: 
@@ -7,7 +8,6 @@
     justify-content: center;
     justify-items: center;
     width: 100%;
-    /* border: 2px solid black; */
 }
 
 .dot {
@@ -44,8 +44,8 @@
 }
 
 .input button {
-    position: relative;
-    left: 0px;
+    /* position: relative; */
+    /* left: 0px; */
     cursor: pointer;
     background-color: var(--colorBg);
     color: var(--colorText);
