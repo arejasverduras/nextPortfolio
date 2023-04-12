@@ -10,6 +10,8 @@
     min-height: 75px;
 }
 
+
+
 .elementsHolder {
     display: flex;
     flex-wrap: wrap;
@@ -27,6 +29,21 @@
 .commandHolder {
     max-width: 100%;
 }
+
+.theme {
+    display: flex;
+    width: 40px;
+    justify-content: space-between;
+}
+
+.theme * {
+    cursor:pointer;
+}
+
+.currentTheme {
+    color: white;
+}
+
 
 .hintsHolder {
     position: absolute;

@@ -8,13 +8,12 @@ export default function PageLayout({children}:any) {
     const router = useRouter();
 
     const animations = {
-
         pageIn: {
             x: [300,0],
-            opacity: [0,1]
+            opacity: [0,1],
         },
         pageOut: {
-            y: [100],
+            x: [0,-600],
             opacity: 0,
         }
     }
@@ -24,10 +23,10 @@ export default function PageLayout({children}:any) {
             <Header />
             <AnimatePresence mode="wait">
             <motion.main
-                // variants={animations}
+                variants={animations}
                 key={'layout'+router.asPath}
-                animate={{ x: [300,0], opacity: 1 }}
-                exit={{ x: -300, opacity: 0 }}
+                animate="pageIn"
+                exit="pageOut"
                 transition={{duration: 0.2}}
                 >
                     {children}
