@@ -33,7 +33,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     const end = () => {
       setTimeout(() => {
         setLoading(false)
-      }, 500);
+      }, 0);
     }
     Router.events.on("routeChangeStart", start)
     Router.events.on("routeChangeComplete", end)
