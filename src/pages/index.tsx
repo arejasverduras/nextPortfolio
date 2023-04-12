@@ -6,12 +6,15 @@ import { useState } from 'react'
 // components
 import { Hints } from '@/components/Hints/Hints';
 import { Input } from '@/components/Input/Input';
+import { Message } from '@/components/Message/Message'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [visible, setVisible] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
+    const [message, setMessage] = useState(<></>);
+    const [showMessage, setShowMessage] = useState(false);
    
     const toggleVisible = () => {
         setVisible(!visible);
@@ -65,14 +68,21 @@ export default function Home() {
                 toggleVisible={toggleVisible}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
+                setMessage={setMessage}
+                setShowMessage={setShowMessage}
                 />
         </div>
         <div className={styles.hints}>
             <Hints 
                 visible={visible}
                 setSearchTerm={setSearchTerm}
+                setShowMessage={setShowMessage}
                 />
          </div>
+         <Message 
+            message={message}
+            showMessage={showMessage}
+            />
     </main>
     </>
   )
