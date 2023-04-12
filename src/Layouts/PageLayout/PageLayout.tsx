@@ -13,7 +13,7 @@ export default function PageLayout({children}:any) {
             opacity: [0,1],
         },
         pageOut: {
-            x: [0,-600],
+            x: 600,
             opacity: 0,
         }
     }
