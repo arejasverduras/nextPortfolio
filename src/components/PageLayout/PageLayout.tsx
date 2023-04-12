@@ -21,10 +21,8 @@ export default function PageLayout({children}:any) {
                 transition={{delay: 0.2, ease: 'anticipate' }}
                 >
                     <div className={styles.logo}>
-                        bla
+                        Michiel Roukens
                     </div>
-                    
-                    
                 </motion.div>
                 <motion.div className={styles.commandHolder}>
                 <Input 
@@ -34,11 +32,19 @@ export default function PageLayout({children}:any) {
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
                         />
-                    <Hints 
-                        visible={true}
-                        setSearchTerm={setSearchTerm}
-                        />
+                        
+                    
                     </motion.div>
+                    <motion.div 
+                        className={styles.hintsHolder}
+                        key="hintsHolder"
+                        layout
+                        >
+                            <Hints 
+                            visible={true}
+                            setSearchTerm={setSearchTerm}
+                            />
+                        </motion.div>
                 <main
                     >
                     <AnimatePresence mode="wait">

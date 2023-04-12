@@ -36,3 +36,14 @@
     top: 10px;
     width: 100%;
 }
+
+.hintsHolder {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 20px;
+    background-color: var(--colorBg);
+    color: var(--colorText);
+    border: 2px solid var(--colorText);
+    transition: all 200ms;
+}

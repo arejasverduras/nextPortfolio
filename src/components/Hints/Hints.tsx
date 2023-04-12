@@ -36,10 +36,6 @@ export const Hints = ({visible, setSearchTerm}:HintsProps) => {
             <li key="index" onClick={()=>{setSearchTerm(item)}}>{item}</li>
         )
     }
-
-    const handleClick = ({target}:any) => {
-        setSearchTerm(target.value);
-    }
     
     return (
         <AnimatePresence>        
