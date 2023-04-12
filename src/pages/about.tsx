@@ -1,4 +1,3 @@
-// import styles from '../styles/About.module.css';
 import styledJsx from '../styles/Page.styles';
 
 // components
