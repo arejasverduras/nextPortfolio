@@ -19,6 +19,14 @@ export default function PageLayout({children}:any) {
         },
         rightIn: {
             x: [200,0]
+        },
+        pageIn: {
+            y: [100,0],
+            opacity: [0,1]
+        },
+        pageOut: {
+            y: [100],
+            opacity: 0,
         }
     }
     
@@ -71,11 +79,16 @@ export default function PageLayout({children}:any) {
                         />
                 </motion.div>
             </div>
-            <main>
-                <AnimatePresence mode="wait">
+            <motion.main
+                variants={animations}
+                animate="pageIn"
+                exit="pageOut"
+                transition={{duration: 0.2}}
+                >
+                {/* <AnimatePresence mode="wait"> */}
                     {children}
-                </AnimatePresence>
-            </main>
+                {/* </AnimatePresence> */}
+            </motion.main>
         </div>
     )
 }
