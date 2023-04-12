@@ -9,7 +9,7 @@ export default function PageLayout({children}:any) {
 
     const animations = {
         pageIn: {
-            x: [300,0],
+            x: [600,0],
             opacity: [0,1],
         },
         pageOut: {
