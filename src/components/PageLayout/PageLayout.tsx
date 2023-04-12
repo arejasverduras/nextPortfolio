@@ -4,11 +4,14 @@ import { useState } from 'react';
 // components
 import { Input } from '../Input/Input';
 import { Hints } from '../Hints/Hints';
+import { Message } from '../Message/Message';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function PageLayout({children}:any) {
     const [visible, setVisible] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [message, setMessage] = useState(<></>);
+    const [showMessage, setShowMessage] = useState(false);
     
     return (
         <div 
@@ -31,10 +34,14 @@ export default function PageLayout({children}:any) {
                         toggleVisible={()=>{setVisible(!visible)}}
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
+                        setMessage={setMessage}
+                        setShowMessage={setShowMessage}
                         />
-                        
-                    
                     </motion.div>
+                    <Message 
+                        message={message}
+                        showMessage={showMessage}
+                        />
                     <motion.div 
                         className={styles.hintsHolder}
                         key="hintsHolder"
@@ -43,6 +50,7 @@ export default function PageLayout({children}:any) {
                             <Hints 
                             visible={true}
                             setSearchTerm={setSearchTerm}
+                            setShowMessage={setShowMessage}
                             />
                         </motion.div>
                 <main

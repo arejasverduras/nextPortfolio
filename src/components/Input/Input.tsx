@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+// components
+import { Message } from '../Message/Message';
 
 interface InputProps {
     visible: boolean, 
@@ -11,11 +13,13 @@ interface InputProps {
     searchTerm: string,
     setSearchTerm: (term:string) => void,
     startOpen?: boolean,
+    setMessage: (element: any)=>void,
+    setShowMessage: (type: boolean)=>void
 }
 
-export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen}:InputProps) => {
-    const [message, setMessage] = useState(<></>);
-    const [showMessage, setShowMessage] = useState(false);
+export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage}:InputProps) => {
+    // const [message, setMessage] = useState(<></>);
+    // const [showMessage, setShowMessage] = useState(false);
     
     const router = useRouter();
 
@@ -141,21 +145,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                                                 >Enter <FontAwesomeIcon icon={faTurnDown}/></motion.button>
                                     </motion.div>
                                 </AnimatePresence>
-                        )}
-                
-                <AnimatePresence>
-                    {showMessage && (
-                        <motion.p
-                            className={styles.errorMessage}    
-                            key="errormessage"
-                            variants={animations}
-                            animate="revealMessage"
-                            exit="hideMessage"
-                            >{message}
-                        </motion.p>
-                    )}
-                </AnimatePresence>
-                
+                        )}               
             </motion.div>
     )
 }

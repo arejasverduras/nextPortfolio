@@ -59,20 +59,3 @@
     transform: rotate(90deg);
     width: 12px;
 }
-
-.errorMessage {
-    /* grid-area: error; */
-    text-align: center;
-    background-color: var(--colorBg);
-    color: var(--colorText);
-    padding: 8px;
-    z-index: 15;
-    position: absolute;
-    top: 50px;
-    box-shadow: var(--colorText) 3px 3px;
-
-}
-
-.errorMessage span {
-    font-weight: bold;
-}

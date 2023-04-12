@@ -7,9 +7,10 @@ import { useState } from 'react';
 interface HintsProps {
     visible: boolean,
     setSearchTerm: (term:string) => void;
+    setShowMessage: (type: boolean) => void;
 }
 
-export const Hints = ({visible, setSearchTerm}:HintsProps) => {
+export const Hints = ({visible, setSearchTerm, setShowMessage}:HintsProps) => {
     const [hints, setHints] = useState(false);
     const toggleHints = () => {
         setHints(!hints);
@@ -33,7 +34,11 @@ export const Hints = ({visible, setSearchTerm}:HintsProps) => {
 
     const generateLinks = (list: string[]) => {
         return list.map((item, index) => 
-            <li key="index" onClick={()=>{setSearchTerm(item)}}>{item}</li>
+            <li key="index" onClick={()=>{
+                setSearchTerm(item);
+                setShowMessage(false);
+            
+            }}>{item}</li>
         )
     }
     
@@ -59,7 +64,6 @@ export const Hints = ({visible, setSearchTerm}:HintsProps) => {
                             </motion.div>)}
                     {hints && (
                     <>
-                    {/* <motion.div>Commands</motion.div> */}
                     <motion.ul 
                         key="hintsList"
                         className={styles.hintsList}
