@@ -14,13 +14,13 @@ const Projects: NextPageWithLayout = () => {
                 key="projectPage"
                 className={styles.container}
                 >
-                    <motion.div
+                    <div
                         className={styles.sectionContent}
                         key="projectContent"
                         >
                             <h1>Project</h1>
                             <div>bla</div>
-                    </motion.div>
+                    </div>
             </div>
     )
 }

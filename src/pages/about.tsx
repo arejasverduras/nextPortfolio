@@ -11,9 +11,10 @@ import type {NextPageWithLayout} from './_app';
 const About: NextPageWithLayout = () => {
     return (
         <div
-                className={styles.container}
+        key="aboutpage"        
+        className={styles.container}
                 >
-                    <motion.div
+                    <div
                         className={styles.sectionContent}
                         key="aboutContent"
                         // animate={{y: [200,0], opacity: [0,1], transition: {delay: 0.4}}}
@@ -21,7 +22,7 @@ const About: NextPageWithLayout = () => {
                         >
                             <h1>About</h1>
                             <div>bla</div>
-                    </motion.div>
+                    </div>
             </div>
     )
 }
