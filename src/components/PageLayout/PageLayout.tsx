@@ -1,9 +1,11 @@
 import styles from './PageLayout.module.css';
 // components
 import { Header } from '../Header/Header';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 export default function PageLayout({children}:any) {
+    const router = useRouter();
 
     const animations = {
 
@@ -20,15 +22,17 @@ export default function PageLayout({children}:any) {
     return (
         <div className={styles.container}>
             <Header />
+            <AnimatePresence mode="wait">
             <motion.main
                 // variants={animations}
-                // key="pageLayoutMain"
+                key={'layout'+router.asPath}
                 animate={{ x: [300,0], opacity: 1 }}
-                exit={{ x: [0, 300], opacity: 0 }}
-                transition={{duration: 0.4}}
+                exit={{ x: -300, opacity: 0 }}
+                transition={{duration: 0.2}}
                 >
                     {children}
             </motion.main>
+            </AnimatePresence>
         </div>
     )
 }

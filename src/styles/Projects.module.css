@@ -10,11 +10,11 @@
 }
 
 .sectionContent {
-    background-color: #292D3E;
-    color: white;
+    background-color: var(--colorBg);
+    color: var(--colorText);
     width: 100%;
     min-height: calc(100vh - 112px);
-    border: 2px solid white;
+    border: 2px solid var(--colorText);
     border-bottom: none;
     padding: 20px;
 }
