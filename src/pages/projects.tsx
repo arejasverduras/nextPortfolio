@@ -8,8 +8,8 @@ import type {NextPageWithLayout} from './_app';
 const Projects: NextPageWithLayout = () => {
     return (
         <>
-            <h1>Project</h1>
-            <div>bla</div>
+            <h1>Projects</h1>
+            <div>projects bla</div>
         </>
 
     )
