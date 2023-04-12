@@ -1,6 +1,6 @@
 import styles from './PageLayout.module.css';
 // components
-import { Header } from '../Header/Header';
+import { Header } from '../../components/Header/Header';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 

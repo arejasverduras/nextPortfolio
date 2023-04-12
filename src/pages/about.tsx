@@ -1,20 +1,19 @@
 import styledJsx from '../styles/Page.styles';
 
 // components
-import PageLayout from "@/components/PageLayout/PageLayout";
+import PageLayout from "@/Layouts/PageLayout/PageLayout";
 // types
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
 
 const About: NextPageWithLayout = () => {
     return (
-        <div
-        key="aboutpage"        
+        <div    
         className={`${styledJsx.className} container`}
                 >
                     <div
                         className={`${styledJsx.className} sectionContent`}
-                        key="aboutContent"
+                  
                         >
                             <h1>About</h1>
                             <div>bla</div>
