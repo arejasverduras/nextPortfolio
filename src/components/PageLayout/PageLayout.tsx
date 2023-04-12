@@ -81,6 +81,7 @@ export default function PageLayout({children}:any) {
             </div>
             <motion.main
                 variants={animations}
+                key="pageLayoutMain"
                 animate="pageIn"
                 exit="pageOut"
                 transition={{duration: 0.2}}
