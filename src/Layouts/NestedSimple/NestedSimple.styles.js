@@ -21,4 +21,10 @@ export default css.resolve`
     border-bottom: none;
     padding: 20px;
 }
+
+@media screen and (max-width: 492px) {
+    .container {
+        margin-top: 150px;
+    }
+}
 `
