@@ -25,6 +25,8 @@ type AppPropsWithLayout = AppProps & {
 export default function App({ Component, pageProps, router }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page)=> page);
   const [loading, setLoading] = useState(false);
+  const [theme, setTheme] = useState('light');
+
 
   useEffect(() => {
     const start = () => {
@@ -57,7 +59,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       }, 0);}
       }
       >    
-          <Component {...pageProps} key={router.asPath}/>
+          <Component {...pageProps} key={router.asPath} theme={theme} setTheme={setTheme}/>
     </AnimatePresence>
     <AnimatePresence
       >

@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { useEffect } from 'react';
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -34,7 +35,8 @@ const Home:NextPageWithLayout = () => {
         transition: {delay: 0}
     },
   }
-  
+
+
   return (
     <>
       <Head>

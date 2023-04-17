@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
-export const Header = ({home}:{home?:boolean}) => {
+export const Header = ({home}:any) => {
     const [visible, setVisible] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);

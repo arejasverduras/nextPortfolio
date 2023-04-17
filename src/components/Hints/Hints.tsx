@@ -47,7 +47,7 @@ export const Hints = ({setSearchTerm, setShowMessage, home}:HintsProps) => {
         return list.map((item, index) => 
             <Link 
                 key={index} 
-                href={`/${item === 'home'? '/': item}`} 
+                href={`/${item === 'home'? '': item}`} 
                 onClick={toggleHints}>
                     {`>`} {item}
                 </Link>
