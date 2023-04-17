@@ -64,17 +64,18 @@ export const Header = ({home}:{home?:boolean}) => {
                     </>
                     )}
                 <ThemeSelector theme={theme} setTheme={setTheme}/>
-                <motion.div 
+                
+                {!home && (<motion.div 
                     className={styles.hintsHolder}
                     key="hintsHolderLayout"
                     variants={animations}
                     animate="rightIn"
                     >
-                    <Hints 
+                    <Hints
                         setSearchTerm={setSearchTerm}
                         setShowMessage={setShowMessage}
                         />
-                </motion.div>
+                </motion.div>)}
             </div>
         </>
     )

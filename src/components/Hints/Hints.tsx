@@ -8,9 +8,10 @@ import Link from 'next/link';
 interface HintsProps {
     setSearchTerm: (term:string) => void;
     setShowMessage: (type: boolean) => void;
+    home?: boolean,
 }
 
-export const Hints = ({setSearchTerm, setShowMessage}:HintsProps) => {
+export const Hints = ({setSearchTerm, setShowMessage, home}:HintsProps) => {
     const [hints, setHints] = useState(false);
     const toggleHints = () => {
         setHints(!hints);
@@ -44,14 +45,9 @@ export const Hints = ({setSearchTerm, setShowMessage}:HintsProps) => {
 
     const generateLinks = (list: string[]) => {
         return list.map((item, index) => 
-            // <li key="index" onClick={()=>{
-            //     setSearchTerm(item);
-            //     setShowMessage(false);
-            
-            // }}>{item}</li>
             <Link 
                 key={index} 
-                href={`/${item}`} 
+                href={`/${item === 'home'? '/': item}`} 
                 onClick={toggleHints}>
                     {`>`} {item}
                 </Link>
@@ -61,14 +57,14 @@ export const Hints = ({setSearchTerm, setShowMessage}:HintsProps) => {
     return (
 
             <motion.div 
-                className={styles.hintsHolder} 
+                className={`${styles.hintsHolder} ${home && styles.hintsHolderHome}`} 
                 onClick={toggleHints}
                 key="hintsHolderHints"
                 layout
                 // layoutId="hintsHolder"
                 >
                 <motion.div
-                    className={styles.hintsArrow}
+                    className={`${styles.hintsArrow} ${ hints && styles.hintsArrowVisible}`}
                     key="hintsArrow"
                     variants={animations}
                     initial={{rotate:0}}

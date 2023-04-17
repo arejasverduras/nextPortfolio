@@ -86,6 +86,7 @@ const Home:NextPageWithLayout = () => {
               layout
               >
                 <Hints 
+                    home
                     setSearchTerm={setSearchTerm}
                     setShowMessage={setShowMessage}
                     />

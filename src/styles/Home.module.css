@@ -34,7 +34,8 @@
 
 .hints {
   grid-area: hints;
-  width: 200px;
+  width: 90%;
+  max-width: 1024px;
   align-self: flex-start;
   opacity: 0.6;
 }
