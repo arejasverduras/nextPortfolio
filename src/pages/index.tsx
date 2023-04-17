@@ -72,13 +72,22 @@ export default function Home() {
                 setShowMessage={setShowMessage}
                 />
         </div>
-        <div className={styles.hints}>
-            <Hints 
-                visible={visible}
-                setSearchTerm={setSearchTerm}
-                setShowMessage={setShowMessage}
-                />
-         </div>
+        <AnimatePresence>
+          {visible && (
+            <motion.div 
+              className={styles.hints}
+              key="hintsHolder"
+              animate={{opacity: [0,1], y: [20,0]}}
+              transition={{delay: 1.2}}
+              layout
+              >
+                <Hints 
+                    setSearchTerm={setSearchTerm}
+                    setShowMessage={setShowMessage}
+                    />
+            </motion.div>
+          )}
+         </AnimatePresence>
          <Message 
             message={message}
             showMessage={showMessage}

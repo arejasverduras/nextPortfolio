@@ -6,21 +6,22 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 interface HintsProps {
-    visible: boolean,
     setSearchTerm: (term:string) => void;
     setShowMessage: (type: boolean) => void;
 }
 
-export const Hints = ({visible, setSearchTerm, setShowMessage}:HintsProps) => {
+export const Hints = ({setSearchTerm, setShowMessage}:HintsProps) => {
     const [hints, setHints] = useState(false);
     const toggleHints = () => {
         setHints(!hints);
+        setShowMessage(false);
       }
     
     const animations = {
         hintsEnter: {
             opacity: [0,1],
-            y: [-20,0]
+            y: [-20,0],
+            transition: {delay: 0.4}
         },
         hintsExit: {
             opacity: [1,0],
@@ -28,7 +29,15 @@ export const Hints = ({visible, setSearchTerm, setShowMessage}:HintsProps) => {
         },
         hintsRotate: {
             rotate: [0,90]
+        }, 
+        hintsRotateBack: {
+            rotate: 0
         }
+    }
+
+    const handleClick = (term:string) => {
+        setSearchTerm(term);
+        setShowMessage(false);
     }
 
     const hintsList = ['home','about','projects'];
@@ -40,45 +49,59 @@ export const Hints = ({visible, setSearchTerm, setShowMessage}:HintsProps) => {
             //     setShowMessage(false);
             
             // }}>{item}</li>
-            <Link key={index} href={`/${item}`}>-{item}</Link>
+            <Link 
+                key={index} 
+                href={`/${item}`} 
+                onClick={toggleHints}>
+                    {`>`} {item}
+                </Link>
         )
     }
     
     return (
-        <AnimatePresence>        
-            {visible && (
-                        <motion.div 
-                            className={styles.hintsHolder} 
-                            onClick={toggleHints}
-                            key="hintsHolder"
-                            animate={{opacity: [0,1], y: [20,0]}}
-                            transition={{delay: 1.2}}
-                            // layoutId="hintsHolder"
-                            >
-                            <motion.div
-                                className={styles.hintsArrow}
-                                key="hintsArrow"
+
+            <motion.div 
+                className={styles.hintsHolder} 
+                onClick={toggleHints}
+                key="hintsHolderHints"
+                layout
+                // layoutId="hintsHolder"
+                >
+                <motion.div
+                    className={styles.hintsArrow}
+                    key="hintsArrow"
+                    variants={animations}
+                    initial={{rotate:0}}
+                    animate={hints? "hintsRotate": "hintsRotateBack"}
+                    onClick={!hints?()=>setShowMessage(false):undefined}
+                    layout
+                    >
+                        <FontAwesomeIcon icon={faQuestion}/>
+                    </motion.div>
+                    <AnimatePresence mode="wait">
+                        {hints && (
+                            <motion.ul 
+                                key="hintsList"
+                                className={styles.hintsList}
+                                // layout
                                 variants={animations}
-                                initial={{rotate:0}}
-                                animate={hints? "hintsRotate": "hintsRotateBack"}
-                                layout
+                                animate="hintsEnter"
+                                exit="hintsExit"
                                 >
-                                    <FontAwesomeIcon icon={faQuestion}/>
-                                </motion.div>
-                            </motion.div>)}
-                    {hints && (
-                    <>
-                    <motion.ul 
-                        key="hintsList"
-                        className={styles.hintsList}
-                        layout
-                        variants={animations}
-                        animate="hintsEnter"
-                        exit="hintsExit"
-                        >
-                            {generateLinks(hintsList)}
-                    </motion.ul>
-                    </>)}
-                </AnimatePresence>
+                                    <p><b>Navigate</b> by typing any of these commands in the input bar and pressing Enter:</p>
+                                    <div className={styles.hintsListHolder}>
+                                        {generateLinks(hintsList)}
+                                    </div>
+                                    <p><b>Search</b> anything by starting your command with <i>search </i></p>
+                                    <p>Change <b>color</b> theme:</p>
+                                    <ul>
+                                        <li onClick={()=>handleClick("dark")}>dark</li>
+                                        <li onClick={()=>handleClick("light")}>light</li>
+                                    </ul>
+                                    
+                            </motion.ul>
+                        )}
+                    </AnimatePresence>
+                </motion.div>
     )
 }

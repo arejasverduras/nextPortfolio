@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Input } from '../Input/Input';
 import { Hints } from '../Hints/Hints';
 import { Message } from '../Message/Message';
+import { ThemeSelector } from '../ThemeSelector/ThemeSelector';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
@@ -69,19 +70,14 @@ export const Header = () => {
                     message={message}
                     showMessage={showMessage}
                     />
-                <div className={styles.theme}>
-                    <FontAwesomeIcon icon={faMoon} onClick={()=>{setTheme('dark')}} className={theme === 'dark'? styles.currentTheme: undefined}/>
-                    <FontAwesomeIcon icon={faSun} onClick={()=>{setTheme('light')}} className={theme === 'light'? styles.currentTheme: undefined} />
-                </div>
+                <ThemeSelector theme={theme} setTheme={setTheme}/>
                 <motion.div 
                     className={styles.hintsHolder}
                     key="hintsHolderLayout"
                     variants={animations}
                     animate="rightIn"
-                    
                     >
                     <Hints 
-                        visible={true}
                         setSearchTerm={setSearchTerm}
                         setShowMessage={setShowMessage}
                         />
