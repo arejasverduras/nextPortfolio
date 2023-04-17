@@ -74,6 +74,7 @@ const Home:NextPageWithLayout = () => {
                 setSearchTerm={setSearchTerm}
                 setMessage={setMessage}
                 setShowMessage={setShowMessage}
+                setTheme={()=>{}}
                 />
         </div>
         <AnimatePresence>
