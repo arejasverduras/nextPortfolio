@@ -1,0 +1,17 @@
+.theme {
+    display: flex;
+    width: 40px;
+    justify-content: space-between;
+    /* position:absolute;
+    top: 0;
+    right: 10px; */
+}
+
+.theme  {
+    cursor:pointer;
+    color: #292d3e;
+}
+
+.currentTheme {
+    color: white;
+}
