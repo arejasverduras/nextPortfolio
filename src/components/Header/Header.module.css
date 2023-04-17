@@ -1,4 +1,6 @@
 /* Leave this */
+
+
 .header {
     display: flex;
     width: 100%;
@@ -24,6 +26,8 @@
     padding: 0 20px;
     z-index: 10;
 }
+
+
 
 .commandHolder {
     max-width: 100%;
@@ -52,4 +56,45 @@
     /* background-color: var(--colorBg); */
     color: var(--colorText);
     /* border: 2px solid var(--colorText); */
+}
+
+@media screen and (max-width: 492px) {
+    .header {
+        height: 150px;
+    }
+    
+    .elementsHolder {
+        /* display: flex; */
+        /* flex-direction: column;
+        align-items: flex-start;
+        align-content: flex-start; */
+        /* gap: 20px; */
+
+        display: grid;
+        width: 100%;
+        grid-template-areas: 
+        "logo theme"
+        "command command"
+        "hints .";
+        justify-content: space-between;
+        justify-items: flex-start;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+    .commandHolder {
+        grid-area: command;
+    }
+
+    .theme {
+        grid-area: theme;
+    }
+
+    .hintsHolder {
+        position:static;
+        grid-area: hints;
+    }
 }
