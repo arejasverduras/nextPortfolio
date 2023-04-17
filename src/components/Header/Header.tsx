@@ -55,6 +55,7 @@ export const Header = ({home}:{home?:boolean}) => {
                                 setSearchTerm={setSearchTerm}
                                 setMessage={setMessage}
                                 setShowMessage={setShowMessage}
+                                setTheme={setTheme}
                                 />
                         </motion.div>
                         <Message 

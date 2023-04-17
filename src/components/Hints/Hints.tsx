@@ -89,12 +89,15 @@ export const Hints = ({setSearchTerm, setShowMessage, home}:HintsProps) => {
                                         {generateLinks(hintsList)}
                                     </div>
                                     <p><b>Search</b> anything by starting your command with <i>search </i></p>
-                                    <p>Change <b>color</b> theme:</p>
-                                    <ul>
-                                        <li onClick={()=>handleClick("dark")}>dark</li>
-                                        <li onClick={()=>handleClick("light")}>light</li>
-                                    </ul>
-                                    
+                                    {!home && (
+                                    <>
+                                        <p>Change <b>color</b> theme:</p>
+                                        <ul>
+                                            <li onClick={()=>handleClick("dark")}>dark</li>
+                                            <li onClick={()=>handleClick("light")}>light</li>
+                                        </ul>
+                                    </>
+                                    )}
                             </motion.ul>
                         )}
                     </AnimatePresence>

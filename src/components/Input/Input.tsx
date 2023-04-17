@@ -12,10 +12,11 @@ interface InputProps {
     setSearchTerm: (term:string) => void,
     startOpen?: boolean,
     setMessage: (element: any)=>void,
-    setShowMessage: (type: boolean)=>void
+    setShowMessage: (type: boolean)=>void,
+    setTheme: (type:string)=>void,
 }
 
-export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage}:InputProps) => {
+export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage, setTheme}:InputProps) => {
     
     const router = useRouter();
 
@@ -86,6 +87,12 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                 break;
             case "projects": 
                 router.push('/projects', undefined,{shallow: false});
+                break;
+            case "light":
+                setTheme('light');
+                break;
+            case "dark":
+                setTheme('dark');
                 break;
             default:
             setMessage(errormessage);    
