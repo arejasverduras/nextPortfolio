@@ -4,7 +4,12 @@ import { Header } from '../../components/Header/Header';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
-export default function PageLayout({children}:any) {
+interface PageLayoutProps {
+    home?:boolean,
+    children: any,
+}
+
+export default function PageLayout({children, home}:PageLayoutProps) {
     const router = useRouter();
 
     const animations = {
@@ -20,7 +25,7 @@ export default function PageLayout({children}:any) {
     
     return (
         <div className={styles.container}>
-            <Header />
+            <Header home={home} />
             <AnimatePresence mode="wait" initial={false}>
                 <motion.main
                     variants={animations}

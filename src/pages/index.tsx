@@ -4,13 +4,17 @@ import styles from '@/styles/Home.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 // components
+import PageLayout from '@/Layouts/PageLayout/PageLayout';
 import { Hints } from '@/components/Hints/Hints';
 import { Input } from '@/components/Input/Input';
-import { Message } from '@/components/Message/Message'
+import { Message } from '@/components/Message/Message';
+// types
+import {ReactElement} from 'react';
+import type { NextPageWithLayout } from './_app'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+const Home:NextPageWithLayout = () => {
   const [visible, setVisible] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);
@@ -96,3 +100,14 @@ export default function Home() {
     </>
   )
 }
+
+Home.getLayout = function getLayout(page:ReactElement) {
+  return (
+      <PageLayout home>
+          {/* optional nested layout component */}
+          {page}
+      </PageLayout>
+  )
+}
+
+export default Home;

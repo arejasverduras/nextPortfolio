@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
-export const Header = () => {
+export const Header = ({home}:{home?:boolean}) => {
     const [visible, setVisible] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);
@@ -25,21 +25,10 @@ export const Header = () => {
         },
     }
  
-    useEffect(()=>{
-        let root = document.documentElement;
-        if (theme === 'light'){
-            root.style.setProperty('--colorBg','white');
-            root.style.setProperty('--colorText', '#292D3E');
-        } else if (theme === 'dark') {
-            root.style.setProperty('--colorBg','#292D3E');
-            root.style.setProperty('--colorText', 'white');
-        } else {return}
-    },[theme])
-
     return (
         <>
             <motion.div 
-            className={styles.header}
+            className={`${styles.header} ${home && styles.headerHome}`}
             key="PageLayoutHeader"
             animate={{y: [-200,0]}}
             transition={{delay: 0.2, ease: 'anticipate' }}
@@ -55,21 +44,25 @@ export const Header = () => {
                     >
                     Michiel Roukens
                 </motion.div>
-                <motion.div className={styles.commandHolder}>
-                    <Input 
-                        startOpen
-                        visible={visible}
-                        toggleVisible={()=>{setVisible(!visible)}}
-                        searchTerm={searchTerm}
-                        setSearchTerm={setSearchTerm}
-                        setMessage={setMessage}
-                        setShowMessage={setShowMessage}
-                        />
-                </motion.div>
-                <Message 
-                    message={message}
-                    showMessage={showMessage}
-                    />
+                {!home && (
+                    <>
+                        <motion.div className={styles.commandHolder}>
+                            <Input 
+                                startOpen
+                                visible={visible}
+                                toggleVisible={()=>{setVisible(!visible)}}
+                                searchTerm={searchTerm}
+                                setSearchTerm={setSearchTerm}
+                                setMessage={setMessage}
+                                setShowMessage={setShowMessage}
+                                />
+                        </motion.div>
+                        <Message 
+                            message={message}
+                            showMessage={showMessage}
+                            />
+                    </>
+                    )}
                 <ThemeSelector theme={theme} setTheme={setTheme}/>
                 <motion.div 
                     className={styles.hintsHolder}
