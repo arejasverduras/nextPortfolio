@@ -13,15 +13,25 @@ interface PageLayoutProps {
 
 export default function PageLayout({children, home}:PageLayoutProps) {
     const router = useRouter();
+    console.log(router.asPath);
+    const isHome = router.asPath === '/';
 
     const animations = {
         pageIn: {
             x: [600,0],
             opacity: [0,1],
+            rotate: [35,0],
+            scale: [0.1,1]
         },
         pageOut: {
             x: -600,
             opacity: 0,
+            rotate: -35,
+            scale: 0.1
+        },
+        pageOutHome: {
+            x: -600,
+            opacity: 0
         }
     }
     
@@ -38,7 +48,7 @@ export default function PageLayout({children, home}:PageLayoutProps) {
                     key={router.asPath}
                     initial={{x: 600, opacity: 0}}
                     animate="pageIn"
-                    exit="pageOut"
+                    exit={isHome? "pageOutHome": "pageOut"}
                     transition={{duration: 0.4}}
                     >
                         {children}
