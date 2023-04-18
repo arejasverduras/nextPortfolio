@@ -29,6 +29,18 @@
 --lightOrange: #ff6d12;
 --lightBlue: #437aed;
 
+  /* new light colors */
+  --lightDarkPurple: var(--darkDarkPurple);
+  --lightGray: #ebeef5;
+  --lightBloen: #00bec4;
+  --lightDarkGray: #5d5d5f;
+  --lightPurple: #7c4dff;
+  --lightPurple2: #c57bdb;
+  --lightYellow: #f0aa0b;
+  --lightRed: #cd6069;
+  --lightOrange: #ff6d12;
+  --lightBlue: #437aed;
+
 /* Theme variables (light) */
 --lightBg: var(--lightGray);
 --lightHeaderBg: var(--lightBloen);
@@ -63,22 +75,22 @@
 --darkItalics: var(--darkPurple);
 --darkSelection: var(--darkBloen);
 
-/* Theme variables (to use in all modules, set to light Theme) */
---colorBg: var(--lightBg);
---colorHeaderBg: var(--lightHeaderBg);
---colorInputBg: var(--lightInputBg);
---colorText: var(--lightText);
---colorH1: var(--lightH1);
---colorH2: var(--lightH2);
---colorH3: var(--lightH3);
---colorA: var(--lightA);
---colorBorders: var(--lightBorders);
---colorInputBorders: var(--lightInputBorders);
---colorCommands: var(--lightCommands);
---colorEnterRed: var(--lightEnterRed);
---colorBolds: var(--lightBolds);
---colorItalics: var(--lightItalics);
---colorSelection: var(--lightSelection);
+/* Theme variables (to use in all modules, set to dark Theme) */
+--colorBg: var(--darkBg);
+--colorHeaderBg: var(--darkHeaderBg);
+--colorInputBg: var(--darkInputBg);
+--colorText: var(--darkText);
+--colorH1: var(--darkH1);
+--colorH2: var(--darkH2);
+--colorH3: var(--darkH3);
+--colorA: var(--darkA);
+--colorBorders: var(--darkBorders);
+--colorInputBorders: var(--darkInputBorders);
+--colorCommands: var(--darkCommands);
+--colorEnterRed: var(--darkEnterRed);
+--colorBolds: var(--darkBolds);
+--colorItalics: var(--darkItalics);
+--colorSelection: var(--darkSelection);
 
 background-color: var(--colorBg);
 

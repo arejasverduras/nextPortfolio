@@ -20,6 +20,21 @@
     cursor: pointer;
     z-index: 2;
     border: 2px solid var(--colorInputBorders);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--colorCommands);
+}
+
+.dotCircle {
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    grid-area: one;
+    cursor: pointer;
+    z-index: 2;
+    border: 2px solid var(--colorInputBorders);
 }
 
 .input {

@@ -1,7 +1,7 @@
 import styles from './Input.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
+import { faPowerOff, faTurnDown } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -25,13 +25,23 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
 
     const animations = {
         enter: {
-            scale: [0.1,1]
+            scale: [0.1, 0.8,1],
+            opacity: [0,1],
+            transition: {repeat: Infinity, duration: 1.4}
+        },
+        enterGrow: {
+            scale: [1,1.8],
+            opacity: [1,0],
+            transition: {repeat: Infinity, duration: 1.4}
         },
         exit: {
-            scale: 0
+            scale: 4,
+            opacity: 0,
+            transition: {duration: 0.4}
         },
         slideOpen: {
             width: 200,
+            transition: {delay: 0.2}
         },
         slideClose: {
             width: 50
@@ -108,16 +118,32 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
             layoutId="inputHolder"
             >
                 <AnimatePresence>
-                    <motion.div
-                        className={styles.dot}
+                    {!visible && (<motion.div
+                        className={styles.dotCircle}
                         key="dot"
                         variants={animations}
-                        animate="enter"
+                        initial={{opacity: 0}}
+                        animate="enterGrow"
                         exit="exit"
                         onClick={toggleVisible}
                         layoutId="inputDot"
                         >
-                    </motion.div>
+                    </motion.div>)}
+                </AnimatePresence>
+                <AnimatePresence>
+                    {!visible && (<motion.div
+                        className={styles.dot}
+                        key="dot"
+                        variants={animations}
+                        initial={{opacity: 0}}
+                        animate="enter"
+                        exit="exit"
+                        onClick={toggleVisible}
+                        layoutId="inputDotGrow"
+                        >
+                            {/* {`${"> "}`} */}
+                            <FontAwesomeIcon icon={faPowerOff} />
+                    </motion.div>)}
                 </AnimatePresence>
                 <AnimatePresence mode="wait">
                         {visible && (

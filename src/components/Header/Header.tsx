@@ -12,8 +12,7 @@ export const Header = ({home}:any) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);
     const [showMessage, setShowMessage] = useState(false);
-    const [theme, setTheme] = useState('light');
-    
+    const [theme, setTheme] = useState('dark');
     const animations = {
         topIn: {
             y: [-50,0],
