@@ -9,7 +9,14 @@ const Projects: NextPageWithLayout = () => {
     return (
         <>
             <h1>Projects</h1>
-            <div>projects bla</div>
+            <h2>header 2</h2>
+            <h3>header 3</h3>
+            <div>div: projects bla</div>
+            <p>paragraph
+                <b> bold</b> 
+                <i> italic</i>
+            </p>
+            <a href='#'>link</a>
         </>
 
     )
