@@ -1,4 +1,6 @@
 import styles from './PageLayout.module.css';
+// dependencies
+import Head from 'next/head';
 // components
 import { Header } from '../../components/Header/Header';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -25,6 +27,10 @@ export default function PageLayout({children, home}:PageLayoutProps) {
     
     return (
         <div className={styles.container}>
+            <Head>
+                <meta name="theme-color" content="var(--colorHeaderBg)" />
+                <meta name="apple-mobile-web-app-status-bar" content="var(--colorHeaderBg)" />
+            </Head>
             <Header home={home} />
             <AnimatePresence mode="wait" initial={false}>
                 <motion.main
