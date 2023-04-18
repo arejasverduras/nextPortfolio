@@ -1,13 +1,11 @@
 import styles from './Header.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 // components
 import { Input } from '../Input/Input';
 import { Hints } from '../Hints/Hints';
 import { Message } from '../Message/Message';
 import { ThemeSelector } from '../ThemeSelector/ThemeSelector';
 import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 export const Header = ({home}:any) => {
     const [visible, setVisible] = useState(true);
