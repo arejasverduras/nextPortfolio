@@ -3,9 +3,9 @@
     flex-wrap: wrap;
     align-items: center;
     cursor: pointer;
-    background-color: var(--mainDarkPurple);
-    border: 2px solid var(--darkGray);
-    color: var(--darkGray);
+    background-color: var(--colorBg);
+    border: 2px solid var(--colorBorders);
+    color: var(--colorText);
     padding: 2px;
     min-width: 50px;
     min-height: 50px;
@@ -42,11 +42,11 @@
 }
 
 .hintsList p b {
-    color: var(--darkYellow);
+    color: var(--colorBolds);
 }
 
 .hintsList p i {
-    color: var(--darkPurple);
+    color: var(--colorItalics);
 }
 
 .hintsList ul {

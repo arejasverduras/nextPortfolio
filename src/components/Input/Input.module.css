@@ -12,20 +12,21 @@
 }
 
 .dot {
-    background-color: var(--colorText);
+    background-color: var(--colorInputBg);
     height: 50px;
     width: 50px;
     border-radius: 100%;
     grid-area: one;
     cursor: pointer;
     z-index: 2;
+    border: 2px solid var(--colorInputBorders);
 }
 
 .input {
     height: 50px;
     width: 50px;
-    background-color: var(--colorText);
-    color: var(--colorBg);
+    background-color: var(--colorInputBg);
+    color: var(--colorCommands);
     border-radius: 25px;
     width: 0px;
     grid-area: one;
@@ -33,7 +34,7 @@
     padding-left: 20px;
     display: flex;
     align-items: center;
-    border: 2px solid var(--colorBg);
+    border: 2px solid var(--colorInputBorders);
 }
 
 .inputField {
@@ -41,8 +42,9 @@
     border: none;
     outline: none;
     padding-left: 9px;
-    color: var(--colorBg);
+    color: var(--colorCommands);
 }
+
 
 .input button {
     /* position: relative; */

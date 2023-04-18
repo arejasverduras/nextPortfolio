@@ -14,9 +14,9 @@ export const ThemeSelector = ({theme, setTheme}:ThemeSelectorProps) => {
     useEffect(()=>{
         let root = document.documentElement;
         if (theme === 'light'){
-            root.style.setProperty('--colorBg','var(--darkGray)');
-            root.style.setProperty('--colorText', '#292D3E');
-            root.style.setProperty('--colorH1', 'var(--colorText)');
+            root.style.setProperty('--colorBg','var(--lightBg)');
+            root.style.setProperty('--colorText', 'var(--lightText)');
+            root.style.setProperty('--colorH1', 'var(--lightH1)');
         } else if (theme === 'dark') {
             root.style.setProperty('--colorBg','#292D3E');
             root.style.setProperty('--colorText', 'var(--darkGray)');

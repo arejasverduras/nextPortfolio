@@ -28,13 +28,34 @@
 --lightOrange: #ff6d12;
 --lightBlue: #437aed;
 
+
+
 /* Theme variables (light) */
-  --colorBg: var(--lightGray);
-  --colorText: var(--mainDarkPurple);
-  --colorH1: var(--colorText);
-  --colorCommands: var(--darkBloen);
+--lightBg: var(--lightGray);
+--lightHeaderBg: var(--lightBloen);
+--lightInputBg: var(--darkDarkPurple);
+--lightText: var(--lightDarkGray);
+--lightH1: var(--lightBloen);
+--lightBorders: var(--lightDarkGray);
+--lightInputBorders: var(--lightGray);
+--lightCommands: var(--lightYellow);
+--lightBolds: var(--lightBloen);
+--lightItalics: var(--lightPurple2);
+
+/* Theme variables (dark) */
 
 
+/* Theme variables (to use in all modules, set to light Theme) */
+--colorBg: var(--lightBg);
+--colorHeaderBg: var(--lightHeaderBg);
+--colorInputBg: var(--lightInputBg);
+--colorText: var(--lightText);
+--colorH1: var(--lightH1);
+--colorBorders: var(--lightBorders);
+--colorInputBorders: var(--lightInputBorders);
+--colorCommands: var(--lightCommands);
+--colorBolds: var(--lightBolds);
+--colorItalics: var(--lightItalics);
 
 
   background-color: var(--colorBg);
