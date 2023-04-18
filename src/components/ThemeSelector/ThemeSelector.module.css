@@ -9,7 +9,7 @@
 }
 
 .theme * {
-    transition: all 400ms;
+    transition: all 200ms;
 }
 
 .inActiveTheme {
@@ -17,13 +17,17 @@
     position: relative;
     top: -2px;
     left: -5px;
-    color: var(--darkText);
+    color: var(--colorHeaderBg);
     background-color: var(--colorInputBg);
     border: 2px solid var(--colorText);
     width: 20px;
     height: 20px;
     padding: 5px;
     border-radius: 100%;
+}
+
+.inActiveTheme:hover {
+    color: var(--colorCommands);
 }
 
 .currentTheme {

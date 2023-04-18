@@ -22,9 +22,9 @@ export default css.resolve`
     padding: 20px;
 }
 
-@media screen and (max-width: 492px) {
+@media screen and (max-width: 537px) {
     .container {
-        margin-top: 150px;
+        margin-top: 125px;
     }
 }
 `
