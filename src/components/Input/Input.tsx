@@ -119,14 +119,15 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                         >
                     </motion.div>
                 </AnimatePresence>
+                <AnimatePresence mode="wait">
                         {visible && (
-                            <AnimatePresence>
                                 <motion.div
                                     className={styles.input}
                                     key="input"
                                     variants={animations}
                                     initial={startOpen? {width: 200}: {width: 50}}
                                     animate={!startOpen && "slideOpen"}
+                                    
                                     >
                                         <div
                                             >{'>'} </div>
@@ -147,8 +148,9 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                                                 transition={{delay: 0.4}}
                                                 >Enter <FontAwesomeIcon icon={faTurnDown}/></motion.button>
                                     </motion.div>
-                                </AnimatePresence>
-                        )}               
+                                
+                        )}
+                        </AnimatePresence>               
             </motion.div>
     )
 }
