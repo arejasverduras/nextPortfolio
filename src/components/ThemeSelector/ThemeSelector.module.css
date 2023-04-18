@@ -17,7 +17,7 @@
     position: relative;
     top: -2px;
     left: -5px;
-    color: var(--colorBg);
+    color: var(--darkText);
     background-color: var(--colorInputBg);
     border: 2px solid var(--colorText);
     width: 20px;

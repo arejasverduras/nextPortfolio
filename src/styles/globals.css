@@ -18,6 +18,7 @@
   --darkBloen: #80cbc4;
 
   /* light colors */
+--lightDarkPurple: var(--darkDarkPurple);
 --lightGray: #ebeef5;
 --lightBloen: #00bec4;
 --lightDarkGray: #5d5d5f;
@@ -33,7 +34,7 @@
 /* Theme variables (light) */
 --lightBg: var(--lightGray);
 --lightHeaderBg: var(--lightBloen);
---lightInputBg: var(--darkDarkPurple);
+--lightInputBg: var(--lightDarkPurple);
 --lightText: var(--lightDarkGray);
 --lightH1: var(--lightBloen);
 --lightBorders: var(--lightDarkGray);
@@ -44,7 +45,7 @@
 --lightItalics: var(--lightPurple2);
 
 /* Theme variables (dark) */
-
+--darkText: var(--darkGray);
 
 /* Theme variables (to use in all modules, set to light Theme) */
 --colorBg: var(--lightBg);
