@@ -6,24 +6,37 @@
 
   /* dark colors */
   --mainDarkPurple: #292d3e;
-  --txtRed: #FF5874;
-  --txtYellow: #ffcb6b;
-  --txtGreen: #c3e88d;
-  --txtPurple: #c792ea;
-  --txtBlue: #82aaff;
-  --txtLightBlue: #89ddff;
-  --txtGray: #bfc7d5;
-  --txtOrange: #f78c6c;
-  --txtDarkPurple: #292d3e;
-  --txtBloen: #80cbc4;
+  --darkRed: #FF5874;
+  --darkYellow: #ffcb6b;
+  --darkGreen: #c3e88d;
+  --darkPurple: #c792ea;
+  --darkBlue: #82aaff;
+  --darkLightBlue: #89ddff;
+  --darkGray: #bfc7d5;
+  --darkOrange: #f78c6c;
+  --darkDarkPurple: #292d3e;
+  --darkBloen: #80cbc4;
 
   /* light colors */
+--lightGray: #ebeef5;
+--lightBloen: #00bec4;
+--lightDarkGray: #5d5d5f;
+--lightPurple: #7c4dff;
+--lightPurple2: #c57bdb;
+--lightYellow: #f0aa0b;
+--lightRed: #cd6069;
+--lightOrange: #ff6d12;
+--lightBlue: #437aed;
 
-
-  --colorBg: white;
+/* Theme variables (light) */
+  --colorBg: var(--lightGray);
   --colorText: var(--mainDarkPurple);
   --colorH1: var(--colorText);
-  --colorCommands: var(--txtBloen);
+  --colorCommands: var(--darkBloen);
+
+
+
+
   background-color: var(--colorBg);
 }
 

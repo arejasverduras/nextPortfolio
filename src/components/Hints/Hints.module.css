@@ -4,8 +4,8 @@
     align-items: center;
     cursor: pointer;
     background-color: var(--mainDarkPurple);
-    border: 2px solid var(--txtGray);
-    color: var(--txtGray);
+    border: 2px solid var(--darkGray);
+    color: var(--darkGray);
     padding: 2px;
     min-width: 50px;
     min-height: 50px;
@@ -42,11 +42,11 @@
 }
 
 .hintsList p b {
-    color: var(--txtYellow);
+    color: var(--darkYellow);
 }
 
 .hintsList p i {
-    color: var(--txtPurple);
+    color: var(--darkPurple);
 }
 
 .hintsList ul {
