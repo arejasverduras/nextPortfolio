@@ -49,13 +49,18 @@
 .input button {
     /* position: relative; */
     /* left: 0px; */
+    padding: 2px;
     cursor: pointer;
-    background-color: var(--colorBg);
-    color: var(--colorText);
+    background-color: var(--colorCommands);
+    color: var(--colorInputBg);
 }
 
 .input button:active {
-    background-color: red;
+    background-color: var(--colorEnterRed);
+    color: var(--colorBg);
+    position: relative;
+    top: 2px;
+    left: 2px;
 }
 
 .input svg {

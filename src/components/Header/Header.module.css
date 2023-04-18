@@ -1,6 +1,4 @@
 /* Leave this */
-
-
 .header {
     display: flex;
     width: 100%;
@@ -34,8 +32,6 @@
     z-index: 10;
 }
 
-
-
 .commandHolder {
     max-width: 100%;
 }
@@ -59,10 +55,7 @@
     position: absolute;
     top: 73px;
     right: 0px;
-    /* padding: 20px; */
-    /* background-color: var(--colorBg); */
     color: var(--colorText);
-    /* border: 2px solid var(--colorText); */
 }
 
 @media screen and (max-width: 492px) {
@@ -71,12 +64,6 @@
     }
     
     .elementsHolder {
-        /* display: flex; */
-        /* flex-direction: column;
-        align-items: flex-start;
-        align-content: flex-start; */
-        /* gap: 20px; */
-
         display: grid;
         width: 100%;
         grid-template-areas: 

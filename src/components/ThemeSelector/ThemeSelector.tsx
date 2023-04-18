@@ -30,8 +30,16 @@ export const ThemeSelector = ({theme, setTheme}:ThemeSelectorProps) => {
         className={styles.theme}
             layoutId="themeSelector"
             >
-                <FontAwesomeIcon icon={faMoon} onClick={()=>{setTheme('dark')}} className={theme === 'dark'? styles.currentTheme: undefined}/>
-                <FontAwesomeIcon icon={faSun} onClick={()=>{setTheme('light')}} className={theme === 'light'? styles.currentTheme: undefined} />
+                <FontAwesomeIcon 
+                    icon={faMoon} 
+                    onClick={()=>{setTheme('dark')}} 
+                    className={theme === 'dark'? styles.currentTheme: styles.inActiveTheme}
+                    />
+                <FontAwesomeIcon 
+                    icon={faSun} 
+                    onClick={()=>{setTheme('light')}} 
+                    className={theme === 'light'? styles.currentTheme: styles.inActiveTheme}
+                    />
             </motion.div>
     )
 }

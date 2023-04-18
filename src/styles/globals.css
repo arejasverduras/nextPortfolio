@@ -37,8 +37,9 @@
 --lightText: var(--lightDarkGray);
 --lightH1: var(--lightBloen);
 --lightBorders: var(--lightDarkGray);
---lightInputBorders: var(--lightGray);
+--lightInputBorders: var(--lightBloen);
 --lightCommands: var(--lightYellow);
+--lightEnterRed: var(--lightOrange);
 --lightBolds: var(--lightBloen);
 --lightItalics: var(--lightPurple2);
 
@@ -54,6 +55,7 @@
 --colorBorders: var(--lightBorders);
 --colorInputBorders: var(--lightInputBorders);
 --colorCommands: var(--lightCommands);
+--colorEnterRed: var(--lightEnterRed);
 --colorBolds: var(--lightBolds);
 --colorItalics: var(--lightItalics);
 
@@ -80,6 +82,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: var(--font-mono);
+  border-color: var(--colorBorders);
 }
 
 

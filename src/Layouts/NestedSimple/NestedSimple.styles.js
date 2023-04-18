@@ -17,7 +17,7 @@ export default css.resolve`
     color: var(--colorText);
     width: 100%;
     min-height: calc(100vh - 112px);
-    border: 2px solid var(--colorText);
+    border: 2px solid var(--colorBorders);
     border-bottom: none;
     padding: 20px;
 }
