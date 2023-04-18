@@ -35,8 +35,8 @@
 --lightInputBg: var(--lightDarkPurple);
 --lightText: var(--lightDarkGray);
 --lightH1: var(--lightBloen);
---lightH2: var(--lightBloen);
---lightH3: var(--lightBloen);
+--lightH2: var(--lightYellow);
+--lightH3: var(--lightOrange);
 --lightA: var(--lightRed);
 --lightBorders: var(--lightDarkGray);
 --lightInputBorders: var(--lightBloen);
