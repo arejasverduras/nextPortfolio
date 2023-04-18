@@ -97,6 +97,7 @@ const Home:NextPageWithLayout = () => {
           )}
          </AnimatePresence>
          <Message 
+            setShowMessage={setShowMessage}
             message={message}
             showMessage={showMessage}
             />
@@ -108,7 +109,6 @@ const Home:NextPageWithLayout = () => {
 Home.getLayout = function getLayout(page:ReactElement) {
   return (
       <PageLayout home>
-          {/* optional nested layout component */}
           {page}
       </PageLayout>
   )

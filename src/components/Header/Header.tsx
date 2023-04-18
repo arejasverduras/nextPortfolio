@@ -57,6 +57,7 @@ export const Header = ({home}:any) => {
                                 />
                         </motion.div>
                         <Message 
+                            setShowMessage={setShowMessage}
                             message={message}
                             showMessage={showMessage}
                             />

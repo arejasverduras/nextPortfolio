@@ -1,12 +1,14 @@
 import styles from './Message.module.css';
+import { useEffect } from 'react';
 import { AnimatePresence, motion } from "framer-motion";
 
 interface MessageProps {
+    setShowMessage: (show:boolean)=>void,
     showMessage: boolean,
     message: any,
 }
 
-export const Message = ({showMessage, message}:MessageProps) => {
+export const Message = ({setShowMessage, showMessage, message}:MessageProps) => {
     const animations = {
         revealMessage: {
             x: [20,0], 
@@ -21,6 +23,24 @@ export const Message = ({showMessage, message}:MessageProps) => {
         }
     }
     
+    const handleClick = () => {
+            if (showMessage) {
+                setShowMessage(false);
+                document.removeEventListener('click', handleClick);
+            };    
+
+    }
+
+    useEffect(()=>{
+        if (showMessage)
+        setTimeout(() => {
+            document.addEventListener('click', handleClick);
+            return ()=>{
+                document.removeEventListener('click', handleClick);
+            }
+        }, 50);
+    },[showMessage])
+
     return (
         <AnimatePresence>
             {showMessage && (
