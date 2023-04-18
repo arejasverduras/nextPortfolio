@@ -3,8 +3,9 @@
     flex-wrap: wrap;
     align-items: center;
     cursor: pointer;
-    background-color: var(--colorBg);
-    border: 2px solid var(--colorText);
+    background-color: var(--mainDarkPurple);
+    border: 2px solid var(--txtGray);
+    color: var(--txtGray);
     padding: 2px;
     min-width: 50px;
     min-height: 50px;
@@ -23,15 +24,29 @@
     margin: 20px 0 0 20px;
 }
 
+.hintLink {
+    color: var(--colorCommands);
+}
+
 
 .hintsList {
     list-style-type: "> ";
     padding: 20px;
     width: 100%;
+
 }
 
 .hintsList p {
     margin-bottom:20px;
+    
+}
+
+.hintsList p b {
+    color: var(--txtYellow);
+}
+
+.hintsList p i {
+    color: var(--txtPurple);
 }
 
 .hintsList ul {
@@ -40,6 +55,7 @@
 
 .hintsList li {
     list-style-type: "> ";
+    color: var(--colorCommands);
 }
 
 .hintsListHolder {

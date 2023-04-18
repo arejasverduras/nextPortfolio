@@ -14,11 +14,13 @@ export const ThemeSelector = ({theme, setTheme}:ThemeSelectorProps) => {
     useEffect(()=>{
         let root = document.documentElement;
         if (theme === 'light'){
-            root.style.setProperty('--colorBg','white');
+            root.style.setProperty('--colorBg','var(--txtGray)');
             root.style.setProperty('--colorText', '#292D3E');
+            root.style.setProperty('--colorH1', 'var(--colorText)');
         } else if (theme === 'dark') {
             root.style.setProperty('--colorBg','#292D3E');
-            root.style.setProperty('--colorText', 'white');
+            root.style.setProperty('--colorText', 'var(--txtGray)');
+            root.style.setProperty('--colorH1', 'var(--txtYellow)');
         } else {return}
     },[theme]);
     

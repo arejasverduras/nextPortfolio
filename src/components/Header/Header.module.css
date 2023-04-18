@@ -6,7 +6,8 @@
     width: 100%;
     border-bottom: 2px solid black;
     padding: 20px;
-    background-color: grey;
+    background-color: var(--colorText);
+    color: var(--colorBg);
     position: fixed;
     top: 0;
     min-height: 75px;
@@ -16,6 +17,10 @@
 .headerHome {
     background: var(--colorText);
     color: var(--colorBg)
+}
+
+.logo {
+    color: var(--colorBg);
 }
 
 .elementsHolder {
