@@ -23,16 +23,16 @@ export const Message = ({showMessage, message}:MessageProps) => {
     
     return (
         <AnimatePresence>
-                    {showMessage && (
-                        <motion.p
-                            className={styles.errorMessage}    
-                            key="errormessage"
-                            variants={animations}
-                            animate="revealMessage"
-                            exit="hideMessage"
-                            >{message}
-                        </motion.p>
-                    )}
-                </AnimatePresence>
+            {showMessage && (
+                <motion.p
+                    className={styles.errorMessage}    
+                    key="errormessage"
+                    variants={animations}
+                    animate="revealMessage"
+                    exit="hideMessage"
+                    >{message}
+                </motion.p>
+            )}
+        </AnimatePresence>
     )
 }
