@@ -1,8 +1,11 @@
 /* Leave this */
 .container {
-    background-color: var(--color-secondary);
+    /* background-color: var(--colorText); */
     margin-top: 20px;
     min-width: 100%;
+    border: 2px solid var(--colorBorders);
+    border-radius: 25px;
+    box-shadow: var(--colorText) 5px 5px;
     /* border: 2px solid gold; */
 }
 
@@ -40,5 +43,6 @@
     .container {
         min-height: 200px;
         min-width: 0;
+        max-width: 50%;
     }
 }
