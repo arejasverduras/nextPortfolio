@@ -1,6 +1,6 @@
 export const projectData = [
     {
-        title: 'Silvester',
+        title: 'Silvester Zwemschool',
         picture: '/images/projects/logoPinkLarge.png',
         description: 'NextJS + NetlifyCMS project. Remake of existing wordpress site.',
         link: 'silvester',
@@ -11,8 +11,7 @@ export const projectData = [
     },
     {
         title: 'ShredFish',
-      // picture: '/images/projects/logozwart.png',
-      picture: '/images/projects/',
+        picture: '/images/projects/ShredFishWave.png',
         description: 'Personal global surf forecasting',
         link: 'shredfish',
         type: 'Front-end',
@@ -20,33 +19,24 @@ export const projectData = [
     },
     {
         title: 'Koekboek',
-      // picture: '/images/projects/logozwart.png',
-      picture: '/images/projects/',
+        picture: '/images/projects/koekboek.png',
         description: "Whats for dinner?",
         link: 'koekboek',
         type: 'Front-end',
         tech: ['React','Redux','TypeScript'],
     },
     {
-        title: 'Silvester',
-      // picture: '/images/projects/logozwart.png',
-      picture: '/images/projects/',
-        description: 'NextJS + NetlifyCMS project. Remake of existing wordpress site.',
-        link: 'silvester'
+        title: 'Portfolio',
+        picture: '/images/projects/cloud.png',
+        description: 'What ya loooking at ?!',
+        link: 'portfolio',
+        type: 'Front-end',
+        tech: ['Next.js', 'TypeScript'],
     },
     {
-        title: 'ShredFish',
-      // picture: '/images/projects/logozwart.png',
-      picture: '/images/projects/',
-        description: 'Personal global surf forecasting',
-        link: 'shredfish'
+        title: 'Resume',
+        picture: '/images/projects/resumeF.png',
+        description: "Interactive Resume to apply for Front-end developer positions. Fully searchable, printable and 'flippable'.",
+        link: 'resume'
     },
-    {
-        title: 'Koekboek',
-      // picture: '/images/projects/logozwart.png',
-      picture: '/images/projects/',
-        description: "Whats for dinner?",
-        link: 'koekboek'
-    },
-
 ]

@@ -2,9 +2,9 @@
 .container {
     margin-top: 20px;
     min-width: 100%;
-    border: 2px solid var(--colorBorders);
+    border: 1px solid var(--colorBorders);
     border-radius: 25px;
-    box-shadow: var(--colorText) 5px 5px;
+    /* box-shadow: var(--colorText) 5px 5px; */
 }
 
 .content {

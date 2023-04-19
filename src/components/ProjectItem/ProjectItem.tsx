@@ -39,6 +39,7 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
                     variants={animations}
                     animate="itemsPop"
                     custom={((index + 1) * 0.15)+0.4}
+                    layoutId={index+title}
                     >
                     <Link href={'projects/'+link} className={styles.content}>
                         <div className={styles.logo} >
