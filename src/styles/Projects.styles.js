@@ -36,4 +36,17 @@ export default css.resolve`
         width: 100%;
         justify-content: space-around;
     }
+
+.hr {
+    margin: 50px 0;
+    border-color: var(--colorBorders);
+}
+
+.projectsImage {
+    background-color: var(--colorBorders);
+    border-radius: 50%;
+    overflow: visible;
+    transform: rotateY(180deg);
+}
+
 `

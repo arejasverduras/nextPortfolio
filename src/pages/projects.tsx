@@ -1,6 +1,7 @@
 import styledJsx from '@/styles/Projects.styles';
 // dependencies
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from "framer-motion";
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
@@ -11,6 +12,8 @@ import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
 // data
 import { projectData } from "@/content/data";
+import projectsImage from '../../public/images/projects/portfolioChar.png';
+
 
 const Projects: NextPageWithLayout = () => {
     const [filterTerm, setFilterTerm] = useState('');
@@ -71,9 +74,20 @@ const Projects: NextPageWithLayout = () => {
                 >
                     {listItems}
                 </motion.div>
+            
+            <hr className={`${styledJsx.className} hr`}/>
+            <motion.div
+                className={`${styledJsx.className} projectsImageHolder`}
+                key="projectsImageHolder"
+                layout
+            >
+                <Image src={projectsImage} alt="projectsImage" 
+                className={`${styledJsx.className} projectsImage`}
+                />
+            </motion.div>
+            
             <h2>header 2</h2>
             <h3>header 3</h3>
-            <div>div: projects</div>
             <p>paragraph
                 <b> bold</b> 
                 <i> italic</i>
