@@ -141,7 +141,6 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                         onClick={toggleVisible}
                         layoutId="inputDotGrow"
                         >
-                            {/* {`${"> "}`} */}
                             <FontAwesomeIcon icon={faPowerOff} />
                     </motion.div>)}
                 </AnimatePresence>

@@ -1,5 +1,6 @@
 import styledJsx from '@/styles/Projects.styles';
 // dependencies
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from "framer-motion";
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
@@ -12,7 +13,10 @@ import type {NextPageWithLayout} from './_app';
 import { projectData } from "@/content/data";
 
 const Projects: NextPageWithLayout = () => {
-    const listItems = projectData.map((item, index) => 
+    const [filterTerm, setFilterTerm] = useState('');
+    const [filteredData, setFilteredData] = useState(projectData);
+    
+    const listItems = filteredData.map((item, index) => 
         <ProjectItem 
             content={item} 
             key={index}
@@ -20,9 +24,35 @@ const Projects: NextPageWithLayout = () => {
             />
     )
 
+    const handleChange = ({target}:any) =>{
+        setFilterTerm(target.value.toLowerCase());
+    }
+
+    useEffect(()=>{
+        if (filterTerm === ''){
+            setFilteredData(projectData);
+            return;
+        }
+        const filtered = filteredData.filter(project => 
+                project.title.toLowerCase().includes(filterTerm) ||
+                project.description.toLowerCase().includes(filterTerm) ||
+                project.type.toLowerCase().includes(filterTerm) ||
+                project.tech.some((techItem) => techItem.toLowerCase().includes(filterTerm)) ||
+                project.title.toLowerCase().includes(filterTerm));
+        setFilteredData(filtered);
+       
+    },[filterTerm]);
+
+
     return (
         <>
             <h1>Projects</h1>
+            <input 
+                className={`${styledJsx.className} filterInput`}
+                onChange={handleChange} 
+                placeholder="find.."
+                value={filterTerm}
+                />
             <motion.div
                 key="projectListItems"
                 animate={{opacity: [0,1], transition: {delay: 0.4}}}
@@ -47,8 +77,7 @@ Projects.getLayout = function getLayout(page:ReactElement) {
     return (
         <PageLayout>
             <NestedSimple>
-            {/* optional nested layout component */}
-            {page}
+                {page}
             </NestedSimple>
         </PageLayout>
     )
