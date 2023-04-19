@@ -5,6 +5,7 @@
     border: 1px solid var(--colorBorders);
     border-radius: 25px;
     /* box-shadow: var(--colorText) 5px 5px; */
+    cursor: pointer;
 }
 
 .content {
@@ -12,7 +13,7 @@
     align-items: center;
     padding: 20px;
     height: 100%;
-
+    
 }
 
 .logo {
@@ -23,7 +24,7 @@
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-shrink: 0;
 }
 
@@ -43,9 +44,12 @@
     color: var(--colorText);
 }
 
+
+
+
 .techHolder {
-    display: flex;
-    align-items: flex-end;
+    /* display: flex;
+    align-items: flex-end; */
     gap: 8px;
     margin-top: 16px;
 }
@@ -55,6 +59,10 @@
     .container {
         min-height: 200px;
         min-width: 0;
-        max-width: 50%;
+        max-width: 42%;
+    }
+
+    .content {
+        width: 100%;
     }
 }

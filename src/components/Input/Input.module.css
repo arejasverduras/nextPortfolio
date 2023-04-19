@@ -60,10 +60,7 @@
     color: var(--colorCommands);
 }
 
-
 .input button {
-    /* position: relative; */
-    /* left: 0px; */
     padding: 2px;
     cursor: pointer;
     background-color: var(--colorCommands);

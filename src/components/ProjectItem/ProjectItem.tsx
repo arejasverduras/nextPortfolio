@@ -11,7 +11,7 @@ interface ProjectItemProps {
         description: string,
         link: string,
         tech: string[],
-        type: string,
+        type?: string,
     },
     index: number,
 }
@@ -36,10 +36,13 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
         <AnimatePresence>         
                 <motion.div 
                     className={styles.container}
+                    key={index+title}
                     variants={animations}
                     animate="itemsPop"
+                    exit={{x: -500, opacity: 0}}
                     custom={((index + 1) * 0.15)+0.4}
                     layoutId={index+title}
+                    layout
                     >
                     <Link href={'projects/'+link} className={styles.content}>
                         <div className={styles.logo} >
@@ -47,10 +50,12 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
                         </div>
                         <div className={styles.textContent}>
                             <h2>{title}</h2>
-                            <i>{type}</i>
+                            <i className={styles.type}>{type}</i>
                             <p>{description}</p>
+                            
                             <div className={styles.techHolder}>
                                 {/* <h3>tech:</h3> */}
+                                
                                 <p>
                                 {tech && 
                                     tech.map((item, index) => <b key={index}>{item} </b>)    
@@ -58,7 +63,6 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
                                 </p>
                             </div>
                             
-                      
                         </div>
                     </Link>
                 </motion.div>          

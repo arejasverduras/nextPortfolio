@@ -1,3 +1,4 @@
+import styledJsx from '@/styles/Projects.styles';
 // dependencies
 import { AnimatePresence, motion } from "framer-motion";
 // components
@@ -25,18 +26,19 @@ const Projects: NextPageWithLayout = () => {
             <motion.div
                 key="projectListItems"
                 animate={{opacity: [0,1], transition: {delay: 0.4}}}
-            >
+                className={`${styledJsx.className} listItems`}
+                >
                     {listItems}
                 </motion.div>
             <h2>header 2</h2>
             <h3>header 3</h3>
-            <div>div: projects bla</div>
+            <div>div: projects</div>
             <p>paragraph
                 <b> bold</b> 
                 <i> italic</i>
             </p>
             <a href='#'>link</a>
-            
+            {styledJsx.styles}
         </>
     )
 }
