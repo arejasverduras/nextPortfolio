@@ -10,6 +10,8 @@ interface ProjectItemProps {
         picture: string,
         description: string,
         link: string,
+        tech: string[],
+        type: string,
     },
     index: number,
 }
@@ -28,7 +30,7 @@ const animations = {
 }
 
 export const ProjectItem = ({index, content}:ProjectItemProps) =>{
-    const {title, picture, description, link} = content;
+    const {title, picture, description, link, tech, type} = content;
 
     return (
         <AnimatePresence>         
@@ -44,7 +46,18 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
                         </div>
                         <div className={styles.textContent}>
                             <h2>{title}</h2>
+                            <i>{type}</i>
                             <p>{description}</p>
+                            <div className={styles.techHolder}>
+                                {/* <h3>tech:</h3> */}
+                                <p>
+                                {tech && 
+                                    tech.map((item, index) => <b key={index}>{item} </b>)    
+                                }
+                                </p>
+                            </div>
+                            
+                      
                         </div>
                     </Link>
                 </motion.div>          

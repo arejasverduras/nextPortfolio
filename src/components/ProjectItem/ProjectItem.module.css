@@ -1,12 +1,10 @@
 /* Leave this */
 .container {
-    /* background-color: var(--colorText); */
     margin-top: 20px;
     min-width: 100%;
     border: 2px solid var(--colorBorders);
     border-radius: 25px;
     box-shadow: var(--colorText) 5px 5px;
-    /* border: 2px solid gold; */
 }
 
 .content {
@@ -18,17 +16,18 @@
 }
 
 .logo {
-    border-radius: 100%;
+    /* border-radius: 25%; */
+    /* box-shadow: var(--colorText) -2px 2px;  */
     width: 100px;
     height: 100px;
     overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-shrink: 0;
 }
 
 .logo img {
-
     width: 100%;
     height: auto;
 }
@@ -38,6 +37,19 @@
     max-width: 400px;
     flex-shrink: 1;
 }
+
+.textContent p {
+    text-decoration: none;
+    color: var(--colorText);
+}
+
+.techHolder {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+}
+
 
 @media screen and (min-width: 768px) {
     .container {
