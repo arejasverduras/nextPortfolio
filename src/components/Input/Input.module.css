@@ -39,7 +39,6 @@
 
 .input {
     height: 50px;
-    width: 50px;
     background-color: var(--colorInputBg);
     color: var(--colorCommands);
     border-radius: 25px;

@@ -13,6 +13,7 @@ export default css.resolve`
 }
 
 .sectionContent {
+
     background-color: var(--colorBg);
     color: var(--colorText);
     width: 100%;

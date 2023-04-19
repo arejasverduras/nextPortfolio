@@ -47,12 +47,23 @@ const Projects: NextPageWithLayout = () => {
     return (
         <>
             <h1>Projects</h1>
-            <input 
-                className={`${styledJsx.className} filterInput`}
-                onChange={handleChange} 
-                placeholder="find.."
-                value={filterTerm}
-                />
+            <motion.div
+                className={`${styledJsx.className} filterHolder`}
+                key="filterHolder"
+                animate={{scale: [0,1], transition: {delay: filteredData.length * 0.35}}}
+                >
+                 <div>
+                    {`${" >"}`}
+                </div>
+                <input 
+                    className={`${styledJsx.className} filterInput`}
+                    onChange={handleChange} 
+                    placeholder="find.."
+                    value={filterTerm}
+                    />
+               
+            </motion.div>
+            
             <motion.div
                 key="projectListItems"
                 animate={{opacity: [0,1], transition: {delay: 0.4}}}

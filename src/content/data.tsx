@@ -33,8 +33,6 @@ export const projectData = [
       type: 'Front-end',
       tech: ['Next.js', 'TypeScript'],
   },
-
-
     {
         title: 'Resume',
         picture: '/images/projects/resumeF.png',
