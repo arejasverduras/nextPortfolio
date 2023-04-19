@@ -1,4 +1,4 @@
-import styles from './ProjectItem.module.css';
+import styledJsx from './ProjectItem.styles';
 // dependencies
 import Image from 'next/image';
 import Link from 'next/link';
@@ -35,7 +35,7 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
     return (
         <AnimatePresence>         
                 <motion.div 
-                    className={styles.container}
+                    className={`${styledJsx.className} container`}
                     key={index+title}
                     variants={animations}
                     animate="itemsPop"
@@ -44,16 +44,16 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
                     layoutId={index+title}
                     layout
                     >
-                    <Link href={'projects/'+link} className={styles.content}>
-                        <div className={styles.logo} >
-                            <Image src={picture} alt='projectLogo' width='200' height='200'/>
+                    <Link href={'projects/'+link} className={`${styledJsx.className} content`}>
+                        <div className={`${styledJsx.className} logo`} >
+                            <Image src={picture} alt='projectLogo' width='200' height='200' className={`${styledJsx.className} logoImage`}/>
                         </div>
-                        <div className={styles.textContent}>
+                        <div className={`${styledJsx.className} textContent`}>
                             <h2>{title}</h2>
-                            <i className={styles.type}>{type}</i>
-                            <p>{description}</p>
+                            <i className={`${styledJsx.className} type`}>{type}</i>
+                            <p className={`${styledJsx.className} description`}>{description}</p>
                             
-                            <div className={styles.techHolder}>
+                            <div className={`${styledJsx.className} techHolder`}>
                                 {/* <h3>tech:</h3> */}
                                 
                                 <p>
@@ -65,7 +65,8 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
                             
                         </div>
                     </Link>
-                </motion.div>          
+                </motion.div>
+                {styledJsx.styles}          
         </AnimatePresence>
     )
  }

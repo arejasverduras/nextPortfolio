@@ -1,4 +1,6 @@
-/* Leave this */
+import css from "styled-jsx/css";
+
+export default css.resolve`
 .container {
     margin-top: 20px;
     min-width: 100%;
@@ -16,8 +18,8 @@
 }
 
 .logo {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -25,7 +27,7 @@
     flex-shrink: 0;
 }
 
-.logo img {
+.logoImage {
     width: 100%;
     height: auto;
 }
@@ -36,7 +38,7 @@
     flex-shrink: 1;
 }
 
-.textContent p {
+.description {
     text-decoration: none;
     color: var(--colorText);
 }
@@ -51,10 +53,12 @@
     .container {
         min-height: 200px;
         min-width: 0;
-        max-width: 42%;
+        max-width: 49%;
     }
 
     .content {
-        width: 100%;
+        max-width: 100%;
+        padding: 10px;
     }
 }
+`
