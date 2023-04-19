@@ -6,7 +6,7 @@ export default css.resolve`
     min-width: 100%;
     border: 1px solid var(--colorBorders);
     border-radius: 25px;
-    cursor: pointer;
+    cursor:pointer;
 }
 
 .content {
@@ -14,7 +14,6 @@ export default css.resolve`
     align-items: center;
     padding: 20px;
     height: 100%;
-    
 }
 
 .logo {
