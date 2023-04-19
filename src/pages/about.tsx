@@ -1,4 +1,4 @@
-import styledJsx from '../styles/about.styles';
+import styledJsx from '../styles/About.styles';
 import Image from 'next/image';
 import { AnimatePresence,motion } from 'framer-motion';
 import aboutImage from '../../public/images/projects/aboutChar.png';
@@ -16,12 +16,12 @@ const About: NextPageWithLayout = () => {
             <h1>About</h1>
             <hr className={`${styledJsx.className} hr`}/>
             <motion.div
-                className={`${styledJsx.className} projectsImageHolder`}
-                key="projectsImageHolder"
+                className={`${styledJsx.className} aboutImageHolder`}
+                key="aboutImageHolder"
                 layout
             >
                 <Image src={aboutImage} alt="projectsImage" 
-                className={`${styledJsx.className} projectsImage`}
+                className={`${styledJsx.className} aboutImage`}
                 />
             </motion.div>
             

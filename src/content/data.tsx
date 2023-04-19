@@ -17,14 +17,7 @@ export const projectData = [
         type: 'Front-end',
         tech: ['React','Redux','JavaScript'],
     },
-    {
-      title: 'Koekboek',
-      picture: '/images/projects/koekboek.png',
-      description: "Whats for dinner?",
-      link: 'koekboek',
-      type: 'Front-end',
-      tech: ['React','Redux','TypeScript'],
-  },
+
     {
       title: 'Portfolio',
       picture: '/images/projects/portfolioChar2.png',
@@ -40,5 +33,13 @@ export const projectData = [
         link: 'resume',
         type: 'Front-end',
         tech: ['React', 'JavaScript'],
+    },
+    {
+        title: 'Koekboek',
+        picture: '/images/projects/koekboek.png',
+        description: "Whats for dinner?",
+        link: 'koekboek',
+        type: 'Front-end',
+        tech: ['React','Redux','TypeScript'],
     },
 ]
