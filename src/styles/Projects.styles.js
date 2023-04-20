@@ -47,6 +47,7 @@ export default css.resolve`
     border-radius: 50%;
     overflow: visible;
     transform: rotateY(180deg);
+    width: 100%;
     max-width: 400px;
     height: auto;
 }
