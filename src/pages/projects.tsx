@@ -1,12 +1,9 @@
-import styledJsx from '@/styles/Projects.styles';
-// dependencies
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import { AnimatePresence, motion } from "framer-motion";
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
-import { ProjectItem } from "@/components/ProjectItem/ProjectItem";
+import { ProjectsFilter } from '@/components/ProjectsFilter/ProjectsFilter';
+import { ProjectsListItems } from '@/components/ProjectsListItems/ProjectsListItems';
 // types
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
@@ -18,18 +15,6 @@ import projectsImage from '../../public/images/projects/portfolioChar.png';
 const Projects: NextPageWithLayout = () => {
     const [filterTerm, setFilterTerm] = useState('');
     const [filteredData, setFilteredData] = useState(projectData);
-    
-    const listItems = filteredData.map((item, index) => 
-        <ProjectItem 
-            content={item} 
-            key={index}
-            index={index}
-            />
-    )
-
-    const handleChange = ({target}:any) =>{
-        setFilterTerm(target.value.toLowerCase());
-    }
 
     useEffect(()=>{
         if (filterTerm === ''){
@@ -46,54 +31,17 @@ const Projects: NextPageWithLayout = () => {
        
     },[filterTerm]);
 
-
     return (
         <>
             <h1>Projects</h1>
-            <motion.div
-                className={`${styledJsx.className} filterHolder`}
-                key="filterHolder"
-                animate={{scale: [0,1], transition: {delay: filteredData.length * 0.35}}}
-                >
-                 <div>
-                    {`${" >"}`}
-                </div>
-                <input 
-                    className={`${styledJsx.className} filterInput`}
-                    onChange={handleChange} 
-                    placeholder="find.."
-                    value={filterTerm}
-                    />
-               
-            </motion.div>
-            
-            <motion.div
-                key="projectListItems"
-                animate={{opacity: [0,1], transition: {delay: 0.4}}}
-                className={`${styledJsx.className} listItems`}
-                >
-                    {listItems}
-                </motion.div>
-            
-            <hr className={`${styledJsx.className} hr`}/>
-            <motion.div
-                className={`${styledJsx.className} projectsImageHolder`}
-                key="projectsImageHolder"
-                layout
-            >
-                <Image src={projectsImage} alt="projectsImage" 
-                className={`${styledJsx.className} projectsImage`}
+            <ProjectsFilter 
+                filterTerm={filterTerm}
+                setFilterTerm={setFilterTerm}                
+                filteredDataLength={filteredData.length}
                 />
-            </motion.div>
-            
-            <h2>header 2</h2>
-            <h3>header 3</h3>
-            <p>paragraph
-                <b> bold</b> 
-                <i> italic</i>
-            </p>
-            <a href='#'>link</a>
-            {styledJsx.styles}
+            <ProjectsListItems 
+                filteredData={filteredData} 
+                />
         </>
     )
 }
@@ -101,7 +49,7 @@ const Projects: NextPageWithLayout = () => {
 Projects.getLayout = function getLayout(page:ReactElement) {
     return (
         <PageLayout>
-            <NestedSimple>
+            <NestedSimple imageSrc={projectsImage}>
                 {page}
             </NestedSimple>
         </PageLayout>

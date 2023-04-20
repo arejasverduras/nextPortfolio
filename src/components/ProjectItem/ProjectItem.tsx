@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 
-interface ProjectItemProps {
+export interface ProjectItemProps {
     content: {
         title: string,
         picture: string,

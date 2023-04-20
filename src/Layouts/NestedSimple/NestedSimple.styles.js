@@ -3,6 +3,7 @@ import css from "styled-jsx/css";
 export default css.resolve`
 .container {
     display: flex;
+    flex-wrap:wrap;
     margin-top: 92px;
     width: 100%;
     background-color: var(--colorBg);
