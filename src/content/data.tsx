@@ -2,7 +2,7 @@ export const projectData = [
     {
         title: 'Silvester Zwemschool',
         picture: '/images/projects/logoPinkLarge.png',
-        description: 'NextJS + NetlifyCMS project. Remake of existing wordpress site.',
+        description: 'Remake of existing wordpress site.',
         link: 'silvester',
         type: 'Front-end',
         tech: ['Next.js', 'TypeScript', 'Netlify-CMS'],
@@ -12,7 +12,7 @@ export const projectData = [
     {
         title: 'ShredFish',
         picture: '/images/projects/ShredFishWave.png',
-        description: 'Personal global surf forecasting',
+        description: 'Personal global surf forecasting webapp.',
         link: 'shredfish',
         type: 'Front-end',
         tech: ['React','Redux','JavaScript'],

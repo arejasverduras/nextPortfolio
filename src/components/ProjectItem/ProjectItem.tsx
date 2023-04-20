@@ -11,7 +11,7 @@ export interface ProjectItemProps {
         description: string,
         link: string,
         tech: string[],
-        type?: string,
+        type: string,
     },
     index: number,
 }

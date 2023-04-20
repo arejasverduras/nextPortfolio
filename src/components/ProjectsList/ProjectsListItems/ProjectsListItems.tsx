@@ -1,9 +1,9 @@
 import styledJsx from './ProjectsListItems.styles';
 // components
-import { ProjectItem } from '../ProjectItem/ProjectItem';
+import { ProjectItem } from '../../ProjectItem/ProjectItem';
 import { motion } from 'framer-motion';
 // types
-import { ProjectItemProps } from '../ProjectItem/ProjectItem';
+import { ProjectItemProps } from '../../ProjectItem/ProjectItem';
 
 interface ProjectsListItemsProps {
     filteredData: ProjectItemProps["content"][]
@@ -25,6 +25,8 @@ export const ProjectsListItems = ({filteredData}:ProjectsListItemsProps) => {
                 className={`${styledJsx.className} listItems`}
                 >
                     {listItems}
+            {styledJsx.styles}
             </motion.div>
+            
     )
 }
