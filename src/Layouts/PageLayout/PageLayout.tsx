@@ -16,6 +16,8 @@ interface PageLayoutProps {
 export default function PageLayout({children, home}:PageLayoutProps) {
     const router = useRouter();
     const [isHome, setIsHome] = useState(router.asPath === '/');
+    const [isProjects, setIsProjects] = useState(router.asPath === '/projects');
+    const [isSubProjects, setIsSubProjects] = useState(false);
 
     const animations = {
         pageIn: {
@@ -23,6 +25,10 @@ export default function PageLayout({children, home}:PageLayoutProps) {
             opacity: [0,1],
             rotate: [35,0],
             scale: [0.1,1]
+        },
+        pageInProjects: {
+            scale: [0.3,1],
+            rotate: [10,0]
         },
         pageOut: {
             x: -600,
@@ -33,11 +39,18 @@ export default function PageLayout({children, home}:PageLayoutProps) {
         pageOutHome: {
             x: -600,
             opacity: 0
+        },
+        pageOutProjects: {
+            scale: 3,
+            rotate: 10,
+            opacity: 0,
         }
     }
 
     useEffect(()=>{
         setIsHome(router.asPath === '/');
+        setIsProjects(router.asPath === '/projects');
+        setIsSubProjects(router.asPath.includes('/projects/'));
     },[router.asPath])
 
     
@@ -52,9 +65,9 @@ export default function PageLayout({children, home}:PageLayoutProps) {
                 <motion.main
                     variants={animations}
                     key={router.asPath}
-                    initial={{x: 600, opacity: 0}}
-                    animate="pageIn"
-                    exit={isHome? "pageOutHome": "pageOut"}
+                    initial={isSubProjects? "":{x: 600, opacity: 0}}
+                    animate={isSubProjects? "pageInProjects":"pageIn"}
+                    exit={isHome? "pageOutHome": isProjects? "pageOutProjects" :"pageOut"}
                     transition={{duration: 0.4}}
                     >
                         {children}
