@@ -9,6 +9,7 @@ import { Project } from '@/components/Project/Project';
 // types
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from '../_app';
+import Head from 'next/head';
 
 export async function getStaticPaths () {
     return getAllProjects();
@@ -34,6 +35,11 @@ const project: NextPageWithLayout = (props)=>{
 
     return (
         <>
+            <Head>
+                <title>{projectData.title} | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
+
+            </Head>
+            {/* <h1>{projectData.title}</h1> */}
             <ProjectItem 
                 content={projectData} 
                 key={projectData.link}

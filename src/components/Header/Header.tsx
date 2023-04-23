@@ -7,7 +7,7 @@ import { Message } from '../Message/Message';
 import { ThemeSelector } from '../ThemeSelector/ThemeSelector';
 import { motion } from 'framer-motion';
 
-export const Header = ({home}:any) => {
+export const Header = ({home, projects}:any) => {
     const [visible, setVisible] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);
@@ -31,19 +31,23 @@ export const Header = ({home}:any) => {
             transition={{delay: 0.2, ease: 'anticipate' }}
             >
             </motion.div>
-            <div className={styles.elementsHolder}>
+            <div className={styles.elementsHolder}
+                key="elementsHolder">
                 <motion.div 
                     className={styles.logo}
                     key="headerLogo"
                     variants={animations}
-                    animate="topIn"
+                    animate= "topIn"
                     transition={{delay: 0.4}}
                     >
                     Michiel Roukens
                 </motion.div>
                 {!home && (
                     <>
-                        <motion.div className={styles.commandHolder}>
+                        <motion.div 
+                            className={styles.commandHolder}
+                            key="headerCommandHolder"
+                            >
                             <Input 
                                 startOpen
                                 visible={visible}

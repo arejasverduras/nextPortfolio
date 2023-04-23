@@ -12,10 +12,13 @@ interface ProjectProps {
 export const Project = ({content}:ProjectProps) => {
     return (
         <>
-        <Head>
-            <title>{content.title} | Michiel Roukens</title>
-        </Head>
-        
+            <Head>
+                <title>{content.title} | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
+            </Head>
+            <div className={`${styledJsx.className} container`}>
+                <h1>{content.title}</h1>
+                
+            </div>
         {styledJsx.styles}
         </>
     )

@@ -58,10 +58,11 @@ export default function PageLayout({children, home}:PageLayoutProps) {
     return (
         <div className={styles.container}>
             <Head>
+                {/* <title>Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title> */}
                 <meta name="theme-color" content="var(--colorHeaderBg)" />
                 <meta name="apple-mobile-web-app-status-bar" content="var(--colorHeaderBg)" />
             </Head>
-            <Header home={home} />
+            <Header home={home} projects={isSubProjects || isProjects} />
             <AnimatePresence mode="wait" initial={false}>
                 <motion.main
                     variants={animations}
