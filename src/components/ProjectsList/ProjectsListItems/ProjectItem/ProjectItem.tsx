@@ -55,7 +55,6 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
                             
                             <div className={`${styledJsx.className} techHolder`}>
                                 {/* <h3>tech:</h3> */}
-                                
                                 <p>
                                 {tech && 
                                     tech.map((item, index) => <b key={index}>{item} </b>)    

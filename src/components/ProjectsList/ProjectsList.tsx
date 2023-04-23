@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { ProjectsFilter } from './ProjectsFilter/ProjectsFilter';
 import { ProjectsListItems } from './ProjectsListItems/ProjectsListItems';
 // types
-import { ProjectItemProps } from '../ProjectItem/ProjectItem';
+import { ProjectItemProps } from './ProjectsListItems/ProjectItem/ProjectItem';
 
 interface ProjectsListProps{
     projectData: ProjectItemProps["content"][];
