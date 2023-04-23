@@ -36,12 +36,12 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
         <AnimatePresence>         
                 <motion.div 
                     className={`${styledJsx.className} container`}
-                    key={index+title}
+                    key={title+link}
                     variants={animations}
                     animate="itemsPop"
                     exit={{x: -500, opacity: 0}}
                     custom={((index + 1) * 0.15)+0.4}
-                    layoutId={index+title}
+                    layoutId={title+link}
                     layout
                     >
                     <Link href={'projects/'+link} className={`${styledJsx.className} content`}>
