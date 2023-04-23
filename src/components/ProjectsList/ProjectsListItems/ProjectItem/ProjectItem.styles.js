@@ -34,7 +34,7 @@ export default css.resolve`
 .textContent {
     padding: 0 20px;
     max-width: 400px;
-    flex-shrink: 1;
+    // flex-shrink: 1;
 }
 
 .description {
@@ -46,6 +46,20 @@ export default css.resolve`
 .techHolder {
     gap: 8px;
     margin-top: 16px;
+}
+
+@media screen and (max-width: 420px) {
+    .content {
+        flex-wrap:wrap;
+    }
+    
+    .logo {
+        // align-items: center;
+    }
+
+    .textContent {
+        padding: 20px 0;
+    }
 }
 
 @media screen and (min-width: 768px) {
