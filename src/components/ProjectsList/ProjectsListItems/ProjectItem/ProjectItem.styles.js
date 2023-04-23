@@ -5,6 +5,7 @@ export default css.resolve`
     margin-top: 20px;
     min-width: 100%;
     border: 1px solid var(--colorBorders);
+    background-color: var(--colorBg);
     border-radius: 25px;
     cursor:pointer;
 }

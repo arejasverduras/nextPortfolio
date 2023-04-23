@@ -40,7 +40,7 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                     key={link}
                     variants={animations}
                     animate={onPage? undefined: "itemsPop"}
-                    exit={{x: -500, opacity: 0}}
+                    exit={{x: -500, opacity:0}}
                     custom={((index + 1) * 0.15)+0.4}
                     layoutId={link}
                     layout

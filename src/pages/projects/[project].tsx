@@ -5,6 +5,7 @@ import {getAllProjects, getProject} from "@/lib/project.js"
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
 import { ProjectItem } from '@/components/ProjectsList/ProjectsListItems/ProjectItem/ProjectItem';
+import { Project } from '@/components/Project/Project';
 // types
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from '../_app';
@@ -38,6 +39,7 @@ const project: NextPageWithLayout = (props)=>{
                 key={projectData.link}
                 onPage
                 />
+            <Project content={projectData}/>
         </>
     )
 }

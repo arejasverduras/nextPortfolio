@@ -26,10 +26,6 @@ export default function PageLayout({children, home}:PageLayoutProps) {
             rotate: [35,0],
             scale: [0.1,1]
         },
-        pageInProjects: {
-            scale: [0.3,1],
-            rotate: [10,0]
-        },
         pageOut: {
             x: -600,
             opacity: 0,
@@ -40,10 +36,15 @@ export default function PageLayout({children, home}:PageLayoutProps) {
             x: -600,
             opacity: 0
         },
+        pageInProjects: {
+            // scale: [0.7,1],
+            // rotate: [10,0]
+            opacity: [0.4,1]
+        },
         pageOutProjects: {
-            scale: 3,
-            rotate: 10,
-            opacity: 0,
+            // scale: 3,
+            // rotate: 10,
+            opacity: 0.4,
         }
     }
 
