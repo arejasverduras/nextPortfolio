@@ -11,11 +11,11 @@ interface ProjectsListItemsProps {
 
 export const ProjectsListItems = ({filteredData}:ProjectsListItemsProps) => {
     const listItems = filteredData.map((item, index) => 
-    <ProjectItem 
-        content={item} 
-        key={index}
-        index={index}
-        />
+                <ProjectItem 
+                    content={item} 
+                    key={item.link}
+                    index={index}
+                    />
     )
     
     return (

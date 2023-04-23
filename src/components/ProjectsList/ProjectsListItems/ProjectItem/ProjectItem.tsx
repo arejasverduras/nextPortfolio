@@ -13,7 +13,8 @@ export interface ProjectItemProps {
         tech: string[],
         type: string,
     },
-    index: number,
+    index?: number,
+    onPage?:boolean,
 }
 
 const animations = {
@@ -29,22 +30,22 @@ const animations = {
     }),
 }
 
-export const ProjectItem = ({index, content}:ProjectItemProps) =>{
+export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
     const {title, picture, description, link, tech, type} = content;
 
     return (
         <AnimatePresence>         
                 <motion.div 
                     className={`${styledJsx.className} container`}
-                    key={title+link}
+                    key={link}
                     variants={animations}
-                    animate="itemsPop"
+                    animate={onPage? undefined: "itemsPop"}
                     exit={{x: -500, opacity: 0}}
                     custom={((index + 1) * 0.15)+0.4}
-                    layoutId={title+link}
+                    layoutId={link}
                     layout
                     >
-                    <Link href={'projects/'+link} className={`${styledJsx.className} content`}>
+                    <Link href={onPage? link: 'projects/'+link} className={`${styledJsx.className} content`}>
                         <div className={`${styledJsx.className} logo`} >
                             <Image src={picture} alt='projectLogo' width='200' height='200' className={`${styledJsx.className} logoImage`}/>
                         </div>
@@ -54,7 +55,6 @@ export const ProjectItem = ({index, content}:ProjectItemProps) =>{
                             <p className={`${styledJsx.className} description`}>{description}</p>
                             
                             <div className={`${styledJsx.className} techHolder`}>
-                                {/* <h3>tech:</h3> */}
                                 <p>
                                 {tech && 
                                     tech.map((item, index) => <b key={index}>{item} </b>)    

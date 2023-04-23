@@ -1,4 +1,4 @@
-import projectImage from '../../../public/images/projects/portfolioChar2.png'
+import projectImage from '../../../public/images/projects/portfolioChar.png';
 // lib
 import {getAllProjects, getProject} from "@/lib/project.js"
 // components
@@ -33,8 +33,11 @@ const project: NextPageWithLayout = (props)=>{
 
     return (
         <>
-        <ProjectItem index={0} content={projectData} />
-                project        
+            <ProjectItem 
+                content={projectData} 
+                key={projectData.link}
+                onPage
+                />
         </>
     )
 }

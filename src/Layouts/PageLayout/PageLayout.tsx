@@ -1,10 +1,12 @@
 import styles from './PageLayout.module.css';
 // dependencies
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 // components
 import { Header } from '../../components/Header/Header';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useRouter } from 'next/router';
+
 
 interface PageLayoutProps {
     home?:boolean,
@@ -13,8 +15,7 @@ interface PageLayoutProps {
 
 export default function PageLayout({children, home}:PageLayoutProps) {
     const router = useRouter();
-    console.log(router.asPath);
-    const isHome = router.asPath === '/';
+    const [isHome, setIsHome] = useState(router.asPath === '/');
 
     const animations = {
         pageIn: {
@@ -34,6 +35,11 @@ export default function PageLayout({children, home}:PageLayoutProps) {
             opacity: 0
         }
     }
+
+    useEffect(()=>{
+        setIsHome(router.asPath === '/');
+    },[router.asPath])
+
     
     return (
         <div className={styles.container}>
