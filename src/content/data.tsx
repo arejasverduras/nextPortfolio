@@ -27,7 +27,7 @@ export const projectData = [
             demoLink: "https://shredfish.surge.sh",
             sourceLink: "https://github.com/arejasverduras/shredfish",
             readMe: "https://raw.githubusercontent.com/arejasverduras/shredfish/master/README.md"
-        }
+        },
     },
     {
       title: 'Portfolio',
@@ -38,9 +38,11 @@ export const projectData = [
       type: 'Front-end',
       tech: ['Next.js', 'TypeScript'],
       images: [],
-      demoLink: "https://next-portfolio-remake.vercel.app",
-      sourceLink: "https://github.com/arejasverduras/nextPortfolio",
-      readMe: "https://raw.githubusercontent.com/arejasverduras/nextPortfolio/main/README.md"
+      links: {
+        demoLink: "https://next-portfolio-remake.vercel.app",
+        sourceLink: "https://github.com/arejasverduras/nextPortfolio",
+        readMe: "https://raw.githubusercontent.com/arejasverduras/nextPortfolio/main/README.md"
+      }
   
   },
     {
@@ -52,11 +54,11 @@ export const projectData = [
         type: 'Front-end',
         tech: ['React', 'JavaScript'],
         images: ["/images/projectImages/resume/resume1.png","/images/projectImages/resume/resume2.png","/images/projectImages/resume/resume3.png","/images/projectImages/resume/resume4.png","/images/projectImages/resume/resume5.png", "/images/projectImages/resume/resume6.png"],
-        demoLink: "https://arejasresume.surge.sh",
-        sourceLink: "https://github.com/arejasverduras/resume",
-        readMe: "https://raw.githubusercontent.com/arejasverduras/resume/master/README.md"
-                
-        
+        links: {
+            demoLink: "https://arejasresume.surge.sh",
+            sourceLink: "https://github.com/arejasverduras/resume",
+            readMe: "https://raw.githubusercontent.com/arejasverduras/resume/master/README.md"
+        },
     },
     {
         title: 'Koekboek',
@@ -67,9 +69,12 @@ export const projectData = [
         type: 'Front-end',
         tech: ['React','Redux','TypeScript'],
         images: [],
-        demoLink: "https://koekboek.surge.sh/",
-        sourceLink: "https://github.com/arejasverduras/koekboek",
-        readMe: "https://raw.githubusercontent.com/arejasverduras/koekboek/main/README.md"
+        links: {
+            demoLink: "https://koekboek.surge.sh/",
+            sourceLink: "https://github.com/arejasverduras/koekboek",
+            readMe: "https://raw.githubusercontent.com/arejasverduras/koekboek/main/README.md"
+        },
+        
     
     },
 ]

@@ -59,21 +59,23 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                             <i className={`${styledJsx.className} type ${onPage? "onPageType": "type"}`}>{type}</i>
                             <p className={`${styledJsx.className} description ${onPage && "onPageDescription"}`}>{description}</p>
                             
-                            <div className={`${styledJsx.className} techHolder ${onPage && "onPagetechHolder"}`}>
+                            <div className={`${styledJsx.className} techHolder ${onPage && "onPageTechHolder"}`}>
                                 <p>
                                 {tech && 
                                     tech.map((item, index) => <b key={index}>{item} </b>)    
                                 }
                                 </p>
                             </div>
-                            <AnimatePresence mode="wait">
+                            
+                        </motion.div>
+                    </Link>
+                    <AnimatePresence mode="wait">
                                 {onPage && (
                                     <ProjectLinks links={links}/>
                                 )}
-                            </AnimatePresence>
-                        </motion.div>
-                    </Link>
+                    </AnimatePresence>
                 </motion.div>
+                
                 {styledJsx.styles}          
         </AnimatePresence>
     )

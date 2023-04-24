@@ -55,7 +55,7 @@ export default css.resolve`
 
 .onPageTextContent {
     grid-area: text;
-    padding: 20px 0;
+    padding: 20px 0 0 0 ;
     max-width: 800px;
 }
 
@@ -72,6 +72,7 @@ export default css.resolve`
     gap: 8px;
     margin-top: 16px;
 }
+
 
 @media screen and (max-width: 420px) {
     .content {

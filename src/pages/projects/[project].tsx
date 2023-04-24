@@ -32,14 +32,12 @@ interface projectProps {
 const project: NextPageWithLayout = (props)=>{
     // @ts-expect-error;
     const {projectData} = props;
-
+    
     return (
         <>
             <Head>
-                <title>{projectData.title} | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
-
+                <title>{`${projectData.title}  Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express`}</title>
             </Head>
-            {/* <h1>{projectData.title}</h1> */}
             <ProjectItem 
                 content={projectData} 
                 key={projectData.link}

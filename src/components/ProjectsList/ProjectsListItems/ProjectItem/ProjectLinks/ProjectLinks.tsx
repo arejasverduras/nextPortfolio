@@ -12,20 +12,40 @@ export interface ProjectLinksContent {
 
 export const ProjectLinks = ({links}:ProjectLinksProps) => {
 
-    const linksKeys = Object.keys(links);
+    const animations = {
+        linksSlide: (custom:any) => ({
+            x: [-50,0],
+            opacity: [0,1],
+            transition: {delay:custom, type: "easeIn"}
+        })
+    }
 
-    const linksItems = linksKeys.map((link, index) => 
-        <Link 
-            key={index} 
-            href={links[link]}
+
+    const linksItems = Object.keys(links).map((linkKey, index) => 
+        <motion.div 
+            key={linkKey+index}
+            variants={animations}
+            animate="linksSlide"
+            custom={((index + 1) * 0.15)+0.2}
             >
-                {link}
+            <Link 
+                href={links[linkKey]}
+                className={`${styledJsx.className} link`}               
+                >
+                    {linkKey}
             </Link>
+        </motion.div>
     )
 
     return (
         <>
-            {linksItems}
+            <motion.div
+                key="linksItemsList"
+                className={`${styledJsx.className} linksList`}
+            >
+                {linksItems}
+            </motion.div>
+            {styledJsx.styles}
         </>
     )
 }
