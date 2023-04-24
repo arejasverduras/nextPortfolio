@@ -28,7 +28,7 @@ const animations = {
 }
 
 export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
-    const {title, picture, description, shortText, link, links, tech, type} = content;
+    const {title, picture, description, shortText, link, links, tech, type, images} = content;
 
     return (
         <AnimatePresence>         
@@ -37,7 +37,7 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                     key={link}
                     variants={animations}
                     animate={onPage? undefined: "itemsPop"}
-                    exit={{x: -500, opacity:0}}
+                    // exit={{x: -500, opacity:0}}
                     custom={((index + 1) * 0.15)+0.4}
                     layoutId={link}
                     layout
@@ -50,6 +50,7 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                             >
                             <Image src={picture} alt='projectLogo' width='200' height='200' className={`${styledJsx.className} ${onPage? "logoImage": "logoImage"}`}/>
                         </motion.div>
+                        
                         <motion.div 
                             className={`${styledJsx.className} textContent ${onPage && "onPageTextContent"}`}
                             key={link+"textContent"}
@@ -69,13 +70,16 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                             
                         </motion.div>
                     </Link>
-                    <AnimatePresence mode="wait">
-                                {onPage && (
-                                    <ProjectLinks links={links}/>
-                                )}
-                    </AnimatePresence>
+                        {onPage && (
+                            <>
+                             
+                            <div className={`${styledJsx.className} projectLinks`}>
+                                <ProjectLinks links={links}/>
+                            </div>
+                            
+                            </>
+                        )}
                 </motion.div>
-                
                 {styledJsx.styles}          
         </AnimatePresence>
     )

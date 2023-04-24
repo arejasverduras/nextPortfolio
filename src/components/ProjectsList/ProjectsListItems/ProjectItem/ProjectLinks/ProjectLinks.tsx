@@ -11,7 +11,6 @@ export interface ProjectLinksContent {
 }
 
 export const ProjectLinks = ({links}:ProjectLinksProps) => {
-
     const animations = {
         linksSlide: (custom:any) => ({
             x: [-50,0],
@@ -19,7 +18,6 @@ export const ProjectLinks = ({links}:ProjectLinksProps) => {
             transition: {delay:custom, type: "easeIn"}
         })
     }
-
 
     const linksItems = Object.keys(links).map((linkKey, index) => 
         <motion.div 
@@ -30,9 +28,10 @@ export const ProjectLinks = ({links}:ProjectLinksProps) => {
             >
             <Link 
                 href={links[linkKey]}
-                className={`${styledJsx.className} link`}               
+                className={`${styledJsx.className} link`}
+                target="_blank"               
                 >
-                    {linkKey}
+                    {linkKey === 'demoLink'? "Live demo": linkKey === 'sourceLink'? "Github repo": "Readme" }
             </Link>
         </motion.div>
     )

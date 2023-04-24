@@ -51,7 +51,7 @@ export default function PageLayout({children, home}:PageLayoutProps) {
     useEffect(()=>{
         setIsHome(router.asPath === '/');
         setIsProjects(router.asPath === '/projects');
-        setIsSubProjects(router.asPath.includes('/projects/'));
+        setIsSubProjects(router.asPath.includes('\/projects\/'));
     },[router.asPath])
 
     
@@ -66,9 +66,9 @@ export default function PageLayout({children, home}:PageLayoutProps) {
                 <motion.main
                     variants={animations}
                     key={router.asPath}
-                    initial={isSubProjects? "":{x: 600, opacity: 0}}
-                    animate={isSubProjects? "pageInProjects":"pageIn"}
-                    exit={isHome? "pageOutHome": isProjects? "pageOutProjects" :"pageOut"}
+                    initial={isSubProjects? "": {x: 600, opacity: 0}}
+                    animate={isSubProjects? "pageInProjects": "pageIn"}
+                    exit={isHome? "pageOutHome": isSubProjects? "pageOutProjects": isProjects? "pageOutProjects" : "pageOut"}
                     transition={{duration: 0.4}}
                     >
                         {children}

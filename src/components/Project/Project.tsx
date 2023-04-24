@@ -1,8 +1,7 @@
 import styledJsx from './Project.styles';
 // dep
-import Image from 'next/image';
-import Link from 'next/link';
-import Router from 'next/router';
+
+
 // types
 import { ProjectLinksContent } from '../ProjectsList/ProjectsListItems/ProjectItem/ProjectLinks/ProjectLinks';
 
@@ -30,7 +29,8 @@ export const Project = ({content}:ProjectProps) => {
     return (
         <>
             <div className={`${styledJsx.className} container`}>
-                
+                {/* collaborators */}
+                {/* images */}
             </div>
         {styledJsx.styles}
         </>

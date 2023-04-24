@@ -10,6 +10,11 @@ export default css.resolve`
     cursor:pointer;
 }
 
+.onPageContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 .content {
     display: flex;
@@ -22,10 +27,10 @@ export default css.resolve`
     display: grid;
     width: 100%;
     padding: 20px;
-    // border: 1px solid gold;
     grid-template-areas: 
-    "logo logo" 
-    "text text";
+    "logo" 
+    "text"
+    "links";
 }
 
 .logo {
@@ -40,12 +45,23 @@ export default css.resolve`
 
 .onPageLogo {
     grid-area: logo;
-    max-width: 400px;
+    max-width: 100px;
 }
+
+
 
 .logoImage {
     width: 100%;
     height: auto;
+}
+
+.images {
+    border: 1px solid var(--colorBorders);
+    border-radius: 25px;
+    margin: 20px 0;
+    display: flex;
+
+    overflow: hidden;
 }
 
 .textContent {
@@ -73,6 +89,9 @@ export default css.resolve`
     margin-top: 16px;
 }
 
+.projectLinks {
+    grid-area: links;
+}
 
 @media screen and (max-width: 420px) {
     .content {
@@ -105,7 +124,7 @@ export default css.resolve`
     }
 
     .onPageContent {
-
+        padding: 20px;
     }
 }
 `
