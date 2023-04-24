@@ -10,11 +10,22 @@ export default css.resolve`
     cursor:pointer;
 }
 
+
 .content {
     display: flex;
     align-items: center;
     padding: 20px;
     height: 100%;
+}
+
+.onPageContent {
+    display: grid;
+    width: 100%;
+    padding: 20px;
+    // border: 1px solid gold;
+    grid-template-areas: 
+    "logo logo" 
+    "text text";
 }
 
 .logo {
@@ -27,6 +38,11 @@ export default css.resolve`
     flex-shrink: 0;
 }
 
+.onPageLogo {
+    grid-area: logo;
+    max-width: 400px;
+}
+
 .logoImage {
     width: 100%;
     height: auto;
@@ -35,7 +51,12 @@ export default css.resolve`
 .textContent {
     padding: 0 20px;
     max-width: 400px;
-    // flex-shrink: 1;
+}
+
+.onPageTextContent {
+    grid-area: text;
+    padding: 20px 0;
+    max-width: 800px;
 }
 
 .description {
@@ -43,6 +64,9 @@ export default css.resolve`
     color: var(--colorText);
 }
 
+.onPageDescription {
+    max-width: 600px;
+}
 
 .techHolder {
     gap: 8px;
@@ -70,9 +94,17 @@ export default css.resolve`
         max-width: 49%;
     }
 
+    .onPageContainer {
+        max-width: 100%;
+    }
+
     .content {
         max-width: 100%;
         padding: 10px;
+    }
+
+    .onPageContent {
+
     }
 }
 `

@@ -3,16 +3,13 @@ import styledJsx from './ProjectItem.styles';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
+// components
+import { ProjectLinks } from './ProjectLinks/ProjectLinks';
+// types
+import { ProjectContent } from '@/components/Project/Project';
 
 export interface ProjectItemProps {
-    content: {
-        title: string,
-        picture: string,
-        description: string,
-        link: string,
-        tech: string[],
-        type: string,
-    },
+    content: ProjectContent,
     index?: number,
     onPage?:boolean,
 }
@@ -31,12 +28,12 @@ const animations = {
 }
 
 export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
-    const {title, picture, description, link, tech, type} = content;
+    const {title, picture, description, shortText, link, links, tech, type} = content;
 
     return (
         <AnimatePresence>         
                 <motion.div 
-                    className={`${styledJsx.className} container`}
+                    className={`${styledJsx.className} container ${onPage && "onPageContainer"}`}
                     key={link}
                     variants={animations}
                     animate={onPage? undefined: "itemsPop"}
@@ -45,24 +42,36 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                     layoutId={link}
                     layout
                     >
-                    <Link href={onPage? link: 'projects/'+link} className={`${styledJsx.className} content`}>
-                        <div className={`${styledJsx.className} logo`} >
-                            <Image src={picture} alt='projectLogo' width='200' height='200' className={`${styledJsx.className} logoImage`}/>
-                        </div>
-                        <div className={`${styledJsx.className} textContent`}>
+                    <Link href={onPage? link: 'projects/'+link} className={`${styledJsx.className} content ${onPage && "onPageContent"}`}>
+                        <motion.div 
+                            className={`${styledJsx.className} ${onPage? "onPageLogo": "logo"}`} 
+                            key={link+"logo"}
+                            layoutId={link+"logoId"}
+                            >
+                            <Image src={picture} alt='projectLogo' width='200' height='200' className={`${styledJsx.className} ${onPage? "logoImage": "logoImage"}`}/>
+                        </motion.div>
+                        <motion.div 
+                            className={`${styledJsx.className} textContent ${onPage && "onPageTextContent"}`}
+                            key={link+"textContent"}
+                            layoutId={link+"textContentId"}
+                            >
                             <h2>{title}</h2>
-                            <i className={`${styledJsx.className} type`}>{type}</i>
-                            <p className={`${styledJsx.className} description`}>{description}</p>
+                            <i className={`${styledJsx.className} type ${onPage? "onPageType": "type"}`}>{type}</i>
+                            <p className={`${styledJsx.className} description ${onPage && "onPageDescription"}`}>{description}</p>
                             
-                            <div className={`${styledJsx.className} techHolder`}>
+                            <div className={`${styledJsx.className} techHolder ${onPage && "onPagetechHolder"}`}>
                                 <p>
                                 {tech && 
                                     tech.map((item, index) => <b key={index}>{item} </b>)    
                                 }
                                 </p>
                             </div>
-                            
-                        </div>
+                            <AnimatePresence mode="wait">
+                                {onPage && (
+                                    <ProjectLinks links={links}/>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
                     </Link>
                 </motion.div>
                 {styledJsx.styles}          

@@ -45,7 +45,7 @@ const project: NextPageWithLayout = (props)=>{
                 key={projectData.link}
                 onPage
                 />
-            <Project content={projectData}/>
+            {/* <Project content={projectData}/> */}
         </>
     )
 }

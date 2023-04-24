@@ -3,20 +3,33 @@ import styledJsx from './Project.styles';
 import Image from 'next/image';
 import Link from 'next/link';
 import Router from 'next/router';
-import Head from 'next/head';
+// types
+import { ProjectLinksContent } from '../ProjectsList/ProjectsListItems/ProjectItem/ProjectLinks/ProjectLinks';
 
 interface ProjectProps {
     content:any,
 }
 
+export interface ProjectContent {
+    title: string,
+    picture: string,
+    description: string,
+    shortText: string,
+    link: string,
+    type: string,
+    tech: string[],
+    images: string[],
+    links: ProjectLinksContent,
+    themeColor?: string,
+    themeTextColor?: string,
+}
+
 export const Project = ({content}:ProjectProps) => {
+    const {title, picture, description, shortText, link, type, tech, images, demoLink, sourceLink, readMe, themeColor, themeTextColor} = content;
+    
     return (
         <>
-            <Head>
-                <title>{content.title} | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
-            </Head>
             <div className={`${styledJsx.className} container`}>
-                <h1>{content.title}</h1>
                 
             </div>
         {styledJsx.styles}
