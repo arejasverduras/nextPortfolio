@@ -36,7 +36,7 @@ export const ProjectLinks = ({links}:ProjectLinksProps) => {
             </Link>
         </motion.div>
     )
-
+ 
     return (
         <>
             <motion.div

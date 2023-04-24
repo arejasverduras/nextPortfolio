@@ -10,14 +10,27 @@ import { projectData } from "@/content/data";
 import projectsImage from '../../public/images/projects/portfolioChar.png';
 import Head from "next/head";
 
-const Projects: NextPageWithLayout = () => {
+export async function getStaticProps({}:any) {
+    const allProjectData = projectData;
+
+    return {
+        props: {
+            allProjectData: allProjectData,
+        }
+    }
+}
+
+const Projects: NextPageWithLayout = (props) => {
+        // @ts-expect-error;
+        const {allProjectData} = props;
+    
     return (
         <>
             <Head>
                 <title>Projects | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
             </Head>
             <h1>Projects</h1>
-            <ProjectsList projectData={projectData} />
+            <ProjectsList projectData={allProjectData} />
         </>
     )
 }

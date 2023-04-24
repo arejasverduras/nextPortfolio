@@ -4,9 +4,10 @@ import { ProjectsFilter } from './ProjectsFilter/ProjectsFilter';
 import { ProjectsListItems } from './ProjectsListItems/ProjectsListItems';
 // types
 import { ProjectItemProps } from './ProjectsListItems/ProjectItem/ProjectItem';
+import { ProjectContent } from '../Project/Project';
 
 interface ProjectsListProps{
-    projectData: ProjectItemProps["content"][];
+    projectData: ProjectContent[];
 }
 
 export const ProjectsList = ({projectData}:ProjectsListProps) => {
