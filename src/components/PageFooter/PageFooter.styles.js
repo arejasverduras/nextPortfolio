@@ -17,7 +17,7 @@ export default css.resolve`
     overflow: visible;
     transform: rotateY(180deg);
     width: 100%;
-    max-width: 400px;
+    max-width: 200px;
     height: auto;
 }
 

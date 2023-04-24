@@ -20,7 +20,7 @@ font-size: 16px;
   /* light colors */
 --lightDarkPurple: var(--darkDarkPurple);
 --lightGray: #ebeef5;
---lightBloen: #00bec4;
+--lightBloen1: #00bec4;
 --lightDarkGray: #5d5d5f;
 --lightPurple: #7c4dff;
 --lightPurple2: #c57bdb;
@@ -32,7 +32,7 @@ font-size: 16px;
   /* new light colors */
   --lightDarkPurple: var(--darkDarkPurple);
   --lightGray: #ebeef5;
-  --lightBloen: #00bec4;
+  --lightBloen: var(--darkBloen);
   --lightDarkGray: #5d5d5f;
   --lightPurple: #7c4dff;
   --lightPurple2: #c57bdb;
@@ -40,6 +40,18 @@ font-size: 16px;
   --lightRed: #cd6069;
   --lightOrange: #ff6d12;
   --lightBlue: #437aed;
+
+  /* tokyo night light */
+  --lightDarkPurple: var(--darkDarkPurple);
+  --lightGray: #d5d6db;
+  /* --lightBloen: #166775;
+  --lightDarkGray: #5d5d5f;
+  --lightPurple: #5a4a78;
+  --lightPurple2: #5a4a78;
+  --lightYellow: #8f5e15;
+  --lightRed: #b05467;
+  --lightOrange: #965027;
+  --lightBlue: #437aed; */
 
 /* Theme variables (light) */
 --lightBg: var(--lightGray);
@@ -71,7 +83,7 @@ font-size: 16px;
 --darkInputBorders: var(--darkBlue);
 --darkCommands: var(--darkYellow);
 --darkEnterRed: var(--darkOrange);
---darkBolds: var(--lightBloen);
+--darkBolds: var(--lightBloen1);
 --darkItalics: var(--darkPurple);
 --darkSelection: var(--darkBloen);
 
