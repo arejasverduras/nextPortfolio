@@ -60,8 +60,10 @@ export const ImageSlider = ({images}:ImageSliderProps)=>{
                     className={`${styledJsx.className} ${slideIndex === index + 1? "projectSlide active-anim": "projectSlide"}`}
                     >
                         <Image 
-                            src={process.env.PUBLIC_URL + image} 
+                            src={image} 
                             alt="slider"
+                            width="800"
+                            height="320"
                             />
                     </div>
                 )
@@ -79,7 +81,7 @@ export const ImageSlider = ({images}:ImageSliderProps)=>{
                     </div>
                 ))}
             </div>
-                {styledJsx.className}
+                {styledJsx.styles}
         </div>
     )
 }

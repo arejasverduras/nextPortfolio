@@ -10,6 +10,7 @@ import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
 import { ProjectItem } from '@/components/ProjectsList/ProjectsListItems/ProjectItem/ProjectItem';
 import { Project } from '@/components/Project/Project';
+import { ImageSlider } from '@/components/ImageSlider/ImageSlider';
 
 // types
 import { ReactElement } from "react";
@@ -74,18 +75,19 @@ const project: NextPageWithLayout = (props)=>{
                 </div>
                 {/* <Project content={projectData}/> */}
                 {projectData.images.length > 0 && (
-                    // <motion.div 
-                    //     className={`${styledJsx.className} images`}
-                    //     variants={animations}
-                    //     key={title+"images"}
-                    //     animate="imagesIn"
-                    //     exit="imagesOut"
-                    //     layout
-                    //     >
-                    //                 <Image src={images[0]} alt="projectImage" width='1024' height='200'
-                    //                     className={`${styledJsx.className} logoImage`}/>
-                    // </motion.div>
-                    <ImageSlider images={images} />
+                    <motion.div 
+                        className={`${styledJsx.className} images`}
+                        variants={animations}
+                        key={title+"images"}
+                        animate="imagesIn"
+                        exit="imagesOut"
+                        layout
+                        >
+                                    {/* <Image src={images[0]} alt="projectImage" width='1024' height='200'
+                                        className={`${styledJsx.className} logoImage`}/> */}
+                                    <ImageSlider images={images} />
+                    </motion.div>
+                    
                 )}
                 <motion.div 
                     className={`${styledJsx.className} collaborators`}
