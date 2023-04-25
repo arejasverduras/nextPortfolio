@@ -2,6 +2,7 @@ import styledJsx from '../../styles/project.styles.js';
 // dep
 import Head from 'next/head';
 import Image from 'next/image.js';
+import dynamic from 'next/dynamic.js';
 import { motion } from 'framer-motion';
 // lib
 import {getAllProjects, getProject} from "@/lib/project.js"
@@ -11,6 +12,8 @@ import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
 import { ProjectItem } from '@/components/ProjectsList/ProjectsListItems/ProjectItem/ProjectItem';
 import { Project } from '@/components/Project/Project';
 import { ImageSlider } from '@/components/ImageSlider/ImageSlider';
+// dynamics
+// const ProjectReadMe = dynamic(()=> import ('../../components/Project/ProjectReadMe/ProjectReadMe').then((mod) => mod.ProjectReadMe))
 
 // types
 import { ReactElement } from "react";
@@ -39,7 +42,7 @@ interface projectProps {
 const project: NextPageWithLayout = (props)=>{
     // @ts-expect-error;
     const {projectData} = props;
-    const {images, link, title} = projectData;
+    const {images, link, links, title} = projectData;
 
     const animations = {
         imagesIn: {
@@ -108,6 +111,7 @@ const project: NextPageWithLayout = (props)=>{
                     layout
                     >
                     readme
+                    {/* <ProjectReadMe readMe={links.readme}/> */}
                 </motion.div>
                 
             </div>
