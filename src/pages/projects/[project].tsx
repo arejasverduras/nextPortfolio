@@ -1,10 +1,6 @@
 import styledJsx from '../../styles/project.styles.js';
 // dep
 import Head from 'next/head';
-import Image from 'next/image.js';
-import dynamic from 'next/dynamic.js';
-import { useRouter } from 'next/router.js';
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 // lib
 import {getAllProjects, getProject} from "@/lib/project.js"
@@ -12,11 +8,8 @@ import {getAllProjects, getProject} from "@/lib/project.js"
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
 import { ProjectItem } from '@/components/ProjectsList/ProjectsListItems/ProjectItem/ProjectItem';
-import { Project } from '@/components/Project/Project';
-import { ImageSlider } from '@/components/ImageSlider/ImageSlider';
 import { NextImageGallery } from '@/components/NextImageGallery/NextImageGallery';
-// utils
-import { useLastViewedPhoto } from '@/utils/useLastViewedPhoto';
+
 // dynamics
 // const ProjectReadMe = dynamic(()=> import ('../../components/Project/ProjectReadMe/ProjectReadMe').then((mod) => mod.ProjectReadMe))
 
@@ -49,21 +42,6 @@ const ProjectPage: NextPageWithLayout = (props)=>{
     const {projectData} = props;
     const {images, link, links, title} = projectData;
     
-    const router = useRouter();
-    const { photoId } = router.query
-    const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto()
-  
-    const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null)
-
-    useEffect(() => {
-        // This effect keeps track of the last viewed photo in the modal to keep the index page in sync when the user navigates back
-        if (lastViewedPhoto && !photoId) {
-          // @ts-expect-error;
-            lastViewedPhotoRef.current.scrollIntoView({ block: 'center' })
-          setLastViewedPhoto(null)
-        }
-      }, [photoId, lastViewedPhoto, setLastViewedPhoto])
-
     const animations = {
         imagesIn: {
             scaleY: [0.4,1],
@@ -96,7 +74,6 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         onPage
                         />
                 </div>
-                {/* <Project content={projectData}/> */}
                 {projectData.images.length > 0 && (
                     <motion.div 
                         className={`${styledJsx.className} images`}
@@ -106,11 +83,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         exit="imagesOut"
                         layout
                         >
-                                    {/* <Image src={images[0]} alt="projectImage" width='1024' height='200'
-                                        className={`${styledJsx.className} logoImage`}/> */}
-                                    
-                                    <NextImageGallery images={images} />
-                                    {/* <ImageSlider images={images} /> */}
+                            <NextImageGallery images={images} />
                     </motion.div>
                     
                 )}
