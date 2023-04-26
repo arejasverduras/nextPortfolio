@@ -32,21 +32,20 @@ export default css.resolve`
         margin-top: 8px;
     }
 
-    .imageItem {
-        width: 100%;
-        height: auto;
-    }
+
 
     .otherImages {
-        width: 150px;
-        height: 150px;
-        display: flex;
+        width: calc(25% - 8px);
+        height: auto;
+        aspect-ratio: 1/1;
+        display: grid;
+        grid-template-areas: "picture";
         justify-content: center;
         align-items: center;
         overflow:hidden;
         border-radius: 25px;
         cursor: zoom-in;
-        filter: brightness(50%) contrast(125%); 
+        filter: brightness(60%) contrast(125%); 
     }
 
     .otherImages:hover {
@@ -61,6 +60,25 @@ export default css.resolve`
 
     .otherImages .imageItem:hover {
         filter: brightness(100%);
+    }
+
+    .imageItem {
+        grid-area: picture;
+        width: 100%;
+        height: auto;
+    }
+
+    .lastItemOverlay {
+        grid-area: picture;
+        background-color: var(--colorBorders);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        z-index: 10;
+        color: var(--colorBg);
+        opacity: 0.9;
     }
 
 `

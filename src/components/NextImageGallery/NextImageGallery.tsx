@@ -27,6 +27,36 @@ export interface reducedImageProps {
         }
     ));
 
+    let limitedImages = [];
+    reducedImages.forEach(({id,src}, index) => {
+      if (index > 0 && index < 5){
+        limitedImages.push(
+          <div
+              key={id}
+              onClick={()=>{setPhotoId(id)}}
+
+              className={`${styledJsx.className} otherImages`}>
+              <Image
+                alt="Michiel Roukens Portfolio Project Photo"
+                className={`${styledJsx.className} imageItem`}
+                style={{ transform: 'translate3d(0, 0, 0)' }}
+                src={src}
+                width={720}
+                height={480}
+                sizes="(max-width: 640px) 50vw,
+                  (max-width: 1280px) 50vw,
+                  (max-width: 1536px) 50vw,
+                  25vw"
+              />
+              {index === 4 && 
+              (<div className={`${styledJsx.className} lastItemOverlay`}>
+                <div>{`+${reducedImages.length-4}`}</div>
+              </div>)}
+            </div>
+        )
+      }
+    })
+
     return (
         <main 
           className={`${styledJsx.className} container`}>
@@ -57,8 +87,10 @@ export interface reducedImageProps {
         
         <div 
           className={`${styledJsx.className} imageList`}>
-            
-          {reducedImages.map(({ id, src}, index) => (
+          
+
+          {limitedImages}
+          {/* {reducedImages.map(({ id, src}, index) => 
             <div
               key={id}
               onClick={()=>{setPhotoId(id)}}
@@ -77,7 +109,7 @@ export interface reducedImageProps {
                   25vw"
               />
             </div>
-          ))}
+          )} */}
         </div>
         {styledJsx.styles}
       </main>
