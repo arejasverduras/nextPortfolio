@@ -1,7 +1,6 @@
 import styledJsx from './SharedModal.styles';
 import {
   ArrowTopRightOnSquareIcon,
-  ArrowUturnLeftIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   XMarkIcon,
@@ -11,10 +10,8 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import { variants } from '@/utils/animationVariants'
-import downloadPhoto from '@/utils/downloadPhoto'
 import { range } from '@/utils/range'
 import { reducedImageProps } from '../NextImageGallery'
-// import Twitter from './Icons/Twitter'
 
 export default function SharedModal({
   index,
@@ -60,7 +57,7 @@ export default function SharedModal({
       >
         {/* Main image */}
         <div 
-        className={`${styledJsx.className} mainImageContainer `}>
+          className={`${styledJsx.className} mainImageContainer `}>
           <div 
           // className="relative flex aspect-[3/2] items-center justify-center"
           className={`${styledJsx.className} mainImageHolder `}>

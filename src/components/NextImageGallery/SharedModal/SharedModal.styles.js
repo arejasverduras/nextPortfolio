@@ -26,6 +26,7 @@ export default css.resolve`
 
     .mainImage {
         display: flex;
+        position: absolute;
         width: 100%;
         max-width: 1024px;
     }
@@ -131,16 +132,10 @@ export default css.resolve`
 
     .bottomNavHolder {
         position: fixed;
-        right: 0;
-        left:0;
-
         bottom: 0;
         width: 100%;
-        
         overflow:hidden;
         z-index:40;
-
-
     }
 
     .bottomNav {
@@ -148,7 +143,6 @@ export default css.resolve`
         gap: 8px;
         max-width: 800px;
         margin: 1.5rem calc(50% - 100px);
-        
         aspect-ratio: 3/2;
         height: 4.5rem;
     }
@@ -156,15 +150,11 @@ export default css.resolve`
     .currentSmall {
         border-radius: 15px;
         z-index: 20;
-
     }
 
     .smallNotCurrent {
         z-index: 10;
     }
-
-
-    
 
     .small {
         display: inline-block;
@@ -175,7 +165,7 @@ export default css.resolve`
         border: none;
         border-radius: 15px;
         overflow:hidden;
-    }
+    }       
 
     .currentSmallImage {
         filter: brightness(110%);
