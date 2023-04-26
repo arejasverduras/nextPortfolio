@@ -19,7 +19,7 @@ export default css.resolve`
     
     .images {
         grid-area: images;
-        border: 1px solid var(--colorBorders);
+        // border: 1px solid var(--colorBorders);
         border-radius: 25px;
         margin: 20px 0;
         display: flex;
