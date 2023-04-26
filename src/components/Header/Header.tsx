@@ -73,6 +73,7 @@ export const Header = ({home, projects}:any) => {
                     key="hintsHolderLayout"
                     variants={animations}
                     animate="rightIn"
+                    // layout
                     >
                     <Hints
                         setSearchTerm={setSearchTerm}

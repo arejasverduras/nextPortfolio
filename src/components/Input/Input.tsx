@@ -115,7 +115,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         <motion.div 
             className={styles.inputHolder}
             key="inputHolder"
-            layoutId="inputHolder"
+            // layoutId="inputHolder"
             >
                 <AnimatePresence>
                     {!visible && (<motion.div
@@ -133,7 +133,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                 <AnimatePresence>
                     {!visible && (<motion.div
                         className={styles.dot}
-                        key="dot"
+                        key="dot2"
                         variants={animations}
                         initial={{opacity: 0}}
                         animate="enter"

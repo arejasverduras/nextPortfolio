@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 import Modal from './Modal/Modal';
+import { AnimatePresence, motion } from 'framer-motion';
 
 
 export interface reducedImageProps {
@@ -15,9 +16,16 @@ export interface reducedImageProps {
     images: string[]
   }
 
+  const animations = {
+    imageTile: (custom:number) => {
+      return {
+        scale: [0,1],
+        transition: {delay: custom}
+      }
+    }
+  }
+
   export const NextImageGallery = ({images}:NextImageGalleryProps) => {
-    // const router = useRouter()
-    // const { photoId } = router.query
     const [photoId, setPhotoId] = useState(null);
     
     const reducedImages = images.map((image, index) => (
@@ -31,10 +39,12 @@ export interface reducedImageProps {
     reducedImages.forEach(({id,src}, index) => {
       if (index > 0 && index < 5){
         limitedImages.push(
-          <div
+          <motion.div
               key={id}
               onClick={()=>{setPhotoId(id)}}
-
+              variants={animations}
+              animate="imageTile"
+              custom={((index + 1) * 0.15)}
               className={`${styledJsx.className} otherImages`}>
               <Image
                 alt="Michiel Roukens Portfolio Project Photo"
@@ -48,7 +58,7 @@ export interface reducedImageProps {
               (<div className={`${styledJsx.className} lastItemOverlay`}>
                 <div>{`+${reducedImages.length-4}`}</div>
               </div>)}
-            </div>
+            </motion.div>
         )
       }
     })
@@ -56,16 +66,25 @@ export interface reducedImageProps {
     return (
         <main 
           className={`${styledJsx.className} container`}>
-        {photoId !== null && (
-          <Modal
-            images={reducedImages}
-            photoId={photoId}
-            setPhotoId={setPhotoId}
-          />
-        )}
-        <div 
+        <AnimatePresence>
+          {photoId !== null && (
+            <Modal
+              images={reducedImages}
+              photoId={photoId}
+              setPhotoId={setPhotoId}
+            />
+          )}
+        </AnimatePresence>
+        
+        <motion.div 
           className={`${styledJsx.className} firstImageContainer`}
           onClick={()=>{setPhotoId(reducedImages[0].id)}}
+          key="firstImageContainer"
+          animate={{
+            scaleY: [0.4,1],
+            opacity: [0,1],
+            transition: {delay: 1, type: "tween"}
+        }}
           >
           <Image
                   alt="Michiel Roukens Portfolio Project Photo first project"
@@ -79,7 +98,7 @@ export interface reducedImageProps {
                     (max-width: 1536px) 33vw,
                     25vw"
                 />
-          </div>
+          </motion.div>
         
         <div 
           className={`${styledJsx.className} imageList`}>

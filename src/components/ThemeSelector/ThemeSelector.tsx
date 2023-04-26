@@ -52,7 +52,7 @@ export const ThemeSelector = ({theme, setTheme}:ThemeSelectorProps) => {
         <motion.div 
         key="themeSelector"    
         className={styles.theme}
-            layoutId="themeSelector"
+            // layoutId="themeSelector"
             >
                 <FontAwesomeIcon 
                     icon={faMoon} 

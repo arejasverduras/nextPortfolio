@@ -53,10 +53,9 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       initial={false}
       mode="wait"
       onExitComplete={() =>   
-      {setTimeout(() => {
-        if (!router.asPath.includes('#'))
+
        window.scrollTo(0, 0)
-      }, 0);}
+
       }
       >    
           <Component {...pageProps} key={router.asPath} theme={theme} setTheme={setTheme}/>

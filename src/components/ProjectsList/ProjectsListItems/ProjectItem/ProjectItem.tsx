@@ -42,7 +42,11 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                     layoutId={link}
                     layout
                     >
-                    <Link href={onPage? link: 'projects/'+link} className={`${styledJsx.className} content ${onPage && "onPageContent"}`}>
+                    <Link 
+                        href={onPage? link: 'projects/'+link} 
+                        className={`${styledJsx.className} content ${onPage && "onPageContent"}`}
+                        scroll={false}
+                        >
                         <motion.div 
                             className={`${styledJsx.className} ${onPage? "onPageLogo": "logo"}`} 
                             key={link+"logo"}
@@ -50,7 +54,6 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                             >
                             <Image src={picture} alt='projectLogo' width='200' height='200' className={`${styledJsx.className} ${onPage? "logoImage": "logoImage"}`}/>
                         </motion.div>
-                        
                         <motion.div 
                             className={`${styledJsx.className} textContent ${onPage && "onPageTextContent"}`}
                             key={link+"textContent"}
@@ -72,11 +75,9 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                     </Link>
                         {onPage && (
                             <>
-                             
-                            <div className={`${styledJsx.className} projectLinks`}>
-                                <ProjectLinks links={links}/>
-                            </div>
-                            
+                                <div className={`${styledJsx.className} projectLinks`}>
+                                    <ProjectLinks links={links}/>
+                                </div>
                             </>
                         )}
                 </motion.div>

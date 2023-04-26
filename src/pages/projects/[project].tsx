@@ -79,7 +79,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         className={`${styledJsx.className} images`}
                         variants={animations}
                         key={title+"images"}
-                        animate="imagesIn"
+                        // animate="imagesIn"
                         exit="imagesOut"
                         layout
                         >

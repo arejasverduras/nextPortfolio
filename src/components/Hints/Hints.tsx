@@ -61,7 +61,7 @@ export const Hints = ({setSearchTerm, setShowMessage, home}:HintsProps) => {
                 className={`${styles.hintsHolder} ${home && styles.hintsHolderHome}`} 
                 onClick={toggleHints}
                 key="hintsHolderHints"
-                layout
+                // layout
                 // layoutId="hintsHolder"
                 >
                 <motion.div
@@ -71,7 +71,7 @@ export const Hints = ({setSearchTerm, setShowMessage, home}:HintsProps) => {
                     initial={{rotate:0}}
                     animate={hints? "hintsRotate": "hintsRotateBack"}
                     onClick={!hints?()=>setShowMessage(false):undefined}
-                    layout
+                    // layout
                     >
                         <FontAwesomeIcon icon={faQuestion}/>
                     </motion.div>
