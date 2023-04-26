@@ -18,6 +18,7 @@ export default function PageLayout({children, home}:PageLayoutProps) {
     const [isHome, setIsHome] = useState(router.asPath === '/');
     const [isProjects, setIsProjects] = useState(router.asPath === '/projects');
     const [isSubProjects, setIsSubProjects] = useState(false);
+    const [isPhoto, setIsPhoto] = useState(router.asPath.includes('?'));
 
     const animations = {
         pageIn: {
@@ -52,6 +53,7 @@ export default function PageLayout({children, home}:PageLayoutProps) {
         setIsHome(router.asPath === '/');
         setIsProjects(router.asPath === '/projects');
         setIsSubProjects(router.asPath.includes('\/projects\/'));
+        setIsPhoto(router.asPath.includes('?'));
     },[router.asPath])
 
     
@@ -67,8 +69,8 @@ export default function PageLayout({children, home}:PageLayoutProps) {
                     variants={animations}
                     key={router.asPath}
                     initial={isSubProjects? "": {x: 600, opacity: 0}}
-                    animate={isSubProjects? "pageInProjects": "pageIn"}
-                    exit={isHome? "pageOutHome": isSubProjects? "pageOutProjects": isProjects? "pageOutProjects" : "pageOut"}
+                    animate={isPhoto? "" : isSubProjects? "pageInProjects": "pageIn"}
+                    exit={isHome? "pageOutHome": (isPhoto ? "": isSubProjects? "pageOutProjects": isProjects? "pageOutProjects" : "pageOut")}
                     transition={{duration: 0.4}}
                     >
                         {children}

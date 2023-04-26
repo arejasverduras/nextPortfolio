@@ -1,30 +1,35 @@
+import styledJsx from './Modal.styles';
 import { Dialog } from '@headlessui/react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
 import useKeypress from 'react-use-keypress'
-import { ImageProps } from '../pages'
-import SharedModal from './SharedModal'
+import { reducedImageProps } from '../NextImageGallery'
+import SharedModal from '../SharedModal/SharedModal'
 
 export default function Modal({
   images,
-  onClose,
+  photoId, 
+  setPhotoId
 }: {
-  images: ImageProps[]
-  onClose?: () => void
+  images: reducedImageProps[],
+  photoId: number,
+  setPhotoId: (id:number | null)=>void,
+  // onClose?: () => void
 }) {
   let overlayRef = useRef()
-  const router = useRouter()
+  // const router = useRouter()
 
-  const { photoId } = router.query
+  // const { photoId } = router.query
   let index = Number(photoId)
 
   const [direction, setDirection] = useState(0)
   const [curIndex, setCurIndex] = useState(index)
 
   function handleClose() {
-    router.push('/', undefined, { shallow: true })
-    onClose()
+    // router.push('/', undefined, { shallow: true })
+    setPhotoId(null)
+    // onClose()
   }
 
   function changePhotoId(newVal: number) {
@@ -34,13 +39,7 @@ export default function Modal({
       setDirection(-1)
     }
     setCurIndex(newVal)
-    router.push(
-      {
-        query: { photoId: newVal },
-      },
-      `/p/${newVal}`,
-      { shallow: true }
-    )
+    setPhotoId(newVal)
   }
 
   useKeypress('ArrowRight', () => {
@@ -61,13 +60,15 @@ export default function Modal({
       open={true}
       onClose={handleClose}
       initialFocus={overlayRef}
-      className="fixed inset-0 z-10 flex items-center justify-center"
+      // className="fixed inset-0 z-10 flex items-center justify-center"
+      className={`${styledJsx.className} dialog`}
     >
       <Dialog.Overlay
         ref={overlayRef}
         as={motion.div}
         key="backdrop"
-        className="fixed inset-0 z-30 bg-black/70 backdrop-blur-2xl"
+        // className="fixed inset-0 z-30 bg-black/70 backdrop-blur-2xl"
+        className={`${styledJsx.className} dialogOverlay`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       />
@@ -79,6 +80,8 @@ export default function Modal({
         closeModal={handleClose}
         navigation={true}
       />
+    {styledJsx.styles}
     </Dialog>
+    
   )
 }

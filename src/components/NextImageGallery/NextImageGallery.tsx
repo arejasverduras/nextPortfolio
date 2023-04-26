@@ -1,9 +1,9 @@
 import styledJsx from './NextImageGallery.styles';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useRouter } from 'next/router'
-
-// import Modal from '../components/Modal'
+import Modal from './Modal/Modal';
 
 
 export interface reducedImageProps {
@@ -16,8 +16,9 @@ export interface reducedImageProps {
   }
 
   export const NextImageGallery = ({images}:NextImageGalleryProps) => {
-    const router = useRouter()
-    const { photoId } = router.query
+    // const router = useRouter()
+    // const { photoId } = router.query
+    const [photoId, setPhotoId] = useState(null);
     
     const reducedImages = images.map((image, index) => (
         {
@@ -27,30 +28,31 @@ export interface reducedImageProps {
     ));
 
     return (
-        <main className="mx-auto max-w-[1960px] p-4">
-        {photoId && (
-        //   <Modal
-        //     images={reducedImages}
-        //     onClose={() => {
-        //       setLastViewedPhoto(photoId)
-        //     }}
-        //   />
-            <div>MODAL</div>
+        <main 
+          className={`${styledJsx.className} container`}>
+        {photoId !== null && (
+          <Modal
+            images={reducedImages}
+            photoId={photoId}
+            setPhotoId={setPhotoId}
+          />
         )}
-        <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
+        <div 
+          // className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4"
+          className={`${styledJsx.className} imageList`}>
 
-          {reducedImages.map(({ id, src}) => (
-            <Link
+          {reducedImages.map(({ id, src}, index) => (
+            <div
               key={id}
-              href={`${router.asPath}?photoId=${id}`}
+              onClick={()=>{setPhotoId(id)}}
               // as={`/p/${id}`}
             //   ref={id === Number(lastViewedPhoto) ? lastViewedPhotoRef : null}
-              shallow
-              className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
-            >
+              className={`${styledJsx.className} imageContainer ${index === 0 && 'firstImage'}`}>
+              {/* className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight" */}
               <Image
                 alt="Michiel Roukens Portfolio Project Photo"
-                className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
+                // className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
+                className={`${styledJsx.className} imageItem`}
                 style={{ transform: 'translate3d(0, 0, 0)' }}
                 src={src}
                 width={720}
@@ -60,9 +62,10 @@ export interface reducedImageProps {
                   (max-width: 1536px) 33vw,
                   25vw"
               />
-            </Link>
+            </div>
           ))}
         </div>
+        {styledJsx.styles}
       </main>
     )
   }
