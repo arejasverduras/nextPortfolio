@@ -45,7 +45,7 @@ export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
                     <Link 
                         href={onPage? link: 'projects/'+link} 
                         className={`${styledJsx.className} content ${onPage && "onPageContent"}`}
-                        scroll={false}
+                        // scroll={false}
                         >
                         <motion.div 
                             className={`${styledJsx.className} ${onPage? "onPageLogo": "logo"}`} 

@@ -54,7 +54,10 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       mode="wait"
       onExitComplete={() =>   
 
-       window.scrollTo(0, 0)
+{      
+  //  window.scrollTo(0, 0)
+}
+
 
       }
       >    
