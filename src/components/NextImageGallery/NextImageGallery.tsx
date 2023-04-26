@@ -41,12 +41,8 @@ export interface reducedImageProps {
                 className={`${styledJsx.className} imageItem`}
                 style={{ transform: 'translate3d(0, 0, 0)' }}
                 src={src}
-                width={720}
-                height={480}
-                sizes="(max-width: 640px) 50vw,
-                  (max-width: 1280px) 50vw,
-                  (max-width: 1536px) 50vw,
-                  50vw"
+                width={400}
+                height={400}
               />
               {index === 4 && 
               (<div className={`${styledJsx.className} lastItemOverlay`}>

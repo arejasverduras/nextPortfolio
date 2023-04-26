@@ -42,7 +42,7 @@ export default css.resolve`
         display: grid;
         grid-template-areas: "picture";
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         overflow:hidden;
         border-radius: 25px;
         cursor: zoom-in;
@@ -76,7 +76,7 @@ export default css.resolve`
         height: 100%;
         display: flex;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
         z-index: 10;
         color: var(--colorCommands);
         opacity: 1;
