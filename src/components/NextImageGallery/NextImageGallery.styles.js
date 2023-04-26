@@ -4,7 +4,8 @@ export default css.resolve`
     .container {
         width: 100%;
         height: auto;
-        margin: 0 auto;
+        // margin: 0 auto;
+        max-width: 900px;
     }
 
     .firstImageContainer {
@@ -70,15 +71,16 @@ export default css.resolve`
 
     .lastItemOverlay {
         grid-area: picture;
-        background-color: var(--colorBorders);
+        background-color: var(--colorHeaderBg);
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center; 
         z-index: 10;
-        color: var(--colorBg);
-        opacity: 0.9;
+        color: var(--colorCommands);
+        opacity: 1;
+        font-size: 2.5em;
     }
 
 `
