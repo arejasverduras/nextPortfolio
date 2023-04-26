@@ -115,7 +115,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         <motion.div 
             className={styles.inputHolder}
             key="inputHolder"
-            // layoutId="inputHolder"
+            layoutId="inputHolder"
             >
                 <AnimatePresence>
                     {!visible && (<motion.div
