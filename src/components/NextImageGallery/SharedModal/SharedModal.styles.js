@@ -64,8 +64,12 @@ export default css.resolve`
         top: calc(50%-16px);
         color: var(--colorText);
         background-color: var(--colorBg);
+        border:none;
+        padding-right: 2px;
         border-radius: 100%;
         width: 50px;
+        height: 50px;
+        cursor:pointer;
     }
 
     .buttonRight {
@@ -74,8 +78,13 @@ export default css.resolve`
         top: calc(50%-16px);
         color: var(--colorText);
         background-color: var(--colorBg);
+        border:none;
+   
+        padding-left: 2px;
         border-radius: 100%;
         width: 50px;
+        height: 50px;
+        cursor:pointer;
     }
 
     .close {
@@ -84,6 +93,7 @@ export default css.resolve`
         left: 20px;
         display: flex;
         align-items: center;
+        
     }
 
     .closeButton {
@@ -91,6 +101,8 @@ export default css.resolve`
         width: 30px;
         border-radius: 50%;
         color: var(--colorText);
+        cursor: pointer;
+        border: none;
     }
 
     .openFullSize {
@@ -110,34 +122,49 @@ export default css.resolve`
         top: 20px;
         right: 20px;
         color: var(--colorText);
-        
         width: 30px;
     }
 
+    .icon {
+        width: 24px;
+    }
+
     .bottomNavHolder {
-        left: 50%;
         position: fixed;
-        bottom: 50px;
+        right: 0;
+        left:0;
+
+        bottom: 0;
         width: 100%;
         
-        
+        overflow:hidden;
+        z-index:40;
+
+
     }
 
     .bottomNav {
         display: flex;
         gap: 8px;
+        max-width: 800px;
+        margin: 1.5rem calc(50% - 100px);
+        
+        aspect-ratio: 3/2;
+        height: 4.5rem;
     }
 
     .currentSmall {
         border-radius: 15px;
-
         z-index: 20;
+
     }
 
     .smallNotCurrent {
         z-index: 10;
-        
     }
+
+
+    
 
     .small {
         display: inline-block;
@@ -166,6 +193,10 @@ export default css.resolve`
     .notCurrentSmallImage:hover {
         filter: brightness(75%);
 
+    }
+
+    .smallImage {
+        border-radius: 15px;
     }
 
 `

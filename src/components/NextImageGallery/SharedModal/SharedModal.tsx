@@ -104,7 +104,9 @@ export default function SharedModal({
                       style={{ transform: 'translate3d(0, 0, 0)' }}
                       onClick={() => changePhotoId(index - 1)}
                     >
-                      <ChevronLeftIcon />
+                      <ChevronLeftIcon
+                      className={`${styledJsx.className} icon`}  
+                      />
                     </button>
                   )}
                   {index + 1 < images.length && (
@@ -113,7 +115,9 @@ export default function SharedModal({
                       style={{ transform: 'translate3d(0, 0, 0)' }}
                       onClick={() => changePhotoId(index + 1)}
                     >
-                      <ChevronRightIcon />
+                      <ChevronRightIcon 
+                      className={`${styledJsx.className} icon`}  
+                      />
                     </button>
                   )}
                 </>
@@ -129,7 +133,9 @@ export default function SharedModal({
                     title="Open fullsize version"
                     rel="noreferrer"
                   >
-                    <ArrowTopRightOnSquareIcon />
+                    <ArrowTopRightOnSquareIcon 
+                    className={`${styledJsx.className} icon`}  
+                    />
                   </a>
 
 
@@ -141,7 +147,9 @@ export default function SharedModal({
                   onClick={() => closeModal()}
                   className={`${styledJsx.className} closeButton`}  
                 >
-                    <XMarkIcon />
+                    <XMarkIcon 
+                    className={`${styledJsx.className} icon`}  
+                    />
                 </button>
               </div>
             </div>
@@ -187,10 +195,8 @@ export default function SharedModal({
                         className={`${styledJsx.className} ${
                           id === index
                             ? 'currentSmallImage'
-                            // ? 'brightness-110 hover:brightness-110'
-                            // : 'brightness-50 contrast-125 hover:brightness-75'
                             : 'notCurrentSmallImage'
-                        } h-full transform object-cover transition`}
+                        } smallImage`}
                         src={src}
                       />
                     </motion.button>
