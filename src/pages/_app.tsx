@@ -44,7 +44,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       }, 400);
       setTimeout(() => {
         scrollTop();
-      }, 200);
+      }, 300);
     }
     Router.events.on("routeChangeStart", start)
     Router.events.on("routeChangeComplete", end)
