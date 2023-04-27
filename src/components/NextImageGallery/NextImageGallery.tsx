@@ -46,21 +46,27 @@ export interface reducedImageProps {
               animate="imageTile"
               custom={((index + 1) * 0.15)}
               className={`${styledJsx.className} otherImages`}>
-              <Image
-                alt="Michiel Roukens Portfolio Project Photo"
-                className={`${styledJsx.className} imageItem`}
-                style={{ transform: 'translate3d(0, 0, 0)' }}
-                src={src}
-                width={400}
-                height={400}
-              />
-              {index === 4 && 
-              (<div className={`${styledJsx.className} lastItemOverlay`}>
-                <div>{`+${reducedImages.length-4}`}</div>
-              </div>)}
+              
+              {index !== 4 ? (              
+                <Image
+                  alt="Michiel Roukens Portfolio Project Photo"
+                  className={`${styledJsx.className} imageItem`}
+                  style={{ transform: 'translate3d(0, 0, 0)' }}
+                  src={src}
+                  width={400}
+                  height={400}
+                />
+              )
+              : 
+              (
+                <div className={`${styledJsx.className} lastItemOverlay`}>
+                  <div>{`+${reducedImages.length-4}`}</div>
+                </div>
+              )
+              }
             </motion.div>
         )
-      }
+      } 
     })
 
     return (
@@ -93,38 +99,16 @@ export interface reducedImageProps {
                   src={reducedImages[0].src}
                   width={720}
                   height={480}
-                  sizes="(max-width: 640px) 100vw,
-                    (max-width: 1280px) 50vw,
-                    (max-width: 1536px) 33vw,
-                    25vw"
+                  // sizes="(max-width: 640px) 100vw,
+                  //   (max-width: 1280px) 50vw,
+                  //   (max-width: 1536px) 33vw,
+                  //   25vw"
                 />
           </motion.div>
         
         <div 
           className={`${styledJsx.className} imageList`}>
-          
-
           {limitedImages}
-          {/* {reducedImages.map(({ id, src}, index) => 
-            <div
-              key={id}
-              onClick={()=>{setPhotoId(id)}}
-
-              className={`${styledJsx.className} otherImages`}>
-              <Image
-                alt="Michiel Roukens Portfolio Project Photo"
-                className={`${styledJsx.className} imageItem`}
-                style={{ transform: 'translate3d(0, 0, 0)' }}
-                src={src}
-                width={720}
-                height={480}
-                sizes="(max-width: 640px) 100vw,
-                  (max-width: 1280px) 50vw,
-                  (max-width: 1536px) 33vw,
-                  25vw"
-              />
-            </div>
-          )} */}
         </div>
         {styledJsx.styles}
       </main>

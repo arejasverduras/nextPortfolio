@@ -36,11 +36,10 @@ export default css.resolve`
 
 
     .otherImages {
-        width: calc(25% - 8px);
+        width: calc(25% - 6px);
         height: auto;
         aspect-ratio: 1/1;
-        display: grid;
-        grid-template-areas: "picture";
+        display: flex;
         justify-content: center;
         align-items: flex-start;
         overflow:hidden;
@@ -53,33 +52,26 @@ export default css.resolve`
         filter: brightness(110%);
     }
 
-    .otherImages .imageItem {
+    .imageItem {
         height: 100%;
         width: auto;
         transition: all 200ms;
     }
 
-    .otherImages .imageItem:hover {
+    .imageItem:hover {
         filter: brightness(100%);
     }
 
-    .imageItem {
-        grid-area: picture;
-        width: 100%;
-        height: auto;
-    }
-
     .lastItemOverlay {
-        grid-area: picture;
         background-color: var(--colorHeaderBg);
-        width: 100%;
+        width: auto;
         height: 100%;
+        aspect-ratio: 1/1;
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 10;
+        z-index: 30;
         color: var(--colorCommands);
-        opacity: 1;
         font-size: 2.5em;
     }
 

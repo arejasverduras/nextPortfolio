@@ -75,16 +75,12 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         />
                 </div>
                 {projectData.images.length > 0 && (
-                    <motion.div 
+                    <div 
                         className={`${styledJsx.className} images`}
-                        variants={animations}
                         key={title+"images"}
-                        // animate="imagesIn"
-                        exit="imagesOut"
-                        layout
                         >
                             <NextImageGallery images={images} />
-                    </motion.div>
+                    </div>
                     
                 )}
                 <motion.div 
