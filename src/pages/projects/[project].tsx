@@ -40,7 +40,7 @@ interface projectProps {
 const ProjectPage: NextPageWithLayout = (props)=>{
     // @ts-expect-error;
     const {projectData} = props;
-    const {images, link, links, title} = projectData;
+    const {images, link, links, title, shortText, highlights} = projectData;
     
     const animations = {
         imagesIn: {
@@ -58,8 +58,9 @@ const ProjectPage: NextPageWithLayout = (props)=>{
             opacity: [0,1],
             transition: {delay: 0.6, type: "tween"}
         }
-
     }
+
+    const shortTextHighlighted = shortText.slice(0,75);
     
     return (
         <>
@@ -81,7 +82,6 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         >
                             <NextImageGallery images={images} />
                     </div>
-                    
                 )}
                 <motion.div 
                     className={`${styledJsx.className} collaborators`}
@@ -94,10 +94,32 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                     collaborators
                 </motion.div>
                 <motion.div 
+                    className={`${styledJsx.className} description`}
+                    variants={animations}
+                    key={title+"description"}
+                    animate="leftIn"
+                    exit="imagesOut"
+                    layout
+                    >
+                        <h1 className={`${styledJsx.className} descriptionH1`}>{title}</h1>
+                    {shortText}
+                </motion.div>
+                {/* {highlights && (<motion.div 
+                    className={`${styledJsx.className} description`}
+                    variants={animations}
+                    key={title+"description"}
+                    animate="leftIn"
+                    exit="imagesOut"
+                    layout
+                    >
+                        <h2 className={`${styledJsx.className} descriptionH2`}>Highlights</h2>
+                    {highlights}
+                </motion.div>)} */}
+                <motion.div 
                     className={`${styledJsx.className} readme`}
                     variants={animations}
                     key={title+"readme"}
-                    animate="leftIn"
+                    animate="rightIn"
                     exit="imagesOut"
                     layout
                     >

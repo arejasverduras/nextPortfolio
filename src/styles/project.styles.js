@@ -10,8 +10,6 @@ export default css.resolve`
         width: 100%;
     }
 
-
-
     .logoImage {
         width: 100%;
         height: auto;
@@ -36,13 +34,26 @@ export default css.resolve`
         width: 100%;
     }
 
+    .description {
+        grid-area: description;
+        border: 1px solid var(--colorBorders);
+        border-radius: 25px;
+        padding: 20px;
+        width: 100%;
+        margin: 20px 0;
+        max-width: 700px;
+    }
+
+    .descriptionH1 {
+        text-align: left;
+    }
+
     .readme {
         grid-area: readme;
         border: 1px solid var(--colorBorders);
         border-radius: 25px;
         padding: 20px;
         width: 100%;
-        margin: 20px 0;
     }
 
 @media screen and (min-width: 768px) {
@@ -51,6 +62,7 @@ export default css.resolve`
         grid-template-areas: 
         "projectItem images"
         "projectItem collaborators"
+        "description description"
         "readme readme"
         ;
         gap: 20px;
