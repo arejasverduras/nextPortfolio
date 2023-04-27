@@ -54,6 +54,9 @@ export default css.resolve`
         border-radius: 25px;
         padding: 20px;
         width: 100%;
+        height: auto;
+        max-width: 700px;
+        transition: all 400ms;
     }
 
 @media screen and (min-width: 768px) {

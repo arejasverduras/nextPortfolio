@@ -1,9 +1,11 @@
 import styledJsx from '../../styles/project.styles.js';
 // dep
 import Head from 'next/head';
-import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic.js';
+import { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 // lib
-import {getAllProjects, getProject} from "@/lib/project.js"
+import {getAllProjects, getProject, getReadMe} from "@/lib/project.js"
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
@@ -11,7 +13,7 @@ import { ProjectItem } from '@/components/ProjectsList/ProjectsListItems/Project
 import { NextImageGallery } from '@/components/NextImageGallery/NextImageGallery';
 
 // dynamics
-// const ProjectReadMe = dynamic(()=> import ('../../components/Project/ProjectReadMe/ProjectReadMe').then((mod) => mod.ProjectReadMe))
+const ProjectReadMe = dynamic(()=> import ('../../components/Project/ProjectReadMe/ProjectReadMe').then((mod) => mod.ProjectReadMe))
 
 // types
 import { ReactElement } from "react";
@@ -25,6 +27,7 @@ export async function getStaticPaths () {
 
 export async function getStaticProps ({params}:any) {
     const projectData =  await getProject(params.project);
+   
     
     return {
         props: {
@@ -41,7 +44,8 @@ const ProjectPage: NextPageWithLayout = (props)=>{
     // @ts-expect-error;
     const {projectData} = props;
     const {images, link, links, title, shortText, highlights} = projectData;
-    
+    const [showReadMe, setShowReadMe] = useState(false);
+   
     const animations = {
         imagesIn: {
             scaleY: [0.4,1],
@@ -60,8 +64,10 @@ const ProjectPage: NextPageWithLayout = (props)=>{
         }
     }
 
-    const shortTextHighlighted = shortText.slice(0,75);
-    
+    const toggleReadMe = () => {
+        setShowReadMe(!showReadMe);
+    }
+
     return (
         <>
             <Head>
@@ -104,27 +110,21 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         <h1 className={`${styledJsx.className} descriptionH1`}>{title}</h1>
                     {shortText}
                 </motion.div>
-                {/* {highlights && (<motion.div 
-                    className={`${styledJsx.className} description`}
-                    variants={animations}
-                    key={title+"description"}
-                    animate="leftIn"
-                    exit="imagesOut"
-                    layout
-                    >
-                        <h2 className={`${styledJsx.className} descriptionH2`}>Highlights</h2>
-                    {highlights}
-                </motion.div>)} */}
                 <motion.div 
                     className={`${styledJsx.className} readme`}
                     variants={animations}
                     key={title+"readme"}
                     animate="rightIn"
                     exit="imagesOut"
-                    layout
+                    // layout
+                    onClick={(toggleReadMe)}
                     >
                     readme
-                    {/* <ProjectReadMe readMe={links.readme}/> */}
+                    <AnimatePresence>
+                    {showReadMe && links.readMe && (
+                        <ProjectReadMe readMe={links.readMe}/>
+                    )}
+                    </AnimatePresence>
                 </motion.div>
                 
             </div>
