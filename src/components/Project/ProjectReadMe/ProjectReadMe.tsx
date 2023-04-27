@@ -1,4 +1,3 @@
-import styles from './ProjectReadMe.module.css';
 import React, { useState, useEffect } from 'react';
 import Markdown from 'markdown-to-jsx';
 import { motion } from 'framer-motion';
@@ -26,7 +25,7 @@ export const ProjectReadMe = ({readMe}) => {
             .catch(err => {
                 console.log(err);
                 setLoading(false);
-                setPost(<p>Loading ReadMe file failed</p>)
+                setPost('<p>Loading ReadMe file failed</p>')
             });
         }
         
@@ -39,7 +38,7 @@ export const ProjectReadMe = ({readMe}) => {
                 <Loading/>
                 : 
                 <motion.div 
-                    className={styles.container}
+                    className="readMeContainer"
                     key="fullReadMe"
                     initial={{opacity: 0}}
                     animate={{opacity: [0,1], transition: {delay: 0.4}}}

@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import '@/styles/readme.css'
 // deps
 import { AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
