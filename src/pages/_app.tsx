@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 // deps
 import { AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Router from 'next/router';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -27,6 +27,11 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
   const [loading, setLoading] = useState(false);
   const [theme, setTheme] = useState('light');
 
+  const compRef = useRef(null);
+
+  const scrollTop = () => {
+    window.scrollTo({top: 0,left: 0, behavior: "smooth"});
+  }
 
   useEffect(() => {
     const start = () => {
@@ -35,7 +40,10 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
     const end = () => {
       setTimeout(() => {
         setLoading(false)
-      }, 0);
+      }, 400);
+      setTimeout(() => {
+        scrollTop();
+      }, 800);
     }
     Router.events.on("routeChangeStart", start)
     Router.events.on("routeChangeComplete", end)
@@ -46,22 +54,21 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       Router.events.off("routeChangeError", end)
     }
   }, [])
+
+  // useEffect(()=>{
+  //   if (!loading ) {
+
+  //   }
+  // },[loading])
   
   return getLayout(
     <>
     <AnimatePresence
       initial={false}
       mode="wait"
-      onExitComplete={() =>   
-
-{      
-  //  window.scrollTo(0, 0)
-}
-
-
-      }
+      // onExitComplete={() => scrollTop()}
       >    
-          <Component {...pageProps} key={router.asPath} theme={theme} setTheme={setTheme}/>
+          <Component {...pageProps} key={router.route} theme={theme} setTheme={setTheme} ref={compRef}/>
     </AnimatePresence>
     <AnimatePresence
       >

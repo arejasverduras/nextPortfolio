@@ -68,7 +68,7 @@ export default function PageLayout({children, home}:PageLayoutProps) {
                 <motion.main
                     variants={animations}
                     key={router.asPath}
-                    initial={isSubProjects? "": {x: 600, opacity: 0}}
+                    initial={isSubProjects || isProjects? "": {x: 600, opacity: 0}}
                     animate={isPhoto? "" : isSubProjects? "pageInProjects": "pageIn"}
                     exit={isHome? "pageOutHome": (isPhoto ? "": isSubProjects? "pageOutProjects": isProjects? "pageOutProjects" : "pageOut")}
                     transition={{duration: 0.4}}

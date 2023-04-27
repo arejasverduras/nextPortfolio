@@ -49,8 +49,10 @@ export const Hints = ({setSearchTerm, setShowMessage, home}:HintsProps) => {
                 key={index} 
                 className={styles.hintLink}
                 href={`/${item === 'home'? '': item}`} 
-                onClick={toggleHints}>
+                onClick={toggleHints}
+                scroll={false}>
                     {`>`} {item}
+                
                 </Link>
         )
     }
