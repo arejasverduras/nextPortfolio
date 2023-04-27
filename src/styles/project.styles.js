@@ -59,6 +59,27 @@ export default css.resolve`
         transition: all 400ms;
     }
 
+    .readMeVisible {
+        height: 100%;
+    }
+
+    .readmeToggle {
+        cursor: pointer;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+    }
+
+    .readmeIcon {
+        width: 20px;
+        transition: all 400ms;
+    }
+
+    .readMeIconVisible {
+        transform: rotate(90deg);
+    }
+
 @media screen and (min-width: 768px) {
     .container {
         display: grid;
@@ -70,6 +91,16 @@ export default css.resolve`
         ;
         gap: 20px;
         grid-template-columns: 1fr 2fr;
+    }
+
+    .readme {
+        width: 50%;
+        height: 
+        transition: all 400ms;
+    }
+
+    .readMeVisible {
+        width: 100%;
     }
 }
 `

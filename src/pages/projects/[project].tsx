@@ -1,8 +1,10 @@
 import styledJsx from '../../styles/project.styles.js';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
+import { GitHub } from '@/icons/github';
 // dep
 import Head from 'next/head';
 import dynamic from 'next/dynamic.js';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 // lib
 import {getAllProjects, getProject, getReadMe} from "@/lib/project.js"
@@ -28,7 +30,6 @@ export async function getStaticPaths () {
 export async function getStaticProps ({params}:any) {
     const projectData =  await getProject(params.project);
    
-    
     return {
         props: {
             projectData: projectData,
@@ -36,9 +37,6 @@ export async function getStaticProps ({params}:any) {
     }
 }
 
-interface projectProps {
-    // projectData:any,
-}
 
 const ProjectPage: NextPageWithLayout = (props)=>{
     // @ts-expect-error;
@@ -110,22 +108,24 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         <h1 className={`${styledJsx.className} descriptionH1`}>{title}</h1>
                     {shortText}
                 </motion.div>
-                <motion.div 
-                    className={`${styledJsx.className} readme`}
+
+                {links.readMe && (<motion.div 
+                    className={`${styledJsx.className} readme ${showReadMe && 'readMeVisible'}`}
                     variants={animations}
                     key={title+"readme"}
                     animate="rightIn"
                     exit="imagesOut"
-                    // layout
-                    onClick={(toggleReadMe)}
+                    layout
                     >
-                    readme
+                    <h2
+                    className={`${styledJsx.className} readmeToggle`}
+                        onClick={(toggleReadMe)}><GitHub color={showReadMe ? 'var(--colorH2)' : 'var(--colorText'} />readme <ChevronRightIcon className={`${styledJsx.className} readmeIcon ${showReadMe && 'readMeIconVisible'}`} /></h2>
                     <AnimatePresence>
-                    {showReadMe && links.readMe && (
+                    {showReadMe && (
                         <ProjectReadMe readMe={links.readMe}/>
                     )}
                     </AnimatePresence>
-                </motion.div>
+                </motion.div>)}
                 
             </div>
             {styledJsx.styles} 
