@@ -63,6 +63,12 @@ export default css.resolve`
         height: 100%;
     }
 
+    .readmeSubHolder {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+    }
+
     .readmeToggle {
         cursor: pointer;
         display: flex;

@@ -27,6 +27,11 @@ export default css.resolve`
 @media screen and (max-width: 537px) {
     .container {
         margin-top: 125px;
+        padding: 0;
+    }
+
+    .sectionContent {
+        border: none;
     }
 }
 `

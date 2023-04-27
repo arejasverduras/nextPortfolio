@@ -119,7 +119,12 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                     >
                     <h2
                     className={`${styledJsx.className} readmeToggle`}
-                        onClick={(toggleReadMe)}><GitHub color={showReadMe ? 'var(--colorH2)' : 'var(--colorText'} />readme <ChevronRightIcon className={`${styledJsx.className} readmeIcon ${showReadMe && 'readMeIconVisible'}`} /></h2>
+                        onClick={(toggleReadMe)}>
+                            <div className={`${styledJsx.className} readmeSubHolder`}>
+                                <GitHub color={showReadMe ? 'var(--colorH2)' : 'var(--colorText'} />
+                                readme 
+                            </div>
+                            <ChevronRightIcon className={`${styledJsx.className} readmeIcon ${showReadMe && 'readMeIconVisible'}`} /></h2>
                     <AnimatePresence>
                     {showReadMe && (
                         <ProjectReadMe readMe={links.readMe}/>
