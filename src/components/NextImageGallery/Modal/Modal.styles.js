@@ -8,22 +8,10 @@ export default css.resolve`
         width: 100vw;
         height: 100vh;
         background-color: var(--colorBg);
-        
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 10;
         
-    }
-
-    .dialogOverlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: var(--colorBg);
-        filter: blur(50px);
-        z-index: 30;
     }
 `

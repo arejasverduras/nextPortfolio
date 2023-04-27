@@ -57,6 +57,7 @@ export const Header = ({home, projects}:any) => {
                                 setMessage={setMessage}
                                 setShowMessage={setShowMessage}
                                 setTheme={setTheme}
+                                trackLayout={!projects}
                                 />
                         </motion.div>
                         <Message 

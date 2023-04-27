@@ -76,6 +76,7 @@ const Home:NextPageWithLayout = () => {
                 setMessage={setMessage}
                 setShowMessage={setShowMessage}
                 setTheme={()=>{}}
+                trackLayout
                 />
         </div>
         <AnimatePresence>

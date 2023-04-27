@@ -14,9 +14,10 @@ interface InputProps {
     setMessage: (element: any)=>void,
     setShowMessage: (type: boolean)=>void,
     setTheme: (type:string)=>void,
+    trackLayout?: boolean
 }
 
-export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage, setTheme}:InputProps) => {
+export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage, setTheme, trackLayout}:InputProps) => {
     
     const router = useRouter();
 
@@ -115,7 +116,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         <motion.div 
             className={styles.inputHolder}
             key="inputHolder"
-            layoutId="inputHolder"
+            layoutId={trackLayout? "inputHolder": undefined}
             >
                 <AnimatePresence>
                     {!visible && (<motion.div

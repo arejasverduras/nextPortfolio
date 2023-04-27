@@ -62,14 +62,6 @@ export default function Modal({
       initialFocus={overlayRef}
       className={`${styledJsx.className} dialog`}
     >
-      <Dialog.Overlay
-        ref={overlayRef}
-        as={motion.div}
-        key="backdrop"
-        className={`${styledJsx.className} dialogOverlay`}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      />
       <SharedModal
         index={curIndex}
         direction={direction}
@@ -80,6 +72,5 @@ export default function Modal({
       />
     {styledJsx.styles}
     </Dialog>
-    
   )
 }

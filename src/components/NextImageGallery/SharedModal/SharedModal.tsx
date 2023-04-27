@@ -59,7 +59,6 @@ export default function SharedModal({
         <div 
           className={`${styledJsx.className} mainImageContainer `}>
           <div 
-          // className="relative flex aspect-[3/2] items-center justify-center"
           className={`${styledJsx.className} mainImageHolder `}>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
@@ -122,7 +121,6 @@ export default function SharedModal({
               <div 
                 className={`${styledJsx.className} openFullSize`}  
                 >
-
                   <a
                     href={currentImage.src}
                     className={`${styledJsx.className} buttonFullSize`}  
@@ -134,8 +132,6 @@ export default function SharedModal({
                     className={`${styledJsx.className} icon`}  
                     />
                   </a>
-
-
               </div>
               <div 
               className={`${styledJsx.className} close`}  
@@ -155,11 +151,9 @@ export default function SharedModal({
           {/* Bottom Nav bar */}
             <div 
             className={`${styledJsx.className} bottomNavHolder`}
-              // className="fixed inset-x-0 bottom-0 z-40 overflow-hidden bg-gradient-to-b from-black/0 to-black/60"
               >
               <motion.div
                 initial={false}
-                // className="mx-auto mt-6 mb-6 flex aspect-[3/2] h-14"
                 className={`${styledJsx.className} bottomNav`}
               >
                 <AnimatePresence initial={false}>
@@ -179,11 +173,9 @@ export default function SharedModal({
                       key={id}
                       className={`${styledJsx.className} ${
                         id === index
-                          // ? 'z-20 rounded-md shadow shadow-black/50'
                           ? 'currentSmall'
                           : 'smallNotCurrent'
                       }  small`}
-
                     >
                       <Image
                         alt="small photos on the bottom"
@@ -206,4 +198,4 @@ export default function SharedModal({
       {styledJsx.styles}
     </MotionConfig>
   )
-}
+};
