@@ -35,7 +35,8 @@ export default function PageLayout({children, home}:PageLayoutProps) {
         },
         pageOutHome: {
             x: -600,
-            opacity: 0
+            opacity: 0,
+            transition: {delay: 0.4}
         },
         pageInProjects: {
             // scale: [0.7,1],

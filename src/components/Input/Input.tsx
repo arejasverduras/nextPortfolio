@@ -99,23 +99,34 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         switch (searchTerm) {
             case "about":    
                 router.push('/about', undefined,{shallow: false})
-                setSearchTerm("");
+                setTimeout(() => {
+                    setSearchTerm("");
+                }, 400);
+                
                 break;
             case "home":
                 router.push('/', undefined,{shallow: false})
-                setSearchTerm("");
+                setTimeout(() => {
+                    setSearchTerm("");
+                }, 400);
                 break;
             case "projects": 
                 router.push('/projects', undefined,{shallow: false});
-                setSearchTerm("");
+                setTimeout(() => {
+                    setSearchTerm("");
+                }, 400);
                 break;
             case "light":
                 setTheme('light');
-                setSearchTerm("");
+                setTimeout(() => {
+                    setSearchTerm("");
+                }, 400);
                 break;
             case "dark":
                 setTheme('dark');
-                setSearchTerm("");
+                setTimeout(() => {
+                    setSearchTerm("");
+                }, 400);
                 break;
             default:
             setMessage(errormessage);    
@@ -126,7 +137,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         setAction(true);
         setTimeout(() => {
             setAction(false);
-        }, 400);
+        }, 200);
       }
 
     return (

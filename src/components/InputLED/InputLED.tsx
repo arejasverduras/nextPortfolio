@@ -29,7 +29,7 @@ export const InputLed = ({searchTerm, commands, hit, setHit, searchHit, setSearc
             transition: {duration: 0.4, repeat: Infinity}
         },
         action: {
-            filter: ['brightness(150%)','brightness(200%)'],
+            filter: ['brightness(100%)','brightness(150%)'],
             scale: [1,3.5, 4],
             opacity: [1,1,0],
             transition: {duration: 0.2}
@@ -50,7 +50,7 @@ export const InputLed = ({searchTerm, commands, hit, setHit, searchHit, setSearc
             </div>
             <motion.div
                 className={`${styledJsx.className} secondCircle`} 
-                style={action && searchHit? {background: "radial-gradient(var(--colorH3), transparent)"}:action? {background: "radial-gradient(var(--lightBloen1), transparent)"}: !hit ? searchHit ? {backgroundColor: "var(--colorH3"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)"}}
+                style={action && searchHit? {background: "radial-gradient(var(--colorH3), transparent)"}: action && hit ? {background: "radial-gradient(var(--lightBloen1), transparent)"}:action? {background: "radial-gradient(var(--colorCommands), transparent)"}: !hit ? searchHit ? {backgroundColor: "var(--colorH3"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)"}}
                 key="searchLight"
                 variants={animations}
                 animate={action? "action": hit || searchHit? "hit": "regular"}
