@@ -9,11 +9,10 @@ interface InputLedProps {
     setHit: (hit: boolean)=> void,
     searchHit: boolean,
     setSearchHit: (search: boolean) => void,
+    action: boolean,
 }
 
-export const InputLed = ({searchTerm, commands, hit, setHit, searchHit, setSearchHit}:InputLedProps) => {
-    
-    // const [anim, setAnim] = useState("standard");
+export const InputLed = ({searchTerm, commands, hit, setHit, searchHit, setSearchHit, action}:InputLedProps) => {
     
     useEffect(()=>{
         setHit(commands.some((command) => command === searchTerm));
@@ -28,6 +27,12 @@ export const InputLed = ({searchTerm, commands, hit, setHit, searchHit, setSearc
         hit: {
             filter: ['brightness(80%)','brightness(150%)','brightness(80%)'],
             transition: {duration: 0.4, repeat: Infinity}
+        },
+        action: {
+            filter: ['brightness(150%)','brightness(200%)'],
+            scale: [1,3.5, 4],
+            opacity: [1,1,0],
+            transition: {duration: 0.2}
         }
     }
 
@@ -35,18 +40,20 @@ export const InputLed = ({searchTerm, commands, hit, setHit, searchHit, setSearc
         <motion.div
             key="lightHolder"
             animate={{opacity: [0,1], transition: {delay: 1.6}}}
-            className={`${styledJsx.className} container`} 
+            className={`${styledJsx.className} container`}
+            
             >
             <div
                 className={`${styledJsx.className} firstCircle`} 
+                style={action ? {opacity: 0}: {}} 
                 >
             </div>
             <motion.div
                 className={`${styledJsx.className} secondCircle`} 
-                style={!hit ? searchHit ? {backgroundColor: "var(--colorH3"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)"}}
+                style={action && searchHit? {background: "radial-gradient(var(--colorH3), transparent)"}:action? {background: "radial-gradient(var(--lightBloen1), transparent)"}: !hit ? searchHit ? {backgroundColor: "var(--colorH3"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)"}}
                 key="searchLight"
                 variants={animations}
-                animate={hit || searchHit? "hit": "regular"}
+                animate={action? "action": hit || searchHit? "hit": "regular"}
                 >
             </motion.div>
             <div

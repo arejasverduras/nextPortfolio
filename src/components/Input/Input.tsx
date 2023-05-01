@@ -22,6 +22,7 @@ interface InputProps {
 export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage, setTheme, trackLayout}:InputProps) => {
     const [hit, setHit] = useState(false);
     const [searchHit, setSearchHit] = useState(false);
+    const [action, setAction] = useState(false);
     
     const router = useRouter();
 
@@ -121,6 +122,11 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
             setShowMessage(true);
                 break;
         }
+
+        setAction(true);
+        setTimeout(() => {
+            setAction(false);
+        }, 400);
       }
 
     return (
@@ -159,7 +165,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                 </AnimatePresence>
                 <AnimatePresence mode="wait">
                         {visible && (
-                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginLeft: -28}}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginLeft: -28, minWidth: 400}}>
                                 <InputLed 
                                     searchTerm={searchTerm} 
                                     commands={commands}
@@ -167,6 +173,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                                     setHit={setHit}
                                     searchHit={searchHit}
                                     setSearchHit={setSearchHit}
+                                    action={action}
                                     />
                                 <motion.div
                                     className={styles.input}
@@ -191,7 +198,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                                                 key={"inputButton"}
                                                 onClick={navigate}
                                                 style={!hit ? searchHit ? {backgroundColor: "var(--colorH3", color: "var(--colorCommands)"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)", color: "var(--lightGray)"}}
-                                                animate={hit ? {scale: [1,1.2,1], opacity: 1, x: 0, transition: {delay: 0, duration: 0.4, repeat: Infinity}}:{x: [40,0], opacity: [0,1]}}
+                                                animate={hit ? {scale: [1,1,1], opacity: 1, x: 0, transition: {delay: 0, duration: 0.8, repeat: Infinity}}:{x: [40,0], opacity: [0,1]}}
                                                 transition={{delay: 0.4}}
                                                 >Enter <FontAwesomeIcon icon={faTurnDown}/></motion.button>
                                     </motion.div>
