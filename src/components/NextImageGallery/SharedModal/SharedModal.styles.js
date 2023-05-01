@@ -4,9 +4,15 @@ export default css.resolve`
     .container {
         display: flex;
         position: relative;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: space-between;
         z-index: 50;
         width: 100%;
+        // height: 100%;
         align-items:center;
+        // border: 1px solid blue;
     }
 
     .mainImageContainer {
@@ -18,7 +24,7 @@ export default css.resolve`
     .mainImageHolder {
         display: flex;
         justify-content: center;
-        align-items:center;
+        align-items: center;
         width: 100%;
         height: auto;
         
@@ -27,13 +33,18 @@ export default css.resolve`
     .mainImage {
         display: flex;
         position: absolute;
+        justify-content: center;
+        align-items: center;
         width: 100%;
+        height: auto;
         max-width: 1024px;
     }
 
     .mainImageImage {
         width: 100%;
         height: auto;
+        max-width: 100%;
+        // max-height: 80%;
     }
 
 

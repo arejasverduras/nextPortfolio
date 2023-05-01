@@ -1,11 +1,12 @@
 import styles from './Header.module.css';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 // components
 import { Input } from '../Input/Input';
 import { Hints } from '../Hints/Hints';
 import { Message } from '../Message/Message';
 import { ThemeSelector } from '../ThemeSelector/ThemeSelector';
-import { motion } from 'framer-motion';
+
 
 export const Header = ({home, projects}:any) => {
     const [visible, setVisible] = useState(true);

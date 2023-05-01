@@ -2,8 +2,10 @@ import styles from './Input.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPowerOff, faTurnDown } from '@fortawesome/free-solid-svg-icons';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+// components
+import { InputLed } from '../InputLED/InputLED';
 
 interface InputProps {
     visible: boolean, 
@@ -18,11 +20,15 @@ interface InputProps {
 }
 
 export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage, setTheme, trackLayout}:InputProps) => {
+    const [hit, setHit] = useState(false);
+    const [searchHit, setSearchHit] = useState(false);
     
     const router = useRouter();
 
     const samePageMessage = <>You are already on this page: <span>{router.asPath.slice(1)}</span></>;
     const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Click on the `?` icon to see a list of commands</>
+
+    const commands=["about", "projects","home","light","dark"]
 
     const animations = {
         enter: {
@@ -92,18 +98,23 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
         switch (searchTerm) {
             case "about":    
                 router.push('/about', undefined,{shallow: false})
+                setSearchTerm("");
                 break;
             case "home":
                 router.push('/', undefined,{shallow: false})
+                setSearchTerm("");
                 break;
             case "projects": 
                 router.push('/projects', undefined,{shallow: false});
+                setSearchTerm("");
                 break;
             case "light":
                 setTheme('light');
+                setSearchTerm("");
                 break;
             case "dark":
                 setTheme('dark');
+                setSearchTerm("");
                 break;
             default:
             setMessage(errormessage);    
@@ -118,6 +129,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
             key="inputHolder"
             layoutId={trackLayout? "inputHolder": undefined}
             >
+                
                 <AnimatePresence>
                     {!visible && (<motion.div
                         className={styles.dotCircle}
@@ -147,13 +159,21 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                 </AnimatePresence>
                 <AnimatePresence mode="wait">
                         {visible && (
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginLeft: -28}}>
+                                <InputLed 
+                                    searchTerm={searchTerm} 
+                                    commands={commands}
+                                    hit={hit}
+                                    setHit={setHit}
+                                    searchHit={searchHit}
+                                    setSearchHit={setSearchHit}
+                                    />
                                 <motion.div
                                     className={styles.input}
                                     key="input"
                                     variants={animations}
                                     initial={startOpen? {width: 200}: {width: 50}}
                                     animate={!startOpen && "slideOpen"}
-                                    
                                     >
                                         <div
                                             >{'>'} </div>
@@ -168,13 +188,14 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                                             />
                                             <motion.button 
                                                 type="submit"
-                                                key="inputButton"
+                                                key={"inputButton"}
                                                 onClick={navigate}
-                                                animate={{x: [40,0], opacity: [0,1]}}
+                                                style={!hit ? searchHit ? {backgroundColor: "var(--colorH3", color: "var(--colorCommands)"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)", color: "var(--lightGray)"}}
+                                                animate={hit ? {scale: [1,1.2,1], opacity: 1, x: 0, transition: {delay: 0, duration: 0.4, repeat: Infinity}}:{x: [40,0], opacity: [0,1]}}
                                                 transition={{delay: 0.4}}
                                                 >Enter <FontAwesomeIcon icon={faTurnDown}/></motion.button>
                                     </motion.div>
-                                
+                                </div>
                         )}
                         </AnimatePresence>               
             </motion.div>

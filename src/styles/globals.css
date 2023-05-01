@@ -55,10 +55,10 @@ font-size: 16px;
 
 /* Theme variables (light) */
 --lightBg: var(--lightGray);
---lightHeaderBg: var(--lightBloen);
+--lightHeaderBg: var(--lightBloen1);
 --lightInputBg: var(--lightDarkPurple);
 --lightText: var(--lightDarkGray);
---lightH1: var(--lightBloen);
+--lightH1: var(--lightBloen1);
 --lightH2: var(--lightYellow);
 --lightH3: var(--lightOrange);
 --lightA: var(--lightRed);
@@ -66,7 +66,7 @@ font-size: 16px;
 --lightInputBorders: var(--lightBloen);
 --lightCommands: var(--lightYellow);
 --lightEnterRed: var(--lightOrange);
---lightBolds: var(--lightBloen);
+--lightBolds: var(--lightBloen1);
 --lightItalics: var(--lightPurple2);
 --lightSelection: var(--lightBloen);
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Markdown from 'markdown-to-jsx';
 import { motion } from 'framer-motion';
-// import NoReadMe from './NoReadMe.md';
 import { Loading } from '@/components/Loading/Loading';
 
 export const ProjectReadMe = ({readMe}) => {
@@ -34,7 +33,6 @@ export const ProjectReadMe = ({readMe}) => {
     return (
         <>
             {loading? 
-  
                 <Loading/>
                 : 
                 <motion.div 

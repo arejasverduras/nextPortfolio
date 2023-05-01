@@ -55,19 +55,12 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       Router.events.off("routeChangeError", end)
     }
   }, [])
-
-  // useEffect(()=>{
-  //   if (!loading ) {
-
-  //   }
-  // },[loading])
   
   return getLayout(
     <>
     <AnimatePresence
       initial={false}
       mode="wait"
-      // onExitComplete={() => scrollTop()}
       >    
           <Component {...pageProps} key={router.route} theme={theme} setTheme={setTheme} ref={compRef}/>
     </AnimatePresence>

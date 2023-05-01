@@ -22,7 +22,7 @@ export const projectData = [
         link: 'shredfish',
         type: 'Front-end',
         tech: ['React','Redux','JavaScript'],
-        images: ["/images/projectImages/shredfish/shredfish1.png","/images/projectImages/shredfish/shredfish2.png","/images/projectImages/shredfish/shredfish3.png"],
+        images: ["/images/projectImages/shredfish/shredfish1.png","/images/projectImages/shredfish/shredfish2.png","/images/projectImages/shredfish/shredfish3.png","/images/projectImages/shredfish/shredfish4.png","/images/projectImages/shredfish/shredfish6.png"],
         links: {
             demoLink: "https://shredfish.surge.sh",
             sourceLink: "https://github.com/arejasverduras/shredfish",
