@@ -2,13 +2,18 @@
 .inputHolder {
     display: grid;
     grid-template-areas: 
-    "one"
-    "error";
+    "light one"
+    "error error";
     align-items: center;
     justify-content: center;
     justify-items: center;
     width: 100%;
     
+}
+
+.lightHolder {
+    grid-area: light;
+    margin-left: -48px;
 }
 
 .dot {
@@ -36,6 +41,7 @@
     z-index: 2;
     border: 2px solid var(--colorInputBorders);
 }
+
 
 .input {
     height: 50px;

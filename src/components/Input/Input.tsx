@@ -95,6 +95,14 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
             setShowMessage(true);
             return;
         }
+
+        if (searchHit){
+            setAction(true);
+        setTimeout(() => {
+            setAction(false);
+        }, 200);
+            return;
+        }
         
         switch (searchTerm) {
             case "about":    
@@ -141,12 +149,25 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
       }
 
     return (
+        <>
+                                        
         <motion.div 
             className={styles.inputHolder}
             key="inputHolder"
             layoutId={trackLayout? "inputHolder": undefined}
             >
                 
+                {visible && (<div className={styles.lightHolder}>
+                    <InputLed 
+                                        searchTerm={searchTerm} 
+                                        commands={commands}
+                                        hit={hit}
+                                        setHit={setHit}
+                                        searchHit={searchHit}
+                                        setSearchHit={setSearchHit}
+                                        action={action}
+                                        />
+                </div>)}
                 <AnimatePresence>
                     {!visible && (<motion.div
                         className={styles.dotCircle}
@@ -176,16 +197,6 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                 </AnimatePresence>
                 <AnimatePresence mode="wait">
                         {visible && (
-                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginLeft: -28, minWidth: 400}}>
-                                <InputLed 
-                                    searchTerm={searchTerm} 
-                                    commands={commands}
-                                    hit={hit}
-                                    setHit={setHit}
-                                    searchHit={searchHit}
-                                    setSearchHit={setSearchHit}
-                                    action={action}
-                                    />
                                 <motion.div
                                     className={styles.input}
                                     key="input"
@@ -213,9 +224,9 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                                                 transition={{delay: 0.4}}
                                                 >Enter <FontAwesomeIcon icon={faTurnDown}/></motion.button>
                                     </motion.div>
-                                </div>
                         )}
                         </AnimatePresence>               
             </motion.div>
+            </>
     )
 }
