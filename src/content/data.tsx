@@ -12,7 +12,8 @@ export const projectData = [
             demoLink: "https://silvesterzwemschool.netlify.app"
         },
         themeColor: '#e6007d',
-        themeTextColor: '#404040',
+        themeTextColor: '#eeeeee',
+        themeBgColor: '#404040'
     },
     {
         title: 'ShredFish',

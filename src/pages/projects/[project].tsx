@@ -70,7 +70,13 @@ const ProjectPage: NextPageWithLayout = (props)=>{
         let root = document.documentElement;
         if (projectData.themeColor){
             root.style.setProperty('--colorHeaderBg',projectData.themeColor);
-            // root.style.setProperty('--colorBg', projectData.textColor);
+            root.style.setProperty('--colorInputBorders',projectData.themeColor);
+        }
+        
+        if (projectData.themeBgColor && projectData.themeTextColor) {
+            root.style.setProperty('--colorBg',projectData.themeBgColor);
+            root.style.setProperty('--colorText',projectData.themeTextColor);
+            root.style.setProperty('--colorBorders',projectData.themeTextColor);
         }
 
     },[projectData])

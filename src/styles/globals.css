@@ -63,7 +63,7 @@ font-size: 16px;
 --lightH3: var(--lightOrange);
 --lightA: var(--lightRed);
 --lightBorders: var(--lightDarkGray);
---lightInputBorders: var(--lightBloen);
+--lightInputBorders: var(--lightBloen1);
 --lightCommands: var(--lightYellow);
 --lightEnterRed: var(--lightOrange);
 --lightBolds: var(--lightBloen1);
@@ -107,6 +107,8 @@ font-size: 16px;
 background-color: var(--colorBg);
 
 --currentHeaderBg: var(--darkHeaderBg);
+--currentBg: var(--darkBg);
+--currentText: var(--darkText);
 
 }
 

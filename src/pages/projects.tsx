@@ -28,6 +28,11 @@ const Projects: NextPageWithLayout = (props) => {
         useEffect(()=>{
             let root = document.documentElement;
             root.style.setProperty('--colorHeaderBg', 'var(--currentHeaderBg)');
+            root.style.setProperty('--colorInputBorders', 'var(--currentHeaderBg)');
+            root.style.setProperty('--colorBg','var(--currentBg');
+            root.style.setProperty('--colorText','var(--currentText');
+            root.style.setProperty('--colorBorders','var(--currentText');
+
         })
 
     return (
