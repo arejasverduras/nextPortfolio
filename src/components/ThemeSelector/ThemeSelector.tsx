@@ -29,6 +29,7 @@ export const ThemeSelector = ({theme, setTheme}:ThemeSelectorProps) => {
             root.style.setProperty('--colorBolds', 'var(--lightBolds)');
             root.style.setProperty('--colorItalics', 'var(--lightItalics)');
             root.style.setProperty('--colorSelection', 'var(--lightSelection)');
+            root.style.setProperty('--currentHeaderBg', 'var(--lightHeaderBg)');
         } else if (theme === 'dark') {
             root.style.setProperty('--colorBg','var(--darkBg)');
             root.style.setProperty('--colorHeaderBg','var(--darkHeaderBg)');
@@ -45,6 +46,7 @@ export const ThemeSelector = ({theme, setTheme}:ThemeSelectorProps) => {
             root.style.setProperty('--colorBolds', 'var(--darkBolds)');
             root.style.setProperty('--colorItalics', 'var(--darkItalics)');
             root.style.setProperty('--colorSelection', 'var(--darkSelection)');
+            root.style.setProperty('--currentHeaderBg', 'var(--darkHeaderBg)');
         } else {return}
     },[theme]);
     

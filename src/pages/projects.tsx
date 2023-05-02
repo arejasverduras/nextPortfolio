@@ -2,6 +2,7 @@
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
 import { ProjectsList } from '@/components/ProjectsList/ProjectsList';
+import { useEffect } from "react";
 // types
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
@@ -24,6 +25,11 @@ const Projects: NextPageWithLayout = (props) => {
         // @ts-expect-error;
         const {allProjectData} = props;
     
+        useEffect(()=>{
+            let root = document.documentElement;
+            root.style.setProperty('--colorHeaderBg', 'var(--currentHeaderBg)');
+        })
+
     return (
         <>
             <Head>

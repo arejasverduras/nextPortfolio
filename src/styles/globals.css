@@ -106,6 +106,8 @@ font-size: 16px;
 
 background-color: var(--colorBg);
 
+--currentHeaderBg: var(--darkHeaderBg);
+
 }
 
 @media (prefers-color-scheme: dark) {

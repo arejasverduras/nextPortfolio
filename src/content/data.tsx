@@ -28,6 +28,7 @@ export const projectData = [
             sourceLink: "https://github.com/arejasverduras/shredfish",
             readMe: "https://raw.githubusercontent.com/arejasverduras/shredfish/master/README.md"
         },
+        themeColor: 'aquamarine'
     },
     {
       title: 'Portfolio',
@@ -59,6 +60,7 @@ export const projectData = [
             sourceLink: "https://github.com/arejasverduras/resume",
             readMe: "https://raw.githubusercontent.com/arejasverduras/resume/master/README.md"
         },
+        themeColor: '#45caff'
     },
     {
         title: 'Koekboek',

@@ -4,10 +4,10 @@ import { GitHub } from '@/icons/github';
 // dep
 import Head from 'next/head';
 import dynamic from 'next/dynamic.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 // lib
-import {getAllProjects, getProject, getReadMe} from "@/lib/project.js"
+import {getAllProjects, getProject} from "@/lib/project.js"
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
@@ -65,6 +65,15 @@ const ProjectPage: NextPageWithLayout = (props)=>{
     const toggleReadMe = () => {
         setShowReadMe(!showReadMe);
     }
+
+    useEffect(()=>{
+        let root = document.documentElement;
+        if (projectData.themeColor){
+            root.style.setProperty('--colorHeaderBg',projectData.themeColor);
+            // root.style.setProperty('--colorBg', projectData.textColor);
+        }
+
+    },[projectData])
 
     return (
         <>
