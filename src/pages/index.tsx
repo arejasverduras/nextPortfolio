@@ -20,6 +20,7 @@ const Home:NextPageWithLayout = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);
     const [showMessage, setShowMessage] = useState(false);
+    const [hints, setHints] = useState(false);
    
     const toggleVisible = () => {
         setVisible(!visible);
@@ -76,20 +77,23 @@ const Home:NextPageWithLayout = () => {
                 setMessage={setMessage}
                 setShowMessage={setShowMessage}
                 setTheme={()=>{}}
+                hints={hints}
+                setHints={setHints}
                 trackLayout
                 />
         </div>
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {visible && (
             <motion.div 
               className={styles.hints}
               key="hintsHolder"
               animate={{opacity: [0,1], y: [20,0]}}
               transition={{delay: 1.2}}
-              layout
               >
                 <Hints 
                     home
+                    hints={hints}
+                    setHints={setHints}
                     setSearchTerm={setSearchTerm}
                     setShowMessage={setShowMessage}
                     />

@@ -13,6 +13,7 @@ export const Header = ({home, projects}:any) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);
     const [showMessage, setShowMessage] = useState(false);
+    const [hints, setHints] = useState(false);
     const [theme, setTheme] = useState('dark');
     const animations = {
         topIn: {
@@ -59,6 +60,8 @@ export const Header = ({home, projects}:any) => {
                                 setShowMessage={setShowMessage}
                                 setTheme={setTheme}
                                 trackLayout={!projects}
+                                hints={hints}
+                                setHints={setHints}
                                 />
                         </motion.div>
                         <Message 
@@ -78,6 +81,8 @@ export const Header = ({home, projects}:any) => {
                     // layout
                     >
                     <Hints
+                        hints={hints}
+                        setHints={setHints}
                         setSearchTerm={setSearchTerm}
                         setShowMessage={setShowMessage}
                         />

@@ -16,10 +16,25 @@ interface InputProps {
     setMessage: (element: any)=>void,
     setShowMessage: (type: boolean)=>void,
     setTheme: (type:string)=>void,
-    trackLayout?: boolean
+    trackLayout?: boolean,
+    hints: boolean,
+    setHints: (type:boolean)=>void,
 }
 
-export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startOpen, setMessage, setShowMessage, setTheme, trackLayout}:InputProps) => {
+export const Input = (
+    {   
+        visible, 
+        toggleVisible, 
+        searchTerm, 
+        setSearchTerm, 
+        startOpen, 
+        setMessage, 
+        setShowMessage, 
+        setTheme, 
+        trackLayout,
+        hints,
+        setHints,
+    }:InputProps) => {
     const [hit, setHit] = useState(false);
     const [searchHit, setSearchHit] = useState(false);
     const [action, setAction] = useState(false);
@@ -29,7 +44,7 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
     const samePageMessage = <>You are already on this page: <span>{router.asPath.slice(1)}</span></>;
     const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Click on the `?` icon to see a list of commands</>
 
-    const commands=["about", "projects","home","light","dark"]
+    const commands=["about", "projects","home","light","dark","hints"]
 
     const animations = {
         enter: {
@@ -98,9 +113,9 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
 
         if (searchHit){
             setAction(true);
-        setTimeout(() => {
-            setAction(false);
-        }, 200);
+            setTimeout(() => {
+                setAction(false);
+            }, 200);
             return;
         }
         
@@ -110,37 +125,50 @@ export const Input = ({visible, toggleVisible, searchTerm, setSearchTerm, startO
                 setTimeout(() => {
                     setSearchTerm("");
                 }, 400);
-                
+                setHints(false);
                 break;
             case "home":
                 router.push('/', undefined,{shallow: false})
                 setTimeout(() => {
                     setSearchTerm("");
                 }, 400);
+                setHints(false);
                 break;
             case "projects": 
                 router.push('/projects', undefined,{shallow: false});
                 setTimeout(() => {
                     setSearchTerm("");
                 }, 400);
+                setHints(false);
                 break;
             case "light":
                 setTheme('light');
                 setTimeout(() => {
                     setSearchTerm("");
                 }, 400);
+
                 break;
             case "dark":
                 setTheme('dark');
                 setTimeout(() => {
                     setSearchTerm("");
                 }, 400);
+
                 break;
+                case "hints":
+                    setHints(true);
+                    setTimeout(() => {
+                        setSearchTerm("");
+                    }, 400);
+    
+                    break;
             default:
             setMessage(errormessage);    
             setShowMessage(true);
                 break;
         }
+
+        
 
         setAction(true);
         setTimeout(() => {

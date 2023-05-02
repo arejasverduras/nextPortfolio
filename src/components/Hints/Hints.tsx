@@ -9,10 +9,12 @@ interface HintsProps {
     setSearchTerm: (term:string) => void;
     setShowMessage: (type: boolean) => void;
     home?: boolean,
+    hints: boolean,
+    setHints: (type:boolean)=>void,
 }
 
-export const Hints = ({setSearchTerm, setShowMessage, home}:HintsProps) => {
-    const [hints, setHints] = useState(false);
+export const Hints = ({setSearchTerm, setShowMessage, home, hints, setHints}:HintsProps) => {
+    // const [hints, setHints] = useState(false);
     const toggleHints = () => {
         setHints(!hints);
         setShowMessage(false);
