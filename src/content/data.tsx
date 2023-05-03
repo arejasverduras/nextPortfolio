@@ -77,7 +77,5 @@ export const projectData = [
             sourceLink: "https://github.com/arejasverduras/koekboek",
             readMe: "https://raw.githubusercontent.com/arejasverduras/koekboek/main/README.md"
         },
-        
-    
     },
 ]

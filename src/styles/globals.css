@@ -157,11 +157,11 @@ h3 {
   color: var(--colorH3);
 } 
 
-b {
+b, strong {
   color: var(--colorBolds);
 }
 
-i {
+i, em {
   color: var(--colorItalics);
 }
 

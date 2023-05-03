@@ -136,7 +136,9 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                     className={`${styledJsx.className} readmeToggle`}
                         onClick={(toggleReadMe)}>
                             <div className={`${styledJsx.className} readmeSubHolder`}>
-                                <GitHub color={showReadMe ? 'var(--colorH2)' : 'var(--colorText'} />
+                                <div className={`${styledJsx.className} readmeSubHolderIcon`}>
+                                    <GitHub color={showReadMe ? 'var(--colorH2)' : 'var(--colorText'} />
+                                </div>
                                 readme 
                             </div>
                             <ChevronRightIcon className={`${styledJsx.className} readmeIcon ${showReadMe && 'readMeIconVisible'}`} /></h2>

@@ -66,7 +66,13 @@ export default css.resolve`
     .readmeSubHolder {
         display: flex;
         gap: 1em;
-        align-items: center;
+        align-items: flex-end;
+    }
+
+    .readmeSubHolderIcon {
+        width: 1.5rem;
+        height: 1.5rem;
+
     }
 
     .readmeToggle {
@@ -74,7 +80,6 @@ export default css.resolve`
         display: flex;
         width: 100%;
         justify-content: space-between;
-
     }
 
     .readmeIcon {

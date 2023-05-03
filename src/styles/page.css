@@ -1,0 +1,27 @@
+.topImageHolder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px;
+
+   }
+
+    .topImage {
+        width: 100%;
+        height: auto;
+    }
+
+    .mdContent {
+        font-size: 16pt;
+        max-width: 700px;
+        line-height: 1.4em;
+    }
+
+    .mdContent {
+       padding: 20px;
+    }
+
+    .mdContent p {
+        padding: 20px 0;
+    }
