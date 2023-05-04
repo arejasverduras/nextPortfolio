@@ -13,7 +13,9 @@
 }
 
 .logo {
-    color: var(--colorBg);
+    color: var(--colorText);
+    background-color: var(--colorBg);
+    padding: 4px;
 }
 
 .elementsHolder {

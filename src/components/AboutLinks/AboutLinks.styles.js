@@ -6,7 +6,7 @@ export default css.resolve`
         flex-wrap: wrap;
         width: 60%;
         max-width: 700px;
-        padding: 0 20px;
+        // padding: 0 20px;
         justify-content: space-between;
         
     }

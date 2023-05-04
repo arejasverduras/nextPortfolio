@@ -18,10 +18,12 @@
         line-height: 1.4em;
     }
 
-    .mdContent {
-       padding: 20px;
-    }
-
     .mdContent p {
         padding: 20px 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        .mdContent {
+            padding: 20px;
+        }
     }
