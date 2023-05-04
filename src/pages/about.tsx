@@ -2,6 +2,7 @@ import aboutImage from '../../public/images/projects/aboutChar.png';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';

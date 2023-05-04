@@ -6,18 +6,16 @@ export default css.resolve`
         flex-wrap: wrap;
         width: 60%;
         max-width: 700px;
-        // padding: 0 20px;
         justify-content: space-between;
-        
-    }
-
-    .itemContainer {
-
     }
 
     .iconContainer {
-        width: 50px;
         height: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: 10px;
     }
 
 @media screen and (min-width: 768px){
