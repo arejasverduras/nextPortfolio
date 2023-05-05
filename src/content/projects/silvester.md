@@ -36,8 +36,6 @@ Without removing any content, performance went from **20%** to **95%+** on light
 This project was my first professional experience as a developer. And oh, did i love writing code, making everything custom compared to getting headaches from wordpress plugins.
 This projects truly proved to me how valuable learning to code was, even for 'small scale' projects like this one.
 
-When I have given an instruction for the cms to the responsable co-worker, the domain will be changed to the new app.
-
 ### Technical takeaways ###
 - Recursive reading of all content for both search and static site generation.
 - Custom search functionality with different layouts for the results based on the type of the result.
@@ -50,7 +48,7 @@ When I have given an instruction for the cms to the responsable co-worker, the d
 - Turning the app into an installable Progressive Web App
 
 
-_snippets from the ReadMe file_
+_snippets from the ReadMe file:_
 
 ## Features
 - All informational pages rendered lightning fast (lighthouse performance score > 90%). 
