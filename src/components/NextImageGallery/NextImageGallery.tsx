@@ -13,7 +13,8 @@ export interface reducedImageProps {
   }
 
   interface NextImageGalleryProps {
-    images: string[]
+    images: string[],
+    projectLink?: string,
   }
 
   const animations = {
@@ -25,7 +26,7 @@ export interface reducedImageProps {
     }
   }
 
-  export const NextImageGallery = ({images}:NextImageGalleryProps) => {
+  export const NextImageGallery = ({images, projectLink}:NextImageGalleryProps) => {
     const [photoId, setPhotoId] = useState(null);
     
     const reducedImages = images.map((image, index) => (
@@ -52,7 +53,7 @@ export interface reducedImageProps {
                   alt="Michiel Roukens Portfolio Project Photo"
                   className={`${styledJsx.className} imageItem`}
                   style={{ transform: 'translate3d(0, 0, 0)' }}
-                  src={src}
+                  src={`/images/projectImages/${projectLink}${src}`}
                   width={400}
                   height={400}
                 />
@@ -75,6 +76,7 @@ export interface reducedImageProps {
         <AnimatePresence>
           {photoId !== null && (
             <Modal
+              projectLink={projectLink}
               images={reducedImages}
               photoId={photoId}
               setPhotoId={setPhotoId}
@@ -96,7 +98,7 @@ export interface reducedImageProps {
                   alt="Michiel Roukens Portfolio Project Photo first project"
                   className={`${styledJsx.className} firstImage`}
                   style={{ transform: 'translate3d(0, 0, 0)' }}
-                  src={reducedImages[0].src}
+                  src={`/images/projectImages/${projectLink}${reducedImages[0].src}`}
                   width={720}
                   height={480}
                   // sizes="(max-width: 640px) 100vw,

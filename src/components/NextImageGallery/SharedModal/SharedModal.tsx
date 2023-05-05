@@ -15,6 +15,7 @@ import { reducedImageProps } from '../NextImageGallery'
 
 export default function SharedModal({
   index,
+  projectLink,
   images,
   changePhotoId,
   closeModal,
@@ -71,7 +72,7 @@ export default function SharedModal({
                 className={`${styledJsx.className} mainImage `}
               >
                 <Image
-                  src={currentImage.src}
+                  src={`/images/projectImages/${projectLink}${currentImage.src}`}
                   width={navigation ? 1440 : 1920}
                   height={navigation ? 853 : 1280}
                   priority
@@ -188,7 +189,7 @@ export default function SharedModal({
                             ? 'currentSmallImage'
                             : 'notCurrentSmallImage'
                         } smallImage`}
-                        src={src}
+                        src={`/images/projectImages/${projectLink}${src}`}
                       />
                     </motion.button>
                   ))}

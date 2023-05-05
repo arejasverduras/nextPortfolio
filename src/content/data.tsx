@@ -7,7 +7,7 @@ export const projectData = [
         link: 'silvester',
         type: 'Front-end',
         tech: ['Next.js', 'TypeScript', 'Netlify-CMS'],
-        images: ["/images/projectImages/silvester/silvester-home.png","/images/projectImages/silvester/silvester-review.png","/images/projectImages/silvester/silvester-locaties.png","/images/projectImages/silvester/silvester-faq.png","/images/projectImages/silvester/silvester-search.png"],
+        images: ["/silvester-home.png","/silvester-review.png","/silvester-locaties.png","/silvester-faq.png","/silvester-search.png"],
         links: {
             demoLink: "https://silvesterzwemschool.netlify.app"
         },
@@ -23,7 +23,7 @@ export const projectData = [
         link: 'shredfish',
         type: 'Front-end',
         tech: ['React','Redux','JavaScript'],
-        images: ["/images/projectImages/shredfish/shredfish1.png","/images/projectImages/shredfish/shredfish2.png","/images/projectImages/shredfish/shredfish3.png","/images/projectImages/shredfish/shredfish4.png","/images/projectImages/shredfish/shredfish6.png"],
+        images: ["/shredfish1.png","/shredfish2.png","/shredfish3.png","/shredfish4.png","/shredfish6.png"],
         links: {
             demoLink: "https://shredfish.surge.sh",
             sourceLink: "https://github.com/arejasverduras/shredfish",
@@ -55,7 +55,7 @@ export const projectData = [
         link: 'resume',
         type: 'Front-end',
         tech: ['React', 'JavaScript'],
-        images: ["/images/projectImages/resume/resume1.png","/images/projectImages/resume/resume2.png","/images/projectImages/resume/resume3.png","/images/projectImages/resume/resume4.png","/images/projectImages/resume/resume5.png", "/images/projectImages/resume/resume6.png"],
+        images: ["/resume1.png","/resume2.png","/resume3.png","/resume4.png","/resume5.png", "/resume6.png"],
         links: {
             demoLink: "https://arejasresume.surge.sh",
             sourceLink: "https://github.com/arejasverduras/resume",
