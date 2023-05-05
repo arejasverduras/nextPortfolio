@@ -36,13 +36,12 @@ export default css.resolve`
 
     .description {
         grid-area: description;
-        border: 1px solid var(--colorBorders);
-        border-radius: 25px;
-        padding: 20px;
+        // border: 1px solid var(--colorBorders);
+        // border-radius: 25px;
+        padding: 20px 0;
         width: 100%;
         font-size: 16pt;
         line-height: 1.4em;
-        margin: 20px 0;
         max-width: 700px;
     }
 
@@ -116,6 +115,15 @@ export default css.resolve`
 
     .readMeVisible {
         width: 100%;
+    }
+
+    .description {
+        border: 1px solid var(--colorBorders);
+        border-radius: 25px;
+        padding: 20px;
+        
+        margin: 20px 0;
+        max-width: 700px;
     }
 }
 `
