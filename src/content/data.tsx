@@ -7,7 +7,7 @@ export const projectData = [
         link: 'silvester',
         type: 'Front-end',
         tech: ['Next.js', 'TypeScript', 'Netlify-CMS'],
-        images: ["/images/projectImages/silvester/silvester-home.png","/images/projectImages/silvester/silvester-review.png","/images/projectImages/silvester/silvester-locaties.png","/images/projectImages/silvester/silvester-faq.png"],
+        images: ["/images/projectImages/silvester/silvester-home.png","/images/projectImages/silvester/silvester-review.png","/images/projectImages/silvester/silvester-locaties.png","/images/projectImages/silvester/silvester-faq.png","/images/projectImages/silvester/silvester-search.png"],
         links: {
             demoLink: "https://silvesterzwemschool.netlify.app"
         },
