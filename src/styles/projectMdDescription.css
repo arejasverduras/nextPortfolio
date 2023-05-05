@@ -1,0 +1,20 @@
+.MDdescription h1, .MDdescription h2, .MDdescription h3 {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.MDdescription p {
+    padding-bottom: 40px;
+    line-height: 1.4em;
+}
+
+.MDdescription ul {
+    padding-left: 20px;
+    padding-bottom: 40px;
+    line-height: 1.4em;
+}
+
+.MDdescription img {
+    max-width: 100%;
+    height: auto;
+}

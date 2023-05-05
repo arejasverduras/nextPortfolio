@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import '@/styles/projectMdDescription.css'
 import '@/styles/readme.css'
 import '@/styles/page.css'
 // deps

@@ -7,7 +7,8 @@ import dynamic from 'next/dynamic.js';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 // lib
-import {getAllProjects, getProject} from "@/lib/project.js"
+import {getAllProjects, getProject} from "@/lib/project.js";
+import {getAllProjectsMd, getProjectMd }from "@/lib/projectMd.js";
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
@@ -24,11 +25,19 @@ import type {NextPageWithLayout} from '../_app';
 import projectImage from '../../../public/images/projects/portfolioChar.png';
 
 export async function getStaticPaths () {
-    return getAllProjects();
+    // return getAllProjects();
+
+    const paths = getAllProjectsMd();
+    return {
+        paths,
+        fallback: false,
+    }
 };
 
 export async function getStaticProps ({params}:any) {
-    const projectData =  await getProject(params.project);
+    // const projectData =  await getProject(params.project);
+    const projectData = await getProjectMd(params.project);
+
    
     return {
         props: {
@@ -121,7 +130,10 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                     layout
                     >
                         <h1 className={`${styledJsx.className} descriptionH1`}>{title}</h1>
-                    {shortText}
+                        <div 
+                            className="MDdescription"
+                            dangerouslySetInnerHTML={{__html: projectData.contentHtml}}
+                            />
                 </motion.div>
 
                 {links.readMe && (<motion.div 
