@@ -72,9 +72,11 @@ export default function SharedModal({
               >
                 <Image
                   src={currentImage.src}
-                  width={navigation ? 1280 : 1920}
+                  width={navigation ? 1440 : 1920}
                   height={navigation ? 853 : 1280}
                   priority
+                  quality={100}
+                  // placeholder='blur'
                   alt="Main slider picture"
                   onLoadingComplete={() => setLoaded(true)}
                   className={`${styledJsx.className} mainImageImage `}

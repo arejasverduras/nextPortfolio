@@ -7,6 +7,7 @@ export default css.resolve`
         width: 60%;
         max-width: 700px;
         justify-content: space-between;
+        margin-top: 40px;
     }
 
     .iconContainer {
