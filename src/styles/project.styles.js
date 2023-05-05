@@ -36,8 +36,6 @@ export default css.resolve`
 
     .description {
         grid-area: description;
-        // border: 1px solid var(--colorBorders);
-        // border-radius: 25px;
         padding: 20px 0;
         width: 100%;
         font-size: 16pt;
