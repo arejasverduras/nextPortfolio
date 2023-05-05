@@ -40,12 +40,16 @@ export default css.resolve`
         border-radius: 25px;
         padding: 20px;
         width: 100%;
+        font-size: 16pt;
+        line-height: 1.4em;
         margin: 20px 0;
         max-width: 700px;
     }
 
     .descriptionH1 {
         text-align: left;
+        line-height: 1.2em;
+        margin-bottom: 20px;
     }
 
     .readme {
@@ -96,7 +100,7 @@ export default css.resolve`
         display: grid;
         grid-template-areas: 
         "projectItem images"
-        "projectItem collaborators"
+        // "projectItem collaborators"
         "description description"
         "readme readme"
         ;

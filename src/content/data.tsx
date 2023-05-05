@@ -2,14 +2,14 @@ export const projectData = [
     {
         title: 'Silvester Zwemschool',
         picture: '/images/projects/logoPinkLarge.png',
-        description: 'Remake of existing wordpress site.',
-        shortText: "to be written",
+        description: 'Remake of the Silvester Zwemschool Wordpress Website in React / Next.JS with a headless CMS.',
+        shortText: "Increase pagespeed & user experience dramatically by rebuilding all informational parts of the existing wordpress website as a Single Page Application.",
         link: 'silvester',
         type: 'Front-end',
         tech: ['Next.js', 'TypeScript', 'Netlify-CMS'],
         images: ["/silvester-home.png","/silvester-review.png","/silvester-locaties.png","/silvester-faq.png","/silvester-search.png"],
         links: {
-            demoLink: "https://silvesterzwemschool.netlify.app"
+            demoLink: "https://silvesterzwemschool.netlify.app",
         },
         themeColor: '#e6007d',
         themeTextColor: '#eeeeee',
