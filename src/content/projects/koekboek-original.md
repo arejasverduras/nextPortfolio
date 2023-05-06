@@ -49,4 +49,4 @@ After finishing the bootcamp and additionaly learning **TypeScript**, I rebuild 
 Still, my favorite feature must have been: 
 `makeFlashy(element)`
 ![image](/images/projectImages/koekboek-original/koekboek_makeFlashy.png)
-_..I guess i did not undertand promises and setInterval back then_
+_..I guess i did not understand promises and setInterval back then_
