@@ -8,13 +8,11 @@ import { reducedImageProps } from '../NextImageGallery'
 import SharedModal from '../SharedModal/SharedModal'
 
 export default function Modal({
-  projectLink,
   images,
   photoId, 
   setPhotoId,
   prefix,
 }: {
-  projectLink: string,
   images: reducedImageProps[],
   photoId: number,
   setPhotoId: (id:number | null)=>void,
@@ -69,7 +67,6 @@ export default function Modal({
       <SharedModal
         index={curIndex}
         direction={direction}
-        projectLink={projectLink}
         images={images}
         changePhotoId={changePhotoId}
         closeModal={handleClose}

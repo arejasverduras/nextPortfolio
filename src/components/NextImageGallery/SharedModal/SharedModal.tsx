@@ -15,11 +15,9 @@ import { reducedImageProps } from '../NextImageGallery'
 
 export default function SharedModal({
   index,
-  projectLink,
   images,
   changePhotoId,
   closeModal,
-  navigation,
   currentPhoto,
   direction,
   prefix,
@@ -73,7 +71,6 @@ export default function SharedModal({
                 className={`${styledJsx.className} mainImage `}
               >
                 <Image
-                  // src={`/images/projectImages/${projectLink}${currentImage.src}`}
                   src={`/images/${prefix}/${currentImage.src}`}
                   width="1440"
                   height="853"
@@ -127,7 +124,6 @@ export default function SharedModal({
                 className={`${styledJsx.className} openFullSize`}  
                 >
                   <a
-                    // href={`/images/projectImages/${projectLink}${currentImage.src}`}
                     href={`/images/${prefix}/${currentImage.src}`}
                     className={`${styledJsx.className} buttonFullSize`}  
                     target="_blank"
@@ -192,7 +188,6 @@ export default function SharedModal({
                             ? 'currentSmallImage'
                             : 'notCurrentSmallImage'
                         } smallImage`}
-                        // src={`/images/projectImages/${projectLink}${src}`}
                         src={`/images/${prefix}/${src}`}
                       />
                     </motion.button>

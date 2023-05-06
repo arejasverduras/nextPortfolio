@@ -14,11 +14,8 @@ export interface reducedImageProps {
 
   interface NextImageGalleryProps {
     images: string[],
-    projectLink?: string,
-    blog?: boolean,
-    project?: boolean,
-    subFolder?: string,
     prefix: string,
+    style?: {[key: string]:string | number},
   }
 
   const animations = {
@@ -30,7 +27,7 @@ export interface reducedImageProps {
     }
   }
 
-  export const NextImageGallery = ({images, projectLink,blog,project, subFolder, prefix}:NextImageGalleryProps) => {
+  export const NextImageGallery = ({images, prefix,style}:NextImageGalleryProps) => {
     const [photoId, setPhotoId] = useState(null);
     
     const reducedImages = images.map((image, index) => (
@@ -57,7 +54,6 @@ export interface reducedImageProps {
                   alt="Michiel Roukens Portfolio Project Photo"
                   className={`${styledJsx.className} imageItem`}
                   style={{ transform: 'translate3d(0, 0, 0)' }}
-                  // src={`/images/${subFolder}/${projectLink? projectLink: null}/${src}`}
                   src={`/images/${prefix}/${src}`}
                   width={400}
                   height={400}
@@ -77,11 +73,12 @@ export interface reducedImageProps {
 
     return (
         <main 
-          className={`${styledJsx.className} container`}>
+          className={`${styledJsx.className} container`}
+          style={style && style}
+          >
         <AnimatePresence>
           {photoId !== null && (
             <Modal
-              projectLink={projectLink}
               images={reducedImages}
               photoId={photoId}
               setPhotoId={setPhotoId}
@@ -104,14 +101,9 @@ export interface reducedImageProps {
                   alt="Michiel Roukens Portfolio Project Photo first project"
                   className={`${styledJsx.className} firstImage`}
                   style={{ transform: 'translate3d(0, 0, 0)' }}
-                  // src={`/images/projectImages/${projectLink}${reducedImages[0].src}`}
                   src={`/images/${prefix}/${reducedImages[0].src}`}
                   width={720}
                   height={480}
-                  // sizes="(max-width: 640px) 100vw,
-                  //   (max-width: 1280px) 50vw,
-                  //   (max-width: 1536px) 33vw,
-                  //   25vw"
                 />
           </motion.div>
         
