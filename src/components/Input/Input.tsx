@@ -44,7 +44,7 @@ export const Input = (
     const samePageMessage = <>You are already on this page: <span>{router.asPath.slice(1)}</span></>;
     const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Click on the `?` icon to see a list of commands</>
 
-    const commands=["about", "projects","home","light","dark","hints"]
+    const commands=["about", "projects","home","light","dark","hints","blog"]
 
     const animations = {
         enter: {
@@ -141,6 +141,13 @@ export const Input = (
                 }, 400);
                 setHints(false);
                 break;
+            case "blog": 
+            router.push('/blog', undefined,{shallow: false});
+            setTimeout(() => {
+                setSearchTerm("");
+            }, 400);
+            setHints(false);
+            break;
             case "light":
                 setTheme('light');
                 setTimeout(() => {
