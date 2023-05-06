@@ -4,8 +4,6 @@ import path from 'path';
 import {remark} from 'remark';
 import html from 'remark-html';
 
-import {projectData} from '../content/data.tsx';
-
 const projectsDirectory = path.join(process.cwd(),'src/content/projects')
 
 
