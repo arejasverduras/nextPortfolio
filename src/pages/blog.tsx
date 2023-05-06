@@ -31,22 +31,10 @@ const Blog: NextPageWithLayout = ({allPostsData}:BlogProps) => {
     return (
         <>
         <h1>Blog</h1>
-            <ProjectsList 
-                projectData={allPostsData}
-                prefix="blog"
-                />
-            
-            <ul className="list">
-                {allPostsData.map(({ blog, date, title }) => (
-                <li className="listItem" key={blog}>
-                <Link href={`/blog/${blog}`}>{title}</Link>
-                <br />
-                {/* <small className="lightText">
-                    <Date dateString={date} />
-                </small> */}
-                </li>
-            ))}
-            </ul>
+        <ProjectsList 
+            projectData={allPostsData}
+            prefix="blog"
+            />
         </>
     )
 };
