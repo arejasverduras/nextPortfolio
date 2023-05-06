@@ -100,6 +100,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                     <ProjectItem 
                         content={projectData} 
                         key={link}
+                        prefix="blog"
                         onPage
                         />
                 </div>
@@ -110,7 +111,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         >
                             <NextImageGallery 
                                 images={images} 
-                                projectLink={projectData.link}
+                                // projectLink={projectData.link}
                                 prefix={`projectImages/${projectData.link}`}
                                 />
                     </div>
