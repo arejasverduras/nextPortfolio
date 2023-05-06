@@ -13,7 +13,7 @@ links: {
     readMe: "https://raw.githubusercontent.com/arejasverduras/koekboek/main/README.md"
 }
 startDate: ""
-completionDate: ""
+launchDate: ""
 ---
 
 A remake in **React** of my first **JavaScript-only** interactive app. 

@@ -41,7 +41,7 @@ const Projects: NextPageWithLayout = (props) => {
                 <title>Projects | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
             </Head>
             <h1>Projects</h1>
-            <ProjectsList projectData={allProjectData} />
+            <ProjectsList projectData={allProjectData} prefix="projects" />
         </>
     )
 }

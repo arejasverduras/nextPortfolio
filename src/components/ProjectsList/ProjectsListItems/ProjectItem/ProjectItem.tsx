@@ -6,12 +6,27 @@ import { AnimatePresence, motion } from 'framer-motion';
 // components
 import { ProjectLinks } from './ProjectLinks/ProjectLinks';
 // types
-import { ProjectContent } from '@/components/Project/Project';
+import { ProjectLinksContent } from './ProjectLinks/ProjectLinks';
 
 export interface ProjectItemProps {
     content: ProjectContent,
     index?: number,
     onPage?:boolean,
+    prefix: string,
+}
+
+export interface ProjectContent {
+    title: string,
+    picture: string,
+    description: string,
+    shortText: string,
+    link: string,
+    type: string,
+    tech: string[],
+    images: string[],
+    links: ProjectLinksContent,
+    themeColor?: string,
+    themeTextColor?: string,
 }
 
 const animations = {
@@ -27,23 +42,23 @@ const animations = {
     }),
 }
 
-export const ProjectItem = ({index=0 , content, onPage}:ProjectItemProps) =>{
+export const ProjectItem = ({index=0 , content, onPage, prefix}:ProjectItemProps) =>{
     const {title, picture, description, shortText, link, links, tech, type, images} = content;
 
     return (
-        <AnimatePresence>         
+        <AnimatePresence mode="wait">         
                 <motion.div 
                     className={`${styledJsx.className} container ${onPage && "onPageContainer"}`}
-                    key={link}
+                    key={title}
                     variants={animations}
                     animate={onPage? undefined: "itemsPop"}
-                    // exit={{x: -500, opacity:0}}
+                    // exit={{x: -500, opacity: 0, transition: {delay: 0.4} }}
                     custom={((index + 1) * 0.15)+0.4}
                     layoutId={link}
                     layout
                     >
                     <Link 
-                        href={onPage? link: 'projects/'+link} 
+                        href={onPage? link: `${prefix}/${link}`} 
                         className={`${styledJsx.className} content ${onPage && "onPageContent"}`}
                         scroll={false}
                         >

@@ -6,15 +6,17 @@ import { motion } from 'framer-motion';
 import { ProjectItemProps } from './ProjectItem/ProjectItem';
 
 interface ProjectsListItemsProps {
-    filteredData: ProjectItemProps["content"][]
+    filteredData: ProjectItemProps["content"][],
+    prefix: string,
 }
 
-export const ProjectsListItems = ({filteredData}:ProjectsListItemsProps) => {
+export const ProjectsListItems = ({filteredData, prefix}:ProjectsListItemsProps) => {
     const listItems = filteredData.map((item, index) => 
                 <ProjectItem 
                     content={item} 
                     key={item.link}
                     index={index}
+                    prefix={prefix}
                     />
     )
     

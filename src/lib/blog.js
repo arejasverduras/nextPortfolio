@@ -43,7 +43,7 @@ export const getAllBlogData = () => {
 
     // Sort posts by date
     return allPostsData.sort((a, b) => {
-        if (a.date < b.date) {
+        if (a.launchDate < b.launchDate) {
             return 1
         } else {
             return -1

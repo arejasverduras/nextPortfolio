@@ -1,8 +1,13 @@
 ---
 title: post Two
-date: 04-05-2023
-thumb: "/images/postTwo/Cid.jpg"
+picture: "/images/blog/postTwo/Cid.jpg"
+description: "Ready for take-off"
+link: postTwo
+type: "testing"
+tech: ["MDX","Next.js"]
 images: ["Cid.jpg","Vincent.jpg","Aerith.jpg","Red XIII.jpg","Barret.jpg"]
+launchDate: 04-05-2023
+
 ---
 # post _Two #
 

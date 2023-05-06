@@ -5,6 +5,7 @@ import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
 import Link from "next/link";
 import Image from "next/image";
+import { ProjectsList } from "@/components/ProjectsList/ProjectsList";
 // types
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
@@ -30,6 +31,11 @@ const Blog: NextPageWithLayout = ({allPostsData}:BlogProps) => {
     return (
         <>
         <h1>Blog</h1>
+            <ProjectsList 
+                projectData={allPostsData}
+                prefix="blog"
+                />
+            
             <ul className="list">
                 {allPostsData.map(({ blog, date, title }) => (
                 <li className="listItem" key={blog}>

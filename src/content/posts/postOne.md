@@ -1,7 +1,11 @@
 ---
 title: post One
-date: 05-05-2023
-thumb: "/images/postOne/Cloud.png"
+picture: "/images/blog/postOne/Cloud.png"
+description: "Intro"
+link: postOne
+type: "testing"
+tech: ["Next.js","Markdown"]
+launchDate: 05-05-2023
 ---
 # post _One #
 

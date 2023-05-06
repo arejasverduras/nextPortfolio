@@ -7,10 +7,11 @@ import { ProjectItemProps } from './ProjectsListItems/ProjectItem/ProjectItem';
 import { ProjectContent } from '../Project/Project';
 
 interface ProjectsListProps{
-    projectData: ProjectContent[];
+    projectData: ProjectContent[],
+    prefix: string,
 }
 
-export const ProjectsList = ({projectData}:ProjectsListProps) => {
+export const ProjectsList = ({projectData, prefix}:ProjectsListProps) => {
     const [filterTerm, setFilterTerm] = useState('');
     const [filteredData, setFilteredData] = useState(projectData);
 
@@ -21,10 +22,10 @@ export const ProjectsList = ({projectData}:ProjectsListProps) => {
         }
         const filtered = filteredData.filter(project => 
                 project.title.toLowerCase().includes(filterTerm) ||
-                project.description.toLowerCase().includes(filterTerm) ||
-                project.type.toLowerCase().includes(filterTerm) ||
-                project.tech.some((techItem) => techItem.toLowerCase().includes(filterTerm)) ||
-                project.title.toLowerCase().includes(filterTerm));
+                project.description?.toLowerCase().includes(filterTerm) ||
+                project.type?.toLowerCase().includes(filterTerm) ||
+                project.tech?.some((techItem) => techItem.toLowerCase().includes(filterTerm)) ||
+                project.title?.toLowerCase().includes(filterTerm));
         setFilteredData(filtered);
        
     },[filterTerm]);
@@ -37,7 +38,8 @@ export const ProjectsList = ({projectData}:ProjectsListProps) => {
                 filteredDataLength={filteredData.length}
                 />
             <ProjectsListItems 
-                filteredData={filteredData} 
+                filteredData={filteredData}
+                prefix={prefix} 
                 />
         </>
     )
