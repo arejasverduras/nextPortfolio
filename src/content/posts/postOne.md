@@ -7,8 +7,6 @@ type: "testing"
 tech: ["Next.js","Markdown"]
 launchDate: 05-05-2023
 ---
-# post _One #
-
 ## Special words ##
 baby yoda
 

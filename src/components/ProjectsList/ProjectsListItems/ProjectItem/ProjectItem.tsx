@@ -43,7 +43,7 @@ const animations = {
 }
 
 export const ProjectItem = ({index=0 , content, onPage, prefix}:ProjectItemProps) =>{
-    const {title, picture, description, shortText, link, links, tech, type, images} = content;
+    const {title, picture, description, link, links, tech, type} = content;
 
     return (
         <AnimatePresence mode="wait">         
@@ -88,7 +88,7 @@ export const ProjectItem = ({index=0 , content, onPage, prefix}:ProjectItemProps
                             
                         </motion.div>
                     </Link>
-                        {onPage && (
+                        {onPage && prefix !== 'blog' && (
                             <>
                                 <div className={`${styledJsx.className} projectLinks`}>
                                     <ProjectLinks links={links}/>

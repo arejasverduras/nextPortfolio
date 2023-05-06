@@ -1,5 +1,5 @@
 ---
-title: post _Two
+title: post _One | How to create a killer portfolio in NextJs
 picture: "/images/blog/postTwo/Cid.jpg"
 description: "Ready for take-off"
 link: postTwo
@@ -9,8 +9,6 @@ images: ["Cid.jpg","Vincent.jpg","Aerith.jpg","Red XIII.jpg","Barret.jpg"]
 launchDate: 06-05-2023
 
 ---
-# post _Two #
-
 ## Special words ##
 baby yoda
 
