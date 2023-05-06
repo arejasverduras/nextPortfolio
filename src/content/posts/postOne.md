@@ -12,7 +12,9 @@ baby yoda
 
 **My Hero**
 
-![image](/images/blog/postOne/Cloud.png);
+*clickable image*
+
+[![image](/images/blog/postOne/Cloud.png)](https://next-portfolio-remake.vercel.app/images/projectImages/resume/resume1.png);
 
 _this really rocks_
 

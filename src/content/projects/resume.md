@@ -6,7 +6,7 @@ shortText: "Interactive Resume to apply for Front-end developer positions. Fully
 link: 'resume'
 type: 'Front-end'
 tech: ['React', 'JavaScript']
-images: ["/resume1.png","/resume2.png","/resume3.png","/resume4.png","/resume5.png", "/resume6.png"]
+images: ["resume1.png","resume2.png","resume3.png","resume4.png","resume5.png", "resume6.png"]
 links: {
     demoLink: "https://arejasresume.surge.sh",
     sourceLink: "https://github.com/arejasverduras/resume",

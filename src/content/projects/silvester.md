@@ -6,7 +6,7 @@ shortText: "Increase pagespeed & user experience dramatically by rebuilding all 
 link: 'silvester'
 type: 'Front-end'
 tech: ['Next.js', 'TypeScript', 'Netlify-CMS']
-images: ["/silvester-home.png","/silvester-review.png","/silvester-locaties.png","/silvester-faq.png","/silvester-search.png"]
+images: ["silvester-home.png","silvester-review.png","silvester-locaties.png","silvester-faq.png","silvester-search.png"]
 links: {
     demoLink: "https://silvesterzwemschool.netlify.app",
 }

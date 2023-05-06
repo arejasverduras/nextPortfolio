@@ -6,7 +6,7 @@ shortText: "Global Surf Forecasting app for daily use. Get notified when the wea
 link: 'shredfish'
 type: 'Front-end'
 tech: ['React','Redux','JavaScript']
-images: ["/shredfish1.png","/shredfish2.png","/shredfish3.png","/shredfish4.png","/shredfish6.png"]
+images: ["shredfish1.png","shredfish2.png","shredfish3.png","shredfish4.png","shredfish6.png"]
 links: {
     demoLink: "https://shredfish.surge.sh",
     sourceLink: "https://github.com/arejasverduras/shredfish",

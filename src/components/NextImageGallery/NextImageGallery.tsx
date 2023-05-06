@@ -15,6 +15,10 @@ export interface reducedImageProps {
   interface NextImageGalleryProps {
     images: string[],
     projectLink?: string,
+    blog?: boolean,
+    project?: boolean,
+    subFolder?: string,
+    prefix: string,
   }
 
   const animations = {
@@ -26,7 +30,7 @@ export interface reducedImageProps {
     }
   }
 
-  export const NextImageGallery = ({images, projectLink}:NextImageGalleryProps) => {
+  export const NextImageGallery = ({images, projectLink,blog,project, subFolder, prefix}:NextImageGalleryProps) => {
     const [photoId, setPhotoId] = useState(null);
     
     const reducedImages = images.map((image, index) => (
@@ -53,7 +57,8 @@ export interface reducedImageProps {
                   alt="Michiel Roukens Portfolio Project Photo"
                   className={`${styledJsx.className} imageItem`}
                   style={{ transform: 'translate3d(0, 0, 0)' }}
-                  src={`/images/projectImages/${projectLink}${src}`}
+                  // src={`/images/${subFolder}/${projectLink? projectLink: null}/${src}`}
+                  src={`/images/${prefix}/${src}`}
                   width={400}
                   height={400}
                 />
@@ -80,6 +85,7 @@ export interface reducedImageProps {
               images={reducedImages}
               photoId={photoId}
               setPhotoId={setPhotoId}
+              prefix={prefix}
             />
           )}
         </AnimatePresence>
@@ -98,7 +104,8 @@ export interface reducedImageProps {
                   alt="Michiel Roukens Portfolio Project Photo first project"
                   className={`${styledJsx.className} firstImage`}
                   style={{ transform: 'translate3d(0, 0, 0)' }}
-                  src={`/images/projectImages/${projectLink}${reducedImages[0].src}`}
+                  // src={`/images/projectImages/${projectLink}${reducedImages[0].src}`}
+                  src={`/images/${prefix}/${reducedImages[0].src}`}
                   width={720}
                   height={480}
                   // sizes="(max-width: 640px) 100vw,

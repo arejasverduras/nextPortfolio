@@ -108,7 +108,11 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         className={`${styledJsx.className} images`}
                         key={title+"images"}
                         >
-                            <NextImageGallery images={images} projectLink={projectData.link}/>
+                            <NextImageGallery 
+                                images={images} 
+                                projectLink={projectData.link}
+                                prefix={`projectImages/${projectData.link}`}
+                                />
                     </div>
                 )}
                 {/* <motion.div 

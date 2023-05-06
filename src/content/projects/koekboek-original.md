@@ -6,7 +6,7 @@ shortText: "to be written"
 link: 'koekboek-original'
 type: 'Front-end'
 tech: ['JavaScript','HTML','CSS']
-images: ["/koekboek-original1.png", "/koekboek-original2.png","/koekboek-original3.png","/koekboek-original4.png","/koekboek_elementMaker.png","/koekboek_callFuncs.png","/koekboek_makeFlashy.png"]
+images: ["koekboek-original1.png", "koekboek-original2.png","koekboek-original3.png","koekboek-original4.png","koekboek_elementMaker.png","koekboek_callFuncs.png","koekboek_makeFlashy.png"]
 links: {
     demoLink: "https://arejasverduras.github.io/koekboek/",
     sourceLink: "https://github.com/arejasverduras/koekboek",

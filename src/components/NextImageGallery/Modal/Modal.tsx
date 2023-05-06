@@ -12,11 +12,13 @@ export default function Modal({
   images,
   photoId, 
   setPhotoId,
+  prefix,
 }: {
   projectLink: string,
   images: reducedImageProps[],
   photoId: number,
   setPhotoId: (id:number | null)=>void,
+  prefix: string,
 }) {
   let overlayRef = useRef()
 
@@ -72,6 +74,7 @@ export default function Modal({
         changePhotoId={changePhotoId}
         closeModal={handleClose}
         navigation={true}
+        prefix={prefix}
       />
     {styledJsx.styles}
     </Dialog>

@@ -2,6 +2,7 @@
 title: post Two
 date: 04-05-2023
 thumb: "/images/postTwo/Cid.jpg"
+images: ["Cid.jpg","Vincent.jpg","Aerith.jpg","Red XIII.jpg","Barret.jpg"]
 ---
 # post _Two #
 

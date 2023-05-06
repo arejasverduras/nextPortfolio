@@ -42,7 +42,7 @@ const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
     return (
         <>
             {blogData.images && (
-                <NextImageGallery images={blogData.images}/>
+                <NextImageGallery images={blogData.images} prefix="blog"/>
             )}
             <div
                 className='MDdescription' 

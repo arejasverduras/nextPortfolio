@@ -22,6 +22,7 @@ export default function SharedModal({
   navigation,
   currentPhoto,
   direction,
+  prefix,
 }: any) {
   const [loaded, setLoaded] = useState(false)
 
@@ -72,7 +73,8 @@ export default function SharedModal({
                 className={`${styledJsx.className} mainImage `}
               >
                 <Image
-                  src={`/images/projectImages/${projectLink}${currentImage.src}`}
+                  // src={`/images/projectImages/${projectLink}${currentImage.src}`}
+                  src={`/images/${prefix}/${currentImage.src}`}
                   width="1440"
                   height="853"
                   priority
@@ -125,7 +127,8 @@ export default function SharedModal({
                 className={`${styledJsx.className} openFullSize`}  
                 >
                   <a
-                    href={`/images/projectImages/${projectLink}${currentImage.src}`}
+                    // href={`/images/projectImages/${projectLink}${currentImage.src}`}
+                    href={`/images/${prefix}/${currentImage.src}`}
                     className={`${styledJsx.className} buttonFullSize`}  
                     target="_blank"
                     title="Open fullsize version"
@@ -189,7 +192,8 @@ export default function SharedModal({
                             ? 'currentSmallImage'
                             : 'notCurrentSmallImage'
                         } smallImage`}
-                        src={`/images/projectImages/${projectLink}${src}`}
+                        // src={`/images/projectImages/${projectLink}${src}`}
+                        src={`/images/${prefix}/${src}`}
                       />
                     </motion.button>
                   ))}

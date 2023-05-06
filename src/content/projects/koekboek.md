@@ -6,7 +6,7 @@ shortText: "to be written"
 link: 'koekboek'
 type: 'Front-end'
 tech: ['React','Redux','TypeScript']
-images: ["/koekboek1.png", "/koekboek2.png","/koekboek3.png","/koekboek41.png","/koekboek5.png","/koekboek6.png","/koekboek7.png","/koekboek-withHeader.png","/koekboek-noMore.png"]
+images: ["koekboek1.png", "koekboek2.png","koekboek3.png","koekboek41.png","koekboek5.png","koekboek6.png","koekboek7.png","koekboek-withHeader.png","koekboek-noMore.png"]
 links: {
     demoLink: "https://koekboek.surge.sh/",
     sourceLink: "https://github.com/arejasverduras/koekboek",
