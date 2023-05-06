@@ -73,8 +73,8 @@ export default function SharedModal({
               >
                 <Image
                   src={`/images/projectImages/${projectLink}${currentImage.src}`}
-                  width={navigation ? 1440 : 1920}
-                  height={navigation ? 853 : 1280}
+                  width="1440"
+                  height="853"
                   priority
                   quality={100}
                   // placeholder='blur'
@@ -125,7 +125,7 @@ export default function SharedModal({
                 className={`${styledJsx.className} openFullSize`}  
                 >
                   <a
-                    href={currentImage.src}
+                    href={`/images/projectImages/${projectLink}${currentImage.src}`}
                     className={`${styledJsx.className} buttonFullSize`}  
                     target="_blank"
                     title="Open fullsize version"
