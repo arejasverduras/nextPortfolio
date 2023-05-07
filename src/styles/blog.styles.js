@@ -90,10 +90,6 @@ export default css.resolve`
 
 @media screen and (min-width: 1280px) {
     .container {
-        // grid-template-areas:
-        // ". h1 ."
-        // "projectItem h1 images"
-        // "description description images";
         justify-content: center;
         justify-items: center;
         margin: 0 auto;

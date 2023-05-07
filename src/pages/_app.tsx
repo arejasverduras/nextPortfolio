@@ -4,7 +4,7 @@ import '@/styles/readme.css'
 import '@/styles/page.css'
 // deps
 import { AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Router from 'next/router';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -28,9 +28,6 @@ type AppPropsWithLayout = AppProps & {
 export default function App({ Component, pageProps, router }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page)=> page);
   const [loading, setLoading] = useState(false);
-  const [theme, setTheme] = useState('light');
-
-  const compRef = useRef(null);
 
   const scrollTop = () => {
     window.scrollTo({top: 0,left: 0, behavior: "smooth"});
@@ -64,7 +61,7 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
       initial={false}
       mode="wait"
       >    
-          <Component {...pageProps} key={router.route} theme={theme} setTheme={setTheme} ref={compRef}/>
+          <Component {...pageProps} key={router.route} />
     </AnimatePresence>
     <AnimatePresence
       >
