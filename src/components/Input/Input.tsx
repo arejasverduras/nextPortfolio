@@ -45,7 +45,7 @@ export const Input = (
     const samePageMessage = <>You are already on this page: <span>{router.asPath.slice(1)}</span></>;
     const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Type <i>help</i> or Click on the `?` icon to see a list of commands</>
 
-    const commands=["about", "projects","home","light","dark","hints","help","blog"]
+    const commands=["about", "projects","home","light","dark","hints","help","blog","quit","exit"]
 
     const animations = {
         enter: {
@@ -189,14 +189,14 @@ export const Input = (
                     break;
                 case "quit":
                 case "exit":
-                    setMessage(<><b>Error: </b>quiting is not an option..</>);
+                    setMessage(<><b>Error: </b>quitting is not an option..</>);
                     setShowMessage(true);
                     setTimeout(() => {
                         removeSearchTermSlow();
                     }, 400);
                     setTimeout(() => {
                         setShowMessage(false);
-                    }, 2000);
+                    }, 1500);
                     break;
             default:
             setMessage(errormessage);    

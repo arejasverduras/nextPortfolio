@@ -29,27 +29,29 @@ const About: NextPageWithLayout = ({content}:any) => {
     console.log(content)
     
     return (
-        <>
-            <Head>
-            <title>About | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
-            </Head>
-            <h1>About</h1>
-            <div 
-                className="topImageHolder">
-                <Image 
-                    className="topImage"
-                    src={content.image} 
-                    alt="portrait of Michiel, smiling" 
-                    width="200" 
-                    height="200"
+        <div className="aboutPage">
+            <div className="aboutPageContent">
+                <Head>
+                <title>About | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
+                </Head>
+                <h1>About</h1>
+                <div 
+                    className="topImageHolder">
+                    <Image 
+                        className="topImage"
+                        src={content.image} 
+                        alt="portrait of Michiel, smiling" 
+                        width="200" 
+                        height="200"
+                        />
+                </div>
+                <div
+                    className="mdContent"
+                    dangerouslySetInnerHTML={{__html: content.contentHtml}}
                     />
+                <AboutLinks links={content.links} />
             </div>
-            <div
-                className="mdContent"
-                dangerouslySetInnerHTML={{__html: content.contentHtml}}
-                />
-            <AboutLinks links={content.links} />
-        </>
+        </div>
     )
 }
 

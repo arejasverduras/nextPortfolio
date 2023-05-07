@@ -130,7 +130,7 @@ export default css.resolve`
         grid-template-areas: 
         "projectItem images"
         ". description"
-        "readme readme"
+        ". readme"
         ;
         // justify-content: center;
         // justify-items: center;
@@ -141,6 +141,11 @@ export default css.resolve`
     
     .description {
         // width: 100vw;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    .readme {
         max-width: 1024px;
         margin: 0 auto;
     }

@@ -1,17 +1,19 @@
 .readMeContainer h1, .readMeContainer h2, .readMeContainer h3 {
-    margin-top: 20px;
+    margin-top: 40px;
 
     text-align: left;
 }
 
 .readMeContainer p {
+    font-size: 16pt;
     padding: 4px 0;
-    line-height: 1.2em;
+    line-height: 1.4em;
 }
 
 .readMeContainer ul {
+    font-size: 16pt;
     padding-left: 20px;
-    line-height: 1.2em;
+    line-height: 1.4em;
 }
 
 .readMeContainer img {

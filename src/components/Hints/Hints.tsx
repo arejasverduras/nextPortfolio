@@ -2,7 +2,6 @@ import styles from './Hints.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faQuestion } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
 import Link from 'next/link';
 
 interface HintsProps {
@@ -14,7 +13,6 @@ interface HintsProps {
 }
 
 export const Hints = ({setSearchTerm, setShowMessage, home, hints, setHints}:HintsProps) => {
-    // const [hints, setHints] = useState(false);
     const toggleHints = () => {
         setHints(!hints);
         setShowMessage(false);
@@ -94,15 +92,14 @@ export const Hints = ({setSearchTerm, setShowMessage, home, hints, setHints}:Hin
                                         {generateLinks(hintsList)}
                                     </div>
                                     <p><b>Search</b> anything by starting your command with <i>search </i></p>
-                                    {!home && (
-                                    <>
+
                                         <p>Change <b>color</b> theme:</p>
                                         <ul>
                                             <li onClick={()=>handleClick("dark")}>dark</li>
                                             <li onClick={()=>handleClick("light")}>light</li>
                                         </ul>
-                                    </>
-                                    )}
+                                        <p></p>
+                                        <p><b>See</b> if you can find other commands..</p>
                             </motion.ul>
                         )}
                     </AnimatePresence>
