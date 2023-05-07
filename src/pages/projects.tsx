@@ -1,3 +1,5 @@
+// lib
+import { getAllProjectsData } from "@/lib/project";
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
 import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
@@ -14,7 +16,7 @@ import Head from "next/head";
 import { ThemeProvider } from '@/context/ThemeContext';
 
 export async function getStaticProps({}:any) {
-    const allProjectData = projectData;
+    const allProjectData = await getAllProjectsData();
 
     return {
         props: {
