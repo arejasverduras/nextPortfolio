@@ -1,5 +1,5 @@
 ---
-title: post _Two | How to dance the funky chicken
+title: post _Two | How to build a killer portfolio
 picture: "/images/blog/postTwo/Cid.jpg"
 description: "Ready for take-off"
 link: postTwo

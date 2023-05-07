@@ -71,6 +71,14 @@ const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
                         onPage
                         />
                 </div>
+                <motion.h1 
+                    className={`${styledJsx.className} descriptionH1`}
+                    variants={animations}
+                    key={title+"header1"}
+                    animate="leftIn"
+                    exit="imagesOut"
+                    layout
+                    >{title}</motion.h1>
                 {blogData.images?.length > 0 && (
                     <div 
                         className={`${styledJsx.className} images`}
@@ -91,7 +99,8 @@ const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
                     exit="imagesOut"
                     layout
                     >
-                        <h1 className={`${styledJsx.className} descriptionH1`}>{title}</h1>
+                        
+                        
                         <div 
                             className="MDdescription"
                             dangerouslySetInnerHTML={{__html: blogData.contentHtml}}
