@@ -43,7 +43,7 @@ export const Input = (
     const router = useRouter();
 
     const samePageMessage = <>You are already on this page: <span>{router.asPath.slice(1)}</span></>;
-    const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Click on the `?` icon to see a list of commands</>
+    const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Type <i>help</i> or Click on the `?` icon to see a list of commands</>
 
     const commands=["about", "projects","home","light","dark","hints","help","blog"]
 
@@ -162,7 +162,6 @@ export const Input = (
             setTimeout(() => {
                 removeSearchTermSlow();
             }, 400);
-
                 break;
             case "dark":
                 setTheme('dark');
@@ -172,16 +171,32 @@ export const Input = (
 
                 break;
                 case "hints" :
+                case "help" :
                     setHints(true);
                     setTimeout(() => {
                         removeSearchTermSlow();
                     }, 400);
                     break;
-                case "help":
-                    setHints(true);
+                case "root":
+                    setMessage(<>Nice try..</>);
+                    setShowMessage(true);
                     setTimeout(() => {
                         removeSearchTermSlow();
                     }, 400);
+                    setTimeout(() => {
+                        setShowMessage(false);
+                    }, 1000);
+                    break;
+                case "quit":
+                case "exit":
+                    setMessage(<><b>Error: </b>quiting is not an option..</>);
+                    setShowMessage(true);
+                    setTimeout(() => {
+                        removeSearchTermSlow();
+                    }, 400);
+                    setTimeout(() => {
+                        setShowMessage(false);
+                    }, 2000);
                     break;
             default:
             setMessage(errormessage);    
