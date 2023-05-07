@@ -124,4 +124,39 @@ export default css.resolve`
         max-width: 700px;
     }
 }
+
+@media screen and (min-width: 1440px) {
+    .container {
+        grid-template-areas: 
+        "projectItem images"
+        ". description"
+        "readme readme"
+        ;
+        // justify-content: center;
+        // justify-items: center;
+        // margin: 0 auto;
+        grid-template-columns: 1fr 2fr;
+        max-width: 1440px;
+    }
+    
+    .description {
+        // width: 100vw;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    // .projectItem {
+    //     max-width: 500px;
+    //     justify-self: flex-end;
+    // }
+
+
+    .images {
+        justify-self: flex-start;
+        position: sticky;
+        align-self: start;
+    }
+
+}
+
 `
