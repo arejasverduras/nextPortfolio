@@ -10,6 +10,8 @@ import type {NextPageWithLayout} from './_app';
 import { projectData } from "@/content/data";
 import projectsImage from '../../public/images/projects/portfolioChar.png';
 import Head from "next/head";
+// context
+import { ThemeProvider } from '@/context/ThemeContext';
 
 export async function getStaticProps({}:any) {
     const allProjectData = projectData;
@@ -48,11 +50,13 @@ const Projects: NextPageWithLayout = (props) => {
 
 Projects.getLayout = function getLayout(page:ReactElement) {
     return (
-        <PageLayout>
-            <NestedSimple imageSrc={projectsImage}>
-                {page}
-            </NestedSimple>
-        </PageLayout>
+        <ThemeProvider>
+            <PageLayout>
+                <NestedSimple imageSrc={projectsImage}>
+                    {page}
+                </NestedSimple>
+            </PageLayout>
+        </ThemeProvider>
     )
 }
 

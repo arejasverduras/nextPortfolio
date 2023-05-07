@@ -15,6 +15,8 @@ import { ProjectItem } from '@/components/ProjectsList/ProjectsListItems/Project
 import { NextImageGallery } from '@/components/NextImageGallery/NextImageGallery';
 // data
 import blogImage from '../../../public/images/projects/resume.png';
+// context
+import { ThemeProvider } from '@/context/ThemeContext';
 
 export async function getStaticPaths () {
     // return getAllProjects();
@@ -115,12 +117,13 @@ const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
 
 BlogPost.getLayout = function getLayout(page:ReactElement) {
     return (
-        <PageLayout>
-            <NestedSimple imageSrc={blogImage}>
-                {page}
-                
-            </NestedSimple>
-        </PageLayout>
+        <ThemeProvider>
+            <PageLayout>
+                <NestedSimple imageSrc={blogImage}>
+                    {page}
+                </NestedSimple>
+            </PageLayout>
+        </ThemeProvider>
     )
 }
 

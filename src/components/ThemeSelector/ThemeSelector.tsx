@@ -1,16 +1,18 @@
 import styles from './ThemeSelector.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { AnimatePresence, motion } from 'framer-motion';
+import { ThemeContext } from '@/context/ThemeContext';
 
 interface ThemeSelectorProps {
-    theme: string,
-    setTheme: (theme: string)=>void,
+    // theme: string,
+    // setTheme: (theme: string)=>void,
 }
 
-export const ThemeSelector = ({theme, setTheme}:ThemeSelectorProps) => {   
-    
+export const ThemeSelector = ({}:ThemeSelectorProps) => {   
+    const {theme, setTheme} = useContext(ThemeContext);
+
     useEffect(()=>{
         let root = document.documentElement;
         if (theme === 'light'){
@@ -55,7 +57,7 @@ export const ThemeSelector = ({theme, setTheme}:ThemeSelectorProps) => {
             root.style.setProperty('--currentBg', 'var(--darkBg)');
             root.style.setProperty('--currentText', 'var(--darkText)');
         } else {return}
-    },[theme]);
+    },[theme, setTheme]);
     
     return (
         <motion.div 

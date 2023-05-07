@@ -11,6 +11,8 @@ import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
 // data
 import blogImage from '../../public/images/projects/resume.png';
+// context
+import { ThemeProvider } from "@/context/ThemeContext";
 
 export async function getStaticProps() {
     const allPostsData = await getAllBlogData();
@@ -41,11 +43,13 @@ const Blog: NextPageWithLayout = ({allPostsData}:BlogProps) => {
 
 Blog.getLayout = function getLayout(page:ReactElement) {
     return (
-        <PageLayout>
-            <NestedSimple imageSrc={blogImage}>
-                {page}
-            </NestedSimple>
-        </PageLayout>
+        <ThemeProvider>
+            <PageLayout>
+                <NestedSimple imageSrc={blogImage}>
+                    {page}
+                </NestedSimple>
+            </PageLayout>
+        </ThemeProvider>
     )
 }
 

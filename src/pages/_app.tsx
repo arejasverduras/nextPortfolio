@@ -16,6 +16,7 @@ import type { AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 
+
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
@@ -57,18 +58,20 @@ export default function App({ Component, pageProps, router }: AppPropsWithLayout
   
   return getLayout(
     <>
-    <AnimatePresence
-      initial={false}
-      mode="wait"
-      >    
-          <Component {...pageProps} key={router.route} />
-    </AnimatePresence>
-    <AnimatePresence
-      >
-      {loading && (
-        <Loading />
-      )}
-    </AnimatePresence>
-  </>
+      <AnimatePresence
+        initial={false}
+        mode="wait"
+        >    
+            <Component {...pageProps} key={router.route} />
+            
+      </AnimatePresence>
+      <AnimatePresence
+        >
+        {loading && (
+          <Loading />
+        )}
+      </AnimatePresence>
+    </>
+    
     )
 }

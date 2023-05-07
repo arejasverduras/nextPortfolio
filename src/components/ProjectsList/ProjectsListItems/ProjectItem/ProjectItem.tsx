@@ -46,13 +46,14 @@ export const ProjectItem = ({index=0 , content, onPage, prefix}:ProjectItemProps
     const {title, picture, description, link, links, tech, type} = content;
 
     return (
-        <AnimatePresence mode="wait">         
+        <AnimatePresence>         
                 <motion.div 
                     className={`${styledJsx.className} container ${onPage && "onPageContainer"}`}
-                    key={title}
+                    key={title+link}
                     variants={animations}
+                    initial={{x: 0, y: 0}}
                     animate={onPage? undefined: "itemsPop"}
-                    // exit={{x: -500, opacity: 0, transition: {delay: 0.4} }}
+                    // exit="itemsOut"
                     custom={((index + 1) * 0.15)+0.4}
                     layoutId={link}
                     layout

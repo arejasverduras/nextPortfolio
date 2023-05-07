@@ -11,6 +11,8 @@ import {getPageData} from '../lib/pages';
 // types
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
+// context
+import { ThemeProvider } from '@/context/ThemeContext';
 
 export async function getStaticProps() {
     const content = await getPageData('/about');
@@ -53,11 +55,13 @@ const About: NextPageWithLayout = ({content}:any) => {
 
 About.getLayout = function getLayout(page:ReactElement) {
     return (
-        <PageLayout>
-            <NestedSimple imageSrc={aboutImage}>
-                {page}
-            </NestedSimple>
-        </PageLayout>
+        <ThemeProvider>
+            <PageLayout>
+                <NestedSimple imageSrc={aboutImage}>
+                    {page}
+                </NestedSimple>
+            </PageLayout>
+        </ThemeProvider>
     )
 }
 

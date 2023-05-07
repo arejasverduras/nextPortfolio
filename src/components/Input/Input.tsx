@@ -2,10 +2,12 @@ import styles from './Input.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPowerOff, faTurnDown } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 // components
 import { InputLed } from '../InputLED/InputLED';
+// context
+import { ThemeContext } from '@/context/ThemeContext';
 
 interface InputProps {
     visible: boolean, 
@@ -15,7 +17,6 @@ interface InputProps {
     startOpen?: boolean,
     setMessage: (element: any)=>void,
     setShowMessage: (type: boolean)=>void,
-    setTheme: (type:string)=>void,
     trackLayout?: boolean,
     hints: boolean,
     setHints: (type:boolean)=>void,
@@ -29,8 +30,7 @@ export const Input = (
         setSearchTerm, 
         startOpen, 
         setMessage, 
-        setShowMessage, 
-        setTheme, 
+        setShowMessage,  
         trackLayout,
         hints,
         setHints,
@@ -38,6 +38,7 @@ export const Input = (
     const [hit, setHit] = useState(false);
     const [searchHit, setSearchHit] = useState(false);
     const [action, setAction] = useState(false);
+    const {theme, setTheme} = useContext(ThemeContext);
     
     const router = useRouter();
 
@@ -85,7 +86,6 @@ export const Input = (
 
     useEffect(()=>{
         const inpute = document.getElementById("inputfield");
-        console.log(inpute);
         inpute?.focus();
     
       },[visible]
@@ -148,8 +148,8 @@ export const Input = (
             }, 400);
             setHints(false);
             break;
-            case "light":
-                setTheme('light');
+            case "light":   
+            setTheme('light');
                 setTimeout(() => {
                     setSearchTerm("");
                 }, 400);
@@ -185,7 +185,6 @@ export const Input = (
 
     return (
         <>
-                                        
         <motion.div 
             className={styles.inputHolder}
             key="inputHolder"

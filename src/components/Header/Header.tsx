@@ -14,7 +14,7 @@ export const Header = ({home, projects}:any) => {
     const [message, setMessage] = useState(<></>);
     const [showMessage, setShowMessage] = useState(false);
     const [hints, setHints] = useState(false);
-    const [theme, setTheme] = useState('dark');
+
     const animations = {
         topIn: {
             y: [-50,0],
@@ -26,6 +26,7 @@ export const Header = ({home, projects}:any) => {
  
     return (
         <>
+ 
             <motion.div 
             className={`${styles.header} ${home && styles.headerHome}`}
             key="PageLayoutHeader"
@@ -46,6 +47,7 @@ export const Header = ({home, projects}:any) => {
                 </motion.div>
                 {!home && (
                     <>
+                   
                         <motion.div 
                             className={styles.commandHolder}
                             key="headerCommandHolder"
@@ -57,13 +59,13 @@ export const Header = ({home, projects}:any) => {
                                 searchTerm={searchTerm}
                                 setSearchTerm={setSearchTerm}
                                 setMessage={setMessage}
-                                setShowMessage={setShowMessage}
-                                setTheme={setTheme}
+                                setShowMessage={setShowMessage}                           
                                 trackLayout={!projects}
                                 hints={hints}
                                 setHints={setHints}
                                 />
                         </motion.div>
+                     
                         <Message 
                             setShowMessage={setShowMessage}
                             message={message}
@@ -71,8 +73,9 @@ export const Header = ({home, projects}:any) => {
                             />
                     </>
                     )}
-                <ThemeSelector theme={theme} setTheme={setTheme}/>
-                
+              
+                    <ThemeSelector/>
+                  
                 {!home && (<motion.div 
                     className={styles.hintsHolder}
                     key="hintsHolderLayout"
@@ -88,6 +91,7 @@ export const Header = ({home, projects}:any) => {
                         />
                 </motion.div>)}
             </div>
-        </>
+     
+            </>
     )
 }

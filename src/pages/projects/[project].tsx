@@ -15,6 +15,9 @@ import NestedSimple from '@/Layouts/NestedSimple/NestedSimple';
 import { ProjectItem } from '@/components/ProjectsList/ProjectsListItems/ProjectItem/ProjectItem';
 import { NextImageGallery } from '@/components/NextImageGallery/NextImageGallery';
 
+//context
+import { ThemeProvider } from '@/context/ThemeContext.js';
+
 // dynamics
 const ProjectReadMe = dynamic(()=> import ('../../components/Project/ProjectReadMe/ProjectReadMe').then((mod) => mod.ProjectReadMe))
 
@@ -174,12 +177,13 @@ const ProjectPage: NextPageWithLayout = (props)=>{
 
 ProjectPage.getLayout = function getLayout(page:ReactElement) {
     return (
-        <PageLayout>
-            <NestedSimple imageSrc={projectImage}>
-                {page}
-                
-            </NestedSimple>
-        </PageLayout>
+        <ThemeProvider>
+            <PageLayout>
+                <NestedSimple imageSrc={projectImage}>
+                    {page}
+                </NestedSimple>
+            </PageLayout>
+        </ThemeProvider>
     )
 }
 

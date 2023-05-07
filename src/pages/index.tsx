@@ -12,6 +12,8 @@ import { Message } from '@/components/Message/Message';
 // types
 import {ReactElement} from 'react';
 import type { NextPageWithLayout } from './_app'
+// context
+import { ThemeProvider } from '@/context/ThemeContext';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -68,7 +70,9 @@ const Home:NextPageWithLayout = () => {
                     </motion.h1>)}
             </AnimatePresence>
         </div>
-        <div className={styles.inputContainer}>
+        
+        <div key="homeInput" className={styles.inputContainer}>
+        
             <Input 
                 visible={visible}
                 toggleVisible={toggleVisible}
@@ -76,12 +80,13 @@ const Home:NextPageWithLayout = () => {
                 setSearchTerm={setSearchTerm}
                 setMessage={setMessage}
                 setShowMessage={setShowMessage}
-                setTheme={()=>{}}
                 hints={hints}
                 setHints={setHints}
                 trackLayout
                 />
+           
         </div>
+        
         <AnimatePresence mode="wait">
           {visible && (
             <motion.div 
@@ -106,15 +111,19 @@ const Home:NextPageWithLayout = () => {
             showMessage={showMessage}
             />
     </main>
+    
     </>
+    
   )
 }
 
 Home.getLayout = function getLayout(page:ReactElement) {
   return (
-      <PageLayout home>
-          {page}
-      </PageLayout>
+      <ThemeProvider>
+        <PageLayout home> 
+            {page}
+        </PageLayout>
+      </ThemeProvider>
   )
 }
 
