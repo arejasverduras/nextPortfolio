@@ -29,6 +29,10 @@ export const ProjectsList = ({projectData, prefix}:ProjectsListProps) => {
         setFilteredData(filtered);
        
     },[filterTerm]);
+
+    useEffect(()=>{
+        
+    },[prefix])
     
     return (
         <>

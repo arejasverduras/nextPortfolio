@@ -88,7 +88,7 @@ export const ProjectItem = ({index=0 , content, onPage, prefix}:ProjectItemProps
                             
                         </motion.div>
                     </Link>
-                        {onPage && prefix !== 'blog' && (
+                        {onPage && links && (
                             <>
                                 <div className={`${styledJsx.className} projectLinks`}>
                                     <ProjectLinks links={links}/>
