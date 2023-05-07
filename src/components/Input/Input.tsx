@@ -38,14 +38,14 @@ export const Input = (
     const [hit, setHit] = useState(false);
     const [searchHit, setSearchHit] = useState(false);
     const [action, setAction] = useState(false);
-    const {theme, setTheme} = useContext(ThemeContext);
+    const {setTheme} = useContext(ThemeContext);
     
     const router = useRouter();
 
     const samePageMessage = <>You are already on this page: <span>{router.asPath.slice(1)}</span></>;
     const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Click on the `?` icon to see a list of commands</>
 
-    const commands=["about", "projects","home","light","dark","hints","blog"]
+    const commands=["about", "projects","home","light","dark","hints","help","blog"]
 
     const animations = {
         enter: {
@@ -118,56 +118,70 @@ export const Input = (
             }, 200);
             return;
         }
+
+        const removeSearchTermSlow = () => {
+            const letters = searchTerm.length;
+            for (let i=1; i <= searchTerm.length; i++){
+                setTimeout(() => {
+                    setSearchTerm(searchTerm.slice(0,letters-i))
+                }, 100*(i+1));
+            }
+        }
         
         switch (searchTerm) {
             case "about":    
                 router.push('/about', undefined,{shallow: false})
                 setTimeout(() => {
-                    setSearchTerm("");
+                    removeSearchTermSlow();
                 }, 400);
                 setHints(false);
                 break;
             case "home":
                 router.push('/', undefined,{shallow: false})
                 setTimeout(() => {
-                    setSearchTerm("");
+                    removeSearchTermSlow();
                 }, 400);
                 setHints(false);
                 break;
             case "projects": 
                 router.push('/projects', undefined,{shallow: false});
                 setTimeout(() => {
-                    setSearchTerm("");
+                    removeSearchTermSlow();
                 }, 400);
                 setHints(false);
                 break;
             case "blog": 
             router.push('/blog', undefined,{shallow: false});
             setTimeout(() => {
-                setSearchTerm("");
+                removeSearchTermSlow();
             }, 400);
             setHints(false);
             break;
             case "light":   
-            setTheme('light');
-                setTimeout(() => {
-                    setSearchTerm("");
-                }, 400);
+            setTheme('light');    
+            setTimeout(() => {
+                removeSearchTermSlow();
+            }, 400);
 
                 break;
             case "dark":
                 setTheme('dark');
                 setTimeout(() => {
-                    setSearchTerm("");
+                    removeSearchTermSlow();
                 }, 400);
 
                 break;
-                case "hints":
+                case "hints" :
                     setHints(true);
                     setTimeout(() => {
-                        setSearchTerm("");
+                        removeSearchTermSlow();
                     }, 400);
-    
+                    break;
+                case "help":
+                    setHints(true);
+                    setTimeout(() => {
+                        removeSearchTermSlow();
+                    }, 400);
                     break;
             default:
             setMessage(errormessage);    
