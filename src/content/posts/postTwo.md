@@ -1,5 +1,5 @@
 ---
-title: post _One | How to create a killer portfolio in NextJs
+title: post _Two | How to dance the funky chicken
 picture: "/images/blog/postTwo/Cid.jpg"
 description: "Ready for take-off"
 link: postTwo

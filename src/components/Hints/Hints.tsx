@@ -43,7 +43,7 @@ export const Hints = ({setSearchTerm, setShowMessage, home, hints, setHints}:Hin
         setShowMessage(false);
     }
 
-    const hintsList = ['home','about','projects'];
+    const hintsList = ['home','about','projects','blog'];
 
     const generateLinks = (list: string[]) => {
         return list.map((item, index) => 
