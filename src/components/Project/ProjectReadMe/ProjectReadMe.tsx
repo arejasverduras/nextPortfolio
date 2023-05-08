@@ -38,7 +38,7 @@ export const ProjectReadMe = ({readMe, loading, setLoading}) => {
     return (
         <>
             {!loading &&
-                <motion.div 
+                <motion.div
                     className="readMeContainer"
                     key="fullReadMe"
                     initial={{opacity: 0}}

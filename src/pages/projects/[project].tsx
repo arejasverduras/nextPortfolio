@@ -162,8 +162,9 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                             dangerouslySetInnerHTML={{__html: projectData.contentHtml}}
                             />
                 </motion.div>
-
+                
                 {links.readMe && (<motion.div 
+                    id="readme"
                     className={`${styledJsx.className} readme ${showReadMe && 'readMeVisible'}`}
                     variants={animations}
                     key={title+"readme"}
@@ -198,6 +199,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                             <ChevronRightIcon className={`${styledJsx.className} readmeIcon ${showReadMe && 'readMeIconVisible'}`} />
                     </h2>
                     <AnimatePresence>
+                    
                     {showReadMe && (
                         <ProjectReadMe 
                             loading={loading} 

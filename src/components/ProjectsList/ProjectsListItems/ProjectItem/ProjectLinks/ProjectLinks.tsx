@@ -26,13 +26,13 @@ export const ProjectLinks = ({links}:ProjectLinksProps) => {
             animate="linksSlide"
             custom={((index + 1) * 0.15)+0.2}
             >
-            <Link 
+           {linkKey === "readMe"? <a href="#readme">ReadMe</a>:( <Link 
                 href={links[linkKey]}
                 className={`${styledJsx.className} link`}
                 target="_blank"               
                 >
                     {linkKey === 'demoLink'? "Live demo": linkKey === 'sourceLink'? "Github repo": "Readme" }
-            </Link>
+            </Link>)}
         </motion.div>
     )
  
