@@ -9,7 +9,6 @@ import { useEffect } from "react";
 import { ReactElement } from "react";
 import type {NextPageWithLayout} from './_app';
 // data
-import { projectData } from "@/content/data";
 import projectsImage from '../../public/images/projects/portfolioChar.png';
 import Head from "next/head";
 // context

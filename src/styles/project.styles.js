@@ -49,10 +49,11 @@ export default css.resolve`
         margin-bottom: 20px;
     }
 
+
+
     .readme {
         grid-area: readme;
-        border: 1px solid var(--colorBorders);
-        border-radius: 25px;
+        // border-radius: 25px;
         padding: 20px;
         width: 100%;
         height: auto;
@@ -62,6 +63,8 @@ export default css.resolve`
 
     .readMeVisible {
         height: 100%;
+        padding: 20px 0;
+        border: none;
     }
 
     .readmeSubHolder {
@@ -81,6 +84,9 @@ export default css.resolve`
         display: flex;
         width: 100%;
         justify-content: space-between;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--colorBorders);
+
     }
 
     .readmeIcon {
@@ -105,14 +111,21 @@ export default css.resolve`
         grid-template-columns: 1fr 2fr;
     }
 
+    .readmeToggle {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
     .readme {
         width: 50%;
-        height: 
         transition: all 400ms;
+        border: 1px solid var(--colorBorders);
+        border-radius: 25px;
     }
 
     .readMeVisible {
         width: 100%;
+        padding: 20px;
     }
 
     .description {
@@ -132,9 +145,6 @@ export default css.resolve`
         ". description"
         ". readme"
         ;
-        // justify-content: center;
-        // justify-items: center;
-        // margin: 0 auto;
         grid-template-columns: 1fr 2fr;
         max-width: 1440px;
     }
@@ -147,8 +157,12 @@ export default css.resolve`
 
     .readme {
         max-width: 1024px;
-        margin: 0 auto;
+        // margin: 0 auto;
+        padding: 20px;
+        
     }
+
+    
 
     // .projectItem {
     //     max-width: 500px;
