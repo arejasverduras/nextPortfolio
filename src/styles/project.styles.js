@@ -49,14 +49,15 @@ export default css.resolve`
         margin-bottom: 20px;
     }
 
-
-
     .readme {
         grid-area: readme;
-        padding: 20px 40px 20px 0px;
+        padding: 20px;
+        padding-bottom: 0;
         width: 100%;
         height: auto;
         max-width: 700px;
+        border: 1px solid var(--colorBorders);
+        border-radius: 25px;
         transition: all 400ms;
     }
 
@@ -84,14 +85,13 @@ export default css.resolve`
         width: 100%;
         justify-content: space-between;
         padding-bottom: 20px;
-        border-bottom: 1px solid var(--colorBorders);
-
-
+        // border-bottom: 1px solid var(--colorBorders);
     }
 
     .readMeToggleVisible {
         // border-color: var(--colorH2);
-
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--colorBorders);
     }
 
     .readmeIcon {
