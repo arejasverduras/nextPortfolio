@@ -91,6 +91,13 @@ export const Input = (
       },[visible]
       );
 
+      useEffect(()=>{
+        // only on phones?
+
+        const inpute = document.getElementById("inputfield");
+        inpute?.blur();
+      },[router.asPath])
+
 
       const handleChange = ({target}:any) => {
         setShowMessage(false);
