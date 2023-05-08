@@ -149,8 +149,7 @@ export default css.resolve`
         grid-template-areas: 
         "projectItem images"
         ". description"
-        ". readme"
-        ;
+        ". readme";
         grid-template-columns: 1fr 2fr;
         max-width: 1440px;
     }
@@ -163,18 +162,7 @@ export default css.resolve`
 
     .readme {
         max-width: 1024px;
-        // margin: 0 auto;
-        padding: 20px;
-        
     }
-
-    
-
-    // .projectItem {
-    //     max-width: 500px;
-    //     justify-self: flex-end;
-    // }
-
 
     .images {
         justify-self: flex-start;
