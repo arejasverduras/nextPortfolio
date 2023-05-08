@@ -67,6 +67,10 @@ export default css.resolve`
         border: none;
     }
 
+    .readMeVisibleLoaded {
+        padding-bottom: 20px;
+    }
+
     .readmeSubHolder {
         display: flex;
         gap: 1em;
@@ -85,7 +89,6 @@ export default css.resolve`
         width: 100%;
         justify-content: space-between;
         padding-bottom: 20px;
-        // border-bottom: 1px solid var(--colorBorders);
     }
 
     .readMeToggleVisible {
@@ -119,7 +122,7 @@ export default css.resolve`
 
     .readmeToggle {
         border-bottom: none;
-        padding-bottom: 20px;
+        
     }
 
     .readme {
@@ -132,13 +135,15 @@ export default css.resolve`
     .readMeVisible {
         width: 100%;
         padding: 20px;
+        padding-bottom: 0;
     }
+
+    
 
     .description {
         border: 1px solid var(--colorBorders);
         border-radius: 25px;
         padding: 20px;
-        
         margin: 20px 0;
         max-width: 700px;
     }
@@ -169,7 +174,6 @@ export default css.resolve`
         position: sticky;
         align-self: start;
     }
-
 }
 
 `

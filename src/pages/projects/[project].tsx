@@ -165,7 +165,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                 
                 {links.readMe && (<motion.div 
                     id="readme"
-                    className={`${styledJsx.className} readme ${showReadMe && 'readMeVisible'}`}
+                    className={`${styledJsx.className} readme ${showReadMe && 'readMeVisible'} ${!loading && showReadMe && 'readMeVisibleLoaded'}`}
                     variants={animations}
                     key={title+"readme"}
                     animate="rightIn"
