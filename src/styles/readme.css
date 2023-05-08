@@ -21,7 +21,19 @@
 
 .loadingReadMe {
     font-size: 16px;
-    align-self:last baseline;
     font-weight: normal;
     color: var(--colorText);
+    margin-left: 20px;
+}
+
+@media screen and (min-width: 40px) {
+    .loadingReadMe {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .loadingReadMe {
+        margin-left: -60px;
+    }
 }

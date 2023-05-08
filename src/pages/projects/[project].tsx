@@ -185,6 +185,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                                     <GitHub color={showReadMe && !loading ? 'var(--colorH2)' : 'var(--colorText'} />
                                 </motion.div>
                                 readme 
+                                
                             </div>
                             {showReadMe && loading && (
                                 <motion.div
