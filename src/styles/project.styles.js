@@ -119,7 +119,7 @@ export default css.resolve`
 
     .readmeToggle {
         border-bottom: none;
-        padding-bottom: 0;
+        padding-bottom: 20px;
     }
 
     .readme {
