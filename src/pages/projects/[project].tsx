@@ -74,8 +74,8 @@ const ProjectPage: NextPageWithLayout = (props)=>{
             transition: {delay: 0.6, type: "tween"}
         },
         loadingReadMe: {
-            opacity: [1,0.1,1],
-            transition: {duration: 0.6, repeat: Infinity}
+            opacity: [0,1,0],
+            transition: {duration: 0.6, repeat: Infinity, delay: 0.2}
         },
         loadingSpin: {
             rotate: 360,
