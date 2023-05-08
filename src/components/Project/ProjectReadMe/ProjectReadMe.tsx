@@ -3,14 +3,21 @@ import Markdown from 'markdown-to-jsx';
 import { motion } from 'framer-motion';
 import { Loading } from '@/components/Loading/Loading';
 
-export const ProjectReadMe = ({readMe}) => {
+export const ProjectReadMe = ({readMe, loading, setLoading}) => {
 
     const fileLocation = readMe? readMe : undefined;
-    const [loading, setLoading] = useState(true);
+    
     const [post, setPost] = useState('');
 
+    const animations = {
+        loading: {
+            opacity: [1,0.1,1],
+            transition: {duration: 0.4, repeat: Infinity}
+        }
+    }
+
     useEffect(()=>{
-        
+        // setLoading(true);
         if (fileLocation){
             fetch(fileLocation)
             .then(res => res.text())
@@ -18,8 +25,7 @@ export const ProjectReadMe = ({readMe}) => {
                 setPost(res)
                 setTimeout(() => {
                     setLoading(false);    
-                }, 400);
-                
+                }, 1000);
             })
             .catch(err => {
                 console.log(err);
@@ -27,14 +33,21 @@ export const ProjectReadMe = ({readMe}) => {
                 setPost('<p>Loading ReadMe file failed</p>')
             });
         }
-        
     });
 
     return (
         <>
-            {loading? 
-                <Loading/>
-                : 
+            {!loading && 
+                // <Loading/>
+                // <motion.div
+                // className="loadingReadMe"
+                // key="loadingReadMe"
+                // variants={animations}
+                // animate="loading"
+                // >
+                //     Loading from GitHub..
+                // </motion.div>
+                
                 <motion.div 
                     className="readMeContainer"
                     key="fullReadMe"

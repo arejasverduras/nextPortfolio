@@ -55,6 +55,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
     const {projectData} = props;
     const {images, link, links, title, shortText, highlights} = projectData;
     const [showReadMe, setShowReadMe] = useState(false);
+    const [loading, setLoading] = useState(true);
    
     const animations = {
         imagesIn: {
@@ -71,7 +72,16 @@ const ProjectPage: NextPageWithLayout = (props)=>{
             x: [-600,0],
             opacity: [0,1],
             transition: {delay: 0.6, type: "tween"}
-        }
+        },
+        loadingReadMe: {
+            opacity: [1,0.1,1],
+            transition: {duration: 0.6, repeat: Infinity}
+        },
+        loadingSpin: {
+            rotate: 360,
+            transition: {duration: 0.6, repeat: Infinity, type: "anticipate" }
+        },
+        loadingFinished: {}
     }
 
     const toggleReadMe = () => {
@@ -92,6 +102,15 @@ const ProjectPage: NextPageWithLayout = (props)=>{
         }
 
     },[projectData])
+
+    useEffect(()=>{
+        if (showReadMe){
+            setLoading(true);
+        } else {
+            setLoading(false);
+        }
+        
+    },[showReadMe])
 
     return (
         <>
@@ -156,15 +175,35 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                     className={`${styledJsx.className} readmeToggle ${showReadMe && 'readMeToggleVisible'}`}
                         onClick={(toggleReadMe)}>
                             <div className={`${styledJsx.className} readmeSubHolder`}>
-                                <div className={`${styledJsx.className} readmeSubHolderIcon`}>
-                                    <GitHub color={showReadMe ? 'var(--colorH2)' : 'var(--colorText'} />
-                                </div>
+                                <motion.div 
+                                    className={`${styledJsx.className} readmeSubHolderIcon`}
+                                    key="readmeSubHolderIconGit"
+                                    variants={animations}
+                                    animate={showReadMe && loading? "loadingSpin": {}}
+                                    >
+                                    <GitHub color={showReadMe && !loading ? 'var(--colorH2)' : 'var(--colorText'} />
+                                </motion.div>
                                 readme 
                             </div>
-                            <ChevronRightIcon className={`${styledJsx.className} readmeIcon ${showReadMe && 'readMeIconVisible'}`} /></h2>
+                            {showReadMe && loading && (
+                                <motion.div
+                                className="loadingReadMe"
+                                key="loadingReadMe"
+                                variants={animations}
+                                animate="loadingReadMe"
+                                >
+                                    Loading from GitHub..
+                                </motion.div>
+                            )}
+                            <ChevronRightIcon className={`${styledJsx.className} readmeIcon ${showReadMe && 'readMeIconVisible'}`} />
+                    </h2>
                     <AnimatePresence>
                     {showReadMe && (
-                        <ProjectReadMe readMe={links.readMe}/>
+                        <ProjectReadMe 
+                            loading={loading} 
+                            setLoading={setLoading} 
+                            readMe={links.readMe}
+                            />
                     )}
                     </AnimatePresence>
                 </motion.div>)}

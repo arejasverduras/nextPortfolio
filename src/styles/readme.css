@@ -18,3 +18,10 @@
     max-width: 100%;
     height: auto;
 }
+
+.loadingReadMe {
+    font-size: 16px;
+    align-self:last baseline;
+    font-weight: normal;
+    color: var(--colorText);
+}
