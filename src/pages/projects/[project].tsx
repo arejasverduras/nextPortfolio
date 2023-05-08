@@ -153,7 +153,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                     layout
                     >
                     <h2
-                    className={`${styledJsx.className} readmeToggle`}
+                    className={`${styledJsx.className} readmeToggle ${showReadMe && 'readMeToggleVisible'}`}
                         onClick={(toggleReadMe)}>
                             <div className={`${styledJsx.className} readmeSubHolder`}>
                                 <div className={`${styledJsx.className} readmeSubHolderIcon`}>

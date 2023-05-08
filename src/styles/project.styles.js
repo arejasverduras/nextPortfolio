@@ -53,8 +53,7 @@ export default css.resolve`
 
     .readme {
         grid-area: readme;
-        // border-radius: 25px;
-        padding: 20px;
+        padding: 20px 40px 20px 0px;
         width: 100%;
         height: auto;
         max-width: 700px;
@@ -87,10 +86,17 @@ export default css.resolve`
         padding-bottom: 20px;
         border-bottom: 1px solid var(--colorBorders);
 
+
+    }
+
+    .readMeToggleVisible {
+        // border-color: var(--colorH2);
+
     }
 
     .readmeIcon {
         width: 20px;
+        color: var(--colorH2);
         transition: all 400ms;
     }
 
