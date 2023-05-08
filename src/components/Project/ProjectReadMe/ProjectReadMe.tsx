@@ -37,23 +37,13 @@ export const ProjectReadMe = ({readMe, loading, setLoading}) => {
 
     return (
         <>
-            {!loading && 
-                // <Loading/>
-                // <motion.div
-                // className="loadingReadMe"
-                // key="loadingReadMe"
-                // variants={animations}
-                // animate="loading"
-                // >
-                //     Loading from GitHub..
-                // </motion.div>
-                
+            {!loading &&
                 <motion.div 
                     className="readMeContainer"
                     key="fullReadMe"
                     initial={{opacity: 0}}
                     animate={{opacity: [0,1], transition: {delay: 0.4}}}
-                    // layout
+                    layout
                     >
                     <Markdown>
                         {post}
