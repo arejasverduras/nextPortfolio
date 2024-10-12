@@ -16,7 +16,13 @@
     color: var(--colorText);
     background-color: var(--colorBg);
     padding: 4px;
+    cursor: pointer;
 }
+
+/* .logo:hover {
+    color: white;
+    transition: all 200ms;
+} */
 
 .elementsHolder {
     display: flex;

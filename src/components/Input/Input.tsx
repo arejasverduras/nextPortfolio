@@ -96,7 +96,8 @@ export const Input = (
 
         const inpute = document.getElementById("inputfield");
         inpute?.blur();
-      },[router.asPath])
+      },[router.asPath]
+      )
 
 
       const handleChange = ({target}:any) => {
@@ -109,7 +110,8 @@ export const Input = (
             navigate();
         }
       }
-
+      
+//  Navigation
       const navigate = () => {
         console.log(router.asPath);
         if (`/${searchTerm}` === router.asPath){

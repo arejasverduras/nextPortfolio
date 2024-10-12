@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 // components
 import { Input } from '../Input/Input';
 import { Hints } from '../Hints/Hints';
@@ -22,8 +23,17 @@ export const Header = ({home, projects}:any) => {
         rightIn: {
             x: [200,0]
         },
+        hover: {
+            color: "white"
+        }
     }
- 
+
+    const router = useRouter();
+
+    const navigateHome = () => {
+        router.push('/'), undefined, {shallow: false}
+    }
+
     return (
         <>
  
@@ -41,9 +51,11 @@ export const Header = ({home, projects}:any) => {
                     key="headerLogo"
                     variants={animations}
                     animate= "topIn"
+                    whileHover="hover"
                     transition={{delay: 0.4}}
+                    onClick={navigateHome}
                     >
-                    Michiel Roukens
+                         Michiel Roukens
                 </motion.div>
                 {!home && (
                     <>
