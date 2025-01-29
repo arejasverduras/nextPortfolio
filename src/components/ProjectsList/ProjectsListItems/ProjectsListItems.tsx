@@ -20,8 +20,6 @@ export const ProjectsListItems = ({filteredData, prefix}:ProjectsListItemsProps)
                     />
     )
 
-    
-    
     return (
         <motion.div
                 key="projectListItems"
@@ -31,6 +29,5 @@ export const ProjectsListItems = ({filteredData, prefix}:ProjectsListItemsProps)
                     {listItems}
             {styledJsx.styles}
             </motion.div>
-            
     )
 }
