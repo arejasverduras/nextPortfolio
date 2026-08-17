@@ -70,7 +70,7 @@ _snippets from the ReadMe file:_
 
 
 ## Project Status
-Project is: _in completion_
+Project is: _completed_
 
 
 
