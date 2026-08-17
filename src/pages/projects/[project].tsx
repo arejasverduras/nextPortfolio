@@ -1,8 +1,9 @@
 import styledJsx from '../../styles/project.styles.js';
-import { ChevronRightIcon } from '@heroicons/react/24/outline';
+import { ArrowLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { GitHub } from '@/icons/github';
 // dep
 import Head from 'next/head';
+import Link from 'next/link';
 import dynamic from 'next/dynamic.js';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -58,6 +59,11 @@ const ProjectPage: NextPageWithLayout = (props)=>{
     const [loading, setLoading] = useState(true);
    
     const animations = {
+        backIn: {
+            x: [-16,0],
+            opacity: [0,1],
+            transition: {delay: 1.35, duration: 0.25, type: "tween"}
+        },
         imagesIn: {
             scaleY: [0.4,1],
             opacity: [0,1],
@@ -118,6 +124,21 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                 <title>{`${title}  Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express`}</title>
             </Head>
             <div className={`${styledJsx.className} container`}>
+                <motion.div
+                    className={`${styledJsx.className} backLinkRow`}
+                    variants={animations}
+                    animate="backIn"
+                    key="back-to-projects"
+                >
+                    <Link
+                        href="/projects"
+                        scroll={false}
+                        className={`${styledJsx.className} backLink`}
+                    >
+                        <ArrowLeftIcon className={`${styledJsx.className} backLinkIcon`} />
+                        <span>Back to projects</span>
+                    </Link>
+                </motion.div>
                 <div className={`${styledJsx.className} projectItem`}>
                     <ProjectItem 
                         content={projectData} 
