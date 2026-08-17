@@ -13,6 +13,7 @@ links: {
     readMe: "https://raw.githubusercontent.com/arejasverduras/shredfish/master/README.md"
 }
 themeColor: 'aquamarine'
+launchDate: '2022-08-18' # Public repository build-and-publish commit.
 ---
 
  Global Surf Forecasting app for daily use. Get notified when the weather and ocean conditions are optimal for the sport of wave Surfing. Personal Portfolio Project to display ability to work with external api's.

@@ -48,14 +48,24 @@ export const getAllProjectsData = () => {
           }
   )
 
-  // Sort projects by date
+  // Sort dated projects newest first. Missing or invalid dates are kept at the
+  // end, with title as a deterministic tie-breaker.
   return allProjectsData.sort((a, b) => {
-      if (a.launchDate < b.launchDate) {
-          return 1
-      } else {
-          return -1
+      const dateA = Date.parse(a.launchDate)
+      const dateB = Date.parse(b.launchDate)
+      const hasDateA = !Number.isNaN(dateA)
+      const hasDateB = !Number.isNaN(dateB)
+
+      if (hasDateA && hasDateB && dateA !== dateB) {
+          return dateB - dateA
       }
-})
+
+      if (hasDateA !== hasDateB) {
+          return hasDateA ? -1 : 1
+      }
+
+      return (a.title || a.project).localeCompare(b.title || b.project)
+  })
 }
 
 export const getProject = (id) => {

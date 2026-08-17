@@ -13,6 +13,7 @@ links: {
     readMe: "https://raw.githubusercontent.com/arejasverduras/resume/master/README.md"
 }
 themeColor: '#45caff'
+launchDate: '2022-05-23' # Public repository deployment commit.
 ---
 
 Interactive Resume to apply for Front-end developer positions. Fully searchable, printable and 'flippable'. Codecademy practice project.

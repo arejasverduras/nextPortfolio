@@ -2,78 +2,67 @@ import css from "styled-jsx/css";
 
 export default css.resolve`
     .container {
-        display: flex;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
         position: relative;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        justify-content: space-between;
         z-index: 50;
         width: 100%;
-        // height: 100%;
-        align-items:center;
-        // border: 1px solid blue;
+        height: 100dvh;
+        min-height: 0;
+        padding-top: max(4rem, env(safe-area-inset-top));
     }
 
     .mainImageContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 0;
+        min-width: 0;
         width: 100%;
+        max-width: 100vw;
         overflow-hidden;
-        height: fit-content;
+        padding: 0 clamp(0.75rem, 6vw, 5rem) 1rem;
     }
 
     .mainImageHolder {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: relative;
+        min-width: 0;
         width: 100%;
-        height: auto;
-        
+        max-width: 100%;
+        height: 100%;
     }
 
     .mainImage {
-        display: flex;
         position: absolute;
-        justify-content: center;
-        align-items: center;
+        inset: 0;
         width: 100%;
-        height: auto;
-        max-width: 1024px;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .mainImageImage {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        // max-height: 80%;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        object-fit: contain;
     }
 
 
     .bottom {
-        position: absolute;
+        position: relative;
         width: 100%;
-        display: flex;
-        flex-wrap:wrap;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        // border: 2px solid red;
+        min-height: calc(6rem + env(safe-area-inset-bottom));
     }
 
     .buttons {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        position: relative;
-        
-        height: 100%;
-
+        position: static;
     }
 
     .buttonLeft {
-        position: absolute;
-        left: 3px;
-        top: calc(50%-16px);
+        position: fixed;
+        left: max(0.75rem, env(safe-area-inset-left));
+        top: 50%;
+        transform: translateY(-50%);
         color: var(--colorText);
         background-color: var(--colorBg);
         border:none;
@@ -82,12 +71,14 @@ export default css.resolve`
         width: 50px;
         height: 50px;
         cursor:pointer;
+        z-index: 2;
     }
 
     .buttonRight {
-        position: absolute;
-        right: 3px;
-        top: calc(50%-16px);
+        position: fixed;
+        right: max(0.75rem, env(safe-area-inset-right));
+        top: 50%;
+        transform: translateY(-50%);
         color: var(--colorText);
         background-color: var(--colorBg);
         border:none;
@@ -97,12 +88,13 @@ export default css.resolve`
         width: 50px;
         height: 50px;
         cursor:pointer;
+        z-index: 2;
     }
 
     .close {
         position: fixed;
-        top: 20px;
-        left: 20px;
+        top: max(1rem, env(safe-area-inset-top));
+        left: max(1rem, env(safe-area-inset-left));
         display: flex;
         align-items: center;
         
@@ -110,7 +102,8 @@ export default css.resolve`
 
     .closeButton {
         background-color: var(--colorBg);
-        width: 30px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         color: var(--colorText);
         cursor: pointer;
@@ -118,23 +111,19 @@ export default css.resolve`
     }
 
     .openFullSize {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: flex;
-        align-items: center;
-        color: var(--colorText);
-        background-color: var(--colorBg);
-        border-radius: 100%;
-        gap: 2px;
+        display: contents;
     }
 
     .buttonFullSize {
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: max(1rem, env(safe-area-inset-top));
+        right: max(1rem, env(safe-area-inset-right));
         color: var(--colorText);
-        width: 30px;
+        background-color: var(--colorBg);
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border-radius: 50%;
     }
 
     .icon {
@@ -142,20 +131,23 @@ export default css.resolve`
     }
 
     .bottomNavHolder {
-        position: fixed;
-        bottom: 0;
+        position: relative;
         width: 100%;
-        overflow:hidden;
-        z-index:40;
+        overflow-x: auto;
+        overflow-y: hidden;
+        z-index: 1;
+        padding: 0.75rem max(1rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+        scrollbar-width: thin;
     }
 
     .bottomNav {
         display: flex;
         gap: 8px;
-        max-width: 800px;
-        margin: 1.5rem calc(50% - 100px);
-        aspect-ratio: 3/2;
-        height: 4.5rem;
+        width: max-content;
+        min-width: 100%;
+        height: 4rem;
+        justify-content: center;
+        align-items: center;
     }
 
     .currentSmall {
@@ -168,27 +160,24 @@ export default css.resolve`
     }
 
     .small {
-        display: inline-block;
         position: relative;
-        flex-shrink: 1;
+        flex: 0 0 96px;
+        width: 96px;
+        height: 64px;
+        padding: 0;
         overflow-hidden;
         background-color: var(--colorBg);
         border: none;
-        border-radius: 15px;
-        overflow:hidden;
+        border-radius: 10px;
+        cursor: pointer;
     }       
 
     .currentSmallImage {
         filter: brightness(110%);
-        height: 100%;
-        width: auto;
-    
     }
 
     .notCurrentSmallImage {
         filter: brightness(50%) contrast(125%);
-        height: 100%;
-        width: auto;
     }
 
     .notCurrentSmallImage:hover {
@@ -197,7 +186,41 @@ export default css.resolve`
     }
 
     .smallImage {
-        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding-top: max(3.5rem, env(safe-area-inset-top));
+        }
+
+        .mainImageContainer {
+            padding: 0 0.5rem 0.75rem;
+        }
+
+        .mainImageHolder {
+            height: auto;
+            aspect-ratio: 4 / 3;
+            flex: 0 1 100%;
+        }
+
+        .buttonLeft,
+        .buttonRight {
+            width: 42px;
+            height: 42px;
+        }
+
+        .small {
+            flex-basis: 78px;
+            width: 78px;
+            height: 52px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .small {
+            scroll-behavior: auto;
+        }
     }
 
 `

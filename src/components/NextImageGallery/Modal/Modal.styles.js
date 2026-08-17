@@ -3,15 +3,14 @@ import css from "styled-jsx/css";
 export default css.resolve`
     .dialog {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: var(--colorBg);
+        inset: 0;
+        width: 100%;
+        height: 100dvh;
+        background-color: color-mix(in srgb, var(--colorBg), black 12%);
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 10;
-        
+        z-index: 1000;
+        overscroll-behavior: contain;
     }
 `

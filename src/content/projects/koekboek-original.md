@@ -14,6 +14,7 @@ links: {
 }
 startDate: ""
 completionDate: ""
+launchDate: '2022-03-20' # Approximate: original app rewrite was functional by this repository milestone.
 ---
 
 The original, vanilla **JavaScript only** version of the 'Koekboek'.

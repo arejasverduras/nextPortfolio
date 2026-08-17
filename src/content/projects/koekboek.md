@@ -13,7 +13,7 @@ links: {
     readMe: "https://raw.githubusercontent.com/arejasverduras/koekboek/main/README.md"
 }
 startDate: ""
-launchDate: ""
+launchDate: '2022-09-02' # Approximate: final repository update and README publication.
 ---
 
 A remake in **React** of my first **JavaScript-only** interactive app. 

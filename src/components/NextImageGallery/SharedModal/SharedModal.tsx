@@ -7,10 +7,9 @@ import {
 } from '@heroicons/react/24/outline'
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import { variants } from '@/utils/animationVariants'
-import { range } from '@/utils/range'
 import { reducedImageProps } from '../NextImageGallery'
 
 export default function SharedModal({
@@ -22,11 +21,15 @@ export default function SharedModal({
   direction,
   prefix,
 }: any) {
-  const [loaded, setLoaded] = useState(false)
+  const thumbnailRefs = useRef<Record<number, HTMLButtonElement | null>>({})
 
-  let filteredImages = images?.filter((img: reducedImageProps) =>
-    range(index - 15, index + 15).includes(img.id)
-  )
+  useEffect(() => {
+    thumbnailRefs.current[index]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    })
+  }, [index])
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
@@ -72,13 +75,12 @@ export default function SharedModal({
               >
                 <Image
                   src={`/images/${prefix}/${currentImage.src}`}
-                  width="1440"
-                  height="853"
+                  fill
                   priority
                   quality={100}
-                  // placeholder='blur'
-                  alt="Main slider picture"
-                  onLoadingComplete={() => setLoaded(true)}
+                  sizes="100vw"
+                  alt={`Project image ${index + 1} of ${images.length}`}
+                  style={{ objectFit: 'contain' }}
                   className={`${styledJsx.className} mainImageImage `}
                 />
               </motion.div>
@@ -91,7 +93,6 @@ export default function SharedModal({
         className={`${styledJsx.className} bottom `}
         >
           {/* Buttons */}
-          {loaded && (
             <div 
               className={`${styledJsx.className} buttons`}
               >
@@ -99,7 +100,8 @@ export default function SharedModal({
                   {index > 0 && (
                     <button
                     className={`${styledJsx.className} buttonLeft`}  
-                      style={{ transform: 'translate3d(0, 0, 0)' }}
+                      type="button"
+                      aria-label="Previous image"
                       onClick={() => changePhotoId(index - 1)}
                     >
                       <ChevronLeftIcon
@@ -110,7 +112,8 @@ export default function SharedModal({
                   {index + 1 < images.length && (
                     <button
                       className={`${styledJsx.className} buttonRight`}  
-                      style={{ transform: 'translate3d(0, 0, 0)' }}
+                      type="button"
+                      aria-label="Next image"
                       onClick={() => changePhotoId(index + 1)}
                     >
                       <ChevronRightIcon 
@@ -128,6 +131,7 @@ export default function SharedModal({
                     className={`${styledJsx.className} buttonFullSize`}  
                     target="_blank"
                     title="Open fullsize version"
+                    aria-label="Open full-size image in a new tab"
                     rel="noreferrer"
                   >
                     <ArrowTopRightOnSquareIcon 
@@ -139,6 +143,8 @@ export default function SharedModal({
               className={`${styledJsx.className} close`}  
               >
                 <button
+                  type="button"
+                  aria-label="Close image gallery"
                   onClick={() => closeModal()}
                   className={`${styledJsx.className} closeButton`}  
                 >
@@ -148,7 +154,6 @@ export default function SharedModal({
                 </button>
               </div>
             </div>
-          )}
 
           {/* Bottom Nav bar */}
             <div 
@@ -159,18 +164,16 @@ export default function SharedModal({
                 className={`${styledJsx.className} bottomNav`}
               >
                 <AnimatePresence initial={false}>
-                  {filteredImages.map(({ id, src }) => (
+                  {images.map(({ id, src }: reducedImageProps) => (
                     <motion.button
-                      initial={{
-                        width: '0%',
-                        x: `${Math.max((index - 1) * -100, 15 * -100)}%`,
-                      }}
+                      ref={(element) => { thumbnailRefs.current[id] = element }}
+                      type="button"
+                      aria-label={`View project image ${id + 1}`}
+                      aria-current={id === index ? 'true' : undefined}
+                      initial={false}
                       animate={{
                         scale: id === index ? 1.25 : 1,
-                        width: '100%',
-                        x: `${Math.max(index * -100, 15 * -100)}%`,
                       }}
-                      exit={{ width: '0%' }}
                       onClick={() => changePhotoId(id)}
                       key={id}
                       className={`${styledJsx.className} ${
@@ -180,9 +183,9 @@ export default function SharedModal({
                       }  small`}
                     >
                       <Image
-                        alt="small photos on the bottom"
-                        width={180}
-                        height={120}
+                        alt=""
+                        fill
+                        sizes="96px"
                         className={`${styledJsx.className} ${
                           id === index
                             ? 'currentSmallImage'

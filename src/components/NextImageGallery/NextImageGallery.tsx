@@ -1,8 +1,6 @@
 import styledJsx from './NextImageGallery.styles';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
-import { useRouter } from 'next/router'
 import Modal from './Modal/Modal';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -28,7 +26,7 @@ export interface reducedImageProps {
   }
 
   export const NextImageGallery = ({images, prefix,style}:NextImageGalleryProps) => {
-    const [photoId, setPhotoId] = useState(null);
+    const [photoId, setPhotoId] = useState<number | null>(null);
     
     const reducedImages = images.map((image, index) => (
         {
@@ -37,38 +35,33 @@ export interface reducedImageProps {
         }
     ));
 
-    let limitedImages = [];
-    reducedImages.forEach(({id,src}, index) => {
-      if (index > 0 && index < 5){
-        limitedImages.push(
-          <motion.div
+    const limitedImages = reducedImages.slice(1, 5).map(({id, src}, index) => {
+        const showRemainingCount = id === 4 && reducedImages.length > 4;
+
+        return (
+          <motion.button
+              type="button"
               key={id}
               onClick={()=>{setPhotoId(id)}}
               variants={animations}
               animate="imageTile"
               custom={((index + 1) * 0.15)}
+              aria-label={`Open project image ${id + 1} of ${reducedImages.length}`}
               className={`${styledJsx.className} otherImages`}>
-              
-              {index !== 4 ? (              
-                <Image
-                  alt="Michiel Roukens Portfolio Project Photo"
-                  className={`${styledJsx.className} imageItem`}
-                  style={{ transform: 'translate3d(0, 0, 0)' }}
-                  src={`/images/${prefix}/${src}`}
-                  width={400}
-                  height={400}
-                />
-              )
-              : 
-              (
+              <Image
+                alt=""
+                className={`${styledJsx.className} imageItem`}
+                src={`/images/${prefix}/${src}`}
+                fill
+                sizes="(max-width: 600px) 25vw, 225px"
+              />
+              {showRemainingCount && (
                 <div className={`${styledJsx.className} lastItemOverlay`}>
                   <div>{`+${reducedImages.length-4}`}</div>
                 </div>
-              )
-              }
-            </motion.div>
+              )}
+            </motion.button>
         )
-      } 
     })
 
     return (
@@ -90,6 +83,15 @@ export interface reducedImageProps {
         <motion.div 
           className={`${styledJsx.className} firstImageContainer`}
           onClick={()=>{setPhotoId(reducedImages[0].id)}}
+          role="button"
+          tabIndex={0}
+          aria-label={`Open project image 1 of ${reducedImages.length}`}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              setPhotoId(reducedImages[0].id);
+            }
+          }}
           key="firstImageContainer"
           animate={{
             scaleY: [0.4,1],
@@ -98,12 +100,12 @@ export interface reducedImageProps {
         }}
           >
           <Image
-                  alt="Michiel Roukens Portfolio Project Photo first project"
+                  alt="Project preview"
                   className={`${styledJsx.className} firstImage`}
-                  style={{ transform: 'translate3d(0, 0, 0)' }}
                   src={`/images/${prefix}/${reducedImages[0].src}`}
-                  width={720}
-                  height={480}
+                  fill
+                  priority
+                  sizes="(max-width: 900px) 100vw, 900px"
                 />
           </motion.div>
         

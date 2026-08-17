@@ -3,14 +3,17 @@ import css from "styled-jsx/css";
 export default css.resolve`
     .container {
         width: 100%;
-        height: auto;
-        // margin: 0 auto;
         max-width: 900px;
     }
 
     .firstImageContainer {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 2;
         cursor: zoom-in;
-        overflow:hidden;
+        overflow: hidden;
+        border-radius: clamp(12px, 3vw, 25px);
+        background: color-mix(in srgb, var(--colorBg), var(--colorText) 6%);
     }
 
     .firstImage:hover {
@@ -18,10 +21,8 @@ export default css.resolve`
     }
 
     .firstImage {
-        width: 100%;
-        height: auto;
-        // border: 1px solid var(--colorBorders);
-        border-radius: 25px;
+        object-fit: contain;
+        transition: filter 200ms ease;
     }
 
     .imageList {
@@ -36,43 +37,45 @@ export default css.resolve`
 
 
     .otherImages {
+        position: relative;
+        padding: 0;
+        border: 0;
         width: calc(25% - 6px);
-        height: auto;
-        aspect-ratio: 1/1;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        overflow:hidden;
-        border-radius: 25px;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: clamp(10px, 2.5vw, 25px);
         cursor: zoom-in;
-        filter: brightness(60%) contrast(125%); 
+        background: color-mix(in srgb, var(--colorBg), var(--colorText) 6%);
     }
 
-    .otherImages:hover {
+    .otherImages:hover .imageItem,
+    .otherImages:focus-visible .imageItem {
         filter: brightness(110%);
     }
 
     .imageItem {
-        height: 100%;
-        width: auto;
-        transition: all 200ms;
-    }
-
-    .imageItem:hover {
-        filter: brightness(100%);
+        object-fit: cover;
+        filter: brightness(60%) contrast(125%);
+        transition: filter 200ms ease;
     }
 
     .lastItemOverlay {
-        background-color: var(--colorHeaderBg);
-        width: auto;
-        height: 100%;
-        aspect-ratio: 1/1;
+        position: absolute;
+        inset: 0;
+        background-color: color-mix(in srgb, var(--colorHeaderBg), transparent 12%);
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 30;
+        z-index: 1;
         color: var(--colorCommands);
-        font-size: 2.5em;
+        font-size: clamp(1.25rem, 5vw, 2.5rem);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .firstImage,
+        .imageItem {
+            transition: none;
+        }
     }
 
 `

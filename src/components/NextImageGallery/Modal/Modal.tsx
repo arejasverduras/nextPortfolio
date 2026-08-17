@@ -1,8 +1,7 @@
 import styledJsx from './Modal.styles';
 import { Dialog } from '@headlessui/react'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useKeypress from 'react-use-keypress'
 import { reducedImageProps } from '../NextImageGallery'
 import SharedModal from '../SharedModal/SharedModal'
@@ -18,12 +17,18 @@ export default function Modal({
   setPhotoId: (id:number | null)=>void,
   prefix: string,
 }) {
-  let overlayRef = useRef()
-
-  let index = Number(photoId)
+  const index = Number(photoId)
 
   const [direction, setDirection] = useState(0)
-  const [curIndex, setCurIndex] = useState(index)
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [])
 
   function handleClose() {
     setPhotoId(null)
@@ -35,7 +40,6 @@ export default function Modal({
     } else {
       setDirection(-1)
     }
-    setCurIndex(newVal)
     setPhotoId(newVal)
   }
 
@@ -61,11 +65,10 @@ export default function Modal({
       exit={{opacity: 0}}
       transition={{duration: 0.2, type: 'ease'}}
       onClose={handleClose}
-      initialFocus={overlayRef}
       className={`${styledJsx.className} dialog`}
     >
       <SharedModal
-        index={curIndex}
+        index={index}
         direction={direction}
         images={images}
         changePhotoId={changePhotoId}
