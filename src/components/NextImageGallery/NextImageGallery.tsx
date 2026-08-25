@@ -5,13 +5,18 @@ import Modal from './Modal/Modal';
 import { AnimatePresence, motion } from 'framer-motion';
 
 
-export interface reducedImageProps {
-    id: number,
+export interface GalleryImage {
     src: string,
+    alt?: string,
+    caption?: string,
+  }
+
+export interface reducedImageProps extends GalleryImage {
+    id: number,
   }
 
   interface NextImageGalleryProps {
-    images: string[],
+    images: Array<string | GalleryImage>,
     prefix: string,
     style?: {[key: string]:string | number},
   }
@@ -28,14 +33,12 @@ export interface reducedImageProps {
   export const NextImageGallery = ({images, prefix,style}:NextImageGalleryProps) => {
     const [photoId, setPhotoId] = useState<number | null>(null);
     
-    const reducedImages = images.map((image, index) => (
-        {
-            id: index,
-            src: image
-        }
-    ));
+    const reducedImages = images.map((image, index) => ({
+        id: index,
+        ...(typeof image === 'string' ? { src: image } : image),
+    }));
 
-    const limitedImages = reducedImages.slice(1, 5).map(({id, src}, index) => {
+    const limitedImages = reducedImages.slice(1, 5).map(({id, src, alt}, index) => {
         const showRemainingCount = id === 4 && reducedImages.length > 4;
 
         return (
@@ -49,7 +52,7 @@ export interface reducedImageProps {
               aria-label={`Open project image ${id + 1} of ${reducedImages.length}`}
               className={`${styledJsx.className} otherImages`}>
               <Image
-                alt=""
+                alt={alt || ""}
                 className={`${styledJsx.className} imageItem`}
                 src={`/images/${prefix}/${src}`}
                 fill
@@ -100,7 +103,7 @@ export interface reducedImageProps {
         }}
           >
           <Image
-                  alt="Project preview"
+                  alt={reducedImages[0].alt || "Project preview"}
                   className={`${styledJsx.className} firstImage`}
                   src={`/images/${prefix}/${reducedImages[0].src}`}
                   fill

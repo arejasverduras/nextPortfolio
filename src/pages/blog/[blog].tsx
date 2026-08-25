@@ -1,7 +1,9 @@
 import styledJsx from '../../styles/blog.styles'
 // dep
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { AnimatePresence,motion } from 'framer-motion';
 // lib
 import { getAllBlogIds, getPostData } from '@/lib/blog';
@@ -42,6 +44,11 @@ const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
     const {images, link, links, title } = blogData;
 
     const animations = {
+        backIn: {
+            x: [-16,0],
+            opacity: [0,1],
+            transition: {delay: 1.35, duration: 0.25, type: "tween"}
+        },
         imagesIn: {
             scaleY: [0.4,1],
             opacity: [0,1],
@@ -65,6 +72,21 @@ const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
                 <title>{`${title}  Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express`}</title>
             </Head>
             <div className={`${styledJsx.className} container`}>
+                <motion.div
+                    className={`${styledJsx.className} backLinkRow`}
+                    variants={animations}
+                    animate="backIn"
+                    key="back-to-blogs"
+                >
+                    <Link
+                        href="/blog"
+                        scroll={false}
+                        className={`${styledJsx.className} backLink`}
+                    >
+                        <ArrowLeftIcon className={`${styledJsx.className} backLinkIcon`} />
+                        <span>Back to blogs</span>
+                    </Link>
+                </motion.div>
                 <div className={`${styledJsx.className} projectItem`}>
                     <ProjectItem 
                         content={blogData} 

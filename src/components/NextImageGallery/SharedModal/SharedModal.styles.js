@@ -54,6 +54,16 @@ export default css.resolve`
         min-height: calc(6rem + env(safe-area-inset-bottom));
     }
 
+    .caption {
+        width: min(900px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 0.25rem 0 0.5rem;
+        color: var(--colorText);
+        font-size: clamp(0.85rem, 1.5vw, 1rem);
+        line-height: 1.45;
+        text-align: center;
+    }
+
     .buttons {
         position: static;
     }

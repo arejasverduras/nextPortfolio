@@ -1,12 +1,30 @@
 ---
 title: 'MyPower'
 picture: '/images/projects/mypower-card.png'
-description: 'Build calisthenics programs with ease for you or others to follow, then hit "play" to be guided through it. Track your progress without letting your phone get in the way of your workout.'
+description: 'Social training platform for calisthenics and strength training. Users can create, follow and share workouts and complete training programs—similar to building and sharing playlists on Spotify. Athletes press play to follow workouts, use automatic timers, log their results, compare progress, and train together in synchronized group sessions'
 shortText: 'MyPower makes structured training easy to follow and rewarding to track, with reusable workouts, guided sessions, automatic timers, circuits, and progress data you can share with a coach or use for AI-powered feedback.'
 link: 'mypower'
 type: 'Full-stack'
 tech: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Supabase', 'Tailwind CSS', 'Cypress']
-images: ['01-workout-detail-builder.png', '02-quick-add-exercise.png', '03-circuit-expanded.png', '04-workout-player-circuit.png', '05-exercise-detail-media.png', '06-mobile-player.png']
+images:
+  - src: '01-workout-overview.png'
+    alt: 'MyPower workout overview with a circuit and individual exercises'
+    caption: 'A complete training plan remains easy to scan: workout context, circuit structure, timing, and individual exercises all stay connected.'
+  - src: '02-quick-add-exercise.png'
+    alt: 'Creating a new exercise directly inside the MyPower workout builder'
+    caption: 'Search the shared library or create a missing exercise instantly, configure its targets and notes, and add it without leaving the builder.'
+  - src: '03-circuit-expanded.png'
+    alt: 'Expanded warm-up circuit containing three exercises'
+    caption: 'Circuits keep their timing, order, and member exercises together while ordinary exercises continue naturally below them.'
+  - src: '04-workout-player-circuit.png'
+    alt: 'MyPower guided workout player during a circuit'
+    caption: 'The guided player turns the workout into an active session with circuit progress, targets, results, and automatic timing.'
+  - src: '05-exercise-detail-media.png'
+    alt: 'Expanded exercise with demonstration media and workout-specific controls'
+    caption: 'Each exercise combines demonstration media with workout-specific targets, tempo, circuit assignment, progression, and coaching notes.'
+  - src: '06-mobile-player.png'
+    alt: 'MyPower workout player on a mobile phone'
+    caption: 'The mobile player keeps the active exercise, result entry, and timer within reach while training.'
 links: {
     demoLink: 'https://mypower.vercel.app'
 }
@@ -55,8 +73,8 @@ I designed MyPower around three connected layers: a reusable exercise library, s
 
 The latest builder focuses on removing setup friction. Quick-add lets a creator search for an exercise or create a lightweight entry without leaving the workout. Default set pauses and exercise breaks remove repeated input, while tap-based steppers make common metadata changes faster than opening a form and typing values. Circuit assignment is part of the same flow instead of a separate configuration task.
 
-![Workout detail builder with exercise metadata controls](/images/projectImages/mypower/01-workout-detail-builder.png)
-_The workout detail view combines browsing, editing, and workout composition instead of separating those actions into disconnected screens._
+![MyPower workout overview with an expanded circuit and exercises](/images/projectImages/mypower/01-workout-overview.png)
+_The workout overview brings the training goal, circuit structure, timing, and individual exercises together in one scannable plan._
 
 When the workout starts, the player turns the plan into a guided sequence. Automatic timers, circuit progression, large controls, and voice cues reduce the need to operate the phone. Logging remains close to the active set so recording a result can approach the speed of adding four numbers to paper.
 

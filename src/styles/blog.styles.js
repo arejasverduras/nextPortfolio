@@ -5,11 +5,48 @@ export default css.resolve`
     width: 100%;
     display: grid;
     grid-template-areas: 
+    "back"
     "projectItem"
     "h1"
     "images"
     "description"
     ;
+}
+
+.backLinkRow {
+    grid-area: back;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    gap: 0.4rem;
+    padding: 0.25rem 0;
+    border: none;
+    color: var(--colorText);
+    font-size: 0.85rem;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.backLink:hover,
+.backLink:focus-visible {
+    color: var(--colorHeaderBg);
+}
+
+.backLinkIcon {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 150ms ease;
+}
+
+.backLink:hover .backLinkIcon,
+.backLink:focus-visible .backLinkIcon {
+    transform: translateX(-2px);
 }
 
 .projectItem {
@@ -58,6 +95,7 @@ export default css.resolve`
 .container {
     display: grid;
     grid-template-areas: 
+    "back back"
     "projectItem images"
     "h1 h1"
     "description description"

@@ -92,6 +92,20 @@ export default function SharedModal({
         <div 
         className={`${styledJsx.className} bottom `}
         >
+          <AnimatePresence mode="wait" initial={false}>
+            {currentImage.caption && (
+              <motion.p
+                key={currentImage.id}
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                className={`${styledJsx.className} caption`}
+              >
+                {currentImage.caption}
+              </motion.p>
+            )}
+          </AnimatePresence>
+
           {/* Buttons */}
             <div 
               className={`${styledJsx.className} buttons`}
@@ -164,7 +178,7 @@ export default function SharedModal({
                 className={`${styledJsx.className} bottomNav`}
               >
                 <AnimatePresence initial={false}>
-                  {images.map(({ id, src }: reducedImageProps) => (
+                  {images.map(({ id, src, alt }: reducedImageProps) => (
                     <motion.button
                       ref={(element) => { thumbnailRefs.current[id] = element }}
                       type="button"
@@ -183,7 +197,7 @@ export default function SharedModal({
                       }  small`}
                     >
                       <Image
-                        alt=""
+                        alt={alt || ""}
                         fill
                         sizes="96px"
                         className={`${styledJsx.className} ${

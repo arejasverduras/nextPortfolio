@@ -17,7 +17,7 @@ export interface ProjectContent {
     link: string,
     type: string,
     tech: string[],
-    images: string[],
+    images: Array<string | { src: string, alt?: string, caption?: string }>,
     links: ProjectLinksContent,
     themeColor?: string,
     themeTextColor?: string,
