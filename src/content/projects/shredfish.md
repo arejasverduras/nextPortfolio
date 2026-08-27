@@ -1,8 +1,8 @@
 ---
 title: 'ShredFish'
 picture: '/images/projects/ShredFishWave.png'
-description: 'Personal global surf forecasting webapp.'
-shortText: "Global Surf Forecasting app for daily use. Get notified when the weather and ocean conditions are optimal for the sport of wave Surfing. Personal Portfolio Project to display ability to work with external api's."
+shortText: 'Personal global surf forecasting webapp.'
+description: "Global Surf Forecasting app for daily use. Get notified when the weather and ocean conditions are optimal for the sport of wave Surfing. Personal Portfolio Project to display ability to work with external api's."
 link: 'shredfish'
 type: 'Front-end'
 tech: ['React','Redux','JavaScript']

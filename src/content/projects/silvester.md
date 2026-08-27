@@ -1,11 +1,11 @@
 ---
 title: 'Silvester Zwemschool'
 picture: '/images/projects/logoPinkLarge.png'
-description: 'Remake of the Silvester Zwemschool Wordpress Website in React / Next.JS with a headless CMS.'
-shortText: "Increase pagespeed & user experience dramatically by rebuilding all informational parts of the existing wordpress website as a Single Page Application."
+shortText: 'Remake of the Silvester Zwemschool Wordpress Website in React / Next.JS with a headless CMS.'
+description: "Remake of the Silvester Zwemschool Wordpress Website in React / Next.JS with a headless CMS. Increase pagespeed & user experience dramatically by rebuilding all informational parts of the existing wordpress website as a Single Page Application."
 link: 'silvester'
 type: 'Front-end'
-tech: ['Next.js', 'TypeScript', 'Netlify-CMS']
+tech: ['Next.js', 'TypeScript', 'Netlify-CMS', 'Framer-motion']
 images: ["silvester-home.png","silvester-review.png","silvester-locaties.png","silvester-faq.png","silvester-search.png"]
 links: {
     demoLink: "https://silvesterzwemschool.netlify.app",

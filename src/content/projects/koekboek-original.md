@@ -1,8 +1,8 @@
 ---
 title: 'Koekboek - original'
 picture: '/images/projects/koekboek-original.png'
-description: "Whats for dinner?"
-shortText: "to be written"
+description: "Whats for dinner? Using the classic example of a recipe-book, I wanted to be able to hit a button and get a random recipe, making it easier for me to choose what to prepare on my cookings days. Codecademy practice project"
+shortText: "What's for dinner?"
 link: 'koekboek-original'
 type: 'Front-end'
 tech: ['JavaScript','HTML','CSS']

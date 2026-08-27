@@ -121,7 +121,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
     return (
         <>
             <Head>
-                <title>{`${title}  Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express`}</title>
+                <title>{`${title} | Michiel Roukens | Portfolio | Fullstack web developer | React, Next, Node, Express`}</title>
             </Head>
             <div className={`${styledJsx.className} container`}>
                 <motion.div

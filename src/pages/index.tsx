@@ -42,10 +42,9 @@ const Home:NextPageWithLayout = () => {
   return (
     <>
       <Head>
-      <title>Michiel Roukens | Portfolio | Front-end web developer | React, Next, TypeScript, Node, Express</title>
-        <meta name="description" content="Michiel Roukens | Portfolio | Front-end web developer | React, Next, TypeScript, Node, Express" />
+      <title>Michiel Roukens | Portfolio | Full-stack web developer | React, Next, TypeScript, Node, Express</title>
+        <meta name="description" content="Michiel Roukens | Portfolio | Full-stack web developer | React, Next, TypeScript, Node, Express" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
         <div className={styles.top}>

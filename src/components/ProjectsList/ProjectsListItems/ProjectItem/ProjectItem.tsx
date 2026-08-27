@@ -43,7 +43,7 @@ const animations = {
 }
 
 export const ProjectItem = ({index=0 , content, onPage, prefix}:ProjectItemProps) =>{
-    const {title, picture, description, link, links, tech, type} = content;
+    const {title, picture, description, shortText, link, links, tech, type} = content;
 
     return (
         <AnimatePresence>         
@@ -77,7 +77,7 @@ export const ProjectItem = ({index=0 , content, onPage, prefix}:ProjectItemProps
                             >
                             <h2>{title}</h2>
                             <i className={`${styledJsx.className} type ${onPage? "onPageType": "type"}`}>{type}</i>
-                            <p className={`${styledJsx.className} description ${onPage && "onPageDescription"}`}>{description}</p>
+                            <p className={`${styledJsx.className} description ${onPage && "onPageDescription"}`}>{onPage ? description: shortText}</p>
                             
                             <div className={`${styledJsx.className} techHolder ${onPage && "onPageTechHolder"}`}>
                                 <p>

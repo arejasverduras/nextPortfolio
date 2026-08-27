@@ -5,7 +5,11 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* <link rel="manifest" href="/manifest.json"/> */}
-        
+        <link
+          rel="icon"
+          type="image/png"
+          href="/images/favicon-concepts/command-light-crescent-natural-tight-light.png"
+        />
       </Head>
       <body>
         <Main />

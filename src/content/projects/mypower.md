@@ -1,8 +1,9 @@
 ---
 title: 'MyPower'
 picture: '/images/projects/mypower-card.png'
-description: 'Social training platform for calisthenics and strength training. Users can create, follow and share workouts and complete training programs—similar to building and sharing playlists on Spotify. Athletes press play to follow workouts, use automatic timers, log their results, compare progress, and train together in synchronized group sessions'
-shortText: 'MyPower makes structured training easy to follow and rewarding to track, with reusable workouts, guided sessions, automatic timers, circuits, and progress data you can share with a coach or use for AI-powered feedback.'
+description: 'Create, share and follow calisthenics / fitness workouts just as easy as creating a playlist on Spotify! MyPower is a social training platform where users can find workouts, create their own and share them with others easily. Athletes then press play for a fully guided training session, finding detailed instructions, exercise queues, automatic timers and quick result-loggin to track progress' 
+shortText: 'Create, share and follow calisthenics / fitness workouts just as easy as creating a playlist on Spotify!'
+shortText1: 'MyPower makes structured training easy to follow and rewarding to track, with fast reusable workout creation, guided sessions, automatic timers, circuits, and progress data you can share with a coach or use for AI-powered feedback.'
 link: 'mypower'
 type: 'Full-stack'
 tech: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Supabase', 'Tailwind CSS', 'Cypress']
@@ -28,7 +29,7 @@ images:
 
 
 links: {
-    demoLink: 'https://mypower.vercel.app'
+    liveApp: 'https://mypower.vercel.app'
 }
 themeColor: '#22c55e'
 themeTextColor: '#ffffff'

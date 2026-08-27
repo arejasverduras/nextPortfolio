@@ -31,7 +31,7 @@ export const ProjectLinks = ({links}:ProjectLinksProps) => {
                 className={`${styledJsx.className} link`}
                 target="_blank"               
                 >
-                    {linkKey === 'demoLink'? "Live demo": linkKey === 'sourceLink'? "Github repo": "Readme" }
+                    {linkKey === 'liveApp' ? "Live App" : linkKey === 'demoLink' ? "Live demo" : linkKey === 'sourceLink' ? "Github repo" : "Readme"}
             </Link>)}
         </motion.div>
     )

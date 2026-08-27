@@ -1,8 +1,8 @@
 ---
 title: 'Resume'
 picture: '/images/projects/resumeF.png'
-description: "Interactive Resume to apply for Front-end developer positions. Fully searchable, printable and 'flippable'."
-shortText: "Interactive Resume to apply for Front-end developer positions. Fully searchable, printable and 'flippable'. Codecademy practice project."
+description: "My 2022 interactive resume to apply for Front-end developer positions. Fully searchable, printable and 'flippable'."
+shortText: "My 2022 first interactive resume to apply for Front-end developer positions. Codecademy practice project."
 link: 'resume'
 type: 'Front-end'
 tech: ['React', 'JavaScript']

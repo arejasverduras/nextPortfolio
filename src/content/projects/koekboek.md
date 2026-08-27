@@ -1,8 +1,8 @@
 ---
-title: 'Koekboek'
+title: 'Koekboek - React remake'
 picture: '/images/projects/koekboek.png'
-description: "Whats for dinner?"
-shortText: "to be written"
+description: "A remake in React of my first JavaScript-only interactive app. Using the classic example of a recipe-book, I wanted to be able to hit a button and get a random recipe, making it easier for me to choose what to cook on my cookings days."
+shortText: "Hit a button. Get a recipe"
 link: 'koekboek'
 type: 'Front-end'
 tech: ['React','Redux','TypeScript']
