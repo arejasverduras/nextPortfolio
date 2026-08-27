@@ -18,6 +18,9 @@ export default css.resolve`
     display: flex;
     align-items: center;
     width: 100%;
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
 }
 
 .backLink {
@@ -25,12 +28,20 @@ export default css.resolve`
     align-items: center;
     width: fit-content;
     gap: 0.4rem;
+    position: relative;
     padding: 0.25rem 0;
     border: none;
     color: var(--colorText);
     font-size: 0.85rem;
     line-height: 1;
     text-decoration: none;
+    touch-action: manipulation;
+}
+
+.backLink::before {
+    content: "";
+    position: absolute;
+    inset: -1.25rem -0.75rem;
 }
 
 .backLink:hover,
@@ -47,6 +58,12 @@ export default css.resolve`
 .backLink:hover .backLinkIcon,
 .backLink:focus-visible .backLinkIcon {
     transform: translateX(-2px);
+}
+
+@media screen and (min-width: 538px) {
+    .backLinkRow {
+        margin-bottom: -1rem;
+    }
 }
 
 .projectItem {
