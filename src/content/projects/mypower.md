@@ -10,21 +10,23 @@ images:
   - src: '01-workout-overview.png'
     alt: 'MyPower workout overview with a circuit and individual exercises'
     caption: 'A complete training plan remains easy to scan: workout context, circuit structure, timing, and individual exercises all stay connected.'
-  - src: '02-quick-add-exercise.png'
-    alt: 'Creating a new exercise directly inside the MyPower workout builder'
-    caption: 'Search the shared library or create a missing exercise instantly, configure its targets and notes, and add it without leaving the builder.'
-  - src: '03-circuit-expanded.png'
+  - src: '02-circuit-expanded.png'
     alt: 'Expanded warm-up circuit containing three exercises'
     caption: 'Circuits keep their timing, order, and member exercises together while ordinary exercises continue naturally below them.'
-  - src: '04-workout-player-circuit.png'
-    alt: 'MyPower guided workout player during a circuit'
-    caption: 'The guided player turns the workout into an active session with circuit progress, targets, results, and automatic timing.'
-  - src: '05-exercise-detail-media.png'
+  - src: '04-guided-workout-flow.png'
+    alt: 'Three-step MyPower workout flow showing an exercise, result logging, and an automatic rest timer'
+    caption: 'Follow the exercise, log the result, and rest while MyPower manages the rest-timer and next set or exercise.'
+  - src: '07-hold-to-auto-rest.png'
+    alt: 'Three-step mobile MyPower flow showing the get-ready countdown, timed hold, and automatically started set pause'
+    caption: 'Voice cues guide the hold; completing it logs the result, advances the set, and starts the configured recovery timer automatically.'
+  - src: '05-quick-add-exercise.png'
+    alt: 'Creating a new exercise directly inside the MyPower workout builder'
+    caption: 'Search the shared library or create a missing exercise instantly, configure its targets and notes, and add it without leaving the builder.'
+  - src: '03-exercise-detail-media.png'
     alt: 'Expanded exercise with demonstration media and workout-specific controls'
     caption: 'Each exercise combines demonstration media with workout-specific targets, tempo, circuit assignment, progression, and coaching notes.'
-  - src: '06-mobile-player.png'
-    alt: 'MyPower workout player on a mobile phone'
-    caption: 'The mobile player keeps the active exercise, result entry, and timer within reach while training.'
+
+
 links: {
     demoLink: 'https://mypower.vercel.app'
 }
@@ -86,7 +88,7 @@ When the workout starts, the player turns the plan into a guided sequence. Autom
 - **Guided training:** The player handles exercise order, circuits, timers, and voice cues so the athlete can focus on the workout.
 - **Personal progress on shared programs:** Session logs belong to the athlete, creating a history that can support comparison and future feedback from coaches or AI.
 
-![Quick-add composer with target and circuit options](/images/projectImages/mypower/02-quick-add-exercise.png)
+![Quick-add composer with target and circuit options](/images/projectImages/mypower/05-quick-add-exercise.png)
 _The quick-add flow lets a user choose or create an exercise, set the target, add notes, and optionally assign it to a circuit before adding it to the workout._
 
 ## Technical approach
@@ -99,7 +101,7 @@ Circuits introduce a similar boundary between the shared plan and its execution.
 
 On the interface side, shared numeric and duration controls keep the same interaction model across defaults, quick-add fields, circuits, and the player. Optimistic updates make common edits feel immediate. These are small technical choices, but together they determine whether the product can compete with writing a result down in a few seconds.
 
-![Expanded circuit in the workout builder](/images/projectImages/mypower/03-circuit-expanded.png)
+![Expanded circuit in the workout builder](/images/projectImages/mypower/02-circuit-expanded.png)
 _Circuits display their own metadata and member exercises together, so users can understand the structure without entering a separate edit mode._
 
 ## Outcome
@@ -108,7 +110,7 @@ The main training loop is now present: create or choose exercises, organize them
 
 My first real training test validated the idea but also exposed the current gap: once bugs interrupted the flow, continuing without the app was easier. That is now the standard I am designing against. The next milestone is not simply adding more features; it is making creation and tracking dependable and satisfying enough that I—and then my friends—choose MyPower over a compact paper log every time.
 
-![Circuit-aware workout player](/images/projectImages/mypower/04-workout-player-circuit.png)
+![Circuit-aware workout player](/images/projectImages/mypower/04-guided-workout-flow.png)
 _The player separates circuit controls from exercise targets so round timing can be changed without breaking exercise progression._
 
 ## What I learned
