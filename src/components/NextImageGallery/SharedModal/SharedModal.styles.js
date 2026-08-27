@@ -51,17 +51,23 @@ export default css.resolve`
     .bottom {
         position: relative;
         width: 100%;
+        min-width: 0;
         min-height: calc(6rem + env(safe-area-inset-bottom));
+        overflow: hidden;
     }
 
     .caption {
         width: min(900px, calc(100% - 2rem));
+        max-width: 100%;
+        box-sizing: border-box;
         margin: 0 auto;
         padding: 0.25rem 0 0.5rem;
         color: var(--colorText);
         font-size: clamp(0.85rem, 1.5vw, 1rem);
         line-height: 1.45;
         text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
     }
 
     .buttons {
