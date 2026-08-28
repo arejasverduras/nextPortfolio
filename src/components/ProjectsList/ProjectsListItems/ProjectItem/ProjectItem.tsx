@@ -24,6 +24,7 @@ export interface ProjectContent {
     type: string,
     tech: string[],
     images: Array<string | { src: string, alt?: string, caption?: string }>,
+    mobileImages?: Array<string | { src: string, alt?: string, caption?: string }>,
     links: ProjectLinksContent,
     themeColor?: string,
     themeTextColor?: string,

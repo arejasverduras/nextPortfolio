@@ -56,7 +56,8 @@ The filename and `link` should match: `src/content/projects/my-project.md` uses 
 | `link` | URL slug and image-folder name. It should match the Markdown filename. |
 | `type` | Compact category such as `Front-end`, `Full-stack`, or `Design system`. |
 | `tech` | A short list of technologies that materially shaped the work. |
-| `images` | Gallery filenames only, not full paths. Images resolve from `public/images/projectImages/<link>/`. The first is the large lead image; up to four following images appear as previews, and all are available in the modal gallery. |
+| `images` | Required default/desktop gallery. Use filenames only, not full paths. Images resolve from `public/images/projectImages/<link>/`. The first is the large lead image; up to four following images appear as previews, and all are available in the modal gallery. |
+| `mobileImages` | Optional complete mobile gallery used at viewport widths up to 600px. It supports the same strings or `{ src, alt, caption }` entries as `images`. When omitted or empty, mobile visitors automatically receive `images`. Images may appear in both collections when a composition works well at every size. |
 | `links.demoLink` | Optional live product/demo URL. Remove the property if unavailable. |
 | `links.sourceLink` | Optional repository URL. Remove it for private source. |
 | `links.readMe` | Optional raw, publicly fetchable README URL. Supplying it enables the README panel. |
@@ -67,6 +68,8 @@ The filename and `link` should match: `src/content/projects/my-project.md` uses 
 | `themeTextColor` | Optional main text and border color. It is only applied when `themeBgColor` is also present. |
 
 Use valid YAML values. Keep the `links` object even when it contains only one link, because the project page reads from it. Remove unused link properties rather than leaving placeholder URLs.
+
+The two gallery collections may use different image counts and narrative order. Treat `mobileImages` as a deliberate mobile edit rather than a one-to-one technical copy: prefer portrait screenshots, close crops, and mobile multi-panel compositions whose text remains legible. The gallery switches collections when crossing 600px; if it is open during a resize or device rotation, it remains open and resets to the first image in the newly selected collection.
 
 ## Writing the case study body
 
@@ -101,7 +104,7 @@ Aim for 5–8 distinct images in a logical sequence:
 5. A technically distinctive detail, admin workflow, visualization, or integration.
 6. Verified evidence such as a before/after comparison or performance result, when available.
 
-Use consistent dimensions when practical, crop out browser clutter, and remove secrets and personal data. Keep text legible at the gallery’s displayed size. Put filenames in the frontmatter `images` array; embed only the most useful supporting images again in the body where the prose discusses them.
+Use consistent dimensions when practical, crop out browser clutter, and remove secrets and personal data. Keep text legible at the gallery’s displayed size. For desktop captures, use a 1440 × 900 CSS-pixel viewport. For mobile captures, use a 390 × 844 CSS-pixel viewport; a device pixel ratio of 2 produces a sharp 780 × 1688 image. Put filenames in the frontmatter `images` array and optional `mobileImages` array; embed only the most useful supporting images again in the body where the prose discusses them.
 
 ## Theme colors
 

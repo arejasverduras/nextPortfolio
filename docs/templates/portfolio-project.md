@@ -7,6 +7,7 @@ link: 'PROJECT-SLUG'
 type: 'Front-end'
 tech: ['Technology 1', 'Technology 2', 'Technology 3']
 images: ['01-hero.png', '02-core-feature.png', '03-responsive.png', '04-technical-detail.png', '05-result.png']
+mobileImages: ['01-hero-mobile.png', '02-core-feature-mobile.png', '03-responsive.png', '04-technical-detail-mobile.png', '05-result-mobile.png']
 links: {
     demoLink: 'https://example.com',
     sourceLink: 'https://github.com/username/repository',
@@ -61,4 +62,3 @@ _Use a comparison or detail view when it communicates the work better than prose
 ## What I learned
 
 [End with a brief, candid reflection: the most valuable lesson, a trade-off you would revisit, or the next improvement you would make.]
-

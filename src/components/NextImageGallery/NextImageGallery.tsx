@@ -1,6 +1,6 @@
 import styledJsx from './NextImageGallery.styles';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Modal from './Modal/Modal';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -17,6 +17,7 @@ export interface reducedImageProps extends GalleryImage {
 
   interface NextImageGalleryProps {
     images: Array<string | GalleryImage>,
+    mobileImages?: Array<string | GalleryImage>,
     prefix: string,
     style?: {[key: string]:string | number},
   }
@@ -30,10 +31,41 @@ export interface reducedImageProps extends GalleryImage {
     }
   }
 
-  export const NextImageGallery = ({images, prefix,style}:NextImageGalleryProps) => {
+  export const NextImageGallery = ({images, mobileImages, prefix,style}:NextImageGalleryProps) => {
     const [photoId, setPhotoId] = useState<number | null>(null);
+    const [useMobileCollection, setUseMobileCollection] = useState(false);
+    const useMobileCollectionRef = useRef(false);
+
+    useEffect(() => {
+      if (!mobileImages?.length) {
+        useMobileCollectionRef.current = false;
+        setUseMobileCollection(false);
+        return;
+      }
+
+      const mediaQuery = window.matchMedia('(max-width: 600px)');
+
+      const updateCollection = () => {
+        const shouldUseMobileCollection = mediaQuery.matches;
+
+        if (useMobileCollectionRef.current !== shouldUseMobileCollection) {
+          useMobileCollectionRef.current = shouldUseMobileCollection;
+          setUseMobileCollection(shouldUseMobileCollection);
+          setPhotoId((currentPhotoId) => currentPhotoId === null ? null : 0);
+        }
+      };
+
+      updateCollection();
+      mediaQuery.addEventListener('change', updateCollection);
+
+      return () => mediaQuery.removeEventListener('change', updateCollection);
+    }, [mobileImages]);
+
+    const activeImages = useMobileCollection && mobileImages?.length
+      ? mobileImages
+      : images;
     
-    const reducedImages = images.map((image, index) => ({
+    const reducedImages = activeImages.map((image, index) => ({
         id: index,
         ...(typeof image === 'string' ? { src: image } : image),
     }));

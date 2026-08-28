@@ -54,7 +54,7 @@ export async function getStaticProps ({params}:any) {
 const ProjectPage: NextPageWithLayout = (props)=>{
     // @ts-expect-error;
     const {projectData} = props;
-    const {images, link, links, title, shortText, highlights} = projectData;
+    const {images, mobileImages, link, links, title, shortText, highlights} = projectData;
     const [showReadMe, setShowReadMe] = useState(false);
     const [loading, setLoading] = useState(true);
    
@@ -154,6 +154,7 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                         >
                             <NextImageGallery 
                                 images={images} 
+                                mobileImages={mobileImages}
                                 // projectLink={projectData.link}
                                 prefix={`projectImages/${projectData.link}`}
                                 />

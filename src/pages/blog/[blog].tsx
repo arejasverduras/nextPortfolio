@@ -41,7 +41,7 @@ export async function getStaticProps ({params}:any) {
 }
 
 const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
-    const {images, link, links, title } = blogData;
+    const {images, mobileImages, link, links, title } = blogData;
 
     const animations = {
         backIn: {
@@ -110,6 +110,7 @@ const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
                         >
                             <NextImageGallery 
                                 images={images} 
+                                mobileImages={mobileImages}
                                 prefix="blog"
                                 style={{maxWidth: 400}}
                                 />
