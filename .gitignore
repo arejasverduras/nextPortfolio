@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated from project Markdown during development and builds
+/src/content/project-search-index.json

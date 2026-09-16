@@ -1,5 +1,6 @@
 ---
 title: 'Daily Recovery Coach'
+searchKeywords: ['drc', 'rehabilitation', 'brain injury']
 picture: '/images/projects/drc-logo-crystal-v1.png'
 shortText: 'A personal recovery system that turns symptoms, activity history and long-term goals into practical daily guidance for rebuilding capacity after brain injury.'
 description: 'Daily Recovery Coach is a personal recovery system for people rebuilding capacity after a traumatic brain injury. Shaped by my own recovery experience, it maps progress across five recovery pathways, identifies what is holding each person back and turns those bottlenecks into practical missions, while using symptoms and recent activity to provide daily advice on when to push, stabilise or recover.'
