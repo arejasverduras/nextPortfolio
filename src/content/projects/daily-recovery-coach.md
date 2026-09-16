@@ -10,16 +10,25 @@ images:
   - src: '01-recovery-areas.png'
     alt: 'Daily Recovery Coach My Healing page showing five recovery areas and phase four of Moving and Light'
     caption: 'Five recovery areas create a complete view of progress. Each area places the user within a phased pathway and shows what has already been rebuilt and what comes next.'
+  - src: '02-recovery-areas-palenight.png'
+    alt: 'Daily Recovery Coach My Healing page in Palenight showing five recovery areas and phase four of Moving and Light'
+    caption: 'The My Healing page in Palenight, with teal accents highlighting the selected recovery area and current phase.'
 mobileImages:
   - src: '01-recovery-areas-mobile.png'
     alt: 'Mobile Daily Recovery Coach My Healing page showing the Social Connection recovery area at phase two'
     caption: 'On mobile, recovery areas remain easy to explore while the selected pathway keeps its current phase and next step in focus.'
+  - src: '02-recovery-areas-palenight-mobile.png'
+    alt: 'Mobile Daily Recovery Coach My Healing page in Palenight showing phase four of Moving and Light'
+    caption: 'The Palenight mobile view keeps the current recovery phase and pathway guidance in focus.'
 links: {} # TODO: Add a public or access-request URL if appropriate. Source remains private.
 startDate: '2025-01-01' # Approximate; confirm the project start date.
 launchDate: '2026-09-15' # Current portfolio release of the working pre-release MVP.
-themeColor: '#C6B39C'
-themeTextColor: '#5A564F'
-themeBgColor: '#F9F7F3'
+# themeColor: '#C6B39C'
+# themeTextColor: '#5A564F'
+# themeBgColor: '#F9F7F3'
+themeColor: '#80CBC4'
+themeTextColor: '#BFC7D5'
+themeBgColor: '#292D3E'
 ---
 
 ## The Real-life challenge of TBI-recovery
