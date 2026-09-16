@@ -1,0 +1,96 @@
+[
+  {
+    "title": "Daily Recovery Coach",
+    "slug": "daily-recovery-coach",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Supabase Auth",
+      "OpenAI API",
+      "Tailwind CSS"
+    ],
+    "keywords": [
+      "drc",
+      "rehabilitation",
+      "brain injury"
+    ]
+  },
+  {
+    "title": "Koekboek - original",
+    "slug": "koekboek-original",
+    "tech": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "keywords": []
+  },
+  {
+    "title": "Koekboek - React remake",
+    "slug": "koekboek",
+    "tech": [
+      "React",
+      "Redux",
+      "TypeScript"
+    ],
+    "keywords": []
+  },
+  {
+    "title": "MyPower",
+    "slug": "mypower",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Supabase",
+      "Tailwind CSS",
+      "Cypress"
+    ],
+    "keywords": []
+  },
+  {
+    "title": "Portfolio_",
+    "slug": "portfolio",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Framer-motion"
+    ],
+    "keywords": []
+  },
+  {
+    "title": "Resume",
+    "slug": "resume",
+    "tech": [
+      "React",
+      "JavaScript"
+    ],
+    "keywords": []
+  },
+  {
+    "title": "ShredFish",
+    "slug": "shredfish",
+    "tech": [
+      "React",
+      "Redux",
+      "JavaScript"
+    ],
+    "keywords": []
+  },
+  {
+    "title": "Silvester Zwemschool",
+    "slug": "silvester",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "Netlify-CMS",
+      "Framer-motion"
+    ],
+    "keywords": []
+  }
+]

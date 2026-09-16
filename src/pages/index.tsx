@@ -19,6 +19,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 const Home:NextPageWithLayout = () => {
   const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (sessionStorage.getItem('portfolio:open-command-on-home') === 'true') {
+      sessionStorage.removeItem('portfolio:open-command-on-home');
+      setVisible(true);
+    }
+  }, []);
     const [searchTerm, setSearchTerm] = useState('');
     const [message, setMessage] = useState(<></>);
     const [showMessage, setShowMessage] = useState(false);

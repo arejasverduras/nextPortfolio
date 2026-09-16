@@ -29,6 +29,10 @@
     color: var(--colorCommands);
 }
 
+.hintLine {
+    display: block;
+}
+
 
 .hintsList {
     list-style-type: "> ";

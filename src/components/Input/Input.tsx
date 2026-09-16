@@ -1,8 +1,11 @@
 import styles from './Input.module.css';
+import Link from 'next/link';
+import { matchProjects } from '@/lib/projectSearch';
+import { normalizeNavigationCommand } from '@/lib/navigationCommands';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPowerOff, faTurnDown } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { useRouter } from 'next/router';
 // components
 import { InputLed } from '../InputLED/InputLED';
@@ -35,7 +38,18 @@ export const Input = (
         hints,
         setHints,
     }:InputProps) => {
+    const [results, setResults] = useState<React.ReactNode>(null);
+    const resultHolder = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (!results) return;
+        const dismiss = (event: MouseEvent) => {
+            if (!resultHolder.current?.contains(event.target as Node)) setResults(null);
+        };
+        document.addEventListener('click', dismiss);
+        return () => document.removeEventListener('click', dismiss);
+    }, [results]);
     const [hit, setHit] = useState(false);
+    const inputRevision = useRef(0);
     const [searchHit, setSearchHit] = useState(false);
     const [action, setAction] = useState(false);
     const {setTheme} = useContext(ThemeContext);
@@ -45,7 +59,7 @@ export const Input = (
     const samePageMessage = <>You are already on this page: <span>{router.asPath.slice(1)}</span></>;
     const errormessage = <>Command <span>{searchTerm}</span> not found. <br/> Type <i>help</i> or Click on the `?` icon to see a list of commands</>
 
-    const commands=["about", "projects","home","light","dark","hints","help","blog","quit","exit"]
+    const commands=["about", "projects","home","light","dark","hints","help","blog","quit","exit","contact","email","mail","hire me","linkedin","resume","résumé","cv"]
 
     const animations = {
         enter: {
@@ -92,15 +106,15 @@ export const Input = (
       );
 
       useEffect(()=>{
-        // only on phones?
-
         const inpute = document.getElementById("inputfield");
-        inpute?.blur();
+        inpute?.focus({preventScroll: true});
       },[router.asPath]
       )
 
 
       const handleChange = ({target}:any) => {
+        setResults(null);
+        inputRevision.current += 1;
         setShowMessage(false);
         setSearchTerm(target.value.toLowerCase())
       }
@@ -113,18 +127,14 @@ export const Input = (
       
 //  Navigation
       const navigate = () => {
+        setResults(null);
+        document.getElementById('inputfield')?.focus({preventScroll: true});
+        const submittedRevision = ++inputRevision.current;
         console.log(router.asPath);
-        if (`/${searchTerm}` === router.asPath){
+        const command = normalizeNavigationCommand(searchTerm);
+        if ((command === 'home' ? '/' : `/${command}`) === router.asPath){
             setMessage(samePageMessage);
             setShowMessage(true);
-            return;
-        }
-
-        if (searchHit){
-            setAction(true);
-            setTimeout(() => {
-                setAction(false);
-            }, 200);
             return;
         }
 
@@ -132,20 +142,39 @@ export const Input = (
             const letters = searchTerm.length;
             for (let i=1; i <= searchTerm.length; i++){
                 setTimeout(() => {
+                    if (inputRevision.current !== submittedRevision) return;
                     setSearchTerm(searchTerm.slice(0,letters-i))
                 }, 100*(i+1));
             }
         }
         
-        switch (searchTerm) {
-            case "about":    
+        switch (command) {
+            case "resume":
+            case "résumé":
+            case "cv":
+            case "about":
                 router.push('/about', undefined,{shallow: false})
                 setTimeout(() => {
                     removeSearchTermSlow();
                 }, 400);
                 setHints(false);
                 break;
+            case "contact":
+            case "email":
+            case "mail":
+            case "hire me":
+                setMessage(<>Contact me here: <a href="mailto:hello@marejas.dev">hello@marejas.dev</a> · <a href="https://www.linkedin.com/in/michielroukens/">LinkedIn</a></>);
+                setShowMessage(true);
+                setTimeout(() => {
+                    removeSearchTermSlow();
+                }, 400);
+                setHints(false);
+                break;
+            case "linkedin":
+                window.location.assign('https://www.linkedin.com/in/michielroukens/');
+                break;
             case "home":
+                sessionStorage.setItem('portfolio:open-command-on-home', 'true');
                 router.push('/', undefined,{shallow: false})
                 setTimeout(() => {
                     removeSearchTermSlow();
@@ -208,8 +237,30 @@ export const Input = (
                     }, 1500);
                     break;
             default:
-            setMessage(errormessage);    
-            setShowMessage(true);
+                const matches = matchProjects(command);
+                const openProject = (href: string) => {
+                    setResults(null);
+                    setShowMessage(false);
+                    setHints(false);
+                    document.getElementById('inputfield')?.focus({preventScroll: true});
+                    router.push(href);
+                    setTimeout(removeSearchTermSlow, 400);
+                };
+                if (matches.length === 1) {
+                    openProject(matches[0].href);
+                } else if (matches.length > 1) {
+                    setShowMessage(false);
+                    setResults(<><div className={styles.resultHint}>Choose a project:</div><ul>{matches.map(project => (
+                        <li key={project.href}><Link href={project.href} onClick={event => {
+                            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                            event.preventDefault();
+                            openProject(project.href);
+                        }}><span>&gt; {project.title}</span><small>project</small></Link></li>
+                    ))}</ul></>);
+                } else {
+                    setMessage(command === 'search' ? <>Search by project name or technology.</> : errormessage);
+                    setShowMessage(true);
+                }
                 break;
         }
 
@@ -225,6 +276,13 @@ export const Input = (
         <>
         <motion.div 
             className={styles.inputHolder}
+            ref={resultHolder}
+            onKeyDown={event => {
+                if (event.key === 'Escape' && results) {
+                    setResults(null);
+                    document.getElementById('inputfield')?.focus({preventScroll: true});
+                }
+            }}
             key="inputHolder"
             layoutId={trackLayout? "inputHolder": undefined}
             >
@@ -291,13 +349,15 @@ export const Input = (
                                                 type="submit"
                                                 key={"inputButton"}
                                                 onClick={navigate}
-                                                style={!hit ? searchHit ? {backgroundColor: "var(--colorH3", color: "var(--colorCommands)"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)", color: "var(--lightGray)"}}
+                                                style={!hit ? searchHit ? {backgroundColor: "var(--colorH3)", color: "var(--colorCommands)"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)", color: "var(--lightGray)"}}
                                                 animate={hit ? {scale: [1,1,1], opacity: 1, x: 0, transition: {delay: 0, duration: 0.8, repeat: Infinity}}:{x: [40,0], opacity: [0,1]}}
                                                 transition={{delay: 0.4}}
                                                 >Enter <FontAwesomeIcon icon={faTurnDown}/></motion.button>
                                     </motion.div>
                         )}
-                        </AnimatePresence>               
+                        </AnimatePresence>
+                {visible && results && <div className={styles.results} aria-label="Matching projects">{results}</div>}
+
             </motion.div>
             </>
     )

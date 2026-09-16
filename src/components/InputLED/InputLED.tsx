@@ -1,4 +1,6 @@
 import styledJsx from './inputLED.styles';
+import { normalizeNavigationCommand } from '@/lib/navigationCommands';
+import { matchProjects } from '@/lib/projectSearch';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -15,9 +17,11 @@ interface InputLedProps {
 export const InputLed = ({searchTerm, commands, hit, setHit, searchHit, setSearchHit, action}:InputLedProps) => {
     
     useEffect(()=>{
-        setHit(commands.some((command) => command === searchTerm));
-        setSearchHit(searchTerm.includes('search'));
-    },[searchTerm, commands])
+        const normalized = normalizeNavigationCommand(searchTerm);
+        const isSearch = /^search(?:\s|$)/i.test(normalized);
+        setHit(!isSearch && (commands.includes(normalized) || matchProjects(normalized).length > 0));
+        setSearchHit(isSearch);
+    },[searchTerm, commands, setHit, setSearchHit])
 
     const animations = {
         regular: {
@@ -50,7 +54,7 @@ export const InputLed = ({searchTerm, commands, hit, setHit, searchHit, setSearc
             </div>
             <motion.div
                 className={`${styledJsx.className} secondCircle`} 
-                style={action && searchHit? {background: "radial-gradient(var(--colorH3), transparent)"}: action && hit ? {background: "radial-gradient(var(--lightBloen1), transparent)"}:action? {background: "radial-gradient(var(--colorCommands), transparent)"}: !hit ? searchHit ? {backgroundColor: "var(--colorH3"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)"}}
+                style={action && searchHit? {background: "radial-gradient(var(--colorH3), transparent)"}: action && hit ? {background: "radial-gradient(var(--lightBloen1), transparent)"}:action? {background: "radial-gradient(var(--colorCommands), transparent)"}: !hit ? searchHit ? {backgroundColor: "var(--colorH3)"}:{backgroundColor: "var(--colorCommands)" }:   {backgroundColor: "var(--lightBloen1)"}}
                 key="searchLight"
                 variants={animations}
                 animate={action? "action": hit || searchHit? "hit": "regular"}

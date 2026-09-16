@@ -91,7 +91,11 @@ export const Hints = ({setSearchTerm, setShowMessage, home, hints, setHints}:Hin
                                     <div className={styles.hintsListHolder}>
                                         {generateLinks(hintsList)}
                                     </div>
-                                    <p><b>Search</b> anything by starting your command with <i>search </i></p>
+                                    <p>
+                                        <span className={styles.hintLine}><b>Find</b> projects by <span className={styles.hintLink}>name</span> or <span className={styles.hintLink}>technology</span>.</span>
+                                        <span className={styles.hintLine}><b>Search</b> anything by starting your command with <i>search</i></span>
+                                    </p>
+                                    <p>Type <i>contact</i> to get in touch, or <i>cv</i> for my résumé.</p>
 
                                         <p>Change <b>color</b> theme:</p>
                                         <ul>
