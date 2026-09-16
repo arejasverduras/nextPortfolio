@@ -214,12 +214,6 @@ export default css.resolve`
             padding: 0 0.5rem 0.75rem;
         }
 
-        .mainImageHolder {
-            height: auto;
-            aspect-ratio: 4 / 3;
-            flex: 0 1 100%;
-        }
-
         .buttonLeft,
         .buttonRight {
             width: 42px;

@@ -13,7 +13,7 @@ links: {
 themeColor: '#e6007d'
 themeTextColor: '#eeeeee'
 themeBgColor: '#404040'
-launchDate: '2023-04-01' # Approximate: project predates its reuse in the portfolio in April 2023.
+launchDate: '2023-05-09' # Portfolio ordering date; project predates its reuse in the portfolio.
 ---
 
 ## The Goal ##
@@ -72,6 +72,5 @@ _snippets from the ReadMe file:_
 
 ## Project Status
 Project is: _completed_
-
 
 
