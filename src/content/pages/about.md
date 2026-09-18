@@ -8,7 +8,7 @@ links:
   - link: "https://www.linkedin.com/in/michielroukens/"
     description: "LinkedIn"
     icon: "linkedIn"
-  - link: "https://arejasresume.surge.sh/"
+  - link: "/Michiel%20Roukens%20-%20Resume%20Sept%202026.pdf"
     description: "Resume"
     icon: "resume"
 ---

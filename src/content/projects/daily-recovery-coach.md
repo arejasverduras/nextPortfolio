@@ -1,5 +1,6 @@
 ---
 title: 'Daily Recovery Coach'
+benefitQuote: 'DRC pointed out what prevented my brain 🧠 healing to go to the next level, and created simple missions for me to train those parts of my brain - then guiding me daily on when and how to do it ✨'
 searchKeywords: ['drc', 'rehabilitation', 'brain injury']
 picture: '/images/projects/drc-logo-crystal-v1.png'
 shortText: 'A personal recovery system that turns symptoms, activity history and long-term goals into practical daily guidance for rebuilding capacity after brain injury.'

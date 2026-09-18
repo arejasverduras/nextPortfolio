@@ -1,5 +1,7 @@
 ---
 title: 'MyPower'
+benefitQuote1: 'I build the workout at home, then press Play when I go train. Auto-timers for rest, holds and spoken countdown makes structured training a no-brainer. My friend wants to join? I just send him the link and he can start training & tracking right away, modifying the workout to their level if needed'
+benefitQuote: 'I love holding a handstand with MyPower counting down between my hands. When the timer finishes, I proudly log my result—and my rest timer starts automatically.'
 picture: '/images/projects/mypower-card.png'
 description: 'Create, share and follow calisthenics / fitness workouts just as easy as creating a playlist on Spotify! MyPower is a social training platform where users can find workouts, create their own and share them with others. Athletes then press play for a fully guided training session, finding detailed instructions, exercise queues, automatic timers and quick result-loggin to track progress.' 
 shortText: 'Create, share and follow calisthenics and fitness programs just as easy as creating a playlist on Spotify!'

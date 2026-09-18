@@ -24,15 +24,13 @@ export async function getStaticProps() {
     }
 }
 
-
 const About: NextPageWithLayout = ({content}:any) => {
-    console.log(content)
     
     return (
         <div className="aboutPage">
             <div className="aboutPageContent">
                 <Head>
-                <title>About | Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express</title>
+                <title>About | Michiel Roukens | Portfolio | Full-stack web developer | React, Next, Node, Express</title>
                 </Head>
                 <h1>About</h1>
                 <div 

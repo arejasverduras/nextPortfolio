@@ -3,6 +3,10 @@ title: 'PROJECT TITLE'
 picture: '/images/projects/PROJECT-CARD-IMAGE.png'
 description: 'A concise one-sentence summary of what the project is and why it matters.'
 shortText: 'A slightly fuller summary covering the problem, the solution, and the most compelling result or differentiator.'
+# Optional: one short, concrete benefit that conveys the project's value at a glance.
+# Shown as large text below the gallery and above the article; leave empty to hide it.
+# Write in your own voice, without quotation marks or unverified claims.
+benefitQuote: ''
 link: 'PROJECT-SLUG'
 type: 'Front-end'
 tech: ['Technology 1', 'Technology 2', 'Technology 3']
