@@ -152,6 +152,16 @@ export const Input = (
             case "resume":
             case "résumé":
             case "cv":
+                const download = document.createElement('a');
+                download.href = '/Michiel%20Roukens%20-%20Resume%20Sept%202026.pdf';
+                download.download = 'Michiel Roukens - Resume Sept 2026.pdf';
+                document.body.appendChild(download);
+                download.click();
+                download.remove();
+                setShowMessage(false);
+                setHints(false);
+                setTimeout(removeSearchTermSlow, 400);
+                break;
             case "about":
                 router.push('/about', undefined,{shallow: false})
                 setTimeout(() => {
