@@ -53,6 +53,7 @@ The filename and `link` should match: `src/content/projects/my-project.md` uses 
 | `picture` | Card/logo image, stored in `public/images/projects/`. Use a public path beginning with `/images/projects/`. |
 | `description` | Short card description. Make it understandable without opening the project. |
 | `shortText` | Additional project summary retained by the project data model. Keep it useful even though the current card does not render it. |
+| `benefitQuote` | Optional short statement conveying a concrete project benefit at a glance. Displayed as large text with an accent rule below the gallery and above the article, without quotation marks. Omitted, empty, or whitespace-only values render nothing. It fades in once on entering the viewport, independently of existing page animations. |
 | `link` | URL slug and image-folder name. It should match the Markdown filename. |
 | `type` | Compact category such as `Front-end`, `Full-stack`, or `Design system`. |
 | `tech` | A short list of technologies that materially shaped the work. |

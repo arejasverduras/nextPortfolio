@@ -6,7 +6,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import dynamic from 'next/dynamic.js';
 import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 // lib
 import {getAllProjects, getProject} from "@/lib/project.js";
 import {getAllProjectsMd, getProjectMd }from "@/lib/projectMd.js";
@@ -55,6 +55,8 @@ const ProjectPage: NextPageWithLayout = (props)=>{
     // @ts-expect-error;
     const {projectData} = props;
     const {images, mobileImages, link, links, title, shortText, highlights} = projectData;
+    const benefitQuote = typeof projectData.benefitQuote === 'string' ? projectData.benefitQuote.trim() : '';
+    const reduceMotion = useReducedMotion();
     const [showReadMe, setShowReadMe] = useState(false);
     const [loading, setLoading] = useState(true);
    
@@ -121,9 +123,9 @@ const ProjectPage: NextPageWithLayout = (props)=>{
     return (
         <>
             <Head>
-                <title>{`${title} | Michiel Roukens | Portfolio | Fullstack web developer | React, Next, Node, Express`}</title>
+                <title>{`${title} | Michiel Roukens | Portfolio | Full-stack web developer | React, Next, Node, Express`}</title>
             </Head>
-            <div className={`${styledJsx.className} container`}>
+            <div className={`${styledJsx.className} container ${benefitQuote ? 'hasBenefitQuote' : ''}`}>
                 <motion.div
                     className={`${styledJsx.className} backLinkRow`}
                     variants={animations}
@@ -159,6 +161,17 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                                 prefix={`projectImages/${projectData.link}`}
                                 />
                     </div>
+                )}
+                {benefitQuote && (
+                    <motion.p
+                        className={`${styledJsx.className} benefitQuote`}
+                        initial={reduceMotion ? false : {opacity: 0, y: 16}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true, amount: 0.2}}
+                        transition={{duration: reduceMotion ? 0 : 0.45}}
+                    >
+                        {benefitQuote}
+                    </motion.p>
                 )}
                 {/* <motion.div 
                     className={`${styledJsx.className} collaborators`}
@@ -232,7 +245,9 @@ const ProjectPage: NextPageWithLayout = (props)=>{
                     )}
                     </AnimatePresence>
                 </motion.div>)}
-                
+
+
+
             </div>
             {styledJsx.styles} 
         </>

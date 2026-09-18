@@ -69,7 +69,7 @@ const BlogPost: NextPageWithLayout = ({blogData}:any) =>{
     return (
         <>  
             <Head>
-                <title>{`${title}  Michiel Roukens | Portfolio | Front-end web developer | React, Next, Node, Express`}</title>
+                <title>{`${title}  Michiel Roukens | Portfolio | Full-stack web developer | React, Next, Node, Express`}</title>
             </Head>
             <div className={`${styledJsx.className} container`}>
                 <motion.div

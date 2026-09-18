@@ -102,6 +102,21 @@ export default css.resolve`
         margin-bottom: 20px;
     }
 
+    .benefitQuote {
+        grid-area: benefit;
+        margin: clamp(40px, 6vw, 96px) 0;
+        padding: 0 0 0 clamp(20px, 3vw, 48px);
+        border-left: 5px solid var(--colorHeaderBg);
+        max-width: 24ch;
+        color: var(--colorText);
+        font-size: clamp(2rem, 4.5vw, 4.5rem);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.035em;
+        overflow-wrap: anywhere;
+        text-align: left;
+    }
+
     .readme {
         grid-area: readme;
         padding: 20px;
@@ -175,6 +190,15 @@ export default css.resolve`
         grid-template-columns: 1fr 2fr;
     }
 
+    .container.hasBenefitQuote {
+        grid-template-areas:
+        "back back"
+        "projectItem images"
+        "benefit benefit"
+        "description description"
+        "readme readme";
+    }
+
     .readmeToggle {
         border-bottom: none;
         
@@ -215,6 +239,15 @@ export default css.resolve`
         max-width: 1440px;
     }
     
+    .container.hasBenefitQuote {
+        grid-template-areas:
+        "back back"
+        "projectItem images"
+        ". benefit"
+        ". description"
+        ". readme";
+    }
+
     .description {
         // width: 100vw;
         max-width: 1024px;
