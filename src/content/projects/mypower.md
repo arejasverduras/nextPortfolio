@@ -36,26 +36,25 @@ images:
 mobileImages:
   - src: '00-home-mobile.png'
     alt: 'MyPower mobile home page introducing the social training platform'
-    caption: 'The mobile experience opens with the same promise: build and share workouts, track every set, and train together.'
-  - src: '01-workout-overview.png'
+    caption: 'MyPower starts with the social promise behind the product: discover, build, share, and complete training together.'
+  - src: '01-workout-overview-mobile.png'
     alt: 'MyPower workout overview with a circuit and individual exercises'
-    caption: 'A complete training plan remains easy to scan: workout context, circuit structure, timing, and individual exercises all stay connected.'
-  - src: '02-circuit-expanded.png'
+    caption: 'Finding or creating workouts is just as easy as managing playlists on Spotify! Save workouts to your own library, tweak them to your level and start training directly!'
+  - src: '02-circuit-expanded-mobile.png'
     alt: 'Expanded warm-up circuit containing three exercises'
-    caption: 'Circuits keep their timing, order, and member exercises together while ordinary exercises continue naturally below them.'
-  - src: '04-guided-workout-flow.png'
-    alt: 'Three-step MyPower workout flow showing an exercise, result logging, and an automatic rest timer'
-    caption: 'Follow the exercise, log the result, and rest while MyPower manages the rest-timer and next set or exercise.'
-  - src: '07-hold-to-auto-rest.png'
-    alt: 'Three-step mobile MyPower flow showing the get-ready countdown, timed hold, and automatically started set pause'
-    caption: 'Voice cues guide the hold; completing it logs the result, advances the set, and starts the configured recovery timer automatically.'
-  - src: '05-quick-add-exercise.png'
-    alt: 'Creating a new exercise directly inside the MyPower workout builder'
-    caption: 'Search the shared library or create a missing exercise instantly, configure its targets and notes, and add it without leaving the builder.'
-  - src: '03-exercise-detail-media.png'
-    alt: 'Expanded exercise with demonstration media and workout-specific controls'
-    caption: 'Each exercise combines demonstration media with workout-specific targets, tempo, circuit assignment, progression, and coaching notes.'
-
+    caption: 'Exercise circuits can also be created with easy to manage rest timers, alsongside individual exercises that follow their own rules.'
+  - src: '03-mobile-player-hold-timer.png'
+    alt: 'Guided play mode with hold timers'
+    caption: 'Follow the exercise instructions and use hold timers when relevant, with speech guidance and countdown timers.'
+  - src: '03-mobile-player-hold-timer-running.png'
+    alt: 'Guided play mode with the hold timer running'
+    caption: 'Holds are easily executed and tracked using a countdown timer with voice cues and a pausible hold timer.'
+  - src: '03-mobile-player-rest-timer.png'
+    alt: 'Guided play mode with automatic resttimer after completing a set'
+    caption: 'Rest timer starts automatically after the user logs it result by completing the set. Voice-ques announce the next set'
+  - src: '04-mobile-player-exercise-queue.png'
+    alt: 'Exercise queue list in the workout player'
+    caption: 'Feel free to browse or switch between workout exercises, while your rest-timer keeps running.'
 
 links: {
     liveApp: 'https://mypower.vercel.app'
@@ -72,7 +71,7 @@ MyPower started with a simple question: what if creating a workout felt like mak
 
 I wanted to make it easier to help friends get started with calisthenics or strength training. Instead of hand-writing a program and then finding a YouTube video for every unfamiliar movement, I could select exercises from a shared database, arrange them into a workout, and send it. Each exercise could carry its own demonstration, execution cues, and progression information. A friend could save the workout, press play, and follow it like a playlist.
 
-Following a program is only half of the idea. By logging each session, athletes can compare their results over time and eventually ask a coach or AI for feedback based on what they actually did. That only works if tracking feels smooth, quick, and rewarding enough to use between sets.
+Following a program is only half of the idea. By logging each session, athletes can compare their results over time and eventually ask a coach or AI for feedback based on what they actually did. 
 
 ## The challenge
 
@@ -89,9 +88,10 @@ Beside it, I added one short line after each workout:
 
 That took seconds and made week-to-week comparison immediate. A digital replacement may offer guidance, timers, sharing, and richer progress data, but it still loses if starting or logging a set requires too many taps.
 
-Earlier versions of MyPower did lose that comparison. Creating a workout was slow, especially when an exercise did not exist in the database or when a program contained circuits. During my first real training test, bugs interrupted the session and continuing without the app became easier. In a workout context, a small amount of friction is enough to abandon the tool completely.
+In MyPower, creating a workout feels just as quick and easy now as writing it down on paper. Even tweaking exercise metadata during the workout itself is just a few taps.
+Previous results are shown directly in the workout now for easy comparison, just as it was on paper.
+I truly enjoy using it now myself during my workouts, and enjoy using the countdown timers for holds.
 
-Calisthenics adds another challenge: an exercise such as the planche has progressions that can change quickly as someone improves. A workout creator can prescribe a specific progression, but a reusable “Planche skill day” should also let each athlete choose the variation that matches the intended rep range, hold time, and intensity. The program needs to preserve its training goal without assuming that every person has the same level.
 
 ## My role
 
