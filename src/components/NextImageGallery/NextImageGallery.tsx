@@ -35,6 +35,50 @@ export interface reducedImageProps extends GalleryImage {
     const [photoId, setPhotoId] = useState<number | null>(null);
     const [useMobileCollection, setUseMobileCollection] = useState(false);
     const useMobileCollectionRef = useRef(false);
+    const galleryEntryOpen = useRef(false);
+    const galleryPageUrl = useRef('');
+
+    useEffect(() => {
+      galleryPageUrl.current = window.location.href;
+      const onBackOrForward = (event: PopStateEvent) => {
+        const gallery = event.state?.portfolioGallery;
+        const isThisGallery = gallery?.prefix === prefix;
+        if (window.location.href !== galleryPageUrl.current || (!galleryEntryOpen.current && !isThisGallery)) return;
+
+        // This is a local overlay transition, not a Next.js page navigation.
+        event.stopImmediatePropagation();
+        galleryEntryOpen.current = isThisGallery;
+        setPhotoId(isThisGallery ? gallery.photoId : null);
+      };
+      window.addEventListener('popstate', onBackOrForward, true);
+      return () => window.removeEventListener('popstate', onBackOrForward, true);
+    }, [prefix]);
+
+    const changePhoto = (id: number | null) => {
+      if (id === null) {
+        if (galleryEntryOpen.current) window.history.back();
+        else setPhotoId(null);
+        return;
+      }
+      const state = {...window.history.state, portfolioGallery: {prefix, photoId: id}};
+      if (galleryEntryOpen.current) {
+        window.history.replaceState(state, '', window.location.href);
+      } else {
+        galleryPageUrl.current = window.location.href;
+        window.history.pushState(state, '', window.location.href);
+        galleryEntryOpen.current = true;
+      }
+      setPhotoId(id);
+    };
+
+    useEffect(() => {
+      if (photoId !== null && galleryEntryOpen.current) {
+        window.history.replaceState({
+          ...window.history.state,
+          portfolioGallery: {prefix, photoId},
+        }, '', window.location.href);
+      }
+    }, [photoId, prefix]);
 
     useEffect(() => {
       if (!mobileImages?.length) {
@@ -77,7 +121,7 @@ export interface reducedImageProps extends GalleryImage {
           <motion.button
               type="button"
               key={id}
-              onClick={()=>{setPhotoId(id)}}
+              onClick={()=>{changePhoto(id)}}
               variants={animations}
               animate="imageTile"
               custom={((index + 1) * 0.15)}
@@ -109,7 +153,7 @@ export interface reducedImageProps extends GalleryImage {
             <Modal
               images={reducedImages}
               photoId={photoId}
-              setPhotoId={setPhotoId}
+              setPhotoId={changePhoto}
               prefix={prefix}
             />
           )}
@@ -117,14 +161,14 @@ export interface reducedImageProps extends GalleryImage {
         
         <motion.div 
           className={`${styledJsx.className} firstImageContainer`}
-          onClick={()=>{setPhotoId(reducedImages[0].id)}}
+          onClick={()=>{changePhoto(reducedImages[0].id)}}
           role="button"
           tabIndex={0}
           aria-label={`Open project image 1 of ${reducedImages.length}`}
           onKeyDown={(event) => {
             if (event.key === 'Enter' || event.key === ' ') {
               event.preventDefault();
-              setPhotoId(reducedImages[0].id);
+              changePhoto(reducedImages[0].id);
             }
           }}
           key="firstImageContainer"

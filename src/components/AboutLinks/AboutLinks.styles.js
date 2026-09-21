@@ -26,4 +26,28 @@ export default css.resolve`
         padding-left: 20px;
     }
 }
+    .container.withEmail {
+        width: 100%;
+        max-width: 700px;
+        gap: 12px 20px;
+    }
+
+    .emailLink {
+        white-space: nowrap;
+    }
+
+    @media screen and (max-width: 767px) {
+        .withEmail .emailLink {
+            flex-basis: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .emailLink .iconContainer {
+            width: 50px;
+            flex-shrink: 0;
+            margin-bottom: 0;
+        }
+    }
 `

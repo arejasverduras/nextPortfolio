@@ -1,0 +1,73 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 740px;
+    height: calc(100dvh - 160px);
+    margin: 0 auto;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.body > h1,
+.body > :global(.topImageHolder) {
+    flex-shrink: 0;
+}
+
+.scrollContent {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.linksFooter {
+    flex-shrink: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: var(--colorBg);
+    color: var(--colorText);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .scrollContent {
+        --scrollThumb: color-mix(in srgb, var(--colorText) 25%, transparent);
+        scrollbar-width: thin;
+        scrollbar-color: var(--scrollThumb) transparent;
+    }
+
+    .scrollContent:hover,
+    .scrollContent:focus-within {
+        --scrollThumb: color-mix(in srgb, var(--colorText) 60%, transparent);
+    }
+
+    .scrollContent::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .scrollContent::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .scrollContent::-webkit-scrollbar-thumb {
+        background: var(--scrollThumb);
+        border-radius: 999px;
+    }
+}
+
+@media screen and (max-width: 537px) {
+    .body > :global(.topImageHolder) {
+        width: 120px;
+        height: 120px;
+        margin: 12px 20px;
+    }
+
+    .content {
+        height: calc(100dvh - 165px);
+    }
+}

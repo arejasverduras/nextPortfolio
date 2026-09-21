@@ -1,6 +1,7 @@
 import aboutImage from '../../public/images/projects/aboutChar.png';
 import Head from 'next/head';
 import Image from 'next/image';
+import styles from '@/styles/About.module.css';
 
 // components
 import PageLayout from "@/Layouts/PageLayout/PageLayout";
@@ -25,10 +26,10 @@ export async function getStaticProps() {
 }
 
 const About: NextPageWithLayout = ({content}:any) => {
-    
+
     return (
-        <div className="aboutPage">
-            <div className="aboutPageContent">
+        <div className={`aboutPage ${styles.content}`}>
+            <div className={`aboutPageContent ${styles.body}`}>
                 <Head>
                 <title>About | Michiel Roukens | Portfolio | Full-stack web developer | React, Next, Node, Express</title>
                 </Head>
@@ -44,11 +45,18 @@ const About: NextPageWithLayout = ({content}:any) => {
                         />
                 </div>
                 <div
-                    className="mdContent"
+                    className={`mdContent ${styles.scrollContent}`}
+                    tabIndex={0}
+                    role="region"
+                    aria-label="About Michiel"
                     dangerouslySetInnerHTML={{__html: content.contentHtml}}
                     />
-                <AboutLinks links={content.links} />
             </div>
+                <footer className={styles.linksFooter}>
+                    <nav aria-label="About profile and résumé links">
+                        <AboutLinks links={content.links} />
+                    </nav>
+                </footer>
         </div>
     )
 }

@@ -12,6 +12,16 @@ import { InputLed } from '../InputLED/InputLED';
 // context
 import { ThemeContext } from '@/context/ThemeContext';
 
+// Keep command navigation ready for desktop typing without reopening touch keyboards.
+const updateCommandFocus = () => {
+    const input = document.getElementById('inputfield');
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        input?.focus({preventScroll: true});
+    } else {
+        input?.blur();
+    }
+};
+
 interface InputProps {
     visible: boolean, 
     toggleVisible: ()=>void,
@@ -99,15 +109,13 @@ export const Input = (
     }
 
     useEffect(()=>{
-        const inpute = document.getElementById("inputfield");
-        inpute?.focus();
+        updateCommandFocus();
     
       },[visible]
       );
 
       useEffect(()=>{
-        const inpute = document.getElementById("inputfield");
-        inpute?.focus({preventScroll: true});
+        updateCommandFocus();
       },[router.asPath]
       )
 
@@ -128,7 +136,7 @@ export const Input = (
 //  Navigation
       const navigate = () => {
         setResults(null);
-        document.getElementById('inputfield')?.focus({preventScroll: true});
+        updateCommandFocus();
         const submittedRevision = ++inputRevision.current;
         console.log(router.asPath);
         const command = normalizeNavigationCommand(searchTerm);
@@ -252,7 +260,7 @@ export const Input = (
                     setResults(null);
                     setShowMessage(false);
                     setHints(false);
-                    document.getElementById('inputfield')?.focus({preventScroll: true});
+                    updateCommandFocus();
                     router.push(href);
                     setTimeout(removeSearchTermSlow, 400);
                 };
@@ -290,7 +298,7 @@ export const Input = (
             onKeyDown={event => {
                 if (event.key === 'Escape' && results) {
                     setResults(null);
-                    document.getElementById('inputfield')?.focus({preventScroll: true});
+                    updateCommandFocus();
                 }
             }}
             key="inputHolder"
