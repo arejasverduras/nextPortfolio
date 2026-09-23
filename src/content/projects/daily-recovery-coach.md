@@ -15,6 +15,9 @@ images:
   - src: '02-recovery-areas-palenight.png'
     alt: 'Daily Recovery Coach My Healing page in Palenight showing five recovery areas and phase four of Moving and Light'
     caption: 'The My Healing page in Palenight, with teal accents highlighting the selected recovery area and current phase.'
+  - src: '03-active-missions.png'
+    alt: 'Daily Recovery Coach dashboard showing active missions for visiting a music venue and playing Rummikub with others'
+    caption: 'Personalised missions turn recovery goals into concrete activities, with clear duration, conditions and rest guidance.'
 mobileImages:
   - src: '01-recovery-areas-mobile.png'
     alt: 'Mobile Daily Recovery Coach My Healing page showing the Social Connection recovery area at phase two'
@@ -22,6 +25,9 @@ mobileImages:
   - src: '02-recovery-areas-palenight-mobile.png'
     alt: 'Mobile Daily Recovery Coach My Healing page in Palenight showing phase four of Moving and Light'
     caption: 'The Palenight mobile view keeps the current recovery phase and pathway guidance in focus.'
+  - src: '03-active-missions-mobile.png'
+    alt: 'Mobile Daily Recovery Coach dashboard showing the Stay where music lives mission with duration, conditions, rest guidance and logging controls'
+    caption: 'Personalised missions turn recovery goals into concrete activities, with clear duration, conditions and rest guidance.'
 links: {} # TODO: Add a public or access-request URL if appropriate. Source remains private.
 startDate: '2025-01-01' # Approximate; confirm the project start date.
 launchDate: '2026-09-15' # Current portfolio release of the working pre-release MVP.
