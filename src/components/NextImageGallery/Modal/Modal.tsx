@@ -20,6 +20,7 @@ export default function Modal({
   const index = Number(photoId)
 
   const [direction, setDirection] = useState(0)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow
@@ -64,10 +65,12 @@ export default function Modal({
       animate={{opacity: [0,1]}}
       exit={{opacity: 0}}
       transition={{duration: 0.2, type: 'ease'}}
-      onClose={handleClose}
+      onClose={() => isExpanded ? setIsExpanded(false) : handleClose()}
       className={`${styledJsx.className} dialog`}
     >
       <SharedModal
+        isExpanded={isExpanded}
+        toggleExpanded={() => setIsExpanded((expanded) => !expanded)}
         index={index}
         direction={direction}
         images={images}

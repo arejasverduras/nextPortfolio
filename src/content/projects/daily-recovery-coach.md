@@ -21,6 +21,12 @@ images:
   - src: 'drc-desk-4-Dashboard.png'
     alt: 'Recovery dashboard showing the daily focus, recommended activities, a symptom and rest caution, and a suggested mission for the day.'
     caption: 'Choose what fits today. The dashboard brings together a daily recovery focus, suggested activities and recommended missions to turn the longer-term plan into practical daily guidance.'
+  - src: 'drc-desk-5b-Log-step3-intensification.png'
+    alt: 'Activity logging form with Live music stay selected for 25 minutes and a social setting for 45 minutes, alongside suggested challenges'
+    caption: 'Capture what made the activity challenging. Recording live music and a social setting with separate durations gives DRC context beyond total time spent.'
+  - src: 'drc-desk-6-Log-succes.png'
+    alt: 'Logged 45-minute session with symptom, duration and rest checks, 575 exposure points and the Stay with live music mission advancing to 1 of 2'
+    caption: 'See what your effort achieved. Session feedback brings together symptoms, duration and rest, while earned points and mission progress make the next step visible.'
 mobileImages:
   - src: 'drc-mob-1-myHealing.png'
     alt: 'Audio & Sensory Enjoyment at phase 4 of 5, Mixed and Unpredictable Sound, followed by the Where you are now summary'
@@ -34,6 +40,12 @@ mobileImages:
   - src: 'drc-mob-4-Dashboard-top.png'
     alt: 'Your recovery home dashboard showing the daily focus, three recommended activities and a Rummikub mission to play with more than one person'
     caption: 'Choose what fits today. The dashboard brings together a daily recovery focus, suggested activities and recommended missions to turn the longer-term plan into practical daily guidance.'
+  - src: 'drc-mob-5b-Log-step3-intensification.png'
+    alt: 'Activity logging form with Live music stay selected for 25 minutes and a social setting for 45 minutes, alongside suggested challenges'
+    caption: 'Capture what made the activity challenging. Recording live music and a social setting with separate durations gives DRC context beyond total time spent.'
+  - src: 'drc-mob-6-Log-succes.png'
+    alt: 'Logged 45-minute session with symptom, duration and rest checks, 575 exposure points and the Stay with live music mission advancing to 1 of 2'
+    caption: 'See what your effort achieved. Session feedback brings together symptoms, duration and rest, while earned points and mission progress make the next step visible.'
 
 links: {} # TODO: Add a public or access-request URL if appropriate. Source remains private.
 startDate: '2025-01-01' # Approximate; confirm the project start date.
