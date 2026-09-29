@@ -20,7 +20,7 @@ export default css.resolve`
         min-width: 0;
         width: 100%;
         max-width: 100vw;
-        overflow-hidden;
+        overflow: hidden;
         padding: 0 clamp(0.75rem, 6vw, 5rem) 1rem;
     }
 
@@ -33,6 +33,11 @@ export default css.resolve`
     }
 
     .mainImage {
+        padding: 0;
+        border: 0;
+        height: 100%;
+        background: transparent;
+        cursor: zoom-in;
         position: absolute;
         inset: 0;
         width: 100%;
@@ -108,6 +113,7 @@ export default css.resolve`
     }
 
     .close {
+        z-index: 3;
         position: fixed;
         top: max(1rem, env(safe-area-inset-top));
         left: max(1rem, env(safe-area-inset-left));
@@ -131,6 +137,9 @@ export default css.resolve`
     }
 
     .buttonFullSize {
+        z-index: 3;
+        border: none;
+        cursor: pointer;
         position: fixed;
         top: max(1rem, env(safe-area-inset-top));
         right: max(1rem, env(safe-area-inset-right));
@@ -181,7 +190,7 @@ export default css.resolve`
         width: 96px;
         height: 64px;
         padding: 0;
-        overflow-hidden;
+        overflow: hidden;
         background-color: var(--colorBg);
         border: none;
         border-radius: 10px;
@@ -225,6 +234,30 @@ export default css.resolve`
             width: 78px;
             height: 52px;
         }
+    }
+
+    .container.expanded {
+        grid-template-rows: minmax(0, 1fr);
+        padding: 0;
+    }
+
+    .expanded .mainImageContainer {
+        padding: 0;
+    }
+
+    .expanded .mainImage {
+        cursor: zoom-out;
+    }
+
+    .expanded .bottom {
+        display: none;
+    }
+
+    .mainImage:focus-visible,
+    .buttonFullSize:focus-visible,
+    .closeButton:focus-visible {
+        outline: 2px solid var(--colorText);
+        outline-offset: -3px;
     }
 
     @media (prefers-reduced-motion: reduce) {

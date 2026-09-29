@@ -1,6 +1,7 @@
 import styledJsx from './SharedModal.styles';
 import {
-  ArrowTopRightOnSquareIcon,
+  ArrowsPointingOutIcon,
+  ArrowsPointingInIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   XMarkIcon,
@@ -13,6 +14,8 @@ import { variants } from '@/utils/animationVariants'
 import { reducedImageProps } from '../NextImageGallery'
 
 export default function SharedModal({
+  isExpanded,
+  toggleExpanded,
   index,
   images,
   changePhotoId,
@@ -21,6 +24,7 @@ export default function SharedModal({
   direction,
   prefix,
 }: any) {
+  const didSwipe = useRef(false)
   const thumbnailRefs = useRef<Record<number, HTMLButtonElement | null>>({})
 
   useEffect(() => {
@@ -29,9 +33,11 @@ export default function SharedModal({
       block: 'nearest',
       inline: 'center',
     })
-  }, [index])
+  }, [index, isExpanded])
 
   const handlers = useSwipeable({
+    onSwipeStart: () => { didSwipe.current = true },
+    onTouchStartOrOnMouseDown: () => { didSwipe.current = false },
     onSwipedLeft: () => {
       if (index < images?.length - 1) {
         changePhotoId(index + 1)
@@ -55,16 +61,24 @@ export default function SharedModal({
       }}
     >
       <div
-        className={`${styledJsx.className} container `}
+        className={`${styledJsx.className} container ${isExpanded ? 'expanded' : ''}`}
         {...handlers}
       >
         {/* Main image */}
-        <div 
+        <div
           className={`${styledJsx.className} mainImageContainer `}>
-          <div 
+          <div
           className={`${styledJsx.className} mainImageHolder `}>
             <AnimatePresence initial={false} custom={direction}>
-              <motion.div
+              <motion.button
+                type="button"
+                aria-label={isExpanded ? "Exit fullscreen image view" : "View image fullscreen"}
+                aria-pressed={isExpanded}
+                onClick={() => {
+                  if (!didSwipe.current) toggleExpanded()
+                  didSwipe.current = false
+                }}
+                onKeyDown={() => { didSwipe.current = false }}
                 key={index}
                 custom={direction}
                 variants={variants}
@@ -79,17 +93,50 @@ export default function SharedModal({
                   priority
                   quality={100}
                   sizes="100vw"
-                  alt={`Project image ${index + 1} of ${images.length}`}
+                  alt={currentImage.alt || `Gallery image ${index + 1} of ${images.length}`}
                   style={{ objectFit: 'contain' }}
                   className={`${styledJsx.className} mainImageImage `}
                 />
-              </motion.div>
+              </motion.button>
             </AnimatePresence>
           </div>
         </div>
 
+              <div
+                className={`${styledJsx.className} openFullSize`}
+                >
+                  <button
+                    type="button"
+                    onClick={toggleExpanded}
+                    aria-pressed={isExpanded}
+                    className={`${styledJsx.className} buttonFullSize`}
+                    title={isExpanded ? "Exit fullscreen image view" : "View image fullscreen"}
+                    aria-label={isExpanded ? "Exit fullscreen image view" : "View image fullscreen"}
+                  >
+                    {isExpanded ? (
+                      <ArrowsPointingInIcon className={`${styledJsx.className} icon`} />
+                    ) : (
+                      <ArrowsPointingOutIcon className={`${styledJsx.className} icon`} />
+                    )}
+                  </button>
+              </div>
+              <div
+              className={`${styledJsx.className} close`}
+              >
+                <button
+                  type="button"
+                  aria-label="Close image gallery"
+                  onClick={() => closeModal()}
+                  className={`${styledJsx.className} closeButton`}
+                >
+                    <XMarkIcon
+                    className={`${styledJsx.className} icon`}
+                    />
+                </button>
+              </div>
+
         {/* Buttons + bottom nav bar */}
-        <div 
+        <div
         className={`${styledJsx.className} bottom `}
         >
           <AnimatePresence mode="wait" initial={false}>
@@ -107,70 +154,40 @@ export default function SharedModal({
           </AnimatePresence>
 
           {/* Buttons */}
-            <div 
+            <div
               className={`${styledJsx.className} buttons`}
               >
                 <>
                   {index > 0 && (
                     <button
-                    className={`${styledJsx.className} buttonLeft`}  
+                    className={`${styledJsx.className} buttonLeft`}
                       type="button"
                       aria-label="Previous image"
                       onClick={() => changePhotoId(index - 1)}
                     >
                       <ChevronLeftIcon
-                      className={`${styledJsx.className} icon`}  
+                      className={`${styledJsx.className} icon`}
                       />
                     </button>
                   )}
                   {index + 1 < images.length && (
                     <button
-                      className={`${styledJsx.className} buttonRight`}  
+                      className={`${styledJsx.className} buttonRight`}
                       type="button"
                       aria-label="Next image"
                       onClick={() => changePhotoId(index + 1)}
                     >
-                      <ChevronRightIcon 
-                      className={`${styledJsx.className} icon`}  
+                      <ChevronRightIcon
+                      className={`${styledJsx.className} icon`}
                       />
                     </button>
                   )}
                 </>
 
-              <div 
-                className={`${styledJsx.className} openFullSize`}  
-                >
-                  <a
-                    href={`/images/${prefix}/${currentImage.src}`}
-                    className={`${styledJsx.className} buttonFullSize`}  
-                    target="_blank"
-                    title="Open fullsize version"
-                    aria-label="Open full-size image in a new tab"
-                    rel="noreferrer"
-                  >
-                    <ArrowTopRightOnSquareIcon 
-                    className={`${styledJsx.className} icon`}  
-                    />
-                  </a>
-              </div>
-              <div 
-              className={`${styledJsx.className} close`}  
-              >
-                <button
-                  type="button"
-                  aria-label="Close image gallery"
-                  onClick={() => closeModal()}
-                  className={`${styledJsx.className} closeButton`}  
-                >
-                    <XMarkIcon 
-                    className={`${styledJsx.className} icon`}  
-                    />
-                </button>
-              </div>
             </div>
 
           {/* Bottom Nav bar */}
-            <div 
+            <div
             className={`${styledJsx.className} bottomNavHolder`}
               >
               <motion.div
